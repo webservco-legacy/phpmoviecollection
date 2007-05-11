@@ -1,0 +1,1 @@
+FULLTEXT KEY `search_index` (`disc_main_tt`)
