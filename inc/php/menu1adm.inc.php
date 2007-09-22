@@ -1,0 +1,11 @@
+<?=$menu1_hdr?>
+<?=$menu1_pre?>
+<?=menu0($lnMMySettings, 'admin/my_set.php', $_SESSION['usr_level'], 2);?>
+<?=$menu1_suf?>
+<?=$menu1_pre?>
+<?=menu0($lnMPMCAdmin, 'admin/admin.php', $_SESSION['usr_level'], 3);?>
+<?=$menu1_suf?>
+<?=$menu1_pre?>
+<?=menu0($lnMDbMaintain, 'admin/admin.php', $_SESSION['usr_level'], 3);?>
+<?=$menu1_suf?>
+<?=$menu1_ftr?>

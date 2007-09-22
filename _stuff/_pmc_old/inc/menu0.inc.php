@@ -1,0 +1,54 @@
+<?=$menu0_hdr?>
+<?=$menu0_pre?>
+<?=menu0('Home', 'index.php', $_SESSION['usr_level'], 0);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('Help', 'help.php', $_SESSION['usr_level'], 0);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('About', 'about.php', $_SESSION['usr_level'], 0);?>
+<?=$menu0_suf?>
+<BR>
+<?=$menu0_pre?>
+<?=menu0('PMC Database', 'pmc.php', $_SESSION['usr_level'], 0);?>
+<?=$menu0_suf?>
+<BR>
+<?=$menu0_pre?>
+<?=menu0('All Collections', 'my.php', $_SESSION['usr_level'], 1);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('My Account', 'my_ac.php', $_SESSION['usr_level'], 1);?>
+<?=$menu0_suf?>
+<BR>
+<?=$menu0_pre?>
+<?=menu0('My Collection', 'my.php', $_SESSION['usr_level'], 2);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('My Discs', 'my_cd.php', $_SESSION['usr_level'], 2);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('Admin (add/edit)', 'my_adm.php', $_SESSION['usr_level'], 2);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('Loan', 'my_loan.php', $_SESSION['usr_level'], 2);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('Stats', 'my_stats.php', $_SESSION['usr_level'], 2);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('Settings', 'my_set.php', $_SESSION['usr_level'], 2);?>
+<?=$menu0_suf?>
+<BR>
+<?=$menu0_pre?>
+<?=menu0('Users Admin', 'adm_usr.php', $_SESSION['usr_level'], 3);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('PMC Admin', 'adm_pmc.php', $_SESSION['usr_level'], 3);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('Database admin', 'adm_db.php', $_SESSION['usr_level'], 3);?>
+<?=$menu0_suf?>
+<?=$menu0_pre?>
+<?=menu0('Themes', 'adm_tm.php', $_SESSION['usr_level'], 3);?>
+<?=$menu0_suf?>
+<?=$menu0_ftr?>

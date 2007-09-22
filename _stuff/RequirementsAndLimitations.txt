@@ -1,0 +1,7 @@
+-Required:
+PHP
+MySQL
+GD/FreeType
+
+-Limits:
+theme name can not be "default"

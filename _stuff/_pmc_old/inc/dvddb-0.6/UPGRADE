@@ -1,0 +1,119 @@
+Version 0.3 or 0.5 -> 0.6
+=========================
+
+The upgrade is incremental, so any version from 0.3 and up can be
+automatically upgraded to 0.6.
+
+This version includes major, major database structure changes. Make sure you
+do a backup first!
+
+1. Backup your database. The following should work:
+
+mysqldump --opt -u<user> -p <db name> > backup.sql
+
+2. Move the new PHP files from the web folder in place of the old ones 
+(either rename or delete the old ones)
+
+3. Edit inc/db.php to set the database login information.
+
+4. Go to http://your.site.com/dvddb/upgradedb.php - If you get errors at 
+this point, please let me know.
+
+5. Login.
+
+
+Version 0.3 -> 0.5
+==================
+
+Everything has been re-written in this release. The following steps will 
+get you upgraded:
+
+1. Backup your database. The following should work:
+
+mysqldump --opt -u<user> -p <db name> > backup.sql
+
+2. Move the new PHP files from the php folder in place of the old ones 
+(either rename or delete the old ones)
+3. Edit inc/db.php to set the database login information.
+4. Go to http://your.site.com/dvddb/upgradedb.php - you should see a
+bunch of things happening. If you get errors at this point, please let
+me know.
+5. Go the config page and set your config options (this need only be done 
+once - future upgrades will not overwrite your config options).
+6. Login.
+
+Version 0.2.1 -> 0.3
+====================
+
+Replace all the .php files with new ones from the archive, replace
+header.inc, db.inc in the inc dir and move imdb.gif from the inc dir to
+the images dir. In the images dir, replace the old redstar.gif with the
+new one.
+
+Basically, every single file has changed with this release, so another
+easy way to make sure everything is updated is to just rm the whole dir
+structure (Making sure to save your config.inc first). Then just move
+the new files in, add the lines below to your config.inc, and continue
+with the database changes below.
+
+Additionally, you need to add a couple of columns to the database:
+
+alter table dvd add column dtInsertDate datetime not null;
+alter table user add column dtLastVisit datetime not null;
+alter table user add column dtLastCheck datetime not null;
+
+Set some value on these fields. It's a good idea to do these in this
+order, or you'll have every DVD ever entered listed when you log on
+next. (Of course, you may want to try this to see how it looks).
+
+update dvd set dtInsertDate = now();
+update user set dtLastVisit = now();
+update user set dtLastCheck = now();
+
+Add the following lines to inc/config.inc:
+
+$dbserver="localhost";
+$showimdb="1";
+
+The servername has been move into the config file and removed from being
+hardcoded into every file for people who have the database on a machine
+other than localhost. For most people, you can leave this as the default
+value. 
+Also, the IMDb links are now optional, based on this config value. 1 for
+on, 0 for off. Default behaviour is on.
+
+Any problems, mail me (james@globalmegacorp.org)
+
+Version 0.2 -> 0.2.1
+====================
+
+Simply replace search.php and listdvds.php with the versions from the
+archive.
+
+Version 0.1 -> 0.2
+==================
+
+If you're upgrading from version 0.1 of the DVDdb, then there's a couple
+of things you need to do. First of all, you need to add the region column
+to the dvd table. To do this, login to the MySQL server and run a command
+like this:
+
+alter table dvd add column iRegion int(4) not null default 0;
+
+You may also want to update existing records at this point to reflect what
+they are most likely to be. For example:
+
+update dvd set iRegion =1;
+
+Next, copy all the .php files from the new archive over the old
+versions. Quite a lot haven't changed, but it's best to copy all just in
+case. If you've made your own changes to the original files, then it's up
+to you to work out how to merge new changes in.
+
+Finally, copy the new header.inc into the inc/ directory. Backup your
+config.inc in the inc/ directory and copy the new config.inc in. Move your
+config options into the new config.inc and set a default value for the
+defregion.
+
+Then you should be all ready to go. If you have any questions or problems,
+email james@globalmegacorp.org

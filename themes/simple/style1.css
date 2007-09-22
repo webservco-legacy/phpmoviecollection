@@ -1,0 +1,369 @@
+BODY {
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+    text-decoration: none;
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+}
+A.default:link, A.default:visited {
+    text-decoration: underline; 
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>; 
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>; 
+    color: <?=$defaultFontColor?>;
+    background-color: <?=$defaultBgColor?>;
+}
+A.default:hover {
+    text-decoration: none; 
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>; 
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>; 
+    color: <?=$defaultFontColor?>;
+    background-color: <?=$defaultBgColor?>;
+}
+/* ############################## //MENU 0 ############################## */
+A.menu0:link, A.menu0:visited {
+    text-decoration: underline; 
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>; 
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>; 
+    color: <?=$defaultFontColor?>;
+    background-color: <?=$defaultBgColor?>;
+}
+A.menu0:hover {
+    text-decoration: none; 
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>; 
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>; 
+    color: <?=$defaultFontColor?>;
+    background-color: <?=$defaultBgColor?>;
+}
+/* ############################## MENU 0 ############################## */
+/* ############################## PAGES ############################## */
+DIV.pg_title {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: bold;
+    font-size: <?=$defaultFontSize+2?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+DIV.pg_subtitle {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>;
+    font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+/* ############################## //PAGES ############################## */
+/* ############################## LOGIN ############################## */
+DIV.user {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #ededed;
+    color: <?=$defaultFontColor?>;
+    text-align: left;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+INPUT.login_box {
+    width: 60px;
+    height: 10px;
+	font-family: <?=$defaultFontFamily?>;
+    background-color: <?=$defaultBgColor?>;
+    color: #cdcdcd;
+	font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+	font-style: normal;
+	font-weight: <?=$defaultFontWeight?>;
+	text-decoration: none;    
+	text-indent: 0px;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    text-align: center;
+    vertical-align: top;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+INPUT.login_button {
+    width: 60px;
+    height: 14px;
+	font-family: <?=$defaultFontFamily?>;
+    background-color: <?=$defaultBgColor?>;
+    color: #cdcdcd;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: <?=$defaultFontWeight?>;
+	text-decoration: none;    
+	text-indent: 0px;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    text-align: center;
+    vertical-align: top;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+/* ############################## //LOGIN ############################## */
+/* ############################## ADMIN ############################## */
+A.adm_default:link, A.adm_default:visited {
+    text-decoration: underline; 
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>; 
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>; 
+    color: <?=$defaultFontColor?>;
+    background-color: <?=$defaultBgColor?>;
+}
+A.adm_default:hover {
+    text-decoration: none; 
+    font-family: <?=$defaultFontFamily?>;
+    font-weight: <?=$defaultFontWeight?>; 
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>; 
+    color: <?=$defaultFontColor?>;
+    background-color: <?=$defaultBgColor?>;
+}
+/* ############################## //ADMIN ############################## */
+/* ############################## THEMES ############################## */
+DIV.thm_div {
+    width: 300px;
+    height: 300px;
+    float: left; 
+    clear: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: dotted;
+    border-top-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 1px;
+}
+TD.thm_td_1 {
+    width: 300px;
+    height: 150px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    font-weight: normal;
+    font-family: <?=$defaultFontFamily?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+TD.thm_td_1_1 {
+/*    width: 300px; */
+    height: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: right;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    font-weight: normal;
+    font-family: <?=$defaultFontFamily?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+TD.thm_td_1_2 {
+/*    width: 295px; */
+    height: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 0px;
+    text-align: left;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    font-weight: bold;
+    font-family: <?=$defaultFontFamily?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+TD.thm_td_2 {
+    width: 300px;
+    height: 150px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 1px;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+/* ############################## //THEMES ############################## */
+/* ############################## LANGS ############################## */
+DIV.lang_div {
+    width: 200px;
+    height: 150px;
+    float: left; 
+    clear: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: dotted;
+    border-top-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 1px;
+}
+TD.lang_td_1 {
+    width: 200px;
+    height: 150px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    font-weight: normal;
+    font-family: <?=$defaultFontFamily?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+TD.lang_td_1_1 {
+/*    width: 300px; */
+    height: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: right;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    font-weight: normal;
+    font-family: <?=$defaultFontFamily?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+TD.lang_td_1_2 {
+/*    width: 295px; */
+    height: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 0px;
+    text-align: left;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: <?=$defaultBgColor?>;
+    color: <?=$defaultFontColor?>;
+    font-weight: bold;
+    font-family: <?=$defaultFontFamily?>;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    border-color: <?=$defaultBorderColor?>;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+/* ############################## //LANGS ############################## */

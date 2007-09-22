@@ -1,0 +1,109 @@
+BODY {
+    background-color: <?=$bgColor?>;
+    color: #000000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+    text-decoration: none;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+}
+A.default:link, A.default:visited {
+    text-decoration: underline; 
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal; 
+    font-size: 10px; 
+    color: #000000;
+    background-color: <?=$bgColor?>;
+}
+A.default:hover {
+    text-decoration: none; 
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal; 
+    font-size: 10px; 
+    color: #000000;
+    background-color: <?=$bgColor?>;
+}
+/* ############################## LOGIN ############################## */
+DIV.user {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #ededed;
+    color: #000000;
+    text-align: left;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    border-color: #000000;
+	border-style: solid;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+INPUT.login_box {
+    width: 60px;
+    height: 10px;
+	font-family: verdana, arial, helvetica, sans-serif;
+    background-color: #ededed;
+    color: #cdcdcd;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;    
+	text-indent: 0px;
+    border-color: #cdcdcd;
+	border-style: solid;
+    text-align: center;
+    vertical-align: top;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+INPUT.login_button {
+    width: 60px;
+    height: 14px;
+	font-family: verdana, arial, helvetica, sans-serif;
+    background-color: #ededed;
+    color: #cdcdcd;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;    
+	text-indent: 0px;
+    border-color: #cdcdcd;
+	border-style: solid;
+    text-align: center;
+    vertical-align: top;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+/* ############################## //LOGIN ############################## */
+/* ############################## ADMIN ############################## */
+A.adm_default:link, A.adm_default:visited {
+    text-decoration: underline; 
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal; 
+    font-size: 10px; 
+    color: #000099;
+    background-color: <?=$bgColor?>;
+}
+A.adm_default:hover {
+    text-decoration: none; 
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-weight: normal; 
+    font-size: 10px; 
+    color: #000099;
+    background-color: <?=$bgColor?>;
+}
+/* ############################## //ADMIN ############################## */

@@ -1,0 +1,16 @@
+At some point:
+
+	Change the year window to start date parameter (sigh)
+
+	Change region to a bit, to handle multiple region DVDs (argh)
+
+	Look into adding search field to regular list page
+
+	Better documentation
+	Theme howto
+
+	Export function to tab delimited file - Possibly import function too, not
+	sure how hard to do this would be.
+
+	Tighter IMDb integration for inserting new records (probably not possible,
+	due to licensing issues with IMDb).

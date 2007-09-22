@@ -1,0 +1,86 @@
+DVDdb, a php+MySQL DVD Database.
+
+
+What is it?
+-----------
+
+This system was designed to allow friends to keep track of what DVD's
+they owned, and what was on loan to other people.
+
+How is it available?
+--------------------
+
+DVDdb is available under the terms of the GPL.
+
+Where is it available?
+----------------------
+
+You can download the DVDdb code from http://globalmegacorp.org/dvddb (You
+can also see a demonstration version of it running there).
+
+
+How do I install it?
+--------------------
+
+See the INSTALL file, located in the same directory as this file.
+(A basic level of MySQL, PHP and *nix knowledge is assumed).
+
+
+How do I upgrade from a previous version?
+-----------------------------------------
+See the UPGRADE file for information about upgrading from earlier
+versions.
+
+
+What's new in this version?
+---------------------------
+See the Changelog file to see what's new in this version.
+
+
+Who's responsible for this?
+-----------------------------
+
+DVDdb is written by James Gurney (james@globalmegacorp.org)
+Region code and design suggestions from John Gross (grossy@midnite.net.au)
+
+
+What can I do for you?
+----------------------
+
+Drop me a line and let me know you're using it, and if you like it. If you
+don't like it, don't use it. If you'd like to suggest enhancements, let me
+know. If you'd like to contribute enhancements, let me know. If you find
+bugs, badly written code, inefficient code, or downright silly code, let
+me know! Thanks!
+
+
+What does the future look like?
+-------------------------------
+
+See the TODO file for a list of things currently planned for addition.
+
+
+More questions?
+---------------
+
+See the rather poor FAQ I put together at
+http://globalmegacorp.org/dvddb/faq.php or just drop me an email.
+
+
+Copyright (C) 2000-2003 James Gurney
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307,
+USA.
+

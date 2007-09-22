@@ -1,0 +1,121 @@
+Version 0.6 (September 2003)
+============================
+
+- Increased comment length to basically unlimited.
+- Added movie view sub-page.
+- Added multiple media types (no longer DVD specific)
+- Added ability to pick what columns to display
+- Added user preferences
+- Implemented themes
+- Made search use boolean mode if Mysql version high enough
+- Fixed config page so other user's preferences can be changed.
+- Added option to allow admin to edit movies.
+- Made themes alternate row colours on tables.
+- Made listmovies page orderby safer.
+- Changed listmovies page to show full name.
+- Added ability to create new logins from the useradmin page.
+- Added option to set movie page navigation to top, bottom or both.
+- Updated user delete to remove loans, movies and userprefs.
+- Added director, sound, video and extra fields.
+- Added IMDb search option to movie add page.
+- Fixed some movie title display problems.
+- Removed highdate config option (now uses current year).
+- Added email address to user admin page.
+- Implemented sub-genres.
+- Fixed search/stats to work with multiple genres.
+- (Hopefully) removed all potential SQL injection problems.
+
+Version 0.5 (August 2003)
+=========================
+
+- Now works with register_globals turned off (the default in PHP since version 4.0.something).
+- All include files are now .php, removing security problems with .inc files.
+- Paged listview (some people may have this already, although it was never in an official release).
+- Sane display/insert of HTML chars in comments/titles.
+- Code no longer sucks.
+- Some style values moved to CSS instead of config file.
+- Config moved to database. db.php must still be manually configured.
+- Added db upgrade script
+- Reimplemented search using mysql fulltext index.
+- Added runtime field to dvd table.
+- Added ability to loan to external users.
+- Added date format syntax config option.
+- Reimplemented stats.
+- Added plaintext view for public viewing and printing.
+- Added year and region to filter options
+- Fixed edit to redirect to the right page.
+
+Version 0.3 (31st August, 2000)
+===============================
+
+- Added new Table admin page to allow web side editing of genre, region
+  and country tables.
+- Modified stats page to generate scale based on number of results,
+  rather than use a static image.
+- Move the imdb.gif file from the inc dir to the images dir.
+- Fixed bug in loan page causing userid 5 to be omitted from the drop down
+  box.
+- Added fields to dvd and user tables to keep track of new entries since a
+  users last visit.
+- Fixed unclosed <TD> in search.php (Only caused a problem in Netscape)
+- Fixed undefined variables in pretty much every file (Stops the apache
+  error log filling up with hundreds of PHP warnings). It's no major
+  problem other than being irritating.
+- Fixed query in mailing list page to not mail disabled user accounts.
+- Added last visit date to admin page
+- Corrected grammar (DVD's -> DVDs)
+- Changed $admin values to bool instead of string
+- Admin users now have access to edit other users DVD entries, should they
+  want to.
+- Rating scheme has changed to display 1-5 black stars, or 5 red. Accordingly,
+  The old red star image in the images directory has been replaced.
+- Made IMDb links optional based on config value.
+- Moved date drop down code into a function, since it's used in multiple
+  places
+- Moved the rating display code into a function. It's only used in two
+  places, but it makes things tidier.
+
+Files modified:	stats.php, listdvds.php, search.php, inc/header.inc,
+		loandvd.php, insertdvd.php, index.php, mlist.php,
+		admin.php, updatedvd.php, newlogin.php, showusers.php,
+                password.php, login.php, loandvd.php, listloans.php,
+                edituser.php, deletedvd.php, config.php, inc/db.inc,
+                inc/config.inc
+
+Files added:	tableedit.php images/redstar.gif images/blackstar.gif
+
+Files moved:	imdb.gif inc/ -> images/
+
+Files removed:	images/grid.gif images/redstar.gif
+
+Version 0.2.1 (1st July, 2000)
+==============================
+
+- Fixed bug introduced in 0.2 causing display problems on the DVD list page
+  when no comments were present for that record. Thanks to Cameron Brunner
+  for pointing this one out.
+
+Files changed:	listdvds.php, search.php
+
+
+Version 0.2 (29th June, 2000)
+=============================
+
+- Added admincolour and defregion settings to config file
+- Changed navigation to have links to admin pages on a new line, 
+  with admincolour background colour, thus tidying up navigation and
+  allowing for more expansion.
+- Added mailout script to email all users in the database.
+- Added check for $admin==TRUE in config.php, fixes potential security hole
+- Added code to include regions to various files.
+
+Files modified:	config.inc, header.inc, config.php, insertdvd.php,
+		updatedvd.php, listdvds.php, search.php
+
+Files added:	mlist.php
+
+
+Version 0.1 (12th June, 2000)
+=============================
+
+Initial release.

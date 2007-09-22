@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<TITLE>popup</TITLE>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
+function closeProgram() {
+  window.close();
+  if (window.opener && !window.opener.closed) {
+    window.opener.location.reload();
+  } 
+//opener.location.reload(true);
+//self.close();
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+pop up
+<BR>
+<A HREF="Javascript:closeProgram();">close and refresh</A>
+</BODY>
+</HTML>

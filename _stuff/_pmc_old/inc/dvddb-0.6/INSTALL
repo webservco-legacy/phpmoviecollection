@@ -1,0 +1,49 @@
+To set up the DVD database, you will need:
+
+1 MySQL Server, available from http://www.mysql.com
+1 Apache server with PHP enabled. (http://www.apache.org and 
+http://www.php.net respectively).
+Some friends.
+Some DVD's.
+
+To prepare for installation, set up a database on your mysql server and 
+configure access permissions. See the mysql documentation for information 
+on how to do this, but at a pinch, the following should work:
+
+create database dvddb;
+grant all privileges on dvddb.* to dvddb@localhost identified by 
+'<password>';
+flush privileges;
+
+Create the database tables and insert default data by running a command
+something like this:
+
+mysql -udvddb -p dvddb < dvddb.sql
+
+Check out the database and look at some of the default data. The country,
+region and genre tables are populated by default. You may want to replace,
+remove, or add to this data so it's applicable for your area. (As of version
+0.3, it's possible to edit all these tables through the admin pages, so you
+don't need to go in the backend and do it).
+
+Next, move the contents of the web directory to somewhere where it's 
+accessable over the web.
+
+Edit the file inc/db.php and set the login, password and database  
+information for the database you've already set up.
+
+You should now be at the point where you can connect to the page and view 
+it. You should only have the login and new login menu options available.
+
+At this point, create a login for yourself from the new login page.
+
+Next, jump back to a database query window, and update the tiAdmin and
+tiEnabled values to 1 for your login. This should be the only time you
+need to do this manually, unless you accidentally un-admin yourself.
+
+A query like this ought to do it:
+
+update user set enabled=1,admin=1 where id =1;
+
+That's basically it. You can now login and look at the Admin page, the
+config page, and pretty much do everything from the web side.
