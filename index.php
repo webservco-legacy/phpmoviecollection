@@ -27,5 +27,18 @@
 /**
 * temp
 */
-echo 'You Are here';
+
+error_reporting(E_ALL);
+
+// TEST SKIN CLASS START
+require './inc/skin.class.php';
+$skindir = './skin/pmmc/';
+$skin = & new Skin($skindir);
+$skin->set('title', 'Test Title');
+// inner
+$content = & new Skin($skindir);
+$content->set('teststuff', 'Is it working?');
+$skin->set('content', $content->parse('tester.tpl.php'));
+echo $skin->parse('layout.tpl.php');
+// TEST SKIN CLASS END
 ?>
