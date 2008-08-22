@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+# Turn on URL rewriting
+RewriteEngine On
+
+# Put your installation directory here:
+#RewriteBase /pub/temp/phpMyMovieCollection
+
+# Do not enable rewriting for files that exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite to index.php/URL
+RewriteRule ^(.*)$ index.php/$1 [PT,L]
+</IfModule>
+
