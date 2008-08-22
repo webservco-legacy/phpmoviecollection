@@ -1,4 +1,12 @@
 <?php
+/*
+./inc/skin.class.php
+19:10 2008-08-21
+*/
+
+//if(!defined('_VALID_REQUEST')) {show404();}
+
+
 class skin {
   var $skindir;
   var $skinvars;
