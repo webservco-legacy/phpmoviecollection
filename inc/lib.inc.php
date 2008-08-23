@@ -22,7 +22,6 @@
 * Only authorized access permitted
 */
 if(!defined('_VALID_REQUEST')) {show404();}
-
 /**
 * Skin handling class
 *
@@ -94,13 +93,20 @@ class skin {
 */
 function show404() {
   header('HTTP/1.1 404 Not Found');
-  $skindir = './skin/pmmc/';
-  $skin = & new Skin($skindir);
-  $skin->set('title', '404 Not Found');
-  $content = & new Skin($skindir);
-  $content->set('msg404', '<h1>404 Not Found</h1>' . "\n\t" . 'The requested URL ' . $_SERVER['REQUEST_URI'] . ' was not found on this server.');
-  $skin->set('content', $content->parse('404.tpl.php'));
-  echo $skin->parse('layout.tpl.php');
+  echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
+  echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">';
+  echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
+  echo '<meta http-equiv="content-language" content="en" />';
+  echo '<title>404 Not Found</title>';
+  echo '</head><body>';
+  echo '<h1>404 Not Found</h1>' . "\n\t" . 'The requested URL ' . $_SERVER['REQUEST_URI'] . ' was not found on this server.';
+  echo '</body></html>';
+  //$skin = & new Skin($skindir);
+  //$skin->set('title', '404 Not Found');
+  //$content = & new Skin($skindir);
+  //$content->set('msg404', '<h1>404 Not Found</h1>' . "\n\t" . 'The requested URL ' . $_SERVER['REQUEST_URI'] . ' was not found on this server.');
+  //$skin->set('content', $content->parse('404.tpl.php'));
+  //echo $skin->parse('layout.tpl.php');
   exit;
 }
 /**
@@ -109,9 +115,8 @@ function show404() {
 * @param mixed $errno error number (mysql_errno)
 * @param mixed $error error message (mysql_error)
 */
-function my_err($errno, $error) {
+function my_err($errno, $error, $skindir) {
   //header('HTTP/1.1 404 Not Found');
-  $skindir = './skin/pmmc/';
   $skin = & new Skin($skindir);
   $skin->set('title', 'MySQL Error'); 
   $content = & new Skin($skindir);
@@ -184,6 +189,10 @@ function pmmc_cfg($ap_cfg) {
   */
   define('_APP_URL',$ap_cfg['app_url'] . _APP_INDEX);
   /**
+  * Full path to the application
+  */
+  define('_APP_DIR',$ap_cfg['app_dir']);
+  /**
   * Database host
   */
   define('_DB_HOST',$ap_cfg['db_host']);
@@ -218,11 +227,11 @@ function pmmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_ty
       /**
       * Create connection
       */
-      $pmmc_dbconn = @mysql_connect($db_host . ":" . $db_port , $db_user, $db_pass) or my_err(mysql_errno(), mysql_error());
+      $pmmc_dbconn = @mysql_connect($db_host . ":" . $db_port , $db_user, $db_pass) or my_err(mysql_errno(), mysql_error(), $_SESSION['pmmc_usr_skin']);
       /**
       * Select database
       */
-      mysql_select_db($db_name) or my_err(mysql_errno(), mysql_error());
+      mysql_select_db($db_name) or my_err(mysql_errno(), mysql_error(), $_SESSION['pmmc_usr_skin']);
       /**
       * Enable UTF-8 support
       */
@@ -254,7 +263,7 @@ function pmmc_dbclose($pmmc_dbconn, $db_type=0) {
 function pmmc_qry_exec($query, $db_type=0) {
   $result = NULL;
   switch($db_type) {
-    case 0 : {$result = mysql_query($query) or my_err(mysql_errno(), mysql_error()); break;}
+    case 0 : {$result = mysql_query($query) or my_err(mysql_errno(), mysql_error(), $_SESSION['pmmc_usr_skin']); break;}
   }
   return $result;
 }
@@ -386,6 +395,200 @@ function pmmc_session() {
     * User full name
     */
     $_SESSION['pmmc_usr_name']  = 'Anonymous';
+    /**
+    * Default language
+    */
+    $_SESSION['pmmc_usr_lang']  = _APP_LANG;
+    /**
+    * Default skin
+    */
+    $_SESSION['pmmc_usr_skin']  = _APP_DIR . 'skin/' . _APP_SKIN . '/';
+    /**
+    * Reset user movie list
+    */
+    $_SESSION['pmmc_usr_lst'] = NULL;
   }
+  /**
+  * Not first load of the page
+  */
+  else {
+    /**
+    * User is not logged in, include login functionality
+    */
+    if (!isset($_SESSION['pmmc_auth'])) {
+      $usr_status = pmmc_usr_login();
+    }
+    /**
+    * User is already logged in
+    */
+    else if (isset($_SESSION['pmmc_auth']) && $_SESSION['pmmc_auth'] == 'ok') {
+      $usr_status = 6;
+    }
+  }
+}
+/**
+* User login functionality
+*
+* @return integer login status
+*/
+function pmmc_usr_login() {
+  if((isset($_POST['pmmc_login']) && isset($_POST['pmmc_pass'])) && isset($_POST['pmmc_captcha'])) {
+    if(isset($_SESSION['pmmc_token']) && isset($_POST['pmmc_token'])) {
+      if($_POST['pmmc_token'] === $_SESSION['pmmc_token']) {
+        $pmmc_login   = pmmc_filter_input($_POST['pmmc_login']);
+        $pmmc_pass    = md5($_POST['pmmc_pass']);
+        $pmmc_captcha = strtoupper(pmmc_filter_input($_POST['pmmc_captcha']));
+        if(($pmmc_login != '' && $pmmc_pass != '') && $pmmc_captcha != '') {
+          $verif = str_split($_SESSION['pmmc_token'], 5);
+          $verif = strtoupper(strrev($verif[0]));
+          if($pmmc_captcha == $verif) {
+            
+            $r  = pmmc_qry_exec("SELECT * FROM pmmc_set_usr WHERE usr_mail = '{$pmmc_login}' AND usr_pass = '{$pmmc_pass}' LIMIT 1");
+            $t  = pmmc_qry_total($r);
+            if($t == 1) { // we have a match, do the thing
+              $rw = pmmc_qry_row($r);
+              if($rw['usr_status'] == 0) { // account suspended
+                return 4;
+              }
+              else { // log in user
+                /**
+                * Keep existing data but get a new session id
+                */
+                session_regenerate_id(TRUE);
+                /**
+                * Authorize user
+                */
+                $_SESSION['pmmc_auth'] = 'ok';
+                /**
+                * Unique token for security
+                */
+                $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+                /**
+                * Visit date
+                */
+                $_SESSION['pmmc_vdate'] = date("Y-m-d");
+                /**
+                * Visit time
+                */
+                $_SESSION['pmmc_vtime'] = date("H:i:s");
+                /**
+                * User id
+                */
+                $_SESSION['pmmc_usr_id'] = $rw['usr_id'];
+                /**
+                * User access level
+                */
+                $_SESSION['pmmc_usr_level'] = $rw['usr_level'];
+                /**
+                * User alias
+                */
+                $_SESSION['pmmc_usr_alias'] = $rw['usr_name'];
+                /**
+                * User full name
+                */
+                $_SESSION['pmmc_usr_name']  = $rw['usr_fname'] . ' ' . $rw['usr_lname'];
+                /**
+                * User language
+                */
+                $_SESSION['pmmc_usr_lang']  = $rw['usr_lang'];
+                /**
+                * User skin
+                */
+                $_SESSION['pmmc_usr_skin']  = _APP_DIR . 'skin/' . $rw['usr_skin'] . '/';
+                /**
+                * Get last login data
+                */
+                $rl1  = pmmc_qry_exec("SELECT MAX(log_id) FROM pmmc_var_log WHERE usr_id = '{$_SESSION['pmmc_usr_id']}'");
+                $tl1  = pmmc_qry_total($rl1);
+                if($tl1 == 1) {
+                  $l1 = pmmc_qry_result($rl1, 0);
+                  $rl2  = pmmc_qry_exec("SELECT log_date, log_time FROM pmmc_var_log WHERE log_id = '{$l1}'");
+                  $tl2  = pmmc_qry_total($rl2);
+                  if($tl2 == 1) {
+                    $rwl2 = pmmc_qry_row($rl2);
+                    /**
+                    * Last login date
+                    */
+                    $_SESSION['pmmc_ldate'] = $rwl2['log_date'];
+                    /**
+                    * Last login time
+                    */
+                    $_SESSION['pmmc_ltime'] = $rwl2['log_time'];
+                  }
+                }
+                else { // first login
+                  $_SESSION['pmmc_ldate'] = '0000-00-00';
+                  $_SESSION['pmmc_ltime'] = '00:00:00';
+                }
+                /**
+                * Count total logins
+                */
+                $rtl  = pmmc_qry_exec("SELECT COUNT(log_id) FROM pmmc_var_log WHERE usr_id = '{$_SESSION['pmmc_usr_id']}'");
+                $_SESSION['pmmc_ltotal'] = pmmc_qry_result($rtl, 0) + 1;
+                /**
+                * Record current login
+                */
+                pmmc_qry_exec("INSERT INTO pmmc_var_log (usr_id, log_date, log_time) VALUES ('{$_SESSION['pmmc_usr_id']}', '{$_SESSION['pmmc_vdate']}', '{$_SESSION['pmmc_vtime']}')");
+                return 5;
+              }
+            }
+            else { //invalid login
+              session_regenerate_id(TRUE);
+              $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+              return 3;
+            }
+          }
+          else { // invalid security code
+            session_regenerate_id(TRUE);
+            $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+            return 7;
+          }
+        }
+        else { // empty fields
+          session_regenerate_id(TRUE);
+          $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+          return 2;
+        }
+      }
+      else { // hacking attempt
+        session_regenerate_id(TRUE);
+        $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+        return 8;
+      }
+    }
+    else { // hacking attempt
+      session_regenerate_id(TRUE);
+      $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+      return 8;
+    }
+  }
+  else { // not submitted
+    return 1;
+  }
+}
+/**
+* Filter user input
+*
+* @return string filtered input
+*/
+function pmmc_filter_input($input) {
+  // get rid of unwanted characters
+  $unwanted = array('\\', '');
+  $input = str_replace($unwanted, ' ', $input);
+  // block tags
+  $input = str_replace('&lt;', '&#60;', $input);
+  $input = str_replace('&gt;', '&#62;', $input);
+  $input = str_replace('<', '&#60;', $input);
+  $input = str_replace('>', '&#62;', $input);
+  $parsed_string = eregi_replace('&lt;','&#60;',$parsed_string);
+  return mysql_real_escape_string(trim($input));
+}
+/**
+* Check for a valid email address
+*
+* @return bool result
+*/
+function pmmc_is_email($email) { 
+  return(preg_match("/^[-_.[:alnum:]]+@((([[:alnum:]]|[[:alnum:]][[:alnum:]-]*[[:alnum:]])\.)+(ad|ae|aero|af|ag|ai|al|am|an|ao|aq|ar|arpa|as|at|au|aw|az|ba|bb|bd|be|bf|bg|bh|bi|biz|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|com|coop|cr|cs|cu|cv|cx|cy|cz|de|dj|dk|dm|do|dz|ec|edu|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gh|gi|gl|gm|gn|gov|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|in|info|int|io|iq|ir|is|it|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mil|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|museum|mv|mw|mx|my|mz|na|name|nc|ne|net|nf|ng|ni|nl|no|np|nr|nt|nu|nz|om|org|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|pro|ps|pt|pw|py|qa|re|ro|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|um|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw)$|(([0-9][0-9]?|[0-1][0-9][0-9]|[2][0-4][0-9]|[2][5][0-5])\.){3}([0-9][0-9]?|[0-1][0-9][0-9]|[2][0-4][0-9]|[2][5][0-5]))$/i", $email));
 }
 ?>

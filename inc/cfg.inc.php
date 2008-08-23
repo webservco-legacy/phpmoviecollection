@@ -21,7 +21,7 @@
 /**
 * Only authorized access permitted
 */
-if(!defined('_VALID_REQUEST')) {header("Location: index.php");}
+if(!defined('_VALID_REQUEST')) {header("Location: ../index.php");}
 /**
 * Main URL of the application - notice the slash at the end
 */
@@ -30,6 +30,10 @@ $ap_cfg['app_url'] = 'http://localhost/pub/temp/phpMyMovieCollection/';
 * Whether to use rewrite engine functionality or not
 */
 $ap_cfg['app_index'] = '';
+/**
+* Full path to the application - notice the slash at the end
+*/
+$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
 /**
 * Database host
 */

@@ -1,2 +1,3 @@
-[x] setup: generate cfg.inc
-[x] setup: create user in database
+[-] setup: generate cfg.inc
+[-] setup: create user in database
+[-] maybe use only one directory for all languages and each language has it's own file like ro.inc.php

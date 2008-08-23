@@ -54,18 +54,38 @@ pmmc_cfg_usr();
 * Initialize session
 */
 pmmc_session();
+/**
+* Load language file
+*/
+require_once _APP_DIR . 'lang/' . $_SESSION['pmmc_usr_lang'] . '/lang.inc.php';
 
+/**
+* Do ALL the stuff here.
+* - process requests
+* - do actions on the database
+* - do redirects
+* The result should be:
+* $login_status
+* $message
+* $page_title
+* $page_content
+*
+*/
 
+/**
+* Display the output
+*
+*
+*/
 
 
 /**
 * Test the skin engine
 */
-$skindir = './skin/pmmc/';
-$skin = & new Skin($skindir);
+$skin = & new Skin($_SESSION['pmmc_usr_skin']);
 $skin->set('title', 'Title');
 // inner
-$content = & new Skin($skindir);
+$content = & new Skin($_SESSION['pmmc_usr_skin']);
 $content->set('teststuff', 'Hello World!');
 $skin->set('content', $content->parse('tester.tpl.php'));
 echo $skin->parse('layout.tpl.php');
