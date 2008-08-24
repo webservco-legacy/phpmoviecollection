@@ -1,3 +1,3 @@
   <div id="tester">
-    <?php echo $teststuff; ?>
+    <?php echo $cnt; ?>
   </div>

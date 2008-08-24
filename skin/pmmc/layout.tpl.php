@@ -6,7 +6,7 @@
   <meta http-equiv="content-language" content="en" />
   <link rel="icon" type="image/ico" href="favicon.ico" />
   <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
-  <title><?php echo $title; ?></title>
+  <title><?php echo _APP_NAME . _APP_SEP . $title; ?></title>
   <meta name="title" content="Title" />
   <meta name="subject" content="Subject" />
   <meta name="description" content="Description" />
@@ -22,8 +22,11 @@
   <link rel="stylesheet" type="text/css" charset="utf-8" href="style.css" />
 </head>
 <body>
-  <div id="content">
-    <?php echo $content; ?>
+  <div id="msg">
+    <?php echo $msg; ?>
+  </div>
+  <div id="page">
+    <?php echo $page; ?>
   </div>
 </body>
 </html>

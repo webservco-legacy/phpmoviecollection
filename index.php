@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    12:22 2008-08-22
+* @version    00:00 2008-08-25
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -53,46 +53,40 @@ pmmc_cfg_usr();
 /**
 * Initialize session
 */
-pmmc_session();
+$usr_status = pmmc_session();
 /**
 * Load language file
 */
 require_once _APP_DIR . 'lang/' . $_SESSION['pmmc_usr_lang'] . '/lang.inc.php';
-
 /**
-* Do ALL the stuff here.
-* - process requests
-* - do actions on the database
-* - do redirects
-* The result should be:
-* $login_status
-* $message
-* $page_title
-* $page_content
-*
+* Load application functions
 */
-
+require_once './inc/func.inc.php';
 /**
-* Display the output
-*
-*
+* Admin request processing
 */
-
-
+if(isset($_GET['admin'])) {$cnt = pmmc_admin();}
 /**
-* Test the skin engine
+* User request processing
 */
-$skin = & new Skin($_SESSION['pmmc_usr_skin']);
-$skin->set('title', 'Title');
-// inner
-$content = & new Skin($_SESSION['pmmc_usr_skin']);
-$content->set('teststuff', 'Hello World!');
-$skin->set('content', $content->parse('tester.tpl.php'));
-echo $skin->parse('layout.tpl.php');
-// TEST SKIN CLASS END
+else if(isset($_GET['view'])) {$cnt = pmmc_view();}
+/**
+* Else no request has been made, show something
+*/
+else {
+  $cnt['skin'] = 'tester.tpl.php';
+  $cnt['tt'] = 'Tester';
+  $cnt['msg'] = 'test message';
+  $cnt['page'] = 'Hello World!';
+}
 
 /**
-* CLose database connection
+* Display page
+*/
+echo pmmc_output($cnt);
+
+/**
+* Close database connection
 */
 pmmc_dbclose($pmmc_dbconn, $db_type=0)
 ?>
