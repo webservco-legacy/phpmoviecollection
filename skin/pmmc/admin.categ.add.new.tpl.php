@@ -1,10 +1,21 @@
 <h1><?php echo $lang['categ']['add']; ?></h1>
 <form enctype="multipart/form-data" id="categ_add_form" name="categ_add_form" action="" method="post">
+<div class="clear">
 <label for="cat_tt"><?php echo $lang['categ']['tt']; ?></label>
-<input id="cat_tt" name="cat_tt" type="text" />
-<br class="clear" />
-<label for="cat_dsc"><?php echo $lang['categ']['dsc']; ?></label>
-<input id="cat_dsc" name="cat_dsc" type="text" />
+<input id="cat_tt" name="cat_tt" type="text" size="30" maxlength="50" value="<?php echo $cnt['cat_tt']; ?>" />
+</div>
+<div class="clear">
+<label for="cat_pic"><?php echo $lang['categ']['pic']; ?></label>
+<input id="cat_pic" name="cat_pic" type="file" />
+</div>
+<div class="clear">
+<label for="cat_desc"><?php echo $lang['categ']['dsc']; ?></label>
+<input id="cat_desc" name="cat_desc" type="text" size="50" maxlength="255" value="<?php echo $cnt['cat_desc']; ?>" />
+</div>
+<div class="clear">
+<label for="cat_add">&#160;</label>
+<input id="cat_add" name="cat_add" type="submit" value="<?php echo $lang['categ']['cat_add']; ?>" />
+</div>
 </form>
-<br class="clear" />
+
 <?php print_r($cnt); ?>

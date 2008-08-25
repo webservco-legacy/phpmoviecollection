@@ -87,19 +87,34 @@ function pmmc_admin_categ() {
 */
 function pmmc_categ_add() {
   global $lang;
-  
+  global $allowed_file_types;
   $cnt['skin'] = 'admin.categ.add.new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['add'];
-  $cnt['msg'] = 'add a new category';
+  $cnt['msg'] = 21;
   
-  //$cnt['page']['cat_id'] = NULL;
-  $cnt['page']['cat_pic'] = NULL;
-  $cnt['page']['cat_tt'] = NULL;
-  $cnt['page']['cat_ord'] = NULL;
-  $cnt['page']['cat_desc'] = NULL;
-  /**
-  * If post form, validate, add to db and redirect to view all categories
-  */
+  $cnt['page']['cat_pic'] = '';
+  $cnt['page']['cat_tt'] = '';
+  $cnt['page']['cat_desc'] = '';
+  
+  if(isset($_POST['cat_add'])) {
+    if(isset($_POST['cat_tt'])) {$cnt['page']['cat_tt'] = pmmc_filter_input($_POST['cat_tt']);}
+    if(isset($_POST['cat_desc'])) {$cnt['page']['cat_desc'] = pmmc_filter_input($_POST['cat_desc']);}
+    if($cnt['page']['cat_tt'] != '' && $cnt['page']['cat_desc'] != '') {
+      
+      if(isset($_FILES['cat_pic'])) {
+        $pic_name     = $_FILES['cat_pic']['name'];
+        $pic_type     = $_FILES['cat_pic']['type'];
+        $pic_tmp_name = $_FILES['cat_pic']['tmp_name'];
+        $pic_error    = $_FILES['cat_pic']['error'];
+        $pic_size     = $_FILES['cat_pic']['size'];
+        /*xxx*/
+        $cnt['page']['cat_pic'] = $_FILES['cat_pic']['size'];
+        $err = 0;
+        if($pic_error == 0 && !in_array($pic_type, $allowed_file_types)) {$msg = 11; $err = 1;}
+      }
+    }
+    else {$cnt['msg'] = 16;}
+  }
   return $cnt;
 }
 /**

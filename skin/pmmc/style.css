@@ -87,8 +87,8 @@ a:hover {
   border-bottom: 1px solid #333333;
 }
 #msg {
-  height: 30px;
-  padding: 0px 0px 0px 250px;
+  height: 20px;
+  padding: 5px 0px 0px 255px;
   border-top: 1px solid #333333;
 }
 /* ********** ********** ********** HEADER AREA END ********** ********** ********** */
@@ -111,6 +111,7 @@ a:hover {
   margin-left: 250px;
   margin-right: 250px;
   min-height: 400px;
+  padding: 5px 10px 5px 10px;
   border-left: 1px solid #333333;
   border-right: 1px solid #333333;
 }
@@ -171,6 +172,9 @@ a:hover {
   border: 1px solid #333333;
 }
 /* ********** ********** ********** USER AREA END ********** ********** ********** */
-label {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 3px 0px 0px 0px;}
-input {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 3px 0px 0px 0px;}
+label {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+input {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px;}
 br.clear {clear: left;}
+.msg {color: #000099; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+.ok {color: #009900; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+.err {color: #990000; font-family: verdana, serif; font-size: 11px; font-weight: normal;}

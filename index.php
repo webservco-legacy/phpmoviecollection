@@ -55,9 +55,13 @@ pmmc_cfg_usr();
 */
 $usr_status = pmmc_session();
 /**
-* Load language file
+* Load language file with main dialogs
 */
 require_once _APP_DIR . 'lang/' . $_SESSION['pmmc_usr_lang'] . '/lang.inc.php';
+/**
+* Load language file with messages
+*/
+require_once _APP_DIR . 'lang/' . $_SESSION['pmmc_usr_lang'] . '/msg.inc.php';
 /**
 * Load application functions
 */
@@ -80,7 +84,7 @@ else if(isset($_GET['view'])) {$cnt = pmmc_view();}
 else {
   $cnt['skin'] = 'tester.tpl.php';
   $cnt['tt'] = 'Tester';
-  $cnt['msg'] = 'test message';
+  $cnt['msg'] = 0;
   $cnt['page'] = 'Hello World!';
 }
 /**

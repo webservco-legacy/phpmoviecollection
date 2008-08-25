@@ -58,4 +58,6 @@ $ap_cfg['mod']['mod_usr'] = 1;
 * Control the loading of the test module
 */
 $ap_cfg['mod']['tester'] = 0;
+
+$allowed_file_types = array("image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/gif");
 ?>
