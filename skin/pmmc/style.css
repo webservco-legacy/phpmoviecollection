@@ -40,6 +40,11 @@ HTML, BODY {
   bottom: 0;
   border-top: 1px solid #333333;
 }
+form {display: inline; margin: 0px; padding: 0px;}
+h1 {margin: 0 0 0 0; line-height: 130%; font-size: 1.3em;}
+h2 {margin: 0 0 0 0; line-height: 130%; font-size: 1.2em;}
+h3 {margin: 0 0 0 0; line-height: 130%; font-size: 1.1em;}
+h4 {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
 /* ********** ********** ********** LINK AREA START ********** ********** ********** */
 a:link {
   background-color: #ffffff;
@@ -166,3 +171,6 @@ a:hover {
   border: 1px solid #333333;
 }
 /* ********** ********** ********** USER AREA END ********** ********** ********** */
+label {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 3px 0px 0px 0px;}
+input {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 3px 0px 0px 0px;}
+br.clear {clear: left;}

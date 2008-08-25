@@ -88,11 +88,11 @@ function pmmc_admin_categ() {
 function pmmc_categ_add() {
   global $lang;
   
-  $cnt['skin'] = 'admin.categ.view.all.tpl.php';
+  $cnt['skin'] = 'admin.categ.add.new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['add'];
   $cnt['msg'] = 'add a new category';
   
-  $cnt['page']['cat_id'] = NULL;
+  //$cnt['page']['cat_id'] = NULL;
   $cnt['page']['cat_pic'] = NULL;
   $cnt['page']['cat_tt'] = NULL;
   $cnt['page']['cat_ord'] = NULL;

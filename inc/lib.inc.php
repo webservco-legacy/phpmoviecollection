@@ -112,7 +112,7 @@ function pmmc_output($cnt, $mod=null) {
   * Page
   */
   $page = & new Skin($_SESSION['pmmc_usr_skin']);
-  $page->set('h1', $cnt['tt']);
+  //$page->set('h1', $cnt['tt']);
   $page->set('lang', $lang);
   $page->set('cnt', $cnt['page']);
   $skin->set('page', $page->parse($cnt['skin']));

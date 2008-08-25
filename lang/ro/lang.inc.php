@@ -56,4 +56,6 @@ $lang['adm']['adm'] = 'Administrare';
 */
 $lang['categ']['categs'] = 'Categorii';
 $lang['categ']['add']    = 'Ad&#259;ugare Categorie';
+$lang['categ']['tt']    = 'Titlu Categorie';
+$lang['categ']['dsc']    = 'Descriere Categorie';
 ?>
