@@ -2,7 +2,7 @@
 /**
 * ./inc/func.inc.php (application functions and classes)
 *
-* <I> ./inc/funct.inc.php</I>
+* <I> ./inc/func.inc.php</I>
 * <BR>This is the application functions file
 * <BR>It contains all the functions
 * <BR>used in the application
