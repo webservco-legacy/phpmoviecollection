@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:00 2008-08-25
+* @version    14:19 2008-08-25
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -19,9 +19,9 @@
 */
 
 /**
-* Only authorized access permitted
+* Prevent direct file access
 */
-if(!defined('_VALID_REQUEST')) {header("Location: ../index.php");}
+if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Check for admin get request and act accordingly
 *
@@ -101,5 +101,25 @@ function pmmc_categ_add() {
   * If post form, validate, add to db and redirect to view all categories
   */
   return $cnt;
+}
+/**
+* Additional modules
+*
+* Whether or not to load additional modules
+*
+* @return array modules
+*/
+function pmmc_mod_add() {
+  global $ap_cfg;
+  $mod = array();
+  $i=0;
+  foreach($ap_cfg['mod'] as $key => $value) {
+
+    $mod[$i]['name'] = $key;
+    if($value == 1) {$mod[$i]['file'] = $key;}
+    else {$mod[$i]['file'] = 'blank';}
+    $i++;
+  }
+  return $mod;
 }
 ?>

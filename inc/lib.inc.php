@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:00 2008-08-25
+* @version    15:06 2008-08-25
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -19,9 +19,9 @@
 */
 
 /**
-* Only authorized access permitted
+* Prevent direct file access
 */
-if(!defined('_VALID_REQUEST')) {show404();}
+if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Skin handling class
 *
@@ -91,7 +91,8 @@ class skin {
 *
 * @return mixed page to diplay
 */
-function pmmc_output($cnt) {
+function pmmc_output($cnt, $mod=null) {
+  global $lang, $usr_status;
   /**
   * Initialize
   */
@@ -104,44 +105,33 @@ function pmmc_output($cnt) {
   * Message
   */
   $msg = & new Skin($_SESSION['pmmc_usr_skin']);
+  $msg->set('lang', $lang);
   $msg->set('msg', $cnt['msg']);
+  $skin->set('msg', $msg->parse('msg.tpl.php'));
   /**
   * Page
   */
   $page = & new Skin($_SESSION['pmmc_usr_skin']);
+  $page->set('h1', $cnt['tt']);
+  $page->set('lang', $lang);
   $page->set('cnt', $cnt['page']);
-  /**
-  * Compile
-  */
   $skin->set('page', $page->parse($cnt['skin']));
-  $skin->set('msg', $msg->parse('msg.tpl.php'));
+  /**
+  * Additional modules
+  */
+  if(is_array($mod) && count($mod) >= 1) {
+    $tm = count($mod);
+    for($i=0;$i<$tm;$i++) {
+      $opt_mod[$i] = &new Skin($_SESSION['pmmc_usr_skin']);
+      $opt_mod[$i]->set('lang', $lang);
+      if($mod[$i]['name'] == 'mod_usr') {$opt_mod[$i]->set('usr_status', $usr_status);}
+      $skin->set($mod[$i]['name'], $opt_mod[$i]->parse($mod[$i]['file'].'.tpl.php'));
+    }
+  }
   /**
   * Display
   */
   return $skin->parse('layout.tpl.php');
-}
-/**
-* Custom error page
-*
-* Increase app security by not displaying too much information on bad requests
-*/
-function show404() {
-  header('HTTP/1.1 404 Not Found');
-  echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
-  echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">';
-  echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-  echo '<meta http-equiv="content-language" content="en" />';
-  echo '<title>404 Not Found</title>';
-  echo '</head><body>';
-  echo '<h1>404 Not Found</h1>' . "\n\t" . 'The requested URL ' . $_SERVER['REQUEST_URI'] . ' was not found on this server.';
-  echo '</body></html>';
-  //$skin = & new Skin($skindir);
-  //$skin->set('title', '404 Not Found');
-  //$content = & new Skin($skindir);
-  //$content->set('msg404', '<h1>404 Not Found</h1>' . "\n\t" . 'The requested URL ' . $_SERVER['REQUEST_URI'] . ' was not found on this server.');
-  //$skin->set('content', $content->parse('404.tpl.php'));
-  //echo $skin->parse('layout.tpl.php');
-  exit;
 }
 /**
 * Display nice mysql error messages
@@ -582,7 +572,22 @@ function pmmc_usr_login() {
                 * Record current login
                 */
                 pmmc_qry_exec("INSERT INTO pmmc_var_log (usr_id, log_date, log_time) VALUES ('{$_SESSION['pmmc_usr_id']}', '{$_SESSION['pmmc_vdate']}', '{$_SESSION['pmmc_vtime']}')");
-                return 5;
+                
+                /**
+                * Redirect to the same page where we came from to avoid double submit
+                */
+                if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] != '') {
+                  $location = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                }
+                else if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != '') {
+                  $location = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+                }
+                else {
+                  $location = _APP_URL;
+                }
+                header("Location: $location");
+                exit;
+                //return 5;
               }
             }
             else { //invalid login
@@ -612,12 +617,23 @@ function pmmc_usr_login() {
     else { // hacking attempt
       session_regenerate_id(TRUE);
       $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
-      return 8;
+      return 9;
     }
   }
   else { // not submitted
     return 1;
   }
+}
+/**
+* Logout
+*
+* @return mixed
+*/
+function pmmc_usr_logout() {
+  $_SESSION = array();
+  session_destroy();
+  header("Location: "._APP_URL);
+  exit;
 }
 /**
 * Filter user input
@@ -634,7 +650,6 @@ function pmmc_filter_input($input) {
   $input = str_replace('&gt;', '&#62;', $input);
   $input = str_replace('<', '&#60;', $input);
   $input = str_replace('>', '&#62;', $input);
-  $parsed_string = eregi_replace('&lt;','&#60;',$parsed_string);
   return mysql_real_escape_string(trim($input));
 }
 /**

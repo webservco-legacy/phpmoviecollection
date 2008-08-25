@@ -63,7 +63,7 @@ TRUNCATE TABLE pmmc_mov_rel;
 TRUNCATE TABLE pmmc_set_usr;
 
 -- ADMIN
-INSERT INTO pmmc_set_usr (usr_name, usr_fname, usr_lname, usr_mail, usr_pass, usr_skin, usr_lang, usr_level, usr_status, usr_date) VALUES ('Root', 'Radu', 'Maier', 'radu@rudisoft.net', '21232f297a57a5a743894a0e4a801fc3', 'pmmc', 'ro', '3', '1', '2008-08-22');
+INSERT INTO pmmc_set_usr (usr_name, usr_fname, usr_lname, usr_mail, usr_pass, usr_skin, usr_lang, usr_level, usr_status, usr_date) VALUES ('Root', 'Radu', 'Maier', 'radu@rudisoft.net', 'REDACTED', 'pmmc', 'ro', '3', '1', '2008-08-22');
 -- --------------------------------------------------------------------------------
 -- SETTINGS
 -- --------------------------------------------------------------------------------

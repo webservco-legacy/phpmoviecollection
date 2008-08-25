@@ -19,9 +19,9 @@
 */
 
 /**
-* Only authorized access permitted
+* Prevent direct file access
 */
-if(!defined('_VALID_REQUEST')) {header("Location: ../../index.php");}
+if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
 * Language info
 */
@@ -39,7 +39,14 @@ $lang['usr_status'][4] = 'Cont suspendat';
 $lang['usr_status'][5] = 'Autentificare reu&#351;it&#259;';
 $lang['usr_status'][6] = 'Autentificat';
 $lang['usr_status'][7] = 'Cod de verificare incorect';
-$lang['usr_status'][8] = 'Hacker attack!';
+$lang['usr_status'][8] = 'Multiple submits';
+$lang['usr_status'][9] = 'Possible intrusion attempt';
+/**
+* Users
+*/
+$lang['usr']['login'] = 'login';
+$lang['usr']['logout'] = 'logout';
+$lang['usr']['level'] = 'nivel de acces';
 /**
 * Administration
 */

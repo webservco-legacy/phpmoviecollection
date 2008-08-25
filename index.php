@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:00 2008-08-25
+* @version    14:19 2008-08-25
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -63,9 +63,13 @@ require_once _APP_DIR . 'lang/' . $_SESSION['pmmc_usr_lang'] . '/lang.inc.php';
 */
 require_once './inc/func.inc.php';
 /**
+* Logout user
+*/
+if(isset($_GET['logout']) && $_GET['logout'] == 'true') {pmmc_usr_logout();}
+/**
 * Admin request processing
 */
-if(isset($_GET['admin'])) {$cnt = pmmc_admin();}
+else if(isset($_GET['admin'])) {$cnt = pmmc_admin();}
 /**
 * User request processing
 */
@@ -79,12 +83,14 @@ else {
   $cnt['msg'] = 'test message';
   $cnt['page'] = 'Hello World!';
 }
-
+/**
+* Additional modules
+*/
+$mod = pmmc_mod_add();
 /**
 * Display page
 */
-echo pmmc_output($cnt);
-
+echo pmmc_output($cnt, $mod);
 /**
 * Close database connection
 */

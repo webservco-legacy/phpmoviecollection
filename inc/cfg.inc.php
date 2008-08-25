@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    12:26 2008-08-22
+* @version    14:19 2008-08-25
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -19,9 +19,9 @@
 */
 
 /**
-* Only authorized access permitted
+* Prevent direct file access
 */
-if(!defined('_VALID_REQUEST')) {header("Location: ../index.php");}
+if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Main URL of the application - notice the slash at the end
 */
@@ -50,4 +50,12 @@ $ap_cfg['db_pass'] = 'REDACTED';
 * Database name
 */
 $ap_cfg['db_name'] = 'temp';
+/**
+* Control the loading of the user module
+*/
+$ap_cfg['mod']['mod_usr'] = 1;
+/**
+* Control the loading of the test module
+*/
+$ap_cfg['mod']['tester'] = 0;
 ?>
