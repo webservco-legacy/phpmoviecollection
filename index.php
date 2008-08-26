@@ -84,7 +84,6 @@ else if(isset($_GET['view'])) {$cnt = pmmc_view();}
 else {
   $cnt['skin'] = 'tester.tpl.php';
   $cnt['tt'] = 'Tester';
-  $cnt['msg'] = 0;
   $cnt['page'] = 'Hello World!';
 }
 /**

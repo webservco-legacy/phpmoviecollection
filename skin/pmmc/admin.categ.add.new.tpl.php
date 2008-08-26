@@ -5,6 +5,7 @@
 <input id="cat_tt" name="cat_tt" type="text" size="30" maxlength="50" value="<?php echo $cnt['cat_tt']; ?>" />
 </div>
 <div class="clear">
+<input id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" type="hidden" value="512000" />
 <label for="cat_pic"><?php echo $lang['categ']['pic']; ?></label>
 <input id="cat_pic" name="cat_pic" type="file" />
 </div>
@@ -17,5 +18,3 @@
 <input id="cat_add" name="cat_add" type="submit" value="<?php echo $lang['categ']['cat_add']; ?>" />
 </div>
 </form>
-
-<?php print_r($cnt); ?>

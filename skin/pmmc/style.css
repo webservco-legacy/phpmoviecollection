@@ -95,27 +95,27 @@ a:hover {
 /* ********** ********** ********** CONTENT AREA START ********** ********** ********** */
 #cnt_left {
   float: left;
-  width: 240px;
+  width: 200px;
   padding: 5px 5px 5px 5px;
   overflow: auto;
 }
 * html #cnt_left {margin-right: -3px;}
 #cnt_right {
   float: right;
-  width: 240px;
+  width: 200px;
   padding: 5px 5px 5px 5px;
   overflow: auto;
 }
 * html #cnt_right {margin-left: -3px;}
 #cnt_page {
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-left: 210px;
+  margin-right: 210px;
   min-height: 400px;
   padding: 5px 10px 5px 10px;
   border-left: 1px solid #333333;
   border-right: 1px solid #333333;
 }
-* html #cnt_page {height: 400px; margin-left: 247px; margin-right: 247px;}
+* html #cnt_page {height: 400px; margin-left: 207px; margin-right: 207px;}
 /* ********** ********** ********** CONTENT AREA END ********** ********** ********** */
 /* ********** ********** ********** FOOTER AREA START ********** ********** ********** */
 #ftr {
@@ -173,6 +173,7 @@ a:hover {
 }
 /* ********** ********** ********** USER AREA END ********** ********** ********** */
 label {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+label.required {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; color: #990000; font-weight: normal;}
 input {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px;}
 br.clear {clear: left;}
 .msg {color: #000099; font-family: verdana, serif; font-size: 11px; font-weight: normal;}

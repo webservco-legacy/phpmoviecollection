@@ -1,0 +1,6 @@
+CHECK
+[] mod_rewrite
+[] var/pic/cat writable
+[] var/pic/XXX writable
+
+

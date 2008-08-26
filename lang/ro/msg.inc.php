@@ -25,9 +25,9 @@ if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
 * General
 */
-$lang['msg'][0]['tt'] = '';
-$lang['msg'][0]['tp'] = 'ok';
-$lang['msg'][1]['tt'] = '';
+$lang['msg'][0]['tt'] = 'Status ok'; // default
+$lang['msg'][0]['tp'] = 'msg';
+$lang['msg'][1]['tt'] = 'Welcome'; // logged in user
 $lang['msg'][1]['tp'] = 'ok';
 $lang['msg'][2]['tt'] = '';
 $lang['msg'][2]['tp'] = 'ok';
@@ -62,7 +62,7 @@ $lang['msg'][15]['tt'] = 'Eroare la procesarea imaginii. Dimensiunea fi&#351;ier
 $lang['msg'][15]['tp'] = 'err';
 $lang['msg'][16]['tt'] = 'Eroare la procesarea formularului. Completa&#355;i toate c&#226;mpurile obligatorii.';
 $lang['msg'][16]['tp'] = 'err';
-$lang['msg'][17]['tt'] = '';
+$lang['msg'][17]['tt'] = 'Eroare la procsarea formularului. Dimensiunea fi&#351;ierului trimis este prea mare. Formularul a fost resetat.';
 $lang['msg'][17]['tp'] = 'err';
 $lang['msg'][18]['tt'] = '';
 $lang['msg'][18]['tp'] = 'err';
@@ -75,4 +75,12 @@ $lang['msg'][20]['tp'] = 'err';
 */
 $lang['msg'][21]['tt'] = 'Completa&#355;i formularul &#351;i ap&#259;sa&#355;i butonul \'Adaug&#259;\'. Imaginea este op&#355;ional&#259;.';
 $lang['msg'][21]['tp'] = 'msg';
+$lang['msg'][22]['tt'] = 'Eroare intern&#259;. Categoria nu a fost ad&#259;ugat&#259;. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][22]['tp'] = 'err';
+$lang['msg'][23]['tt'] = 'Noua categorie a fost ad&#259;ugat&#259; cu succes!';
+$lang['msg'][23]['tp'] = 'ok';
+$lang['msg'][24]['tt'] = 'Eroare intern&#259;. Categoria nu a fost modificat&#259;. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][24]['tp'] = 'err';
+$lang['msg'][25]['tt'] = 'Categoria a fost modificat&#259; cu succes!';
+$lang['msg'][25]['tp'] = 'ok';
 ?>

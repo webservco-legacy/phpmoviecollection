@@ -25,10 +25,10 @@ if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
 * Language info
 */
-$lang_info['name'] = 'Romanian';
+$lang_info['name']       = 'Romanian';
 $lang_info['local_name'] = 'Rom&#226;ne&#351;te';
-$lang_info['tr_name'] = 'Radu Maier';
-$lang_info['tr_url'] = 'http://www.rudisoft.net';
+$lang_info['tr_name']    = 'Radu Maier';
+$lang_info['tr_url']     = 'http://www.rudisoft.net';
 /**
 * User status
 */
@@ -44,9 +44,9 @@ $lang['usr_status'][9] = 'Possible intrusion attempt';
 /**
 * Users
 */
-$lang['usr']['login'] = 'login';
+$lang['usr']['login']  = 'login';
 $lang['usr']['logout'] = 'logout';
-$lang['usr']['level'] = 'nivel de acces';
+$lang['usr']['level']  = 'nivel de acces';
 /**
 * Administration
 */
@@ -54,10 +54,12 @@ $lang['adm']['adm'] = 'Administrare';
 /**
 * Categories
 */
-$lang['categ']['categs'] = 'Categorii';
-$lang['categ']['add']    = 'Ad&#259;ugare Categorie';
-$lang['categ']['tt']    = 'Titlu Categorie';
-$lang['categ']['pic']    = 'Imagine Categorie';
-$lang['categ']['dsc']    = 'Descriere Categorie';
+$lang['categ']['categs']  = 'Categorii';
+$lang['categ']['add']     = 'Ad&#259;ugare Categorie';
+$lang['categ']['view']    = 'Vizualizare Categorie';
+$lang['categ']['tt']      = 'Titlu Categorie';
+$lang['categ']['pic']     = 'Imagine Categorie';
+$lang['categ']['dsc']     = 'Descriere Categorie';
 $lang['categ']['cat_add'] = 'Ad&#259;ugare';
+$lang['categ']['cat_mod'] = 'Modificare';
 ?>

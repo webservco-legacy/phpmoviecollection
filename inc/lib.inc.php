@@ -96,7 +96,7 @@ function pmmc_output($cnt, $mod=null) {
   /**
   * Initialize
   */
-  $skin = & new Skin($_SESSION['pmmc_usr_skin']);
+  $skin = new Skin($_SESSION['pmmc_usr_skin']);
   /**
   * Title
   */
@@ -104,14 +104,14 @@ function pmmc_output($cnt, $mod=null) {
   /**
   * Message
   */
-  $msg = & new Skin($_SESSION['pmmc_usr_skin']);
+  $msg = new Skin($_SESSION['pmmc_usr_skin']);
   $msg->set('lang', $lang);
-  $msg->set('msg', $cnt['msg']);
+  //$msg->set('msg', $cnt['msg']);
   $skin->set('msg', $msg->parse('msg.tpl.php'));
   /**
   * Page
   */
-  $page = & new Skin($_SESSION['pmmc_usr_skin']);
+  $page = new Skin($_SESSION['pmmc_usr_skin']);
   //$page->set('h1', $cnt['tt']);
   $page->set('lang', $lang);
   $page->set('cnt', $cnt['page']);
@@ -122,7 +122,7 @@ function pmmc_output($cnt, $mod=null) {
   if(is_array($mod) && count($mod) >= 1) {
     $tm = count($mod);
     for($i=0;$i<$tm;$i++) {
-      $opt_mod[$i] = &new Skin($_SESSION['pmmc_usr_skin']);
+      $opt_mod[$i] = new Skin($_SESSION['pmmc_usr_skin']);
       $opt_mod[$i]->set('lang', $lang);
       if($mod[$i]['name'] == 'mod_usr') {$opt_mod[$i]->set('usr_status', $usr_status);}
       $skin->set($mod[$i]['name'], $opt_mod[$i]->parse($mod[$i]['file'].'.tpl.php'));
@@ -139,15 +139,19 @@ function pmmc_output($cnt, $mod=null) {
 * @param mixed $errno error number (mysql_errno)
 * @param mixed $error error message (mysql_error)
 */
-function my_err($errno, $error, $skindir) {
+function my_err($errno, $error) {
   //header('HTTP/1.1 404 Not Found');
-  $skin = & new Skin($skindir);
+  /*
+  $skin = new Skin($_SESSION['pmmc_usr_skin']);
   $skin->set('title', 'MySQL Error'); 
-  $content = & new Skin($skindir);
+  $content = new Skin($_SESSION['pmmc_usr_skin']);
   $content->set('msg404', '<h1>MySQL Error</h1>' . "\n\t" . $errno . ' : ' . $error . '.<br />');
-  $skin->set('content', $content->parse('404.tpl.php'));
+  $skin->set('page', $content->parse('404.tpl.php'));
   echo $skin->parse('layout.tpl.php');
-  exit;
+  */
+  //echo '<h1>MySQL Error</h1>' . "\n\t" . $errno . ' : ' . $error . '.<br />';
+  //exit;
+  return false;
 }
 /**
 * Error reporting function
@@ -192,8 +196,7 @@ function pmmc_seo_urls() {
     }
     // if total number of values doesn't divide by 2, the request is invalid so we redirect to index
     else {
-      $site_root = _APP_URL;
-      header("Location: $site_root");
+      header("Location: " . _APP_URL);
     }
   }
 }
@@ -259,11 +262,11 @@ function pmmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_ty
       /**
       * Create connection
       */
-      $pmmc_dbconn = @mysql_connect($db_host . ":" . $db_port , $db_user, $db_pass) or my_err(mysql_errno(), mysql_error(), $_SESSION['pmmc_usr_skin']);
+      $pmmc_dbconn = @mysql_connect($db_host . ":" . $db_port , $db_user, $db_pass) or my_err(mysql_errno(), mysql_error());
       /**
       * Select database
       */
-      mysql_select_db($db_name) or my_err(mysql_errno(), mysql_error(), $_SESSION['pmmc_usr_skin']);
+      mysql_select_db($db_name) or my_err(mysql_errno(), mysql_error());
       /**
       * Enable UTF-8 support
       */
@@ -295,7 +298,7 @@ function pmmc_dbclose($pmmc_dbconn, $db_type=0) {
 function pmmc_qry_exec($query, $db_type=0) {
   $result = NULL;
   switch($db_type) {
-    case 0 : {$result = mysql_query($query) or my_err(mysql_errno(), mysql_error(), $_SESSION['pmmc_usr_skin']); break;}
+    case 0 : {$result = mysql_query($query) or my_err(mysql_errno(), mysql_error()); break;}
   }
   return $result;
 }
@@ -380,6 +383,64 @@ function pmmc_cfg_usr() {
   }
 }
 /**
+* Lock tables for writing
+*
+* @param array tables to lock
+*
+* @return mixed
+*/
+function pmmc_lock_tables($tables) {
+  $t = count($tables);
+  $q = "LOCK TABLES ";
+  for($i=0;$i<$t;$i++) {
+    $q .= "{$tables[$i]} WRITE";
+    if($i!=$t-1) {$q .= ", ";}
+  }
+  $r = pmmc_qry_exec($q);
+  return $r;
+}
+/**
+* Unlock tables
+*
+* @return mixed
+*/
+function pmmc_unlock_tables() {
+  $r = pmmc_qry_exec("UNLOCK TABLES");
+  return $r;
+}
+/**
+* Get next autoincrement id
+*
+* @param string table
+*
+* @return int next auto increment id
+*/
+function pmmc_next_auto_id($table) {
+  $id = 0;
+  $r = pmmc_qry_exec("SHOW TABLE STATUS LIKE '{$table}'");
+  $t = pmmc_qry_total($r);
+  if($t == 1) {
+    $rw = pmmc_qry_row($r);
+    $id = $rw['Auto_increment'];
+  }
+  return $id;
+}
+/**
+* Get next id (no auto increment)
+*
+* @param string table
+* @param string column
+*
+* @return int next id
+*/
+function pmmc_next_id($table, $col) {
+  $id = 0;
+  $r = pmmc_qry_exec("SELECT MAX({$col}) FROM {$table}");
+  $t = pmmc_qry_total($r);
+  if($t == 1) {$id = pmmc_qry_result($r) + 1;}
+  return $id;
+}
+/**
 * Initialize the user session
 *
 * @return mixed
@@ -394,7 +455,7 @@ function pmmc_session() {
   header("Expires: " . gmdate("D, d M Y H:i:s", time() + 5) . " GMT");
   header("Pragma: no-cache");
   header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");
-  header('HTTP/1.1 200 OK');
+  //header('HTTP/1.1 200 OK');
   /**
   * First load of the page
   */
@@ -439,6 +500,10 @@ function pmmc_session() {
     * Reset user movie list
     */
     $_SESSION['pmmc_usr_lst'] = NULL;
+    /**
+    * Default message
+    */
+    $_SESSION['pmmc_msg'] = 0;
     /**
     * User status message
     */
@@ -538,6 +603,10 @@ function pmmc_usr_login() {
                 * User skin
                 */
                 $_SESSION['pmmc_usr_skin']  = _APP_DIR . 'skin/' . $rw['usr_skin'] . '/';
+                /**
+                * Default message
+                */
+                $_SESSION['pmmc_msg'] = 1;
                 /**
                 * Get last login data
                 */
@@ -667,5 +736,23 @@ function pmmc_is_email($email) {
 */
 function pmmc_is_int($input) {
   return(preg_match("/^[1-9]$|^[1-9][0-9]$|^[1-9][0-9][0-9]$|^[1-9][0-9][0-9][0-9]$|^[1-9][0-9][0-9][0-9][0-9]$/", $input));
+}
+/**
+* Determine picture extension from file type
+*
+* @param string file type
+*
+* @return string extension
+*/
+function pmmc_pic_ext($pic_type) {
+  $ext = 'unknown';
+  switch($pic_type) {
+    case 'image/jpeg'  : {$ext = 'jpg'; break;}
+    case 'image/pjpeg' : {$ext = 'jpg'; break;}
+    case 'image/png'   : {$ext = 'png'; break;}
+    case 'image/x-png' : {$ext = 'png'; break;}
+    case 'image/gif'   : {$ext = 'gif'; break;}
+  }
+  return $ext;
 }
 ?>

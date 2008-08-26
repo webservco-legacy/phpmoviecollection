@@ -30,7 +30,7 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s", time()-10) . " GMT");
 header("Expires: " . gmdate("D, d M Y H:i:s", time() + 5) . " GMT");
 header("Pragma: no-cache");
 header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");
-header('HTTP/1.1 200 OK');
+//header('HTTP/1.1 200 OK');
 /**
 * Check if the request is valid
 */

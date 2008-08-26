@@ -33,7 +33,7 @@ $ap_cfg['app_index'] = '';
 /**
 * Full path to the application - notice the slash at the end
 */
-$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
+$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
 /**
 * Database host
 */
@@ -58,6 +58,4 @@ $ap_cfg['mod']['mod_usr'] = 1;
 * Control the loading of the test module
 */
 $ap_cfg['mod']['tester'] = 0;
-
-$allowed_file_types = array("image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/gif");
 ?>
