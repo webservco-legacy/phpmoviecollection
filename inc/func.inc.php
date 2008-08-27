@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    11:06 2008-08-27
+* @version    11:18 2008-08-27
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -54,7 +54,7 @@ function pmmc_admin() {
       /**
       * Categories administration
       */
-      case 'categ'  : {$cnt = pmmc_admin_categ(); break;}
+      case 'categ'  : {$cnt = pmmc_adm_categ(); break;}
       /**
       * Movies administration
       */
@@ -74,20 +74,20 @@ function pmmc_admin() {
 *
 * @return mixed
 */
-function pmmc_admin_categ() {
+function pmmc_adm_categ() {
   $cnt = NULL;
   if(isset($_GET['view']) && $_GET['view'] != '') {
     if($_GET['view'] == 'all') {
       /**
       * View all categories
       */
-      $cnt = pmmc_categ_view_all();
+      $cnt = pmmc_adm_categ_view_all();
     }
     else if(pmmc_is_int($_GET['view'])) {
       /**
       * View (edit) one category
       */
-      $cnt = pmmc_categ_view($_GET['view']);
+      $cnt = pmmc_adm_categ_view($_GET['view']);
     }
     else {header("Location: "._APP_URL); exit;}
   }
@@ -95,7 +95,7 @@ function pmmc_admin_categ() {
     /**
     * Add new category
     */
-    $cnt = pmmc_categ_add();
+    $cnt = pmmc_adm_categ_add();
   }
   else {header("Location: "._APP_URL); exit;}
   return $cnt;
@@ -105,7 +105,7 @@ function pmmc_admin_categ() {
 *
 * @return mixed
 */
-function pmmc_categ_add() {
+function pmmc_adm_categ_add() {
   global $lang;
   $cnt['skin'] = 'admin.categ.add.new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['add'];
@@ -162,7 +162,7 @@ function pmmc_categ_add() {
 *
 * @return mixed
 */
-function pmmc_categ_view($id) {
+function pmmc_adm_categ_view($id) {
   global $lang;
   $cnt['skin'] = 'admin.categ.view.id.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['view'];
@@ -230,7 +230,7 @@ function pmmc_categ_view($id) {
 *
 * @return mixed
 */
-function pmmc_categ_view_all() {
+function pmmc_adm_categ_view_all() {
   global $lang;
   $cnt['skin'] = 'admin.categ.view.all.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['viewall'];
