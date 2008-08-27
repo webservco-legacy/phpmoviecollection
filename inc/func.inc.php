@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    14:19 2008-08-25
+* @version    11:06 2008-08-27
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -235,6 +235,7 @@ function pmmc_categ_view_all() {
   $cnt['skin'] = 'admin.categ.view.all.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['viewall'];
   $cnt['page'] = array();
+  $cnt['page']['cat_id'] = array();
   
   $result = pmmc_qry_exec("SELECT * FROM pmmc_mov_cat ORDER BY cat_ord ASC");
   $total = pmmc_qry_total($result);
@@ -246,6 +247,24 @@ function pmmc_categ_view_all() {
       $cnt['page']['cat_tt'][$i]   = $row['cat_tt'];
       $cnt['page']['cat_ord'][$i]  = $row['cat_ord'];
       $cnt['page']['cat_desc'][$i] = $row['cat_desc'];
+      $items = pmmc_qry_exec("SELECT COUNT(mov_id) FROM pmmc_mov_tt WHERE cat_id = '{$cnt['page']['cat_id'][$i]}'");
+      $cnt['page']['cat_items'][$i] = pmmc_qry_result($items);
+      
+      $lock = pmmc_lock_tables(array('pmmc_mov_cat'));
+      if(isset($_POST['cat_del-'.$cnt['page']['cat_id'][$i]])) {
+        if(is_file(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i])) {unlink(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i]);}
+        $delete = pmmc_qry_exec("DELETE FROM pmmc_mov_cat WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
+        if($delete === true) {$_SESSION['pmmc_msg'] = 27;}
+      }
+      else if(isset($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]) && pmmc_is_int($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]])) {
+        $update = pmmc_qry_exec("UPDATE pmmc_mov_cat SET cat_ord = '{$_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]}' WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
+        if($update === true) {$_SESSION['pmmc_msg'] = 28;}
+      }
+      $unlock = pmmc_unlock_tables();
+    }
+    if(isset($_POST['cat_save_mod'])) {
+      header("Location: " . _APP_URL . 'admin/categ/view/all');
+      exit;
     }
   }
   else {

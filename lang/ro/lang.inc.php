@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:00 2008-08-25
+* @version    11:07 2008-08-27
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -42,6 +42,18 @@ $lang['usr_status'][7] = 'Cod de verificare incorect';
 $lang['usr_status'][8] = 'Multiple submits';
 $lang['usr_status'][9] = 'Possible intrusion attempt';
 /**
+* General
+*/
+$lang['pmmc']['order']    = 'Ordine';
+$lang['pmmc']['pic']      = 'Imagine';
+$lang['pmmc']['tt']       = 'Titlu';
+$lang['pmmc']['desc']     = 'Descriere';
+$lang['pmmc']['items']    = 'Articole';
+$lang['pmmc']['add']      = 'Ad&#259;ugare';
+$lang['pmmc']['mod']      = 'Modificare';
+$lang['pmmc']['del']      = '&#350;tergere';
+$lang['pmmc']['save_mod'] = 'Salvare modific&#259;ri';
+/**
 * Users
 */
 $lang['usr']['login']  = 'login';
@@ -58,9 +70,4 @@ $lang['categ']['categs']  = 'Categorii';
 $lang['categ']['add']     = 'Ad&#259;ugare Categorie';
 $lang['categ']['view']    = 'Vizualizare Categorie';
 $lang['categ']['viewall'] = 'Vizualizare Categorii';
-$lang['categ']['tt']      = 'Titlu Categorie';
-$lang['categ']['pic']     = 'Imagine Categorie';
-$lang['categ']['dsc']     = 'Descriere Categorie';
-$lang['categ']['cat_add'] = 'Ad&#259;ugare';
-$lang['categ']['cat_mod'] = 'Modificare';
 ?>

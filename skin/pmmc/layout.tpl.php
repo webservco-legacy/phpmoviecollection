@@ -63,7 +63,7 @@
   <?php //print_r($_GET); ?>
   <?php //print_r($_SERVER); ?>
   <?php //print_r($_FILES); ?>
-  <?php //print_r($_POST); ?>
+  <?php print_r($_POST); ?>
   <?php print_r(error_get_last()); ?>
   </pre>
 </body>

@@ -4,15 +4,16 @@
 <?php echo $lang['usr']['level'] . ': ' . $_SESSION['pmmc_usr_level']; ?>
 &#160;&#149;&#160;
 <?php echo $lang['usr_status'][$usr_status]; ?>
-&#160;&#149;&#160;
 <?php
 if($_SESSION['pmmc_usr_level'] > 0) {
 ?>
+&#160;&#149;&#160;
 <a id="pmmc_logout" href="<?php echo _APP_URL; ?>logout/true" title="<?php echo $lang['usr']['logout'];?>"><?php echo $lang['usr']['logout'];?></a>
 <?php
 }
 else {
 ?>
+<br />
 <form id="login_form" name="login_form" action="" method="post">
 <input id="pmmc_token" name="pmmc_token" type="hidden" value="<?php echo $_SESSION['pmmc_token']; ?>" />
 &#160;

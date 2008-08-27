@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    23:17 2008-08-25
+* @version    11:06 2008-08-27
 * @since      23:17 2008-08-25
 * @access     public
 * @package    phpMyMovieCollection
@@ -85,4 +85,8 @@ $lang['msg'][25]['tt'] = 'Categoria a fost modificat&#259; cu succes!';
 $lang['msg'][25]['tp'] = 'ok';
 $lang['msg'][26]['tt'] = 'Nu exist&#259; categorii.';
 $lang['msg'][26]['tp'] = 'err';
+$lang['msg'][27]['tt'] = 'Ordinea categoriilor a fost modificat&#259; cu succes!';
+$lang['msg'][27]['tp'] = 'ok';
+$lang['msg'][28]['tt'] = 'Una sau mai multe categorii au fost &#351;terse!';
+$lang['msg'][28]['tp'] = 'ok';
 ?>

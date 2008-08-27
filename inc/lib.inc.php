@@ -777,14 +777,14 @@ function pmmc_image_thumb($img, $path, $title) {
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
     $img_u = _APP_URL.$path.$img;
-    $link = '<a href="'.$img_u.'" alt="'.$title.'" title="'.$title.'" target="_blank">';
-    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" />';
+    $link = '<a href="'.$img_u.'" title="'.$title.'" target="_blank">';
+    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" title="'.$title.'" alt="'.$title.'" />';
     $link .= '</a>';
   }
   else {
     $img_d = _APP_DIR . 'lib/nopic.png';
     $img_u = _APP_URL . 'lib/nopic.png';
-    $link = '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" />';
+    $link = '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" title="'.$title.'" alt="'.$title.'" />';
   }
   return $link;
 }
