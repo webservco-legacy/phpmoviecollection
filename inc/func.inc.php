@@ -189,7 +189,8 @@ function pmmc_categ_view($id) {
     if($cnt['page']['cat_tt'] != '' && $cnt['page']['cat_desc'] != '') {
       $lock    = pmmc_lock_tables(array('pmmc_mov_cat'));
       //$id      = pmmc_next_auto_id('pmmc_mov_cat');
-      $cat_pic = $row['cat_pic'];
+      $cat_pic     = $row['cat_pic'];
+      $new_cat_pic = $row['cat_pic'];
       $err = 0;
       if(isset($_FILES['cat_pic'])) {
         $pic_name     = $_FILES['cat_pic']['name'];
@@ -221,6 +222,34 @@ function pmmc_categ_view($id) {
       }
     }
     else {$_SESSION['pmmc_msg'] = 16; header("Location: " . _APP_URL . 'admin/categ/view/' . $id); exit;}
+  }
+  return $cnt;
+}
+/**
+* Categories - view all
+*
+* @return mixed
+*/
+function pmmc_categ_view_all() {
+  global $lang;
+  $cnt['skin'] = 'admin.categ.view.all.tpl.php';
+  $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['viewall'];
+  $cnt['page'] = array();
+  
+  $result = pmmc_qry_exec("SELECT * FROM pmmc_mov_cat ORDER BY cat_ord ASC");
+  $total = pmmc_qry_total($result);
+  if($total > 0) {
+    for($i=1;$i<=$total;$i++) {
+      $row = pmmc_qry_row($result);
+      $cnt['page']['cat_id'][$i]   = $row['cat_id'];
+      $cnt['page']['cat_pic'][$i]  = $row['cat_pic'];
+      $cnt['page']['cat_tt'][$i]   = $row['cat_tt'];
+      $cnt['page']['cat_ord'][$i]  = $row['cat_ord'];
+      $cnt['page']['cat_desc'][$i] = $row['cat_desc'];
+    }
+  }
+  else {
+    $_SESSION['pmmc_msg'] = 26;
   }
   return $cnt;
 }

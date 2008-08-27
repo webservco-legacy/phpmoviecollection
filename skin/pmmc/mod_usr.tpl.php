@@ -8,7 +8,7 @@
 <?php
 if($_SESSION['pmmc_usr_level'] > 0) {
 ?>
-<a id="pmmc_logout" href="<?php echo _APP_URL; ?>logout/true" title="<?php echo $lang['usr']['logout'];?>" alt="<?php echo $lang['usr']['logout'];?>"><?php echo $lang['usr']['logout'];?></a>
+<a id="pmmc_logout" href="<?php echo _APP_URL; ?>logout/true" title="<?php echo $lang['usr']['logout'];?>"><?php echo $lang['usr']['logout'];?></a>
 <?php
 }
 else {

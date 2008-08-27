@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    14:19 2008-08-25
+* @version    18:45 2008-08-26
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -33,7 +33,7 @@ $ap_cfg['app_index'] = '';
 /**
 * Full path to the application - notice the slash at the end
 */
-$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
+$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
 /**
 * Database host
 */

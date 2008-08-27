@@ -1,6 +1,6 @@
 <h1><?php echo $lang['categ']['view']; ?></h1>
 <div style="float: right">
-<img src="<?php echo _APP_URL;?>lib/thumb.php?img=<?php echo _APP_DIR; ?>var/pic_cat/<?php echo $cnt['cat_pic']; ?>&amp;max=50" />
+<?php echo pmmc_image_thumb($cnt['cat_pic'], 'var/pic_cat/', $cnt['cat_tt']); ?>
 </div>
 <form enctype="multipart/form-data" id="categ_add_form" name="categ_add_form" action="" method="post">
 <div class="clear">
@@ -14,7 +14,7 @@
 <input id="cat_pic" name="cat_pic" type="file" />
 </div>
 <div class="clear">
-<label for="cat_desc"><?php echo $lang['categ']['dsc']; ?></label>
+<label for="cat_desc" class="required"><?php echo $lang['categ']['dsc']; ?></label>
 <input id="cat_desc" name="cat_desc" type="text" size="50" maxlength="255" value="<?php echo $cnt['cat_desc']; ?>" />
 </div>
 <div class="clear">
@@ -22,4 +22,3 @@
 <input id="cat_add" name="cat_mod" type="submit" value="<?php echo $lang['categ']['cat_mod']; ?>" />
 </div>
 </form>
-<?php echo $cnt['cat_pic']; ?>

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    15:06 2008-08-25
+* @version    18:50 2008-08-26
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -701,6 +701,24 @@ function pmmc_usr_login() {
 function pmmc_usr_logout() {
   $_SESSION = array();
   session_destroy();
+
+  /**
+  * Following cookie removal code from php manual comments
+  */
+  //powerlord at spamless dot vgmusic dot com (19-Nov-2002 07:41)
+  //This code might be a bit better for expiring session cookies, in case your domain, path, and/or secure session cookie settings are changed.
+  $CookieInfo = session_get_cookie_params();
+  if ( (empty($CookieInfo['domain'])) && (empty($CookieInfo['secure'])) ) {
+    setcookie(session_name(), '', time()-3600, $CookieInfo['path']);
+  }
+  elseif (empty($CookieInfo['secure'])) {
+    setcookie(session_name(), '', time()-3600, $CookieInfo['path'], $CookieInfo['domain']);
+  }
+  else {
+    setcookie(session_name(), '', time()-3600, $CookieInfo['path'], $CookieInfo['domain'], $CookieInfo['secure']);
+  }
+  unset($_COOKIE[session_name()]);
+  
   header("Location: "._APP_URL);
   exit;
 }
@@ -754,5 +772,20 @@ function pmmc_pic_ext($pic_type) {
     case 'image/gif'   : {$ext = 'gif'; break;}
   }
   return $ext;
+}
+function pmmc_image_thumb($img, $path, $title) {
+  if(is_file(_APP_DIR.$path.$img)) {
+    $img_d = _APP_DIR.$path.$img;
+    $img_u = _APP_URL.$path.$img;
+    $link = '<a href="'.$img_u.'" alt="'.$title.'" title="'.$title.'" target="_blank">';
+    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" />';
+    $link .= '</a>';
+  }
+  else {
+    $img_d = _APP_DIR . 'lib/nopic.png';
+    $img_u = _APP_URL . 'lib/nopic.png';
+    $link = '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" />';
+  }
+  return $link;
 }
 ?>

@@ -1,7 +1,7 @@
 <h1><?php echo $lang['categ']['add']; ?></h1>
 <form enctype="multipart/form-data" id="categ_add_form" name="categ_add_form" action="" method="post">
 <div class="clear">
-<label for="cat_tt"><?php echo $lang['categ']['tt']; ?></label>
+<label for="cat_tt" class="required"><?php echo $lang['categ']['tt']; ?></label>
 <input id="cat_tt" name="cat_tt" type="text" size="30" maxlength="50" value="<?php echo $cnt['cat_tt']; ?>" />
 </div>
 <div class="clear">
@@ -10,7 +10,7 @@
 <input id="cat_pic" name="cat_pic" type="file" />
 </div>
 <div class="clear">
-<label for="cat_desc"><?php echo $lang['categ']['dsc']; ?></label>
+<label for="cat_desc" class="required"><?php echo $lang['categ']['dsc']; ?></label>
 <input id="cat_desc" name="cat_desc" type="text" size="50" maxlength="255" value="<?php echo $cnt['cat_desc']; ?>" />
 </div>
 <div class="clear">

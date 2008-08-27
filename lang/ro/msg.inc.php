@@ -83,4 +83,6 @@ $lang['msg'][24]['tt'] = 'Eroare intern&#259;. Categoria nu a fost modificat&#25
 $lang['msg'][24]['tp'] = 'err';
 $lang['msg'][25]['tt'] = 'Categoria a fost modificat&#259; cu succes!';
 $lang['msg'][25]['tp'] = 'ok';
+$lang['msg'][26]['tt'] = 'Nu exist&#259; categorii.';
+$lang['msg'][26]['tp'] = 'err';
 ?>

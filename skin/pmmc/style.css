@@ -45,6 +45,7 @@ h1 {margin: 0 0 0 0; line-height: 130%; font-size: 1.3em;}
 h2 {margin: 0 0 0 0; line-height: 130%; font-size: 1.2em;}
 h3 {margin: 0 0 0 0; line-height: 130%; font-size: 1.1em;}
 h4 {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
+img {margin: 0px; padding: 0px; border: 0px;}
 /* ********** ********** ********** LINK AREA START ********** ********** ********** */
 a:link {
   background-color: #ffffff;
