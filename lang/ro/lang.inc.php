@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    11:07 2008-08-27
+* @version    00:35 2008-08-29
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -75,5 +75,8 @@ $lang['categ']['viewall'] = 'Vizualizare Categorii';
 */
 $lang['movie']['movies'] = 'Filme';
 $lang['movie']['add']    = 'Ad&#259;ugare Film';
-
+/**
+* Genres
+*/
+$lang['genre']['genres'] = 'Genuri';
 ?>

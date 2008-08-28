@@ -30,6 +30,8 @@ CREATE TABLE pmmc_mov_tt (
   mov_tt_the VARCHAR(5) COLLATE utf8_unicode_ci NOT NULL,
   mov_tt VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   mov_year YEAR NOT NULL,
+  mov_country VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- almost forgot
+  mov_language VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- almost forgot
   mov_dir VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   mov_wrt VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   mov_tag VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,

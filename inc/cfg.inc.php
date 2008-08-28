@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:45 2008-08-26
+* @version    00:38 2008-08-29
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -35,7 +35,7 @@ $ap_cfg['app_index'] = '';
 */
 //$ap_cfg['app_dir'] = '/opt/lampp/htdocs/pub/temp/phpMyMovieCollection/';
 //$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
-$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
+$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
 /**
 * Database host
 */

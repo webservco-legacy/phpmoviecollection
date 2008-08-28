@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:49 2008-08-28
+* @version    00:35 2008-08-29
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -259,11 +259,11 @@ function pmmc_adm_categ_view_all() {
       if(isset($_POST['cat_del-'.$cnt['page']['cat_id'][$i]])) {
         if(is_file(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i])) {unlink(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i]);}
         $delete = pmmc_qry_exec("DELETE FROM pmmc_mov_cat WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
-        if($delete === true) {$_SESSION['pmmc_msg'] = 27;}
+        if($delete === true) {$_SESSION['pmmc_msg'] = 28;}
       }
       else if(isset($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]) && pmmc_is_int($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]])) {
         $update = pmmc_qry_exec("UPDATE pmmc_mov_cat SET cat_ord = '{$_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]}' WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
-        if($update === true) {$_SESSION['pmmc_msg'] = 28;}
+        if($update === true) {$_SESSION['pmmc_msg'] = 27;}
       }
       $unlock = pmmc_unlock_tables();
     }
@@ -343,13 +343,22 @@ function pmmc_adm_movies_add() {
   $cnt['page']['mov_notes']  = '';
   
   /* genres */
-  $rg = pmmc_qry_exec("SELECT gen_id FROM pmmc_mov_gen");
+  $rg = pmmc_qry_exec("SELECT gen_id, gen_tt FROM pmmc_mov_gen");
   $tg = pmmc_qry_total($rg);
-  $rwg = array();
+  $cnt['page']['genres'] = array();
+  $cnt['page']['genrett'] = array();
   if($tg > 0) {
     for($i=0;$i<$tg;$i++) {
-      $rwg = pmmc_qry_row($rg); /* array cu genres */
-      //$cnt['page']['mov_gen'][$rwg['gen_id']] = 0;
+      $rwg = pmmc_qry_row($rg); /* array cu genres ids*/
+      $cnt['page']['genres'][$i] = $rwg['gen_id'];
+      $cnt['page']['genrett'][$cnt['page']['genres'][$i]] = $rwg['gen_tt'];
+      /** ONLY FOR EDIT
+      $rg2 = pmmc_qry_exec("SELECT rel_id FROM pmmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$i]}' LIMIT 1");
+      $tg2 = pmmc_qry_total($rg2);
+      if($tg2 == 1) {$cnt['page']['genre'][$cnt['page']['genres'][$i]] = 1;}
+      else {$cnt['page']['genre'][$cnt['page']['genres'][$i]] = 0;}
+      */
+      $cnt['page']['genre'][$cnt['page']['genres'][$i]] = 0;
     }
   }
   /* //genres */
@@ -371,11 +380,16 @@ function pmmc_adm_movies_add() {
     if(isset($_POST['mov_notes']))  {$cnt['page']['mov_notes']  = pmmc_filter_input($_POST['mov_notes']);}
     
     /* genres */
-
+    if($tg > 0) {
+      for($j=0;$j<$tg;$j++) {
+        if(isset($_POST['genres_'.$cnt['page']['genres'][$j]])) {$cnt['page']['genre'][$cnt['page']['genres'][$j]] = 1;}
+        else {$cnt['page']['genre'][$cnt['page']['genres'][$j]] = 0;}
+      }
+    }
     /* //genres */
 
     if($cnt['page']['cat_id'] != '' && $cnt['page']['mov_tt'] != '') {
-      $lock    = pmmc_lock_tables(array('pmmc_mov_tt'));
+      $lock    = pmmc_lock_tables(array('pmmc_mov_tt', 'pmmc_mov_rel'));
       $id      = pmmc_next_auto_id('pmmc_mov_tt');
       $mov_pic = '';
       $err = 0;
@@ -402,6 +416,23 @@ function pmmc_adm_movies_add() {
       }
       if($err == 0) {
         $insert  = pmmc_qry_exec("INSERT INTO pmmc_mov_tt (cat_id, mov_pic, mov_imdb, mov_tt_the, mov_tt, mov_year, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_the']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_notes']}', '', '')");
+        /* genres */
+        if($tg > 0) {
+          for($k=0;$k<$tg;$k++) {
+            $ver = pmmc_qry_total(pmmc_qry_exec("SELECT rel_id FROM pmmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1"));
+            if($cnt['page']['genre'][$cnt['page']['genres'][$k]] == 1) {
+              if($ver != 1) {
+                pmmc_qry_exec("INSERT INTO pmmc_mov_rel (mov_id, gen_id) VALUES ('{$id}', '{$cnt['page']['genres'][$k]}')");
+              }
+            }
+            else if($cnt['page']['genre'][$cnt['page']['genres'][$k]] == 0) {
+              if($ver == 1) {
+                pmmc_qry_exec("DELETE FROM pmmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1");
+              }
+            }
+          }
+        }
+        /* //genres */
         $unlock  = pmmc_unlock_tables();
         if($insert === true) {
           if($pic_store == 1) {$_SESSION['pmmc_msg'] = 31;}

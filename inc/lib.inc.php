@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:50 2008-08-26
+* @version    00:37 2008-08-29
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
