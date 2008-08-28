@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    11:18 2008-08-27
+* @version    19:49 2008-08-28
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -142,14 +142,19 @@ function pmmc_adm_categ_add() {
           $pic_ext  = pmmc_pic_ext($pic_type);
           $cat_pic  = 'cat_' . $id . '.' . $pic_ext;
           $pic_path = _APP_DIR . 'var/pic_cat/';
-          move_uploaded_file($pic_tmp_name, $pic_path . $cat_pic);
+          if (@move_uploaded_file($pic_tmp_name, $pic_path . $cat_pic)) {$pic_store = 1;}
+          else {$pic_store = 0;}
         }
       }
       if($err == 0) {
         $cat_ord = pmmc_next_id('pmmc_mov_cat', 'cat_ord');
         $insert  = pmmc_qry_exec("INSERT INTO pmmc_mov_cat (cat_pic, cat_tt, cat_ord, cat_desc) VALUES ('{$cat_pic}', '{$cnt['page']['cat_tt']}', '{$cat_ord}', '{$cnt['page']['cat_desc']}')");
         $unlock  = pmmc_unlock_tables();
-        if($insert === true) {$_SESSION['pmmc_msg'] = 23; header("Location: " . _APP_URL . 'admin/categ/view/' . $id); exit;}
+        if($insert === true) {
+          if($pic_store == 1) {$_SESSION['pmmc_msg'] = 23;}
+          else {$_SESSION['pmmc_msg'] = 29;}
+          header("Location: " . _APP_URL . 'admin/categ/view/' . $id); exit;
+        }
         else {$_SESSION['pmmc_msg'] = 22; header("Location: "._APP_URL . 'admin/categ/add/new'); exit;}
       }
     }
@@ -391,14 +396,20 @@ function pmmc_adm_movies_add() {
           $pic_ext  = pmmc_pic_ext($pic_type);
           $mov_pic  = 'mov_' . $id . '.' . $pic_ext;
           $pic_path = _APP_DIR . 'var/pic_mov/';
-          move_uploaded_file($pic_tmp_name, $pic_path . $mov_pic);
+          if (@move_uploaded_file($pic_tmp_name, $pic_path . $mov_pic)) {$pic_store = 1;}
+          else {$pic_store = 0;}
         }
       }
       if($err == 0) {
         $insert  = pmmc_qry_exec("INSERT INTO pmmc_mov_tt (cat_id, mov_pic, mov_imdb, mov_tt_the, mov_tt, mov_year, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_the']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_notes']}', '', '')");
         $unlock  = pmmc_unlock_tables();
-        if($insert === true) {$_SESSION['pmmc_msg'] = 30; header("Location: " . _APP_URL . 'admin/movies/details/' . $id); exit;}
-        else {$_SESSION['pmmc_msg'] = 29; header("Location: "._APP_URL . 'admin/movies/add/new'); exit;}
+        if($insert === true) {
+          if($pic_store == 1) {$_SESSION['pmmc_msg'] = 31;}
+          else {$_SESSION['pmmc_msg'] = 32;}
+          header("Location: " . _APP_URL . 'admin/movies/details/' . $id);
+          exit;
+        }
+        else {$_SESSION['pmmc_msg'] = 30; header("Location: "._APP_URL . 'admin/movies/add/new'); exit;}
       }
     }
     else {$_SESSION['pmmc_msg'] = 16;}

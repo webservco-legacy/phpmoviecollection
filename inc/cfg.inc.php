@@ -33,6 +33,8 @@ $ap_cfg['app_index'] = '';
 /**
 * Full path to the application - notice the slash at the end
 */
+//$ap_cfg['app_dir'] = '/opt/lampp/htdocs/pub/temp/phpMyMovieCollection/';
+//$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
 $ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
 /**
 * Database host

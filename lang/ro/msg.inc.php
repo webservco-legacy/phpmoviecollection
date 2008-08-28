@@ -89,11 +89,15 @@ $lang['msg'][27]['tt'] = 'Ordinea categoriilor a fost modificat&#259; cu succes!
 $lang['msg'][27]['tp'] = 'ok';
 $lang['msg'][28]['tt'] = 'Una sau mai multe categorii au fost &#351;terse!';
 $lang['msg'][28]['tp'] = 'ok';
+$lang['msg'][29]['tt'] = 'Noua categorie a fost ad&#259;ugat&#259; cu succes, dar stocarea imaginii a e&#351;uat!';
+$lang['msg'][29]['tp'] = 'msg';
 /**
 * Movies
 */
-$lang['msg'][29]['tt'] = 'Eroare intern&#259;. Filmul nu a fost ad&#259;ugat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
-$lang['msg'][29]['tp'] = 'err';
-$lang['msg'][30]['tt'] = 'Noul film a fost ad&#259;ugat cu succes!';
-$lang['msg'][30]['tp'] = 'ok';
+$lang['msg'][30]['tt'] = 'Eroare intern&#259;. Filmul nu a fost ad&#259;ugat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][30]['tp'] = 'err';
+$lang['msg'][31]['tt'] = 'Noul film a fost ad&#259;ugat cu succes!';
+$lang['msg'][31]['tp'] = 'ok';
+$lang['msg'][32]['tt'] = 'Noul film a fost ad&#259;ugat cu succes, dar stocarea imaginii a e&#351;uat!';
+$lang['msg'][32]['tp'] = 'ok';
 ?>
