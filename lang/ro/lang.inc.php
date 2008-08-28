@@ -70,4 +70,10 @@ $lang['categ']['categs']  = 'Categorii';
 $lang['categ']['add']     = 'Ad&#259;ugare Categorie';
 $lang['categ']['view']    = 'Vizualizare Categorie';
 $lang['categ']['viewall'] = 'Vizualizare Categorii';
+/**
+* Movies
+*/
+$lang['movie']['movies'] = 'Filme';
+$lang['movie']['add']    = 'Ad&#259;ugare Film';
+
 ?>
