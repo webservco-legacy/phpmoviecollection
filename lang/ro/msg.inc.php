@@ -100,4 +100,6 @@ $lang['msg'][31]['tt'] = 'Noul film a fost ad&#259;ugat cu succes!';
 $lang['msg'][31]['tp'] = 'ok';
 $lang['msg'][32]['tt'] = 'Noul film a fost ad&#259;ugat cu succes, dar stocarea imaginii a e&#351;uat!';
 $lang['msg'][32]['tp'] = 'ok';
+$lang['msg'][33]['tt'] = 'Nu exist&#259; categorii! &#206;nainte de a putea ad&#259;uga filme, ad&#259;uga&#355;i cel pu&#355;in o categorie!';
+$lang['msg'][33]['tp'] = 'err';
 ?>

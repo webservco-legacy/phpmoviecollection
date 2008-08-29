@@ -27,7 +27,7 @@ CREATE TABLE pmmc_mov_tt (
   cat_id INT(5) UNSIGNED NOT NULL,
   mov_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- adjust here to match default settings
   mov_imdb VARCHAR(8) COLLATE utf8_unicode_ci NOT NULL,
-  mov_tt_the VARCHAR(5) COLLATE utf8_unicode_ci NOT NULL,
+  mov_tt_pre VARCHAR(5) COLLATE utf8_unicode_ci NOT NULL,
   mov_tt VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   mov_year YEAR NOT NULL,
   mov_country VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- almost forgot

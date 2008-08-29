@@ -1,0 +1,159 @@
+<?php
+error_reporting(E_ALL);
+require_once 'browseremulator.class.php';
+
+
+
+
+function pmmc_get_imdb($imdb_id) {
+  $imdb_id = 'http://www.imdb.com/title/tt/'.$imdb_id;
+  $be = new BrowserEmulator(); 
+  $be->addHeaderLine("Referer", "http://example.com/"); 
+  $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip"); 
+  //$be->addPostData("Submit", "OK"); 
+  //$be->addPostData("item", "42"); 
+  //$be->setAuth("admin", "secretpass"); 
+  // also possible: 
+  // $be->setPort(10080); 
+
+  $file = $be->fopen($imdb); /* ct */
+  //$response = $be->getLastResponseHeaders(); 
+
+  $title_the = '{TT_THE}';
+  $title = '{TT}';
+  $year  = '{YR}';
+  $dirline = 0;
+  $dir   = '{DIR}';
+  $wrtline = 0;
+  $wrt = '{WRT}';
+  $tagline = 0;
+  $tag = '{TAG}';
+  $plotline = 0;
+  $plot = '{PLOT}';
+  $castline = 0;
+  $cast = '{CAST}';
+  $i = 0;
+  while ($line[$i] = fgets($file, 10240)) { 
+      /* title+year */
+      if ($i>200 && $i<220) {
+        $res = strpos($line[$i], '<h1>');
+        if ($res !== false ) {
+          $line[$i] = strip_tags($line[$i]);
+          
+          $pattern = array('/\(/', '/\)/');
+          $replace = array('+', '');
+          $line[$i] = preg_replace($pattern, $replace, $line[$i]);
+          $liner = explode("+", $line[$i]);
+          $title = trim($liner[0]);
+          if(strpos($title, 'The ') !== false) {$title = str_replace('The ', '', $title); $title_the = 'The';}
+          $year  = trim($liner[1]);
+        }
+      }
+      /* //title+year */
+      
+      /* director */
+      if($i > 200) {
+        if(trim(strip_tags($line[$i])) == 'Director:' || trim(strip_tags($line[$i])) == 'Directors:') {$dirline = $i+1;}
+        else if($dirline != 0 && $i == $dirline) {
+          $res = strpos($line[$i], '<br/>');
+          if ($res !== false ) {
+            $dirs = explode("<br/>", trim($line[$i]));
+            $dirs = array_diff($dirs, array(''));
+            $dir = implode(", ", $dirs);
+            $dir = preg_replace("|<[^>]+>more</[^>]+>|U", '', $dir);
+            $dir = trim(strip_tags($dir));
+          }
+          else {$dir = trim(strip_tags($line[$i]));}
+        }
+      }
+      /* //director */
+      
+      /* writers */
+      if($i > 150) {
+        $res = strpos($line[$i], '<h5>Writers');
+        if ($res !== false ) {$wrtline = $i+1;}
+        else if($wrtline != 0 && $i == $wrtline) {
+          $wrts = explode("<br/>", trim($line[$i]));
+          $wrts = array_diff($wrts, array(''));
+          $wrts = preg_replace("|\([^\)]+(.*)\)|U", '', $wrts);
+          $wrts = array_unique($wrts);
+          $wrt = implode(", ", $wrts);
+          $wrt = preg_replace("|<[^>]+>more</[^>]+>|U", '', $wrt);
+          $bad = array('  &#38;', '  ...,');
+          $wrt = str_replace($bad, '', $wrt);
+          $wrt = trim(strip_tags($wrt));
+        }
+      }
+      /* //writers */
+      
+      /* tagline */
+      if($i > 150) {
+        $res = strpos($line[$i], '<h5>Tagline:');
+        if ($res !== false ) {$tagline = $i+1;}
+        else if($tagline != 0 && $i == $tagline) {
+          $tag = preg_replace("|<[^>]+>(.*)</[^>]+>|U", '', $line[$i]);
+          $tag = trim(strip_tags($tag));
+        }
+      }
+      /* //tagline */
+      
+      /* plot */
+      if($i > 150) {
+        $res = strpos($line[$i], '<h5>Plot:');
+        if ($res !== false ) {$plotline = $i+1;}
+        else if($plotline != 0 && $i == $plotline) {
+          $plot = preg_replace("|<[^>]+>(.*)</[^>]+>|U", '', $line[$i]);
+          $bad = array('|');
+          $plot = str_replace($bad, '', $plot);
+          $plot = trim(strip_tags($plot));
+        }
+      }
+      /* //plot */
+      
+      /* cast */
+      if($i > 150) {
+        $res = strpos($line[$i], '<div class="headerinline"><h3>Cast');
+        if ($res !== false ) {
+           $pregc = '|... </td><td class="char"><a href="/character/(.*)/">(.*)</a></td></tr>|U';
+           $cast = preg_replace($pregc, '+', $line[$i]);
+           $pregc2 = '|... </td><td class="char">(.*)</td>|U';
+           $cast = preg_replace($pregc2, '+', $cast);
+           $pregc3 = '|<div class="headerinline"><h3>Cast</h3>&nbsp;<small style="position: relative; bottom: 1px">(.*)</small></div>|U';
+           $cast = preg_replace($pregc3, '', $cast);
+           $pregc4 = '|<form action="/character/create" method="post">(.*)</form>|U';
+           $cast = preg_replace($pregc4, '', $cast);
+           $pregc5 = '|<[^>]+>more</[^>]+>|U';
+           $cast = preg_replace($pregc5, '', $cast);
+           $cast = trim(strip_tags($cast));
+           $casts = explode("+", $cast);
+           $tcasts = count($casts);
+           for($j=0;$j<$tcasts;$j++) {$casts[$j] = trim($casts[$j]);}
+           $casts = array_diff($casts, array(''));
+           $casts = array_unique($casts);
+           $cast = implode(", ", $casts);
+        }
+      }
+      /* //cast */
+      
+      $i++;
+  } 
+  fclose($file); 
+}
+
+
+
+
+$imdb = '0360486/'; /* ct */
+$imdb = '0360487/';
+$imdb = '0133093/'; /* mx */
+
+
+echo $title_the . '<br />';
+echo $title . '<br />';
+echo $year . '<br />';
+echo $dir . '<br />';
+echo $wrt . '<br />';
+echo $tag . '<br />';
+echo $plot . '<br />';
+echo $cast . '<br />';
+?>

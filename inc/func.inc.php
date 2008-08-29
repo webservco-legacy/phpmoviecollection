@@ -325,22 +325,34 @@ function pmmc_adm_movies() {
 * @return mixed
 */
 function pmmc_adm_movies_add() {
+  $vcr = pmmc_qry_exec("SELECT cat_id, cat_tt FROM pmmc_mov_cat ORDER BY cat_ord");
+  $vct = pmmc_qry_total($vcr);
+  if($vct > 0) {
+    for($v=0;$v<$vct;$v++) {
+      $vcrw = pmmc_qry_row($vcr);
+      $cnt['page']['categs']['id'][$v] = $vcrw['cat_id'];
+      $cnt['page']['categs']['tt'][$v] = $vcrw['cat_tt'];
+    }
+  }
+  else {$_SESSION['pmmc_msg'] = 33; header("Location: " . _APP_URL . 'admin/categ/add/new'); exit;}
   global $lang;
   $cnt['skin'] = 'admin.movies.add.new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['add'];
   //$_SESSION['pmmc_msg']  = 0;
-  $cnt['page']['cat_id']     = '';
-  $cnt['page']['mov_pic']    = '';
-  $cnt['page']['mov_imdb']   = '';
-  $cnt['page']['mov_tt_the'] = '';
-  $cnt['page']['mov_tt']     = '';
-  $cnt['page']['mov_year']   = '';
-  $cnt['page']['mov_dir']    = '';
-  $cnt['page']['mov_wrt']    = '';
-  $cnt['page']['mov_tag']    = '';
-  $cnt['page']['mov_plot']   = '';
-  $cnt['page']['mov_cast']   = '';
-  $cnt['page']['mov_notes']  = '';
+  $cnt['page']['cat_id']       = '';
+  $cnt['page']['mov_pic']      = '';
+  $cnt['page']['mov_imdb']     = '';
+  $cnt['page']['mov_tt_pre']   = '';
+  $cnt['page']['mov_tt']       = '';
+  $cnt['page']['mov_year']     = '';
+  $cnt['page']['mov_country']  = '';
+  $cnt['page']['mov_language'] = '';
+  $cnt['page']['mov_dir']      = '';
+  $cnt['page']['mov_wrt']      = '';
+  $cnt['page']['mov_tag']      = '';
+  $cnt['page']['mov_plot']     = '';
+  $cnt['page']['mov_cast']     = '';
+  $cnt['page']['mov_notes']    = '';
   
   /* genres */
   $rg = pmmc_qry_exec("SELECT gen_id, gen_tt FROM pmmc_mov_gen");
@@ -367,17 +379,19 @@ function pmmc_adm_movies_add() {
   $res = strpos($egl['message'], 'POST Content-Length of');
   if ($res !== false ) {$_SESSION['pmmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
   else if(isset($_POST['mov_add'])) {
-    if(isset($_POST['cat_id']))     {$cnt['page']['cat_id']     = pmmc_filter_input($_POST['cat_id']);}
-    if(isset($_POST['mov_imdb']))   {$cnt['page']['mov_imdb']   = pmmc_filter_input($_POST['mov_imdb']);}
-    if(isset($_POST['mov_tt_the'])) {$cnt['page']['mov_tt_the'] = pmmc_filter_input($_POST['mov_tt_the']);}
-    if(isset($_POST['mov_tt']))     {$cnt['page']['mov_tt']     = pmmc_filter_input($_POST['mov_tt']);}
-    if(isset($_POST['mov_year']))   {$cnt['page']['mov_year']   = pmmc_filter_input($_POST['mov_year']);}
-    if(isset($_POST['mov_dir']))    {$cnt['page']['mov_dir']    = pmmc_filter_input($_POST['mov_dir']);}
-    if(isset($_POST['mov_wrt']))    {$cnt['page']['mov_wrt']    = pmmc_filter_input($_POST['mov_wrt']);}
-    if(isset($_POST['mov_tag']))    {$cnt['page']['mov_tag']    = pmmc_filter_input($_POST['mov_tag']);}
-    if(isset($_POST['mov_plot']))   {$cnt['page']['mov_plot']   = pmmc_filter_input($_POST['mov_plot']);}
-    if(isset($_POST['mov_cast']))   {$cnt['page']['mov_cast']   = pmmc_filter_input($_POST['mov_cast']);}
-    if(isset($_POST['mov_notes']))  {$cnt['page']['mov_notes']  = pmmc_filter_input($_POST['mov_notes']);}
+    if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmmc_filter_input($_POST['cat_id']);}
+    if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmmc_filter_input($_POST['mov_imdb']);}
+    if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmmc_filter_input($_POST['mov_tt_pre']);}
+    if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmmc_filter_input($_POST['mov_tt']);}
+    if(isset($_POST['mov_year']))     {$cnt['page']['mov_year']     = pmmc_filter_input($_POST['mov_year']);}
+    if(isset($_POST['mov_country']))  {$cnt['page']['mov_country']  = pmmc_filter_input($_POST['mov_country']);}
+    if(isset($_POST['mov_language'])) {$cnt['page']['mov_language'] = pmmc_filter_input($_POST['mov_language']);}
+    if(isset($_POST['mov_dir']))      {$cnt['page']['mov_dir']      = pmmc_filter_input($_POST['mov_dir']);}
+    if(isset($_POST['mov_wrt']))      {$cnt['page']['mov_wrt']      = pmmc_filter_input($_POST['mov_wrt']);}
+    if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmmc_filter_input($_POST['mov_tag']);}
+    if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmmc_filter_input($_POST['mov_plot']);}
+    if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmmc_filter_input($_POST['mov_cast']);}
+    if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmmc_filter_input($_POST['mov_notes']);}
     
     /* genres */
     if($tg > 0) {
@@ -415,7 +429,9 @@ function pmmc_adm_movies_add() {
         }
       }
       if($err == 0) {
-        $insert  = pmmc_qry_exec("INSERT INTO pmmc_mov_tt (cat_id, mov_pic, mov_imdb, mov_tt_the, mov_tt, mov_year, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_the']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_notes']}', '', '')");
+        $idate = date("Y-m-d");
+        $itime = date("H:i:s");
+        $insert  = pmmc_qry_exec("INSERT INTO pmmc_mov_tt (cat_id, mov_pic, mov_imdb, mov_tt_pre, mov_tt, mov_year, mov_country, mov_language, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_pre']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_country']}', '{$cnt['page']['mov_language']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_notes']}', '{$idate}', '{$itime}')");
         /* genres */
         if($tg > 0) {
           for($k=0;$k<$tg;$k++) {

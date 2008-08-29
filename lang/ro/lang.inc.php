@@ -46,6 +46,7 @@ $lang['usr_status'][9] = 'Possible intrusion attempt';
 */
 $lang['pmmc']['order']    = 'Ordine';
 $lang['pmmc']['pic']      = 'Imagine';
+$lang['pmmc']['ttpre']    = 'Prefix Titlu';
 $lang['pmmc']['tt']       = 'Titlu';
 $lang['pmmc']['desc']     = 'Descriere';
 $lang['pmmc']['items']    = 'Articole';
@@ -53,6 +54,7 @@ $lang['pmmc']['add']      = 'Ad&#259;ugare';
 $lang['pmmc']['mod']      = 'Modificare';
 $lang['pmmc']['del']      = '&#350;tergere';
 $lang['pmmc']['save_mod'] = 'Salvare modific&#259;ri';
+$lang['pmmc']['select']   = 'Selecta&#355;i';
 /**
 * Users
 */
@@ -66,6 +68,7 @@ $lang['adm']['adm'] = 'Administrare';
 /**
 * Categories
 */
+$lang['categ']['categ']  = 'Categorie';
 $lang['categ']['categs']  = 'Categorii';
 $lang['categ']['add']     = 'Ad&#259;ugare Categorie';
 $lang['categ']['view']    = 'Vizualizare Categorie';

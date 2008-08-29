@@ -47,16 +47,19 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #pmmc_captcha_img {width: 70px; height: 18px; margin: 0px; padding: 0px; vertical-align: text-bottom;}
 #login_submit {width: 50px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
 /* ********** ********** ********** USER AREA END ********** ********** ********** */
-label                   {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
-label.genres     {float: none; vertical-align: middle;}
-label.required {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; color: #990000; font-weight: normal;}
-input                   {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px;}
-input.genres     {border: 0px; margin: 0px; vertical-align: middle;}
-.genrehold      {float: left; width: 110px; padding: 3px 0px 3px 0px;}
-.clear              {clear: left;}
-.msg                  {color: #000099; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
-.ok                    {color: #009900; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
-.err                  {color: #990000; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+label                           {float: left; width: 120px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+label.genres             {float: none; vertical-align: middle;}
+label.genres:hover {float: none; vertical-align: middle; color: Highlight;}
+label.required         {float: left; width: 120px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; color: #990000; font-weight: normal;}
+input                           {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px;}
+input:focus               {background-color: Highlight;}
+select                         {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px;}
+input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
+.genrehold              {float: left; width: 110px; padding: 3px 0px 3px 0px;}
+.clear                      {clear: left;}
+.msg                          {color: #000099; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+.ok                            {color: #009900; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+.err                          {color: #990000; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
 /* ********** ********** ********** CATEG AREA START ********** ********** ********** */
 .cat_adm_hord {width: 55px; background-color: #DDDDDD; border: 0px; padding: 3px; text-align: center;}
 .cat_adm_himg {width: 55px; background-color: #DDDDDD; border: 0px; padding: 3px; text-align: center;}
