@@ -2,7 +2,7 @@
 <div style="float: right">
 <?php echo pmmc_image_thumb($cnt['cat_pic'], 'var/pic_cat/', $cnt['cat_tt']); ?>
 </div>
-<form enctype="multipart/form-data" id="categ_add_form" name="categ_add_form" action="" method="post">
+<form enctype="multipart/form-data" id="categ_mod_form" name="categ_mod_form" action="" method="post">
 <div class="clear">
 <label for="cat_tt" class="required"><?php echo $lang['pmmc']['tt']; ?></label>
 <input id="cat_tt" name="cat_tt" type="text" size="30" maxlength="50" value="<?php echo $cnt['cat_tt']; ?>" />

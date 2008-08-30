@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:35 2008-08-29
+* @version    09:40 2008-08-30
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -55,6 +55,11 @@ $lang['pmmc']['mod']      = 'Modificare';
 $lang['pmmc']['del']      = '&#350;tergere';
 $lang['pmmc']['save_mod'] = 'Salvare modific&#259;ri';
 $lang['pmmc']['select']   = 'Selecta&#355;i';
+$lang['pmmc']['year']     = 'An';
+$lang['pmmc']['country']  = '&#354;ara';
+$lang['pmmc']['language'] = 'Limba';
+$lang['pmmc']['notes']    = 'Noti&#355;e';
+
 /**
 * Users
 */
@@ -68,7 +73,7 @@ $lang['adm']['adm'] = 'Administrare';
 /**
 * Categories
 */
-$lang['categ']['categ']  = 'Categorie';
+$lang['categ']['categ']   = 'Categorie';
 $lang['categ']['categs']  = 'Categorii';
 $lang['categ']['add']     = 'Ad&#259;ugare Categorie';
 $lang['categ']['view']    = 'Vizualizare Categorie';
@@ -76,10 +81,24 @@ $lang['categ']['viewall'] = 'Vizualizare Categorii';
 /**
 * Movies
 */
-$lang['movie']['movies'] = 'Filme';
-$lang['movie']['add']    = 'Ad&#259;ugare Film';
+$lang['movie']['movies']   = 'Filme';
+$lang['movie']['details']  = 'Detalii Film';
+$lang['movie']['add']      = 'Ad&#259;ugare Film';
+$lang['movie']['imdb']     = 'Id IMDb';
+$lang['movie']['aka']      = 'Titluri alternative';
+$lang['movie']['director'] = 'Regizor';
+$lang['movie']['writer']   = 'Scenarist';
+$lang['movie']['tagline']  = 'Tagline';
+$lang['movie']['plot']     = 'Sinopsis';
+$lang['movie']['cast']     = 'Distribu&#355;ia';
+
 /**
 * Genres
 */
 $lang['genre']['genres'] = 'Genuri';
+/**
+* IMDb
+*/
+$lang['imdb']['url']   = 'URL IMDb';
+$lang['imdb']['fetch'] = 'Preluare date';
 ?>

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    11:06 2008-08-27
+* @version    09:40 2008-08-30
 * @since      23:17 2008-08-25
 * @access     public
 * @package    phpMyMovieCollection
@@ -62,7 +62,7 @@ $lang['msg'][15]['tt'] = 'Eroare la procesarea imaginii. Dimensiunea fi&#351;ier
 $lang['msg'][15]['tp'] = 'err';
 $lang['msg'][16]['tt'] = 'Eroare la procesarea formularului. Completa&#355;i toate c&#226;mpurile obligatorii.';
 $lang['msg'][16]['tp'] = 'err';
-$lang['msg'][17]['tt'] = 'Eroare la procsarea formularului. Dimensiunea fi&#351;ierului trimis este prea mare. Formularul a fost resetat.';
+$lang['msg'][17]['tt'] = 'Eroare la procEsarea formularului. Dimensiunea fi&#351;ierului trimis este prea mare. Formularul a fost resetat.';
 $lang['msg'][17]['tp'] = 'err';
 $lang['msg'][18]['tt'] = '';
 $lang['msg'][18]['tp'] = 'err';
@@ -91,15 +91,25 @@ $lang['msg'][28]['tt'] = 'Una sau mai multe categorii au fost &#351;terse!';
 $lang['msg'][28]['tp'] = 'ok';
 $lang['msg'][29]['tt'] = 'Noua categorie a fost ad&#259;ugat&#259; cu succes, dar stocarea imaginii a e&#351;uat!';
 $lang['msg'][29]['tp'] = 'msg';
+$lang['msg'][30]['tt'] = 'Categoria a fost modificat&#259; cu succes, dar stocarea imaginii a e&#351;uat!!';
+$lang['msg'][30]['tp'] = 'msg';
 /**
 * Movies
 */
-$lang['msg'][30]['tt'] = 'Eroare intern&#259;. Filmul nu a fost ad&#259;ugat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
-$lang['msg'][30]['tp'] = 'err';
-$lang['msg'][31]['tt'] = 'Noul film a fost ad&#259;ugat cu succes!';
-$lang['msg'][31]['tp'] = 'ok';
-$lang['msg'][32]['tt'] = 'Noul film a fost ad&#259;ugat cu succes, dar stocarea imaginii a e&#351;uat!';
+$lang['msg'][31]['tt'] = 'Eroare intern&#259;. Filmul nu a fost ad&#259;ugat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][31]['tp'] = 'err';
+$lang['msg'][32]['tt'] = 'Noul film a fost ad&#259;ugat cu succes!';
 $lang['msg'][32]['tp'] = 'ok';
-$lang['msg'][33]['tt'] = 'Nu exist&#259; categorii! &#206;nainte de a putea ad&#259;uga filme, ad&#259;uga&#355;i cel pu&#355;in o categorie!';
-$lang['msg'][33]['tp'] = 'err';
+$lang['msg'][33]['tt'] = 'Noul film a fost ad&#259;ugat cu succes, dar stocarea imaginii a e&#351;uat!';
+$lang['msg'][33]['tp'] = 'msg';
+$lang['msg'][34]['tt'] = 'Nu exist&#259; categorii! &#206;nainte de a putea ad&#259;uga filme, ad&#259;uga&#355;i cel pu&#355;in o categorie!';
+$lang['msg'][34]['tp'] = 'err';
+$lang['msg'][35]['tt'] = 'S-a &#238;ncercat preluarea datelor de la IMDb';
+$lang['msg'][35]['tp'] = 'msg';
+$lang['msg'][36]['tt'] = 'Filmul a fost modificat cu succes!';
+$lang['msg'][36]['tp'] = 'ok';
+$lang['msg'][37]['tt'] = 'Filmul a fost modificat cu succes, dar stocarea imaginii a e&#351;uat!';
+$lang['msg'][37]['tp'] = 'msg';
+$lang['msg'][38]['tt'] = 'Eroare intern&#259;. Filmul nu a fost modificat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][38]['tp'] = 'err';
 ?>

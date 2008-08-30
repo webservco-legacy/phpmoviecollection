@@ -1,4 +1,4 @@
-<?
+<?php
 /***************************************************************************
 
 Browser Emulating file functions v2.0.1
@@ -25,6 +25,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 
 Changelog:
+
+18:37 2008-08-29 Radu Maier: changed <? to <?php to fix short_open_tags issue
 
 v2.0.1
 	fixed authentication bug
