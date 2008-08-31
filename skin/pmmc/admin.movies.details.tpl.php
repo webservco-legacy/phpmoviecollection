@@ -106,7 +106,11 @@ if($tc > 0) {
 </div>
 
 <div class="clear">
-<?php echo $lang['genre']['genres']; ?><br />
+<div class="genrehold, genreholdtt">
+<?php echo $lang['genre']['genres']; ?>
+</div>
+</div>
+<div class="clear">
 <?php
 $tg = count($cnt['genres']);
 for($i=0;$i<$tg;$i++) {

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    09:40 2008-08-30
+* @version    20:01 2008-08-31
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -59,7 +59,13 @@ $lang['pmmc']['year']     = 'An';
 $lang['pmmc']['country']  = '&#354;ara';
 $lang['pmmc']['language'] = 'Limba';
 $lang['pmmc']['notes']    = 'Noti&#355;e';
-
+$lang['pmmc']['page']     = 'Pagina';
+$lang['pmmc']['of']       = 'din';
+$lang['pmmc']['sortby']   = 'Sortare dup&#259;';
+$lang['pmmc']['order']    = 'Ordonare';
+$lang['pmmc']['ordera']   = 'Ascendent&#259;';
+$lang['pmmc']['orderd']   = 'Descendent&#259;';
+$lang['pmmc']['ok']       = 'Ok';
 /**
 * Users
 */
@@ -73,14 +79,16 @@ $lang['adm']['adm'] = 'Administrare';
 /**
 * Categories
 */
-$lang['categ']['categ']   = 'Categorie';
-$lang['categ']['categs']  = 'Categorii';
-$lang['categ']['add']     = 'Ad&#259;ugare Categorie';
-$lang['categ']['view']    = 'Vizualizare Categorie';
-$lang['categ']['viewall'] = 'Vizualizare Categorii';
+$lang['categ']['categ']     = 'Categorie';
+$lang['categ']['categs']    = 'Categorii';
+$lang['categ']['add']       = 'Ad&#259;ugare Categorie';
+$lang['categ']['view']      = 'Vizualizare Categorie';
+$lang['categ']['viewall']   = 'Vizualizare Categorii';
+$lang['categ']['allcategs'] = 'Toate Categoriile';
 /**
 * Movies
 */
+$lang['movie']['movie']    = 'Film';
 $lang['movie']['movies']   = 'Filme';
 $lang['movie']['details']  = 'Detalii Film';
 $lang['movie']['add']      = 'Ad&#259;ugare Film';
@@ -91,7 +99,7 @@ $lang['movie']['writer']   = 'Scenarist';
 $lang['movie']['tagline']  = 'Tagline';
 $lang['movie']['plot']     = 'Sinopsis';
 $lang['movie']['cast']     = 'Distribu&#355;ia';
-
+$lang['movie']['list']     = 'Lista filme';
 /**
 * Genres
 */
@@ -99,6 +107,33 @@ $lang['genre']['genres'] = 'Genuri';
 /**
 * IMDb
 */
+$lang['imdb']['imdb']  = 'IMDb';
 $lang['imdb']['url']   = 'URL IMDb';
 $lang['imdb']['fetch'] = 'Preluare date';
+/**
+* Settings
+*/
+$lang['set']['sets'] = 'Set&#259;ri';
+$lang['set']['lang'] = 'Limba implicit&#259; a aplica&#355;iei';
+$lang['set']['skin'] = 'Skin-ul implicit al aplica&#355;iei';
+$lang['set']['pcat'] = 'Marimea maxima a imaginilor categoriilor';
+$lang['set']['pmov'] = 'Marimea maxima a imaginilor filmelor';
+/**
+* Users
+*/
+$lang['usr']['usrs']   = 'Utilizatori';
+$lang['usr']['add']    = 'Ad&#259;ugare Utilizator';
+$lang['usr']['name']   = 'Alias';
+$lang['usr']['fname']  = 'Prenume';
+$lang['usr']['lname']  = 'Nume';
+$lang['usr']['mail1']   = 'E-mail';
+$lang['usr']['mail2']   = 'E-mail din nou';
+$lang['usr']['pass1']  = 'Parola';
+$lang['usr']['pass2']  = 'Parola din nou';
+$lang['usr']['level']  = 'Nivel de acces';
+$lang['usr']['status'] = 'Stare';
+/**
+* Users
+*/
+$lang['skin']['skin']   = 'Skin';
 ?>

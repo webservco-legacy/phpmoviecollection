@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:37 2008-08-29
+* @version    20:01 2008-08-31
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -193,6 +193,16 @@ function pmmc_seo_urls() {
       for($i=1;$i<=count($raw_data);$i+=2) {
         $_GET[$raw_data[$i]] = $raw_data[$i+1];
       }
+      if(isset($_SERVER['REDIRECT_QUERY_STRING'])) {
+        $new_qs = trim($_SERVER['REDIRECT_QUERY_STRING']);
+        $new_qs = str_replace('&', '/', $new_qs);
+        $new_qs = str_replace('=', '/', $new_qs);
+        $request_uri = str_replace('?'.$_SERVER['REDIRECT_QUERY_STRING'], '/'.$new_qs, $_SERVER['REQUEST_URI']);
+        if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] != '') {$server = $_SERVER['HTTP_HOST'];}
+        else if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != '') {$server = $_SERVER['SERVER_NAME'];}
+        $location = 'http://' . $server . $request_uri;
+        header("Location: " . $location);
+      }
     }
     // if total number of values doesn't divide by 2, the request is invalid so we redirect to index
     else {
@@ -367,11 +377,11 @@ function pmmc_qry_aff($result, $db_type=0) {
   return $aff;
 }
 /**
-* Get user settings from database
+* Get variable settings from database
 *
 * @return mixed
 */
-function pmmc_cfg_usr() {
+function pmmc_cfg_var() {
   $r = pmmc_qry_exec("SELECT cfg_set, cfg_val FROM pmmc_set_cfg");
   $t = pmmc_qry_total($r);
   for($i=1; $i<=$t; $i++) {
@@ -381,6 +391,16 @@ function pmmc_cfg_usr() {
     */
     define('_APP_'.$rw['cfg_set'], strval($rw['cfg_val']));
   }
+}
+/**
+* Store variable settings in database
+*
+* @param string setting
+* @param string value
+* @return boolean result
+*/
+function pmmc_cfg_var_set($set, $val) {
+  return pmmc_qry_exec("UPDATE pmmc_set_cfg SET cfg_val = '{$val}' WHERE cfg_set = '{$set}' LIMIT 1");
 }
 /**
 * Lock tables for writing
@@ -496,6 +516,7 @@ function pmmc_session() {
     * Default skin
     */
     $_SESSION['pmmc_usr_skin']  = _APP_DIR . 'skin/' . _APP_SKIN . '/';
+    $_SESSION['pmmc_usr_skin_url']  = _APP_URL . 'skin/' . _APP_SKIN . '/';
     /**
     * Reset user movie list
     */
@@ -603,6 +624,7 @@ function pmmc_usr_login() {
                 * User skin
                 */
                 $_SESSION['pmmc_usr_skin']  = _APP_DIR . 'skin/' . $rw['usr_skin'] . '/';
+                $_SESSION['pmmc_usr_skin_url']  = _APP_URL . 'skin/' . $rw['usr_skin'] . '/';
                 /**
                 * Default message
                 */
@@ -740,6 +762,29 @@ function pmmc_filter_input($input) {
   return mysql_real_escape_string(trim($input));
 }
 /**
+* Filter user input for searching
+*
+* @return string filtered input
+*/
+function pmmc_filter_input_search($input) {
+  $input  = pmmc_filter_input($input);
+  $common = array(' the ', ' and ', ' or ');
+  $input  = str_replace($common, ' ', $input);
+  // split by words
+  $words = preg_split("/[\s,]+/", $input);
+  // get rid of duplicates
+  $words = array_unique($words);
+  // get rid of short words 1, 2 chars
+  $words = preg_replace("/^([a-z]{1,2})$/", '', $words);
+  // remove some unwanted chars
+  $words = preg_replace("/^([.']{1,})$/", '', $words);
+  // get rid of empty words
+  $words = array_diff($words, array(''));
+  // create string
+  $input = implode('|', $words);
+  return $input;
+}
+/**
 * Check for a valid email address
 *
 * @return bool result
@@ -773,6 +818,15 @@ function pmmc_pic_ext($pic_type) {
   }
   return $ext;
 }
+/**
+* Create an image link with thumbnail
+*
+* @param string image
+* @param string path to image
+* @param string image title
+*
+* @return string link
+*/
 function pmmc_image_thumb($img, $path, $title) {
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
@@ -787,5 +841,45 @@ function pmmc_image_thumb($img, $path, $title) {
     $link = '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" title="'.$title.'" alt="'.$title.'" />';
   }
   return $link;
+}
+/**
+* Create a query search expression from user input
+*
+* @param integer search type
+* @param string user input
+*
+* @return string query search expression
+*/
+function pmmc_queryfill_search($searchtype, $input) {
+  $query_fill = "IS NOT NULL";
+  if($searchtype == 1)      {$input = pmmc_filter_input($input);        $query_fill = "= '{$input}'";}
+  else if($searchtype == 2) {$input = pmmc_filter_input($input);        $query_fill = "LIKE '%{$input}%'";}
+  else if($searchtype == 3) {$input = pmmc_filter_input_search($input); $query_fill = "REGEXP '{$input}'";}
+  return $query_fill;
+}
+/**
+* List subdirectories within a certain directory
+*
+* @param string directory to scan
+*
+* @return array subdirectory list
+*/
+function pmmc_lsdir($dir) {
+  $subdirs = NULL;
+  $i = '0';
+  if (is_dir($dir)) {
+    if ($dh = opendir($dir)) {
+      while (($file = readdir($dh)) !== false) {
+        if ($file != "." && $file != "..") {
+          if (filetype($dir . $file) == 'dir') {
+            $subdirs[$i] = $file;
+            $i++;
+          }
+        }
+      }
+    closedir($dh);
+    }
+  }
+  return $subdirs;
 }
 ?>

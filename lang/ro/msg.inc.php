@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    09:40 2008-08-30
+* @version    20:01 2008-08-31
 * @since      23:17 2008-08-25
 * @access     public
 * @package    phpMyMovieCollection
@@ -112,4 +112,22 @@ $lang['msg'][37]['tt'] = 'Filmul a fost modificat cu succes, dar stocarea imagin
 $lang['msg'][37]['tp'] = 'msg';
 $lang['msg'][38]['tt'] = 'Eroare intern&#259;. Filmul nu a fost modificat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
 $lang['msg'][38]['tp'] = 'err';
+$lang['msg'][39]['tt'] = 'Nu s-au g&#259;sit filme dupa criteriile selectate!';
+$lang['msg'][39]['tp'] = 'err';
+$lang['msg'][40]['tt'] = 'Unul sau mai multe filme au fost &#351;terse!';
+$lang['msg'][40]['tp'] = 'ok';
+/**
+* Settings
+*/
+$lang['msg'][41]['tt'] = 'Setarile au fost salvate!';
+$lang['msg'][41]['tp'] = 'ok';
+$lang['msg'][42]['tt'] = 'Eroare intern&#259;. Una sau mai multe set&#259;ri nu au fost salvate. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][42]['tp'] = 'err';
+/**
+* Users
+*/
+$lang['msg'][43]['tt'] = 'Noul utilizator a fost ad&#259;ugat cu succes!';
+$lang['msg'][43]['tp'] = 'ok';
+$lang['msg'][44]['tt'] = 'Eroare intern&#259;. Utilizatorul nu a fost ad&#259;ugat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][44]['tp'] = 'err';
 ?>

@@ -4,7 +4,7 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
   $tc = count($cnt['cat_id']);
   if($tc > 0) {
 ?>
-<form enctype="multipart/form-data" id="categ_add_form" name="categ_add_form" action="" method="post">
+<form enctype="multipart/form-data" id="categs_mod_form" name="categs_mod_form" action="" method="post">
 <table border="0" cellspacing="1">
 <tr>
   <td class="cat_adm_hord">

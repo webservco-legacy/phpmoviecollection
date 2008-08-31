@@ -3,8 +3,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="content-language" content="en" />
-  <link rel="icon" type="image/ico" href="<?php echo _APP_URL . 'skin/' . _APP_SKIN . '/'; ?>favicon.ico" />
-  <link rel="shortcut icon" type="image/ico" href="<?php echo _APP_URL . 'skin/' . _APP_SKIN . '/'; ?>favicon.ico" />
+  <link rel="icon" type="image/ico" href="<?php echo $_SESSION['pmmc_usr_skin_url']; ?>favicon.ico" />
+  <link rel="shortcut icon" type="image/ico" href="<?php echo $_SESSION['pmmc_usr_skin_url']; ?>favicon.ico" />
   <title><?php echo _APP_NAME . _APP_SEP . $title; ?></title>
   <meta name="title" content="Title" />
   <meta name="subject" content="Subject" />
@@ -18,7 +18,7 @@
   <meta name="distribution" content="Global" />
   <meta name="robots" content="Index, Follow" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <link rel="stylesheet" type="text/css" charset="utf-8" href="<?php echo _APP_URL . 'skin/' . _APP_SKIN . '/'; ?>style.css" />
+  <link rel="stylesheet" type="text/css" charset="utf-8" href="<?php echo $_SESSION['pmmc_usr_skin_url']; ?>style.css" />
 </head>
 <body>
   <div id="layout">
@@ -63,8 +63,8 @@
   <?php //print_r($_GET); ?>
   <?php //print_r($_SERVER); ?>
   <?php //print_r($_FILES); ?>
-  <?php print_r($_POST); ?>
-  <?php print_r(error_get_last()); ?>
+  <?php //print_r($_POST); ?>
+  <?php //print_r(error_get_last()); ?>
   </pre>
 </body>
 </html>

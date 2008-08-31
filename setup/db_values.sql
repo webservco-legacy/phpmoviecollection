@@ -72,6 +72,10 @@ TRUNCATE TABLE pmmc_set_cfg;
 INSERT INTO pmmc_set_cfg (cfg_set, cfg_val) VALUES ('LANG', 'ro');
 -- DEFAULT SKIN
 INSERT INTO pmmc_set_cfg (cfg_set, cfg_val) VALUES ('SKIN', 'pmmc');
+-- CATEGOY PICTURE MAX SIZE
+INSERT INTO pmmc_set_cfg (cfg_set, cfg_val) VALUES ('PCAT', '80');
+-- MOVIE PICTURE MAX SIZE
+INSERT INTO pmmc_set_cfg (cfg_set, cfg_val) VALUES ('PMOV', '80');
 -- --------------------------------------------------------------------------------
 -- USER LISTS
 -- --------------------------------------------------------------------------------

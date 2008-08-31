@@ -23,15 +23,15 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #hdr {height: 80px; overflow: auto; padding: 0px 0px 0px 0px; border-left: 1px solid #333333;}
 * html #hdr { margin-bottom: -2px;}
 #usr {text-align: right; padding: 3px 3px 3px 0px; border-bottom: 1px solid #333333;}
-#msg {height: 20px; padding: 5px 0px 0px 255px; border-top: 1px solid #333333;}
+#msg {height: 20px; padding: 5px 0px 0px 205px; border-top: 1px solid #333333;}
 /* ********** ********** ********** HEADER AREA END ********** ********** ********** */
 /* ********** ********** ********** CONTENT AREA START ********** ********** ********** */
-#cnt_left {float: left; width: 200px; padding: 5px 5px 5px 5px; overflow: auto;}
+#cnt_left {float: left; width: 190px; padding: 5px 5px 5px 5px; overflow: auto;}
 * html #cnt_left {margin-right: -3px;}
-#cnt_right {float: right; width: 200px; padding: 5px 5px 5px 5px; overflow: auto;}
+#cnt_right {float: right; width: 190px; padding: 5px 5px 5px 5px; overflow: auto;}
 * html #cnt_right {margin-left: -3px;}
-#cnt_page {margin-left: 210px; margin-right: 210px; min-height: 400px; padding: 5px 10px 5px 10px; border-left: 1px solid #333333; border-right: 1px solid #333333;}
-* html #cnt_page {height: 400px; margin-left: 207px; margin-right: 207px;}
+#cnt_page {margin-left: 200px; margin-right: 200px; min-height: 400px; padding: 5px 10px 5px 10px; border-left: 1px solid #333333; border-right: 1px solid #333333;}
+* html #cnt_page {height: 400px; margin-left: 197px; margin-right: 197px;}
 /* ********** ********** ********** CONTENT AREA END ********** ********** ********** */
 /* ********** ********** ********** FOOTER AREA START ********** ********** ********** */
 #ftr {padding: 10px 0px 10px 0px;}
@@ -47,29 +47,46 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #pmmc_captcha_img {width: 70px; height: 18px; margin: 0px; padding: 0px; vertical-align: text-bottom;}
 #login_submit {width: 50px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
 /* ********** ********** ********** USER AREA END ********** ********** ********** */
-label                           {float: left; width: 120px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+label                           {float: left; width: 170px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
 label.genres             {float: none; vertical-align: middle;}
 label.genres:hover {float: none; vertical-align: middle; color: Highlight;}
-label.required         {float: left; width: 120px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; color: #990000; font-weight: normal;}
+label.required         {float: left; width: 170px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; color: #990000; font-weight: normal;}
 input                           {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px;}
 input:focus               {background-color: Highlight;}
 select                         {font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px;}
 input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
-.genrehold              {float: left; width: 110px; padding: 3px 0px 3px 0px;}
+.genrehold              {float: left; width: 119px; padding: 2px 0px 2px 0px;}
+.genreholdtt          {float: left; width: 170px; padding: 5px 5px 5px 0px; text-align: right;}
 .clear                      {clear: left;}
 .msg                          {color: #000099; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
 .ok                            {color: #009900; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
 .err                          {color: #990000; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
 /* ********** ********** ********** CATEG AREA START ********** ********** ********** */
-.cat_adm_hord {width: 55px; background-color: #DDDDDD; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_himg {width: 55px; background-color: #DDDDDD; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_htt   {width: 180px; background-color: #DDDDDD; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_hitm {width: 55px; background-color: #DDDDDD; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_hdel {width: 55px; background-color: #DDDDDD; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_cord {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_cimg {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_ctt   {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_citm {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_cdel {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
-.cat_adm_subm {width: 400px; background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
+.cat_adm_hord {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_himg {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_htt   {width: 251px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_hitm {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_hdel {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_cord {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_cimg {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_ctt   {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_citm {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_cdel {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_subm {width: 400px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 /* ********** ********** ********** CATEG AREA END ********** ********** ********** */
+/* ********** ********** ********** MOVIE AREA START ********** ********** ********** */
+.mov_adm_hmovie {width: 420px; background-color: #DDDDDD; border: 0px; padding: 0px; text-align: center;}
+.mov_adm_hdel     {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_cmovie {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
+.mov_adm_img       {width: 51px; height: 51px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_cat       {width: 306px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_tt         {width: 306px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_year     {width: 51px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_imdb     {width: 51px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_cdel     {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
+.mov_adm_subm     {width: 475px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+.mov_adm_nav       {width: 475px; background-color: #DDDDDD; border: 0px; padding: 0px; text-align: center;}
+.mov_adm_fsort   {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+.mov_adm_ford     {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+.mov_adm_fok       {width: 75px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+/* ********** ********** ********** MOVIE AREA END ********** ********** ********** */

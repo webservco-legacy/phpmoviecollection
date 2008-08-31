@@ -47,9 +47,9 @@ pmmc_seo_urls();
 */
 $pmmc_dbconn = pmmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
 /**
-* Set user configuration options
+* Set variable configuration options (stored in database)
 */
-pmmc_cfg_usr();
+pmmc_cfg_var();
 /**
 * Initialize session
 */

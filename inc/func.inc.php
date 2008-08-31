@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    09:40 2008-08-30
+* @version    20:01 2008-08-31
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -54,16 +54,20 @@ function pmmc_admin() {
       /**
       * Categories administration
       */
-      case 'categ'  : {$cnt = pmmc_adm_categ(); break;}
+      case 'categ'    : {$cnt = pmmc_adm_categ(); break;}
       /**
       * Movies administration
       */
-      case 'movies' : {$cnt = pmmc_adm_movies(); break;}
+      case 'movies'   : {$cnt = pmmc_adm_movies(); break;}
+      /**
+      * Application settings
+      */
+      case 'settings' : {$cnt = pmmc_adm_settings(); break;}
       /**
       * Users administration
       */
-      case 'users'  : {break;}
-      default       : {header("Location: "._APP_URL); exit; break;}
+      case 'users'    : {$cnt = pmmc_adm_usr(); break;}
+      default         : {header("Location: "._APP_URL); exit; break;}
     }
   }
   else {header("Location: "._APP_URL); exit;}
@@ -109,7 +113,7 @@ function pmmc_adm_categ_add() {
   global $lang;
   $cnt['skin'] = 'admin.categ.add.new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['add'];
-  //$_SESSION['pmmc_msg']  = 21;
+
   $cnt['page']['cat_pic']  = '';
   $cnt['page']['cat_tt']   = '';
   $cnt['page']['cat_desc'] = '';
@@ -261,17 +265,19 @@ function pmmc_adm_categ_view_all() {
       $items = pmmc_qry_exec("SELECT COUNT(mov_id) FROM pmmc_mov_tt WHERE cat_id = '{$cnt['page']['cat_id'][$i]}'");
       $cnt['page']['cat_items'][$i] = pmmc_qry_result($items);
       
-      $lock = pmmc_lock_tables(array('pmmc_mov_cat'));
-      if(isset($_POST['cat_del-'.$cnt['page']['cat_id'][$i]])) {
-        if(is_file(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i])) {unlink(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i]);}
-        $delete = pmmc_qry_exec("DELETE FROM pmmc_mov_cat WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
-        if($delete === true) {$_SESSION['pmmc_msg'] = 28;}
-      }
-      else if(isset($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]) && pmmc_is_int($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]])) {
-        $update = pmmc_qry_exec("UPDATE pmmc_mov_cat SET cat_ord = '{$_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]}' WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
-        if($update === true) {$_SESSION['pmmc_msg'] = 27;}
-      }
-      $unlock = pmmc_unlock_tables();
+      if(isset($_POST['cat_save_mod'])) {
+        $lock = pmmc_lock_tables(array('pmmc_mov_cat'));
+        if(isset($_POST['cat_del-'.$cnt['page']['cat_id'][$i]])) {
+          if(is_file(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i])) {unlink(_APP_DIR.'var/pic_cat/'.$cnt['page']['cat_pic'][$i]);}
+          $delete = pmmc_qry_exec("DELETE FROM pmmc_mov_cat WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
+          if($delete === true) {$_SESSION['pmmc_msg'] = 28;}
+        }
+        else if(isset($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]) && pmmc_is_int($_POST['cat_ord-'.$cnt['page']['cat_id'][$i]])) {
+          $update = pmmc_qry_exec("UPDATE pmmc_mov_cat SET cat_ord = '{$_POST['cat_ord-'.$cnt['page']['cat_id'][$i]]}' WHERE cat_id = '{$cnt['page']['cat_id'][$i]}' LIMIT 1");
+          if($update === true) {$_SESSION['pmmc_msg'] = 27;}
+        }
+        $unlock = pmmc_unlock_tables();
+        }
     }
     if(isset($_POST['cat_save_mod'])) {
       header("Location: " . _APP_URL . 'admin/categ/view/all');
@@ -295,22 +301,7 @@ function pmmc_adm_categ_view_all() {
 */
 function pmmc_adm_movies() {
   $cnt = NULL;
-  if(isset($_GET['categ']) && $_GET['categ'] != '') {
-    if($_GET['categ'] == 'all') {
-      /**
-      * View all movies
-      */
-      $cnt = pmmc_adm_movies_categ_all();
-    }
-    else if(pmmc_is_int($_GET['categ'])) {
-      /**
-      * View movies from a certain category
-      */
-      $cnt = pmmc_adm_movies_categ_one($_GET['categ']);
-    }
-    else {header("Location: "._APP_URL); exit;}
-  }
-  else if(isset($_GET['details']) && pmmc_is_int($_GET['details'])) {
+  if(isset($_GET['details']) && pmmc_is_int($_GET['details'])) {
     /**
     * View (edit) one title
     */
@@ -322,7 +313,8 @@ function pmmc_adm_movies() {
     */
     $cnt = pmmc_adm_movies_add();
   }
-  else {header("Location: "._APP_URL); exit;}
+  //else {header("Location: "._APP_URL); exit;}
+  else {$cnt = pmmc_adm_movies_view();}
   return $cnt;
 }
 /**
@@ -683,6 +675,281 @@ function pmmc_adm_movies_detail($id) {
         }
         else {$_SESSION['pmmc_msg'] = 38; header("Location: "._APP_URL . 'admin/movies/details/' . $id); exit;}
       }
+    }
+    else {$_SESSION['pmmc_msg'] = 16;}
+  }
+  return $cnt;
+}
+/**
+* Movie list
+*
+* @return mixed
+*/
+function pmmc_adm_movies_view() {
+  global $lang;
+  $cnt['skin'] = 'admin.movies.list.tpl.php';
+  $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
+  
+  // categories
+  $rc = pmmc_qry_exec("SELECT * FROM pmmc_mov_cat ORDER BY cat_ord ASC");
+  $tc = pmmc_qry_total($rc);
+  if($tc > 0) {
+    for($j=1;$j<=$tc;$j++) {
+      $rwc = pmmc_qry_row($rc);
+      $cnt['page']['cat_tt'][$rwc['cat_id']] = $rwc['cat_tt'];
+    }
+  }
+  
+  // categ
+  $cat_id = 0;
+  $q_cat_id        = "IS NOT NULL";
+  if(isset($_GET['categ'])) {
+    $cat_id = pmmc_filter_input($_GET['categ']);
+    if(pmmc_is_int($cat_id) && $cat_id != 0) {$q_cat_id = "= '{$cat_id}'";}
+  }
+  // sorting
+  $sort = 'title';
+  $q_sort         = "mov_tt";
+  if(isset($_GET['sort'])) {
+    $sort = pmmc_filter_input($_GET['sort']);
+    switch($sort) {
+      case 'categ' : {$q_sort = "cat_id"; break;}
+      case 'title' : {$q_sort = "mov_tt"; break;}
+      case 'year'  : {$q_sort = "mov_year"; break;}
+      default      : {break;}
+    }
+  }
+  $order = 'a';
+  $q_order        = "ASC";
+  if(isset($_GET['order'])) {
+    $order = pmmc_filter_input($_GET['order']);
+    switch($order) {
+      case 'a' : {$q_order = "ASC";  break;}
+      case 'd' : {$q_order = "DESC"; break;}
+      default  : {break;}
+    }
+  }
+  // filter (search)
+  $searchtype = 0;
+  if(isset($_POST['search'])) {
+    if(pmmc_filter_input($_POST['search']) == 1) {$searchtype = 1;}
+    else if(pmmc_filter_input($_POST['search']) == 2) {$searchtype = 2;}
+    else if(pmmc_filter_input($_POST['search']) == 3) {$searchtype = 3;}
+  }
+  $q_mov_imdb     = "IS NOT NULL";
+  if(isset($_POST['mov_imdb'])) {$q_mov_imdb = pmmc_queryfill_search($searchtype, $_POST['mov_imdb']);}
+  $q_mov_tt       = "IS NOT NULL";
+  if(isset($_POST['mov_tt'])) {$q_mov_tt = pmmc_queryfill_search($searchtype, $_POST['mov_tt']);}
+  $q_mov_aka      = "IS NOT NULL";
+  if(isset($_POST['mov_aka'])) {$q_mov_aka = pmmc_queryfill_search($searchtype, $_POST['mov_aka']);}
+  $q_mov_year     = "IS NOT NULL";
+  if(isset($_POST['mov_year'])) {$q_mov_year = pmmc_queryfill_search($searchtype, $_POST['mov_year']);}
+  $q_mov_country  = "IS NOT NULL";
+  if(isset($_POST['mov_country'])) {$q_mov_country = pmmc_queryfill_search($searchtype, $_POST['mov_country']);}
+  $q_mov_language = "IS NOT NULL";
+  if(isset($_POST['mov_language'])) {$q_mov_language = pmmc_queryfill_search($searchtype, $_POST['mov_language']);}
+  $q_mov_dir      = "IS NOT NULL";
+  if(isset($_POST['mov_dir'])) {$q_mov_dir = pmmc_queryfill_search($searchtype, $_POST['mov_dir']);}
+  $q_mov_wrt      = "IS NOT NULL";
+  if(isset($_POST['mov_wrt'])) {$q_mov_wrt = pmmc_queryfill_search($searchtype, $_POST['mov_wrt']);}
+  $q_mov_tag      = "IS NOT NULL";
+  if(isset($_POST['mov_tag'])) {$q_mov_tag = pmmc_queryfill_search($searchtype, $_POST['mov_tag']);}
+  $q_mov_plot     = "IS NOT NULL";
+  if(isset($_POST['mov_plot'])) {$q_mov_plot = pmmc_queryfill_search($searchtype, $_POST['mov_plot']);}
+  $q_mov_cast     = "IS NOT NULL";
+  if(isset($_POST['mov_cast'])) {$q_mov_cast = pmmc_queryfill_search($searchtype, $_POST['mov_cast']);}
+  // pagination
+  
+  $page = 1;
+  if(isset($_GET['page']) && pmmc_is_int($_GET['page'])) {$page = $_GET['page'];}
+  $items = 2;
+  $offset = ($page - 1) * $items;
+  if ($searchtype == 0) {$q_limit = " LIMIT ".$offset.", ".$items."";}
+  else {$q_limit = "";}
+  
+  // build query
+  $q1 = "SELECT SQL_CALC_FOUND_ROWS * FROM pmmc_mov_tt WHERE cat_id {$q_cat_id} AND mov_imdb {$q_mov_imdb} AND mov_tt {$q_mov_tt} AND mov_aka {$q_mov_aka} AND mov_year {$q_mov_year} AND mov_country {$q_mov_country} AND mov_language {$q_mov_language} AND mov_dir {$q_mov_dir} AND mov_wrt {$q_mov_wrt} AND mov_tag {$q_mov_tag} AND mov_plot {$q_mov_plot} AND mov_cast {$q_mov_cast} ORDER BY {$q_sort} {$q_order} {$q_limit}";
+  $q2 = "SELECT FOUND_ROWS() as totalitems";
+  
+  
+  
+  $cnt['page']['movies'] = array();
+  $r = pmmc_qry_exec($q1);
+  $t = pmmc_qry_total($r);
+  $rw = array();
+  if($t > 0) {
+    for($i=0;$i<$t;$i++) {
+      $rw[$i] = pmmc_qry_row($r);
+      if(isset($_POST['mov_save_mod'])) {
+        $lock = pmmc_lock_tables(array('pmmc_mov_tt'));
+        if(isset($_POST['mov_del-'.$rw[$i]['mov_id']])) {
+          if(is_file(_APP_DIR.'var/pic_mov/'.$rw[$i]['mov_pic'])) {unlink(_APP_DIR.'var/pic_mov/'.$rw[$i]['mov_pic']);}
+          $delete = pmmc_qry_exec("DELETE FROM pmmc_mov_tt WHERE mov_id = '{$rw[$i]['mov_id']}' LIMIT 1");
+          if($delete === true) {$_SESSION['pmmc_msg'] = 40;}
+        }
+        $unlock = pmmc_unlock_tables();
+      }  
+    }
+    if(isset($_POST['mov_save_mod'])) {
+      header("Location: " . _APP_URL . "admin/movies/categ/".$cat_id."/sort/".$sort."/order/".$order);
+      exit;
+    }
+  }
+  $total = pmmc_qry_result(pmmc_qry_exec($q2));
+  $cnt['page']['searchtype'] = $searchtype;
+  $cnt['page']['page']       = $page;
+  $cnt['page']['total']      = $total;
+  $cnt['page']['maxpage']    = ceil($total/$items);
+  $cnt['page']['prevpage']   = $page - 1;
+  $cnt['page']['nextpage']   = $page + 1;
+  $cnt['page']['categ']      = $cat_id;
+  
+  $cnt['page']['link_first'] = '&#60;&#60;';
+  $cnt['page']['link_prev']  = '&#60;';
+  if($cnt['page']['page'] > 1) {
+    $cnt['page']['link_first'] = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/1">'.$cnt['page']['link_first'].'</a>';
+    $cnt['page']['link_prev']  = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/'.$cnt['page']['prevpage'].'">'.$cnt['page']['link_first'].'</a>';
+  }
+  $cnt['page']['link_next']  = '&#62;';
+  $cnt['page']['link_last']  = '&#62;&#62;';
+  if($cnt['page']['page'] < $cnt['page']['maxpage']) {
+    $cnt['page']['link_next']  = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/'.$cnt['page']['nextpage'].'">'.$cnt['page']['link_next'].'</a>';
+    $cnt['page']['link_last']  = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
+  }
+  $cnt['page']['movies'] = $rw;
+  if($cnt['page']['total'] == 0) {$_SESSION['pmmc_msg'] = 39;}
+  else if($_SESSION['pmmc_msg'] != 40) {$_SESSION['pmmc_msg'] = 0;}
+  return $cnt;
+}
+/**
+* Application settings
+*
+* @return mixed
+*/
+function pmmc_adm_settings() {
+  global $lang;
+  $cnt['skin'] = 'admin.settings.tpl.php';
+  $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['set']['sets'];
+  
+  $cnt['page']['langs'] = pmmc_lsdir(_APP_DIR.'lang/');
+  $cnt['page']['skins'] = pmmc_lsdir(_APP_DIR.'skin/');
+  
+  if(isset($_POST['set_save'])) {
+    if(isset($_POST['set_lang'])) {$cnt['page']['lang'] = pmmc_filter_input($_POST['set_lang']);}
+    if(isset($_POST['set_skin'])) {$cnt['page']['skin'] = pmmc_filter_input($_POST['set_skin']);}
+    if(isset($_POST['set_pcat'])) {$cnt['page']['pcat'] = pmmc_filter_input($_POST['set_pcat']);}
+    if(isset($_POST['set_pmov'])) {$cnt['page']['pmov'] = pmmc_filter_input($_POST['set_pmov']);}
+    $err = 0;
+    if($cnt['page']['lang']      == '') {$err = 1;}
+    else if($cnt['page']['skin'] == '') {$err = 1;}
+    else if($cnt['page']['pcat'] == '') {$err = 1;}
+    else if($cnt['page']['pmov'] == '') {$err = 1;}
+    if($err == 0) {
+      $u[] = pmmc_cfg_var_set('LANG', $cnt['page']['lang']);
+      $u[] = pmmc_cfg_var_set('SKIN', $cnt['page']['skin']);
+      $u[] = pmmc_cfg_var_set('PCAT', $cnt['page']['pcat']);
+      $u[] = pmmc_cfg_var_set('PMOV', $cnt['page']['pmov']);
+      $res = 1;
+      foreach($u as $key => $value) {if($value !== true) {$res = 0; break;}}
+      if($res == 1) {$_SESSION['pmmc_msg'] = 41;}
+      else {$_SESSION['pmmc_msg'] = 42;}
+    }
+    else {$_SESSION['pmmc_msg'] = 16;}
+    header("Location: "._APP_URL . 'admin/settings'); exit;
+  }
+  else {
+    $cnt['page']['lang']  = pmmc_qry_result(pmmc_qry_exec("SELECT cfg_val FROM pmmc_set_cfg WHERE cfg_set = 'LANG'"));
+    $cnt['page']['skin']  = pmmc_qry_result(pmmc_qry_exec("SELECT cfg_val FROM pmmc_set_cfg WHERE cfg_set = 'SKIN'"));
+    $cnt['page']['pcat']  = pmmc_qry_result(pmmc_qry_exec("SELECT cfg_val FROM pmmc_set_cfg WHERE cfg_set = 'PCAT'"));
+    $cnt['page']['pmov']  = pmmc_qry_result(pmmc_qry_exec("SELECT cfg_val FROM pmmc_set_cfg WHERE cfg_set = 'PMOV'"));
+  }
+  return $cnt;
+}
+/**
+* User administration function
+*
+* @return mixed
+*/
+function pmmc_adm_usr() {
+  $cnt = NULL;
+  if(isset($_GET['details']) && pmmc_is_int($_GET['details'])) {
+    /**
+    * View (edit) one user
+    */
+    $cnt = pmmc_adm_usr_detail($_GET['details']);
+  }
+  else if(isset($_GET['add']) && $_GET['add'] == 'new') {
+    /**
+    * Add new user
+    */
+    $cnt = pmmc_adm_usr_add();
+  }
+  else {$cnt = pmmc_adm_usr_view();}
+  return $cnt;
+}
+/**
+* Add new user
+*
+* @return mixed
+*/
+function pmmc_adm_usr_add() {
+  global $lang;
+  $cnt['skin'] = 'admin.usr.add.new.tpl.php';
+  $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['usr']['add'];
+  
+  $cnt['page']['langs'] = pmmc_lsdir(_APP_DIR.'lang/');
+  $cnt['page']['skins'] = pmmc_lsdir(_APP_DIR.'skin/');
+  
+  $cnt['page']['usr_name']   = '';
+  $cnt['page']['usr_fname']  = '';
+  $cnt['page']['usr_lname']  = '';
+  $cnt['page']['usr_mail1']  = '';
+  $cnt['page']['usr_mail2']  = '';
+  $cnt['page']['usr_pass1']  = '';
+  $cnt['page']['usr_pass2']  = '';
+  $cnt['page']['usr_skin']   = _APP_SKIN;
+  $cnt['page']['usr_lang']   = _APP_LANG;
+  $cnt['page']['usr_level']  = 1;
+  $cnt['page']['usr_status'] = 1;
+  
+  if(isset($_POST['usr_add'])) {
+    if(isset($_POST['usr_name']))   {$cnt['page']['usr_name']   = pmmc_filter_input($_POST['usr_name']);}
+    if(isset($_POST['usr_fname']))  {$cnt['page']['usr_fname']  = pmmc_filter_input($_POST['usr_fname']);}
+    if(isset($_POST['usr_lname']))  {$cnt['page']['usr_lname']  = pmmc_filter_input($_POST['usr_lname']);}
+    if(isset($_POST['usr_mail1']))  {$cnt['page']['usr_mail1']  = pmmc_filter_input($_POST['usr_mail1']);}
+    if(isset($_POST['usr_mail2']))  {$cnt['page']['usr_mail2']  = pmmc_filter_input($_POST['usr_mail2']);}
+    if(isset($_POST['usr_pass1']))  {$cnt['page']['usr_pass1']  = pmmc_filter_input($_POST['usr_pass1']);}
+    if(isset($_POST['usr_pass2']))  {$cnt['page']['usr_pass2']  = pmmc_filter_input($_POST['usr_pass2']);}
+    if(isset($_POST['usr_skin']))   {$cnt['page']['usr_skin']   = pmmc_filter_input($_POST['usr_skin']);}
+    if(isset($_POST['usr_lang']))   {$cnt['page']['usr_lang']   = pmmc_filter_input($_POST['usr_lang']);}
+    if(isset($_POST['usr_level']))  {$cnt['page']['usr_level']  = pmmc_filter_input($_POST['usr_level']);}
+    if(isset($_POST['usr_status'])) {$cnt['page']['usr_status'] = pmmc_filter_input($_POST['usr_status']);}
+    $err = 0;
+    if($cnt['page']['usr_name'] == '')                                                                   {$err = 1;}
+    else if($cnt['page']['usr_fname'] == '')                                                             {$err = 1;}
+    else if($cnt['page']['usr_lname'] == '')                                                             {$err = 1;}
+    else if($cnt['page']['usr_mail1'] == '' || !pmmc_is_email($cnt['page']['usr_mail1']))                {$err = 1;}
+    else if($cnt['page']['usr_mail2'] == '' || !pmmc_is_email($cnt['page']['usr_mail2']))                {$err = 1;}
+    else if($cnt['page']['usr_mail1'] != $cnt['page']['usr_mail2'])                                      {$err = 1;}
+    else if($cnt['page']['usr_pass1'] == '')                                                             {$err = 1;}
+    else if($cnt['page']['usr_pass2'] == '')                                                             {$err = 1;}
+    else if($cnt['page']['usr_pass1'] != $cnt['page']['usr_pass2'])                                      {$err = 1;}
+    else if($cnt['page']['usr_skin'] == '')                                                              {$err = 1;}
+    else if($cnt['page']['usr_lang'] == '')                                                              {$err = 1;}
+    else if($cnt['page']['usr_level'] == '' || $cnt['page']['usr_level'] >= $_SESSION['pmmc_usr_level']) {$err = 1;}
+    else if($cnt['page']['usr_status'] == '')                                                            {$err = 1;}
+    if($err == 0) {
+      $lock   = pmmc_lock_tables(array('pmmc_set_usr'));
+      $id     = pmmc_next_auto_id('pmmc_set_usr');
+      $udate  = date("Y-m-d");
+      $insert = pmmc_qry_exec("INSERT INTO pmmc_set_usr (usr_name, usr_fname, usr_lname, usr_mail, usr_pass, usr_skin, usr_lang, usr_level, usr_status, usr_date) VALUES ('{$cnt['page']['usr_name']}', '{$cnt['page']['usr_fname']}', '{$cnt['page']['usr_lname']}', '{$cnt['page']['usr_mail2']}', '{$cnt['page']['usr_pass2']}', '{$cnt['page']['usr_skin']}', '{$cnt['page']['usr_lang']}', '{$cnt['page']['usr_level']}', '{$cnt['page']['usr_status']}', '{$udate}')");
+      $unlock = pmmc_unlock_tables();
+      if($insert === true) {
+          $_SESSION['pmmc_msg'] = 43;
+          header("Location: " . _APP_URL . 'admin/users/details/' . $id);
+          exit;
+      }
+      else {$_SESSION['pmmc_msg'] = 44; header("Location: "._APP_URL . 'admin/users/add/new'); exit;}
     }
     else {$_SESSION['pmmc_msg'] = 16;}
   }
