@@ -121,17 +121,27 @@ $lang['set']['pmov'] = 'Marimea maxima a imaginilor filmelor';
 /**
 * Users
 */
-$lang['usr']['usrs']   = 'Utilizatori';
-$lang['usr']['add']    = 'Ad&#259;ugare Utilizator';
-$lang['usr']['name']   = 'Alias';
-$lang['usr']['fname']  = 'Prenume';
-$lang['usr']['lname']  = 'Nume';
+$lang['usr']['usrs']    = 'Utilizatori';
+$lang['usr']['add']     = 'Ad&#259;ugare Utilizator';
+$lang['usr']['view']    = 'Detalii Utilizator';
+$lang['usr']['name']    = 'Alias';
+$lang['usr']['fname']   = 'Prenume';
+$lang['usr']['lname']   = 'Nume';
 $lang['usr']['mail1']   = 'E-mail';
 $lang['usr']['mail2']   = 'E-mail din nou';
-$lang['usr']['pass1']  = 'Parola';
-$lang['usr']['pass2']  = 'Parola din nou';
-$lang['usr']['level']  = 'Nivel de acces';
-$lang['usr']['status'] = 'Stare';
+$lang['usr']['pass1']   = 'Parola';
+$lang['usr']['pass2']   = 'Parola din nou';
+$lang['usr']['pass1n']  = 'Noua parol&#259;';
+$lang['usr']['pass2n']  = 'Noua parol&#259; din nou';
+$lang['usr']['level']   = 'Nivel de acces';
+$lang['usr']['lvl'][1]  = 'Utilizator';
+$lang['usr']['lvl'][2]  = 'Utilizator VIP';
+$lang['usr']['lvl'][3]  = 'Administrator';
+$lang['usr']['lvl'][4]  = 'Colec&#355;ionar';
+$lang['usr']['lvl'][5]  = 'Root';
+$lang['usr']['status']  = 'Stare';
+$lang['usr']['stat'][0] = 'Blocat';
+$lang['usr']['stat'][1] = 'Activ';
 /**
 * Users
 */

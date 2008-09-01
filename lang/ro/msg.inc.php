@@ -130,4 +130,8 @@ $lang['msg'][43]['tt'] = 'Noul utilizator a fost ad&#259;ugat cu succes!';
 $lang['msg'][43]['tp'] = 'ok';
 $lang['msg'][44]['tt'] = 'Eroare intern&#259;. Utilizatorul nu a fost ad&#259;ugat. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
 $lang['msg'][44]['tp'] = 'err';
+$lang['msg'][45]['tt'] = 'Datele utilizatorului au fost modificate cu succes!';
+$lang['msg'][45]['tp'] = 'ok';
+$lang['msg'][46]['tt'] = 'Eroare intern&#259;. Datele utilizatorului nu au fost modificate. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][46]['tp'] = 'err';
 ?>

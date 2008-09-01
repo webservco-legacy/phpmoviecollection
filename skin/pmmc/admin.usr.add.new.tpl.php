@@ -18,22 +18,22 @@
 
 <div class="clear">
 <label for="usr_mail1" class="required"><?php echo $lang['usr']['mail1']; ?></label>
-<input id="usr_mail1" name="usr_mail1" type="text" size="20" maxlength="30" value="<?php echo $cnt['usr_mail1']; ?>" />
+<input id="usr_mail1" name="usr_mail1" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail1']; ?>" />
 </div>
 
 <div class="clear">
 <label for="usr_mail2" class="required"><?php echo $lang['usr']['mail2']; ?></label>
-<input id="usr_mail2" name="usr_mail2" type="text" size="20" maxlength="30" value="<?php echo $cnt['usr_mail2']; ?>" />
+<input id="usr_mail2" name="usr_mail2" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail2']; ?>" />
 </div>
 
 <div class="clear">
 <label for="usr_pass1" class="required"><?php echo $lang['usr']['pass1']; ?></label>
-<input id="usr_pass1" name="usr_pass1" type="text" size="10" maxlength="15" value="<?php echo $cnt['usr_pass1']; ?>" />
+<input id="usr_pass1" name="usr_pass1" type="text" size="20" maxlength="30" value="<?php echo $cnt['usr_pass1']; ?>" />
 </div>
 
 <div class="clear">
 <label for="usr_pass2" class="required"><?php echo $lang['usr']['pass2']; ?></label>
-<input id="usr_pass2" name="usr_pass2" type="text" size="10" maxlength="15" value="<?php echo $cnt['usr_pass2']; ?>" />
+<input id="usr_pass2" name="usr_pass2" type="text" size="20" maxlength="30" value="<?php echo $cnt['usr_pass2']; ?>" />
 </div>
 
 <div class="clear">
@@ -64,9 +64,32 @@ for($j=0;$j<$tl;$j++) {
 </select>
 </div>
 
-<!-- xxx -->
+<div class="clear">
+<label for="usr_level" class="required"><?php echo $lang['usr']['level']; ?></label>
+<select id="usr_level" name="usr_level" size="1">
+<?php
+for($k=1;$k<=5;$k++) {
+  if($k == 1) {
+?>
+<option value="<?php echo $k; ?>"<?php if($cnt['usr_level'] == $k) {echo ' selected="selected"';}?>><?php echo $lang['usr']['lvl'][$k]; ?></option>
+<?php
+  }
+}
+?>
+</select>
+</div>
+
+<div class="clear">
+<label for="usr_status" class="required"><?php echo $lang['usr']['status']; ?></label>
+<select id="usr_status" name="usr_status" size="1">
+<option value="0"<?php if($cnt['usr_status'] == 0) {echo ' selected="selected"';}?>><?php echo $lang['usr']['stat'][0]; ?></option>
+<option value="1"<?php if($cnt['usr_status'] == 1) {echo ' selected="selected"';}?>><?php echo $lang['usr']['stat'][1]; ?></option>
+</select>
+</div>
+
+<div class="clear">
+<label for="usr_add">&#160;</label>
+<input id="usr_add" name="usr_add" type="submit" value="<?php echo $lang['pmmc']['add']; ?>" />
+</div>
 
 </form>
-<pre>
-<?php print_r($cnt); ?>
-</pre>
