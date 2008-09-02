@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:38 2008-08-29
+* @version    20:00 2008-09-02
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -34,8 +34,8 @@ $ap_cfg['app_index'] = '';
 * Full path to the application - notice the slash at the end
 */
 //$ap_cfg['app_dir'] = '/opt/lampp/htdocs/pub/temp/phpMyMovieCollection/';
-$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
-//$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
+//$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
+$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
 /**
 * Database host
 */
@@ -59,5 +59,5 @@ $ap_cfg['mod']['mod_usr'] = 1;
 /**
 * Control the loading of the test module
 */
-$ap_cfg['mod']['tester'] = 0;
+$ap_cfg['mod']['mod_test'] = 1;
 ?>

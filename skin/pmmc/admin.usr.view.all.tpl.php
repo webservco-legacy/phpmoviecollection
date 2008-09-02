@@ -1,10 +1,9 @@
 <h1><?php echo $lang['usr']['viewall']; ?></h1>
 <?php
-if(is_array($cnt['usr_id']) && count($cnt['usr_id'])>0) {
-  $tc = count($cnt['usr_id']);
-  if($tc > 0) {
+$t = count($cnt['users']);
+if($t > 0) {
 ?>
-<form enctype="multipart/form-data" id="usr_mod_form" name="usr_mod_form" action="" method="post">
+<form enctype="multipart/form-data" id="categs_mod_form" name="categs_mod_form" action="" method="post">
 <table border="0" cellspacing="1">
 <tr>
   <td class="usr_adm_halias">
@@ -24,37 +23,49 @@ if(is_array($cnt['usr_id']) && count($cnt['usr_id'])>0) {
   </td>
 </tr>
 <?php
-    for($i=1;$i<=$tc;$i++) {
-    // xxx
+for($i=0;$i<$t;$i++) {
 ?>
 <tr>
   <td class="usr_adm_calias">
-  <input id="cat_ord-<?php echo $cnt['cat_id'][$i]; ?>" name="cat_ord-<?php echo $cnt['cat_id'][$i]; ?>" type="text" size="1" maxlength="5" value="<?php echo $cnt['cat_ord'][$i]; ?>" />
+  <a href="<?php echo _APP_URL; ?>admin/users/details/<?php echo $cnt['users'][$i]['usr_id']; ?>"><?php echo $cnt['users'][$i]['usr_name']; ?></a>
   </td>
   <td class="usr_adm_cname">
-  <?php echo pmmc_image_thumb($cnt['cat_pic'][$i], 'var/pic_cat/', $cnt['cat_tt'][$i]); ?>
+  <?php echo $cnt['users'][$i]['usr_fname']; ?>&#160;<?php echo $cnt['users'][$i]['usr_lname']; ?>
   </td>
   <td class="usr_adm_clevel">
-  <a href="<?php echo _APP_URL; ?>admin/categ/view/<?php echo $cnt['cat_id'][$i]; ?>" title="<?php echo $cnt['cat_tt'][$i]; ?>"><?php echo $cnt['cat_tt'][$i]; ?></a>
+  <?php echo $lang['usr']['lvl'][$cnt['users'][$i]['usr_level']]; ?>
   </td>
   <td class="usr_adm_cstatus">
-  <?php echo $cnt['cat_items'][$i]; ?>
+  <?php echo $lang['usr']['stat'][$cnt['users'][$i]['usr_status']]; ?>
   </td>
   <td class="usr_adm_cdel">
-  <input id="cat_del-<?php echo $cnt['cat_id'][$i]; ?>" name="cat_del-<?php echo $cnt['cat_id'][$i]; ?>" type="checkbox" />
+  <input id="usr_del-<?php echo $cnt['users'][$i]['usr_id']; ?>" name="usr_del-<?php echo $cnt['users'][$i]['usr_id']; ?>" type="checkbox" />
   </td>
 </tr>
 <?php
-    }
+}
 ?>
 <tr>
-  <td colspan="5" class="cat_adm_subm">
-  <input id="cat_save_mod" name="cat_save_mod" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
+  <td colspan="5" class="usr_adm_subm">
+  <input id="usr_save_mod" name="usr_save_mod" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
   </td>
 </tr>
+<?php
+echo '<tr>';
+echo '<td class="usr_adm_nav" colspan="5">';
+echo $cnt['link_first'] . '&#160;';
+echo $cnt['link_prev'] . '&#160;';
+echo $lang['pmmc']['page'] . '&#160;';
+echo $cnt['page'] . '&#160;';
+echo $lang['pmmc']['of'] . '&#160;';
+echo $cnt['maxpage'] . '&#160;';
+echo $cnt['link_next'] . '&#160;';
+echo $cnt['link_last'] . '&#160;';
+echo '</td>';
+echo '</tr>';
+?>
 </table>
 </form>
 <?php
-  }
 }
 ?>

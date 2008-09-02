@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:01 2008-08-31
+* @version    20:00 2008-09-02
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -118,6 +118,8 @@ $lang['set']['lang'] = 'Limba implicit&#259; a aplica&#355;iei';
 $lang['set']['skin'] = 'Skin-ul implicit al aplica&#355;iei';
 $lang['set']['pcat'] = 'Marimea maxima a imaginilor categoriilor';
 $lang['set']['pmov'] = 'Marimea maxima a imaginilor filmelor';
+$lang['set']['imov'] = 'Num&#259;r de filme afi&#351;ate pe o pagin&#259;';
+$lang['set']['iusr'] = 'Num&#259;r de utilizatori afi&#351;a&#355;i pe o pagin&#259;';
 /**
 * Users
 */
@@ -135,6 +137,7 @@ $lang['usr']['pass2']   = 'Parola din nou';
 $lang['usr']['pass1n']  = 'Noua parol&#259;';
 $lang['usr']['pass2n']  = 'Noua parol&#259; din nou';
 $lang['usr']['level']   = 'Nivel de acces';
+$lang['usr']['lvl'][0]  = 'Vizitator';
 $lang['usr']['lvl'][1]  = 'Utilizator';
 $lang['usr']['lvl'][2]  = 'Utilizator VIP';
 $lang['usr']['lvl'][3]  = 'Administrator';

@@ -98,7 +98,9 @@ if($t > 0) {
     echo '</td>';
     echo '</tr>';
   }
-}
 ?>
 </table>
 </form>
+<?php
+}
+?>

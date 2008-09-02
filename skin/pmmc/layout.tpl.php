@@ -44,9 +44,8 @@
       </div>
       <div id="cnt_right">
         {RIGHT}
-        <div id="mod_test">
-        {TEST MODULE}
-        </div>
+        <br />
+        <?php echo $mod_test;?>
       </div>
       <div id="cnt_page">
         <?php echo $page; ?>
@@ -55,16 +54,16 @@
     <div id="container_ftr">
       <div id="ftr">
         {FOOTER}
+          <!--<pre>-->
+          <?php //print_r($_SESSION); ?>
+          <?php //print_r($_GET); ?>
+          <?php //print_r($_SERVER); ?>
+          <?php //print_r($_FILES); ?>
+          <?php //print_r($_POST); ?>
+          <?php //print_r(error_get_last()); ?>
+          <!--</pre>-->
       </div>
     </div>
   </div>
-  <pre>
-  <?php //print_r($_SESSION); ?>
-  <?php //print_r($_GET); ?>
-  <?php //print_r($_SERVER); ?>
-  <?php //print_r($_FILES); ?>
-  <?php //print_r($_POST); ?>
-  <?php //print_r(error_get_last()); ?>
-  </pre>
 </body>
 </html>

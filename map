@@ -1,17 +1,20 @@
 [x][x][adm][categ]
-[x] /admin/categ/add/new
-[x] /admin/categ/view/{id}
-[x] /admin/categ -> /admin/categ/view/all
+[x]/admin/categ/add/new
+[x]/admin/categ/view/{id}
+[x]/admin/categ -> /admin/categ/view/all
 
 [x][x][adm][mov]
-[x] /admin/movies/add/new
-[x] /admin/movies/details/{id}
-[x] /admin/movies
+[x]/admin/movies/add/new
+[x]/admin/movies/details/{id}
+[x]/admin/movies
 
 [-][-][adm][usr]
-[x] /admin/users/add/new
-[x] /admin/users/details/{id}
-[-] /admin/users
+[x]/admin/users/add/new
+[x]/admin/users/details/{id}
+[-]/admin/users
+
+[-][-][adm][set]
+[x]/admin/settings
 
 [-][-][view][categ]
 [-]
@@ -22,3 +25,7 @@
 [-][-][view][usr]
 [-]/view/users
 [-]/view/users/details/{id}
+
+[-][-][view][set]
+
+[-][-][view][cart]

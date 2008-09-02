@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:01 2008-08-31
+* @version    20:00 2008-09-02
 * @since      23:17 2008-08-25
 * @access     public
 * @package    phpMyMovieCollection
@@ -119,7 +119,7 @@ $lang['msg'][40]['tp'] = 'ok';
 /**
 * Settings
 */
-$lang['msg'][41]['tt'] = 'Setarile au fost salvate!';
+$lang['msg'][41]['tt'] = 'Setarile au fost salvate! Va trebui s&#259; v&#259; reautentifica&#355;i pentru a observa schimb&#259;rile!';
 $lang['msg'][41]['tp'] = 'ok';
 $lang['msg'][42]['tt'] = 'Eroare intern&#259;. Una sau mai multe set&#259;ri nu au fost salvate. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
 $lang['msg'][42]['tp'] = 'err';
@@ -138,4 +138,8 @@ $lang['msg'][47]['tt'] = 'Adresa de email exist&#259; deja in baza de date!';
 $lang['msg'][47]['tp'] = 'err';
 $lang['msg'][48]['tt'] = 'Utilizator inexistent!';
 $lang['msg'][48]['tp'] = 'err';
+$lang['msg'][49]['tt'] = 'Nu exist&#259; utilizatori.';
+$lang['msg'][49]['tp'] = 'err';
+$lang['msg'][50]['tt'] = 'Unul sau mai multi utilizatori au fost &#351;ter&#351;i!';
+$lang['msg'][50]['tp'] = 'ok';
 ?>

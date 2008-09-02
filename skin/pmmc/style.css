@@ -11,6 +11,7 @@ h2 {margin: 0 0 0 0; line-height: 130%; font-size: 1.2em;}
 h3 {margin: 0 0 0 0; line-height: 130%; font-size: 1.1em;}
 h4 {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
 img {margin: 0px; padding: 0px; border: 0px;}
+table {width: 100%;}
 /* ********** ********** ********** LINK AREA START ********** ********** ********** */
 a:link {background-color: #ffffff; background: transparent; color: #000000; text-decoration: underline;}
 a:visited {background-color: #ffffff; background: transparent; color: #000000; text-decoration: underline;}
@@ -66,7 +67,7 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 /* ********** ********** ********** CATEG AREA START ********** ********** ********** */
 .cat_adm_hord {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_himg {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
-.cat_adm_htt   {width: 251px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.cat_adm_htt   {background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_hitm {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_hdel {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_cord {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
@@ -74,26 +75,26 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .cat_adm_ctt   {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_citm {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_cdel {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
-.cat_adm_subm {width: 400px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+.cat_adm_subm {background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 /* ********** ********** ********** CATEG AREA END ********** ********** ********** */
 /* ********** ********** ********** MOVIE AREA START ********** ********** ********** */
 .mov_adm_hmovie {width: 420px; background-color: #DDDDDD; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_hdel     {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .mov_adm_cmovie {background-color: #EEEEEE; border: 0px; padding: 3px; text-align: center;}
 .mov_adm_img       {width: 51px; height: 51px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
-.mov_adm_cat       {width: 306px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
-.mov_adm_tt         {width: 306px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_cat       {background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_tt         {background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
 .mov_adm_year     {width: 51px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
 .mov_adm_imdb     {width: 51px; background-color: #FFFFFF; border: 0px; padding: 2px; text-align: center;}
 .mov_adm_cdel     {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
-.mov_adm_subm     {width: 475px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
-.mov_adm_nav       {width: 475px; background-color: #DDDDDD; border: 0px; padding: 0px; text-align: center;}
+.mov_adm_subm     {background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+.mov_adm_nav       {background-color: #DDDDDD; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_fsort   {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_ford     {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_fok       {width: 75px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 /* ********** ********** ********** MOVIE AREA END ********** ********** ********** */
 /* ********** ********** ********** USER AREA START ********** ********** ********** */
-.usr_adm_halias   {width: 100px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
+.usr_adm_halias   {width: 150px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .usr_adm_hname     {background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .usr_adm_hlevel   {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
 .usr_adm_hstatus {width: 51px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
@@ -103,4 +104,6 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .usr_adm_clevel   {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
 .usr_adm_cstatus {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
 .usr_adm_cdel       {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
+.usr_adm_subm       {background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+.usr_adm_nav         {background-color: #DDDDDD; border: 0px; padding: 0px; text-align: center;}
 /* ********** ********** ********** USER AREA END ********** ********** ********** */

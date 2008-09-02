@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 02, 2008 at 05:03 PM
--- Server version: 5.0.45
--- PHP Version: 5.2.4
+-- Generation Time: Sep 02, 2008 at 08:03 PM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -162,7 +162,7 @@ CREATE TABLE pmmc_set_cfg (
   cfg_set varchar(150) collate utf8_unicode_ci NOT NULL,
   cfg_val varchar(150) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (cfg_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table 'pmmc_set_cfg'
@@ -172,6 +172,8 @@ INSERT INTO pmmc_set_cfg VALUES(1, 'LANG', 'ro');
 INSERT INTO pmmc_set_cfg VALUES(2, 'SKIN', 'pmmc');
 INSERT INTO pmmc_set_cfg VALUES(3, 'PCAT', '80');
 INSERT INTO pmmc_set_cfg VALUES(4, 'PMOV', '90');
+INSERT INTO pmmc_set_cfg VALUES(5, 'IMOV', '11');
+INSERT INTO pmmc_set_cfg VALUES(6, 'IUSR', '15');
 
 -- --------------------------------------------------------
 
@@ -214,7 +216,7 @@ CREATE TABLE pmmc_set_usr (
   usr_status tinyint(1) unsigned NOT NULL,
   usr_date date NOT NULL,
   PRIMARY KEY  (usr_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table 'pmmc_set_usr'
@@ -223,6 +225,7 @@ CREATE TABLE pmmc_set_usr (
 INSERT INTO pmmc_set_usr VALUES(1, 'Root', 'Radu', 'Maier', 'radu@rudisoft.net', '061d29b46787481e3f3b39523a2918f3', 'pmmc', 'ro', 5, 1, '2008-08-22');
 INSERT INTO pmmc_set_usr VALUES(2, 'testuser', 'Test', 'Uşer', 'test@rudisoft.net', 'f5d1278e8109edd94e1e4197e04873b9', 'pmmc', 'ro', 1, 1, '2008-09-01');
 INSERT INTO pmmc_set_usr VALUES(3, 'Colecţionar', 'John', 'Doe', 'x@rudisoft.net', '9dd4e461268c8034f5c8564e155c67a6', 'pmmc', 'ro', 4, 1, '2008-09-02');
+INSERT INTO pmmc_set_usr VALUES(5, '2fdfs', 'dsfsdf', 'dfsdf', 'dsdf@fdsfs.com', 'f0118e9bd2c4fb29c64ee03abce698b8', 'pmmc', 'ro', 1, 0, '2008-09-02');
 
 -- --------------------------------------------------------
 
@@ -237,7 +240,7 @@ CREATE TABLE pmmc_var_log (
   log_date date NOT NULL,
   log_time time NOT NULL,
   PRIMARY KEY  (log_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table 'pmmc_var_log'
@@ -271,3 +274,4 @@ INSERT INTO pmmc_var_log VALUES(25, 3, '2008-09-02', '15:32:46');
 INSERT INTO pmmc_var_log VALUES(26, 3, '2008-09-02', '16:08:52');
 INSERT INTO pmmc_var_log VALUES(27, 2, '2008-09-02', '16:32:36');
 INSERT INTO pmmc_var_log VALUES(28, 1, '2008-09-02', '16:34:28');
+INSERT INTO pmmc_var_log VALUES(29, 1, '2008-09-02', '19:51:12');

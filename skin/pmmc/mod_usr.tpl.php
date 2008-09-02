@@ -1,7 +1,7 @@
 <?php echo $_SESSION['pmmc_usr_alias']; ?>
 <?php //echo _APP_SEP; ?>
 &#160;&#149;&#160;
-<?php echo $lang['usr']['level'] . ': ' . $_SESSION['pmmc_usr_level']; ?>
+<?php echo $lang['usr']['level'] . ': ' . $lang['usr']['lvl'][$_SESSION['pmmc_usr_level']]; ?>
 &#160;&#149;&#160;
 <?php echo $lang['usr_status'][$usr_status]; ?>
 <?php

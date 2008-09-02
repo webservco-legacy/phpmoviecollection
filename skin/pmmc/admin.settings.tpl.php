@@ -40,6 +40,16 @@ for($j=0;$j<$ts;$j++) {
 </div>
 
 <div class="clear">
+<label for="set_imov" class="required"><?php echo $lang['set']['imov']; ?></label>
+<input id="set_imov" name="set_imov" type="text" size="3" maxlength="3" value="<?php echo $cnt['imov']; ?>" />
+</div>
+
+<div class="clear">
+<label for="set_iusr" class="required"><?php echo $lang['set']['iusr']; ?></label>
+<input id="set_iusr" name="set_iusr" type="text" size="3" maxlength="3" value="<?php echo $cnt['iusr']; ?>" />
+</div>
+
+<div class="clear">
 <label for="set_save">&#160;</label>
 <input id="set_save" name="set_save" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
 </div>
