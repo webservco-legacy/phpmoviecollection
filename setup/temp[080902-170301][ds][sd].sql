@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 02, 2008 at 11:22 AM
+-- Generation Time: Sep 02, 2008 at 05:03 PM
 -- Server version: 5.0.45
 -- PHP Version: 5.2.4
 
@@ -214,14 +214,15 @@ CREATE TABLE pmmc_set_usr (
   usr_status tinyint(1) unsigned NOT NULL,
   usr_date date NOT NULL,
   PRIMARY KEY  (usr_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table 'pmmc_set_usr'
 --
 
-INSERT INTO pmmc_set_usr VALUES(1, 'Root', 'Radu', 'Maier', 'radu@rudisoft.net', '061d29b46787481e3f3b39523a2918f3', 'pmmc', 'ro', 4, 1, '2008-08-22');
-INSERT INTO pmmc_set_usr VALUES(2, 'testuser', 'Test', 'Uşer', 'test@rudisoft.net', '0cc175b9c0f1b6a831c399e269772661', 'abc', 'en', 1, 1, '2008-09-01');
+INSERT INTO pmmc_set_usr VALUES(1, 'Root', 'Radu', 'Maier', 'radu@rudisoft.net', '061d29b46787481e3f3b39523a2918f3', 'pmmc', 'ro', 5, 1, '2008-08-22');
+INSERT INTO pmmc_set_usr VALUES(2, 'testuser', 'Test', 'Uşer', 'test@rudisoft.net', 'f5d1278e8109edd94e1e4197e04873b9', 'pmmc', 'ro', 1, 1, '2008-09-01');
+INSERT INTO pmmc_set_usr VALUES(3, 'Colecţionar', 'John', 'Doe', 'x@rudisoft.net', '9dd4e461268c8034f5c8564e155c67a6', 'pmmc', 'ro', 4, 1, '2008-09-02');
 
 -- --------------------------------------------------------
 
@@ -236,7 +237,7 @@ CREATE TABLE pmmc_var_log (
   log_date date NOT NULL,
   log_time time NOT NULL,
   PRIMARY KEY  (log_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table 'pmmc_var_log'
@@ -255,3 +256,18 @@ INSERT INTO pmmc_var_log VALUES(10, 1, '2008-08-31', '18:54:16');
 INSERT INTO pmmc_var_log VALUES(11, 1, '2008-08-31', '19:06:48');
 INSERT INTO pmmc_var_log VALUES(12, 1, '2008-08-31', '19:12:37');
 INSERT INTO pmmc_var_log VALUES(13, 1, '2008-09-01', '18:59:08');
+INSERT INTO pmmc_var_log VALUES(14, 1, '2008-09-02', '11:37:14');
+INSERT INTO pmmc_var_log VALUES(15, 1, '2008-09-02', '11:39:13');
+INSERT INTO pmmc_var_log VALUES(16, 1, '2008-09-02', '11:44:55');
+INSERT INTO pmmc_var_log VALUES(17, 1, '2008-09-02', '11:46:51');
+INSERT INTO pmmc_var_log VALUES(18, 1, '2008-09-02', '11:47:27');
+INSERT INTO pmmc_var_log VALUES(19, 2, '2008-09-02', '11:48:12');
+INSERT INTO pmmc_var_log VALUES(20, 1, '2008-09-02', '11:49:26');
+INSERT INTO pmmc_var_log VALUES(21, 2, '2008-09-02', '11:50:00');
+INSERT INTO pmmc_var_log VALUES(22, 1, '2008-09-02', '11:50:41');
+INSERT INTO pmmc_var_log VALUES(23, 2, '2008-09-02', '11:50:52');
+INSERT INTO pmmc_var_log VALUES(24, 1, '2008-09-02', '11:51:04');
+INSERT INTO pmmc_var_log VALUES(25, 3, '2008-09-02', '15:32:46');
+INSERT INTO pmmc_var_log VALUES(26, 3, '2008-09-02', '16:08:52');
+INSERT INTO pmmc_var_log VALUES(27, 2, '2008-09-02', '16:32:36');
+INSERT INTO pmmc_var_log VALUES(28, 1, '2008-09-02', '16:34:28');

@@ -124,6 +124,7 @@ $lang['set']['pmov'] = 'Marimea maxima a imaginilor filmelor';
 $lang['usr']['usrs']    = 'Utilizatori';
 $lang['usr']['add']     = 'Ad&#259;ugare Utilizator';
 $lang['usr']['view']    = 'Detalii Utilizator';
+$lang['usr']['viewall'] = 'Vizualizare Utilizatori';
 $lang['usr']['name']    = 'Alias';
 $lang['usr']['fname']   = 'Prenume';
 $lang['usr']['lname']   = 'Nume';

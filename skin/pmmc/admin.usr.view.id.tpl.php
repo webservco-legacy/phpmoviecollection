@@ -17,13 +17,8 @@
 </div>
 
 <div class="clear">
-<label for="usr_mail1" class="required"><?php echo $lang['usr']['mail1']; ?></label>
-<input id="usr_mail1" name="usr_mail1" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail1']; ?>" />
-</div>
-
-<div class="clear">
-<label for="usr_mail2" class="required"><?php echo $lang['usr']['mail2']; ?></label>
-<input id="usr_mail2" name="usr_mail2" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail2']; ?>" />
+<label for="mail" class="required"><?php echo $lang['usr']['mail1']; ?></label>
+<input id="mail" name="mail" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail']; ?>" readonly="readonly" />
 </div>
 
 <div class="clear">

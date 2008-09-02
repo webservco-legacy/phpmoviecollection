@@ -134,4 +134,8 @@ $lang['msg'][45]['tt'] = 'Datele utilizatorului au fost modificate cu succes!';
 $lang['msg'][45]['tp'] = 'ok';
 $lang['msg'][46]['tt'] = 'Eroare intern&#259;. Datele utilizatorului nu au fost modificate. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
 $lang['msg'][46]['tp'] = 'err';
+$lang['msg'][47]['tt'] = 'Adresa de email exist&#259; deja in baza de date!';
+$lang['msg'][47]['tp'] = 'err';
+$lang['msg'][48]['tt'] = 'Utilizator inexistent!';
+$lang['msg'][48]['tp'] = 'err';
 ?>
