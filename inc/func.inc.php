@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:01 2008-08-31
+* @version    11:18 2008-09-02
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -379,7 +379,7 @@ function pmmc_adm_movies_add() {
   if ($res !== false ) {$_SESSION['pmmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
   else if(isset($_POST['mov_imdb_fetch'])) {
     if(isset($_POST['imdb_url'])) {
-      require_once './inc/browseremulator.class.php';
+      require_once './lib/browseremulator.class.php';
       require_once './inc/imdb.inc.php';
       $imdb_id = pmmc_filter_input($_POST['imdb_url']);
       $imdb_id = str_replace('http://www.imdb.com/title/tt', '', $imdb_id);
@@ -568,7 +568,7 @@ function pmmc_adm_movies_detail($id) {
   if ($res !== false ) {$_SESSION['pmmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
   else if(isset($_POST['mov_imdb_fetch'])) {
     if(isset($_POST['imdb_url'])) {
-      require_once './inc/browseremulator.class.php';
+      require_once './lib/browseremulator.class.php';
       require_once './inc/imdb.inc.php';
       $imdb_id = pmmc_filter_input($_POST['imdb_url']);
       $imdb_id = str_replace('http://www.imdb.com/title/tt', '', $imdb_id);

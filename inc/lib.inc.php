@@ -213,7 +213,7 @@ function pmmc_seo_urls() {
 /**
 * Initialize app configuration
 *
-* @pram array The configuration directives from ./inc/cfg.inc.php
+* @param array The configuration directives from ./inc/cfg.inc.php
 * @return void
 */
 function pmmc_cfg($ap_cfg) {
@@ -257,12 +257,12 @@ function pmmc_cfg($ap_cfg) {
 /**
 * Open a database connection
 *
-* @pram string Database host
-* @pram string Database user
-* @pram string Database password
-* @pram string Database name
-* @pram string Database port defaults to 3306 (MySQL)
-* @pram integer Database type defaults to 0 (MySQL)
+* @param string Database host
+* @param string Database user
+* @param string Database password
+* @param string Database name
+* @param string Database port defaults to 3306 (MySQL)
+* @param integer Database type defaults to 0 (MySQL)
 * @return mixed Connection link
 */
 function pmmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_type=0) {
@@ -289,8 +289,8 @@ function pmmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_ty
 /**
 * Close a database connection
 *
-* @pram mixed Connection link
-* @pram integer Database type defaults to 0 (MySQL)
+* @param mixed Connection link
+* @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
 function pmmc_dbclose($pmmc_dbconn, $db_type=0) {
@@ -301,8 +301,8 @@ function pmmc_dbclose($pmmc_dbconn, $db_type=0) {
 /**
 * Execute a query
 *
-* @pram mixed Query to execute
-* @pram integer Database type defaults to 0 (MySQL)
+* @param mixed Query to execute
+* @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
 function pmmc_qry_exec($query, $db_type=0) {
@@ -315,8 +315,8 @@ function pmmc_qry_exec($query, $db_type=0) {
 /**
 * Return an associative array with the results of a query
 *
-* @pram mixed result of a query
-* @pram integer Database type defaults to 0 (MySQL)
+* @param mixed result of a query
+* @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
 function pmmc_qry_row($result, $db_type=0) {
@@ -332,9 +332,9 @@ function pmmc_qry_row($result, $db_type=0) {
 /**
 * Return the value resulted from a query
 *
-* @pram mixed result of a query
-* @pram integer Row to return defaults to 0 (first row)
-* @pram integer Database type defaults to 0 (MySQL)
+* @param mixed result of a query
+* @param integer Row to return defaults to 0 (first row)
+* @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
 function pmmc_qry_result($result, $row=0, $db_type=0) {
@@ -350,8 +350,8 @@ function pmmc_qry_result($result, $row=0, $db_type=0) {
 /**
 * Return the number of rows resulted from a query
 *
-* @pram mixed result of a query
-* @pram integer Database type defaults to 0 (MySQL)
+* @param mixed result of a query
+* @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
 function pmmc_qry_total($result, $db_type=0) {
@@ -364,8 +364,8 @@ function pmmc_qry_total($result, $db_type=0) {
 /**
 * Number of rows affected by a query
 *
-* @pram mixed result of a query (needed for PostgreSQL)
-* @pram integer Database type defaults to 0 (MySQL)
+* @param mixed result of a query (needed for PostgreSQL)
+* @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
 function pmmc_qry_aff($result, $db_type=0) {
