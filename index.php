@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    14:19 2008-08-25
+* @version    16:36 2008-09-03
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -71,23 +71,11 @@ require_once './inc/func.inc.php';
 */
 if(isset($_GET['logout']) && $_GET['logout'] == 'true') {pmmc_usr_logout();}
 /**
-* Admin request processing
+* Process requests
 */
-else if(isset($_GET['admin'])) {$cnt = pmmc_admin();}
+$cnt = pmmc_process();
 /**
-* User request processing
-*/
-else if(isset($_GET['view'])) {$cnt = pmmc_view();}
-/**
-* Else no request has been made, show something
-*/
-else {
-  $cnt['skin'] = 'tester.tpl.php';
-  $cnt['tt'] = 'Tester';
-  $cnt['page'] = 'Hello World!';
-}
-/**
-* Additional modules
+* Load additional content modules
 */
 $mod = pmmc_mod_add();
 /**

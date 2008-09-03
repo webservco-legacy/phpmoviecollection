@@ -11,16 +11,19 @@
 [-][-][adm][usr]
 [x]/admin/users/add/new
 [x]/admin/users/details/{id}
-[-]/admin/users
+[x]/admin/users
 
 [-][-][adm][set]
 [x]/admin/settings
 
 [-][-][view][categ]
-[-]
+[-]/view/categ/ (a list of categories)
 
 [-][-][view][mov]
-[-]
+[-]/view/movies (all movies)
+[-]/view/movies/categ/{id} (view movies from a certain category)
+[-]/view/movies/genre/{id}
+[-]/view/latest
 
 [-][-][view][usr]
 [-]/view/users
@@ -29,3 +32,12 @@
 [-][-][view][set]
 
 [-][-][view][cart]
+
+----------------------------------------------------------------------------------------------------------------------------------
++genres (list)
++view movies from a genre
++search
++imdb search
++advanced search
++latest additions
++my list (add, mod, delete, save, flush)
