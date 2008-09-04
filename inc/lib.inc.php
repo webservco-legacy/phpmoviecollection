@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:01 2008-08-31
+* @version    19:27 2008-09-03
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -824,21 +824,48 @@ function pmmc_pic_ext($pic_type) {
 * @param string image
 * @param string path to image
 * @param string image title
+* @param integer max image size
 *
 * @return string link
 */
-function pmmc_image_thumb($img, $path, $title) {
+function pmmc_image_thumb($img, $path, $title, $max=50) {
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
     $img_u = _APP_URL.$path.$img;
     $link = '<a href="'.$img_u.'" title="'.$title.'" target="_blank">';
-    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" title="'.$title.'" alt="'.$title.'" />';
+    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
     $link .= '</a>';
   }
   else {
     $img_d = _APP_DIR . 'lib/nopic.png';
     $img_u = _APP_URL . 'lib/nopic.png';
-    $link = '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max=50" title="'.$title.'" alt="'.$title.'" />';
+    $link = '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
+  }
+  return $link;
+}
+/**
+* Create an image link with thumbnail leading to a custom loaction
+*
+* @param string image
+* @param string path to image
+* @param string image title
+* @param string target url
+* @param integer max image size
+*
+* @return string link
+*/
+function pmmc_image_thumb_link($img, $path, $title, $url, $max=50) {
+  if(is_file(_APP_DIR.$path.$img)) {
+    $img_d = _APP_DIR.$path.$img;
+    $link  = '<a href="'.$url.'" title="'.$title.'" target="_blank">';
+    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
+    $link .= '</a>';
+  }
+  else {
+    $img_d = _APP_DIR . 'lib/nopic.png';
+    $link  = '<a href="'.$url.'" title="'.$title.'" target="_blank">';
+    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
+    $link .= '</a>';
   }
   return $link;
 }

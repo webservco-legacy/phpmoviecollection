@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Add new user
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_usr_add() {
   global $lang;
@@ -98,7 +98,7 @@ function pmmc_adm_usr_add() {
 /**
 * View user
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_usr_details($id) {
   global $lang;
@@ -177,7 +177,7 @@ function pmmc_adm_usr_details($id) {
 /**
 * Users - view all
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_usr_view() {
   global $lang;

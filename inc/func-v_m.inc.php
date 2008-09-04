@@ -1,0 +1,50 @@
+<?php
+/**
+* ./inc/func-v_m.inc.php (view movie functions)
+*
+* <I> ./inc/func-v_m.inc.php</I>
+* <BR>This is the view movie functions file
+* <BR>It contains all the functions
+* <BR>used in the front side
+*
+* @author     Radu Maier <radu@rudisoft.net>
+* @copyright  Copyright (c) 2008, Radu Maier
+* @license    http://opensource.org/licenses/gpl-2.0.php
+* @version    19:32 2008-09-03
+* @since      19:32 2008-09-03
+* @access     public
+* @package    phpMyMovieCollection
+* @subpackage Application Front
+* @todo       Everything :-)
+*/
+
+/**
+* Prevent direct file access
+*/
+if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
+/**
+* Movie view
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmmc_view_mov_details($id) {
+  global $lang;
+  $cnt['skin'] = 'view.movies.details.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['details'];
+  
+  $cnt['page'] = pmmc_mov_details($id);
+  return  $cnt;
+}
+/**
+* Movie list
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmmc_adm_mov_view() {
+  global $lang;
+  $cnt['skin'] = 'admin.movies.list.tpl.php';
+  $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
+  $cnt['page'] = pmmc_mov_view();
+  return $cnt;
+}
+?>

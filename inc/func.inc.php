@@ -44,7 +44,7 @@ function pmmc_mod_add() {
 /**
 * Process all requests
 *
-* @return mixed content
+* @return array $cnt content to be displayed to the user content
 */
 function pmmc_process() {
   $cnt = NULL;
@@ -84,7 +84,7 @@ function pmmc_process() {
 /**
 * Categories administration function
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_categ() {
   $cnt = NULL;
@@ -96,6 +96,21 @@ function pmmc_adm_categ() {
   }
   else {
     $cnt = pmmc_adm_categ_view();
+  }
+  return $cnt;
+}
+/**
+* Categories view function
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmmc_view_categ() {
+  $cnt = NULL;
+  if(isset($_GET['details']) && pmmc_is_int($_GET['details'])) {
+    $cnt = pmmc_view_categ_details($_GET['details']);
+  }
+  else {
+    $cnt = pmmc_view_categ_view();
   }
   return $cnt;
 }
@@ -111,7 +126,7 @@ function pmmc_adm_categ() {
 /**
 * Movies administration function
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_movies() {
   $cnt = NULL;
@@ -126,7 +141,21 @@ function pmmc_adm_movies() {
   }
   return $cnt;
 }
-
+/**
+* Movies view function
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmmc_view_movies() {
+  $cnt = NULL;
+  if(isset($_GET['details']) && pmmc_is_int($_GET['details'])) {
+    $cnt = pmmc_view_mov_details($_GET['details']);
+  }
+  else {
+    $cnt = pmmc_view_mov_view(); // xxx
+  }
+  return $cnt;
+}
 /*
 * ********** ********** ********** ********** MOVIE REQUEST PROCESSING END ********** ********** ********** **********
 */
@@ -138,7 +167,7 @@ function pmmc_adm_movies() {
 /**
 * Users administration function
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_users() {
   $cnt = NULL;
@@ -167,7 +196,7 @@ function pmmc_adm_users() {
 *
 * @param integer category id
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_categ_details($id) {
   $cnt['page'] = NULL;
@@ -189,7 +218,7 @@ function pmmc_categ_details($id) {
 /**
 * Categories - view all
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_categ_view() {
   $cnt['page'] = NULL;
@@ -242,7 +271,7 @@ function pmmc_categ_view() {
 /**
 * Movie view
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_mov_details($id) {
   $vcr = pmmc_qry_exec("SELECT cat_id, cat_tt FROM pmmc_mov_cat ORDER BY cat_ord");
@@ -316,7 +345,7 @@ function pmmc_mov_details($id) {
 /**
 * Movie list
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_mov_view() {
   // categories
@@ -463,7 +492,7 @@ function pmmc_mov_view() {
 /**
 * View user
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_usr_details($id) {
   $cnt['page']['langs'] = pmmc_lsdir(_APP_DIR.'lang/');
@@ -489,7 +518,7 @@ function pmmc_usr_details($id) {
 /**
 * Users - view all
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_usr_view() {
   /*

@@ -147,7 +147,11 @@ $lang['usr']['status']  = 'Stare';
 $lang['usr']['stat'][0] = 'Blocat';
 $lang['usr']['stat'][1] = 'Activ';
 /**
-* Users
+* Skins
 */
 $lang['skin']['skin']   = 'Skin';
+/**
+* Vizualization
+*/
+$lang['view']['view'] = 'Vizualizare';
 ?>

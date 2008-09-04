@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Application settings
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_settings() {
   global $lang;

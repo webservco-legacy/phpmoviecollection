@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Movie add
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_mov_add() {
   $vcr = pmmc_qry_exec("SELECT cat_id, cat_tt FROM pmmc_mov_cat ORDER BY cat_ord");
@@ -188,7 +188,7 @@ function pmmc_adm_mov_add() {
 /**
 * Movie view
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_mov_details($id) {
   global $lang;
@@ -317,7 +317,7 @@ function pmmc_adm_mov_details($id) {
 /**
 * Movie list
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_mov_view() {
   global $lang;

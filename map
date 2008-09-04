@@ -17,11 +17,15 @@
 [x]/admin/settings
 
 [-][-][view][categ]
-[-]/view/categ/ (a list of categories)
+[-]/view/categ/ (a list of all categories)
+[-]/view/categ/details/{id} (details of a category)
 
 [-][-][view][mov]
 [-]/view/movies (all movies)
 [-]/view/movies/categ/{id} (view movies from a certain category)
+{-} /sort/[categ][title][year]
+{-} /order/[a][d]
+
 [-]/view/movies/genre/{id}
 [-]/view/latest
 

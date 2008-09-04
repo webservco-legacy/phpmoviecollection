@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    14:32 2008-09-03
+* @version    18:45 2008-09-03
 * @since      14:32 2008-09-03
 * @access     public
 * @package    phpMyMovieCollection
@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Add new category
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_categ_add() {
   global $lang;
@@ -90,7 +90,7 @@ function pmmc_adm_categ_add() {
 *
 * @param integer category id
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_categ_details($id) {
   global $lang;
@@ -154,7 +154,7 @@ function pmmc_adm_categ_details($id) {
 /**
 * View all categories
 *
-* @return mixed
+* @return array $cnt content to be displayed to the user
 */
 function pmmc_adm_categ_view() {
   $cnt = NULL;

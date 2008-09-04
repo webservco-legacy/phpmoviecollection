@@ -6,8 +6,8 @@ html, body {background-color: #FFFFFF; color: #000000; margin: 0; padding: 0; fo
 #container_cnt {clear: both; width: 90%; margin: auto; display: table; padding-bottom: 40px;}
 #container_ftr {width: 100%; height: 40px; font-size: 0.9em; text-align: center; position: absolute; bottom: 0; border-top: 1px solid #333333;}
 form {display: inline; margin: 0px; padding: 0px;}
-h1 {margin: 0 0 0 0; line-height: 130%; font-size: 1.3em;}
-h2 {margin: 0 0 0 0; line-height: 130%; font-size: 1.2em;}
+h1 {margin: 0px 0px 10px 0px; line-height: 130%; font-size: 1.3em;}
+h2 {margin: 0px 0px 10px 0px; line-height: 130%; font-size: 1.2em;}
 h3 {margin: 0 0 0 0; line-height: 130%; font-size: 1.1em;}
 h4 {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
 img {margin: 0px; padding: 0px; border: 0px;}
@@ -76,6 +76,15 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .cat_adm_citm {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_cdel {background-color: #EEEEEE; border: 0px; padding: 2px; text-align: center;}
 .cat_adm_subm {background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+#cat_view_holder {height: 160px; border: 0px; margin: 0px 0px 10px 0px; padding: 0px; border: 1px solid #000000;}
+#cat_view_pic {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
+* html #cat_view_pic {margin-right: -3px;}
+#cat_view_tt {margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
+* html #cat_view_tt {margin-left: 157px;}
+#cat_view_itms {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #cat_view_itms {margin-left: 157px;}
+#cat_view_dsc {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #cat_view_dsc {margin-left: 157px;}
 /* ********** ********** ********** CATEG AREA END ********** ********** ********** */
 /* ********** ********** ********** MOVIE AREA START ********** ********** ********** */
 .mov_adm_hmovie {width: 420px; background-color: #DDDDDD; border: 0px; padding: 0px; text-align: center;}
@@ -92,6 +101,17 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .mov_adm_fsort   {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_ford     {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_fok       {width: 75px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
+#mov_view_holder1 {background-color: #CCCCCC; border: 0px; margin: 0px 0px 0px 0px; padding: 0px; border: 1px solid #000000;}
+#mov_view_pic {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
+* html #mov_view_pic {margin-right: -3px;}
+#mov_view_tt {background-color: #cccccc; margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
+* html #mov_view_tt {margin-left: 157px;}
+#mov_view_cat {background-color: #DDDDDD; margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #mov_view_cat {margin-left: 157px;}
+#mov_view_year {height: 20px; background-color: #CCCCCC; font-size: 1.2em; font-weight: bold; margin-left: 160px; padding: 5px 0px 5px 0px;}
+* html #mov_view_year {margin-left: 157px;}
+#mov_view_imdb {width: 100px; height: 20px; float: right; background-color: #DDDDDD; padding: 5px 0px 5px 0px; text-align: center;}
+* html #mov_view_imdb {margin-left: -3px;}
 /* ********** ********** ********** MOVIE AREA END ********** ********** ********** */
 /* ********** ********** ********** USER AREA START ********** ********** ********** */
 .usr_adm_halias   {width: 150px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
