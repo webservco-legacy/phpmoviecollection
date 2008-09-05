@@ -277,7 +277,7 @@ function pmmc_mov_details($id) {
   $vcr = pmmc_qry_exec("SELECT cat_id, cat_tt FROM pmmc_mov_cat ORDER BY cat_ord");
   $vct = pmmc_qry_total($vcr);
   if($vct > 0) {
-    for($v=0;$v<$vct;$v++) {
+    for($v=1;$v<=$vct;$v++) {
       $vcrw = pmmc_qry_row($vcr);
       $cnt['page']['categs']['id'][$v] = $vcrw['cat_id'];
       $cnt['page']['categs']['tt'][$v] = $vcrw['cat_tt'];

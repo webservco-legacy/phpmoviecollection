@@ -21,7 +21,7 @@
 <?php
 $tc = count($cnt['categs']['id']);
 if($tc > 0) {
-  for($j=0;$j<$tc;$j++) {
+  for($j=1;$j<=$tc;$j++) {
   $sel[$j] = '';
   if($cnt['categs']['id'][$j] == $cnt['cat_id']) {$sel[$j] = ' selected="selected"';}
 ?>

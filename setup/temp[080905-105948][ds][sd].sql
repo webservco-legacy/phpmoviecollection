@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 02, 2008 at 08:03 PM
--- Server version: 5.0.51
--- PHP Version: 5.2.5
+-- Generation Time: Sep 05, 2008 at 10:59 AM
+-- Server version: 5.0.45
+-- PHP Version: 5.2.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -27,7 +27,7 @@ CREATE TABLE pmmc_mov_cat (
   cat_ord int(5) unsigned NOT NULL,
   cat_desc varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (cat_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_mov_cat'
@@ -47,7 +47,7 @@ CREATE TABLE pmmc_mov_gen (
   gen_id int(5) unsigned NOT NULL auto_increment,
   gen_tt varchar(50) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (gen_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_mov_gen'
@@ -93,13 +93,13 @@ CREATE TABLE pmmc_mov_rel (
   mov_id int(5) unsigned NOT NULL,
   gen_id int(5) unsigned NOT NULL,
   PRIMARY KEY  (rel_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_mov_rel'
 --
 
-INSERT INTO pmmc_mov_rel VALUES(1, 1, 1);
+INSERT INTO pmmc_mov_rel VALUES(17, 1, 1);
 INSERT INTO pmmc_mov_rel VALUES(2, 1, 8);
 INSERT INTO pmmc_mov_rel VALUES(3, 1, 10);
 INSERT INTO pmmc_mov_rel VALUES(4, 1, 14);
@@ -112,6 +112,8 @@ INSERT INTO pmmc_mov_rel VALUES(13, 3, 14);
 INSERT INTO pmmc_mov_rel VALUES(14, 3, 20);
 INSERT INTO pmmc_mov_rel VALUES(15, 4, 8);
 INSERT INTO pmmc_mov_rel VALUES(16, 4, 17);
+INSERT INTO pmmc_mov_rel VALUES(18, 8, 5);
+INSERT INTO pmmc_mov_rel VALUES(19, 8, 9);
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ CREATE TABLE pmmc_mov_tt (
   mov_date date NOT NULL,
   mov_time time NOT NULL,
   PRIMARY KEY  (mov_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_mov_tt'
@@ -162,7 +164,7 @@ CREATE TABLE pmmc_set_cfg (
   cfg_set varchar(150) collate utf8_unicode_ci NOT NULL,
   cfg_val varchar(150) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (cfg_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_set_cfg'
@@ -170,10 +172,10 @@ CREATE TABLE pmmc_set_cfg (
 
 INSERT INTO pmmc_set_cfg VALUES(1, 'LANG', 'ro');
 INSERT INTO pmmc_set_cfg VALUES(2, 'SKIN', 'pmmc');
-INSERT INTO pmmc_set_cfg VALUES(3, 'PCAT', '80');
-INSERT INTO pmmc_set_cfg VALUES(4, 'PMOV', '90');
-INSERT INTO pmmc_set_cfg VALUES(5, 'IMOV', '11');
-INSERT INTO pmmc_set_cfg VALUES(6, 'IUSR', '15');
+INSERT INTO pmmc_set_cfg VALUES(3, 'PCAT', '150');
+INSERT INTO pmmc_set_cfg VALUES(4, 'PMOV', '150');
+INSERT INTO pmmc_set_cfg VALUES(5, 'IMOV', '10');
+INSERT INTO pmmc_set_cfg VALUES(6, 'IUSR', '10');
 
 -- --------------------------------------------------------
 
@@ -189,7 +191,7 @@ CREATE TABLE pmmc_set_lst (
   lst_date date NOT NULL,
   lst_time time NOT NULL,
   PRIMARY KEY  (lst_id)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_set_lst'
@@ -216,7 +218,7 @@ CREATE TABLE pmmc_set_usr (
   usr_status tinyint(1) unsigned NOT NULL,
   usr_date date NOT NULL,
   PRIMARY KEY  (usr_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_set_usr'
@@ -240,7 +242,7 @@ CREATE TABLE pmmc_var_log (
   log_date date NOT NULL,
   log_time time NOT NULL,
   PRIMARY KEY  (log_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table 'pmmc_var_log'
@@ -275,3 +277,10 @@ INSERT INTO pmmc_var_log VALUES(26, 3, '2008-09-02', '16:08:52');
 INSERT INTO pmmc_var_log VALUES(27, 2, '2008-09-02', '16:32:36');
 INSERT INTO pmmc_var_log VALUES(28, 1, '2008-09-02', '16:34:28');
 INSERT INTO pmmc_var_log VALUES(29, 1, '2008-09-02', '19:51:12');
+INSERT INTO pmmc_var_log VALUES(30, 1, '2008-09-03', '13:16:02');
+INSERT INTO pmmc_var_log VALUES(31, 1, '2008-09-03', '14:58:40');
+INSERT INTO pmmc_var_log VALUES(32, 1, '2008-09-03', '15:47:02');
+INSERT INTO pmmc_var_log VALUES(33, 1, '2008-09-03', '15:49:49');
+INSERT INTO pmmc_var_log VALUES(34, 1, '2008-09-03', '15:51:01');
+INSERT INTO pmmc_var_log VALUES(35, 1, '2008-09-04', '17:35:26');
+INSERT INTO pmmc_var_log VALUES(36, 1, '2008-09-04', '17:36:07');

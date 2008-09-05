@@ -101,17 +101,19 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .mov_adm_fsort   {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_ford     {width: 200px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
 .mov_adm_fok       {width: 75px; background-color: #EEEEEE; border: 0px; padding: 0px; text-align: center;}
-#mov_view_holder1 {background-color: #CCCCCC; border: 0px; margin: 0px 0px 0px 0px; padding: 0px; border: 1px solid #000000;}
-#mov_view_pic {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
-* html #mov_view_pic {margin-right: -3px;}
-#mov_view_tt {background-color: #cccccc; margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
-* html #mov_view_tt {margin-left: 157px;}
-#mov_view_cat {background-color: #DDDDDD; margin-left: 160px; padding: 10px 10px 10px 10px;}
-* html #mov_view_cat {margin-left: 157px;}
-#mov_view_year {height: 20px; background-color: #CCCCCC; font-size: 1.2em; font-weight: bold; margin-left: 160px; padding: 5px 0px 5px 0px;}
+#mov_view_holder1     {border: 0px; margin: 0px 0px 0px 0px; padding: 0px; border: 1px solid #000000;}
+#mov_view_pic             {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
+* html #mov_view_pic   {}
+#mov_view_tt               {margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
+* html #mov_view_tt     {margin-left: 157px;}
+#mov_view_cat             {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #mov_view_cat   {margin-left: 157px;}
+#mov_view_year           {font-size: 1.2em; font-weight: bold; margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right}
 * html #mov_view_year {margin-left: 157px;}
-#mov_view_imdb {width: 100px; height: 20px; float: right; background-color: #DDDDDD; padding: 5px 0px 5px 0px; text-align: center;}
-* html #mov_view_imdb {margin-left: -3px;}
+#mov_view_imdb           {margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right;}
+* html #mov_view_imdb {margin-left: 157px;}
+.mname                           {float: left; width: 150px; text-align: right; padding: 5px 5px 5px 5px; border-top: 1px solid #000000;}
+.mvalue                         {margin-left: 160px; text-align: left; padding: 5px 5px 5px 5px; border-top: 1px solid #000000;}
 /* ********** ********** ********** MOVIE AREA END ********** ********** ********** */
 /* ********** ********** ********** USER AREA START ********** ********** ********** */
 .usr_adm_halias   {width: 150px; background-color: #DDDDDD; border: 0px; padding: 2px; text-align: center;}
