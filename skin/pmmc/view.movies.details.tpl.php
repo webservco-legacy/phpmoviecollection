@@ -64,12 +64,18 @@ if($cnt['mov_tt'] != '') {
 <?php
 $tg = count($cnt['genres']);
 for($i=0;$i<$tg;$i++) {
-  if($cnt['genre'][$cnt['genres'][$i]] == 1) {echo $cnt['genrett'][$cnt['genres'][$i]] . ' ';}
+  if($cnt['genre'][$cnt['genres'][$i]] == 1) {$genres[] = $cnt['genrett'][$cnt['genres'][$i]];}
+}
+$tg2 = count($genres);
+if($tg2 > 0) {
+  for($j=0;$j<$tg2;$j++) {
+    echo $genres[$j];
+    if($j != $tg2-1) {echo ', ';}
+  }
 }
 ?>
 </div>
 </div>
-<!-- xxx -->
 <?php
 }
 ?>

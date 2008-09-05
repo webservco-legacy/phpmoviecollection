@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    13:00 2008-09-03
+* @version    17:04 2008-09-05
 * @since      19:27 2008-08-19
 * @access     public
 * @package    phpMyMovieCollection
@@ -461,6 +461,8 @@ function pmmc_mov_view() {
   $cnt['page']['prevpage']   = $page - 1;
   $cnt['page']['nextpage']   = $page + 1;
   $cnt['page']['categ']      = $cat_id;
+  $cnt['page']['sort']       = $sort;
+  $cnt['page']['order']       = $order;
   
   $cnt['page']['link_first'] = '&#60;&#60;';
   $cnt['page']['link_prev']  = '&#60;';

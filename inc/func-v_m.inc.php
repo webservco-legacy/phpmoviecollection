@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:32 2008-09-03
+* @version    16:58 2008-09-05
 * @since      19:32 2008-09-03
 * @access     public
 * @package    phpMyMovieCollection
@@ -40,10 +40,10 @@ function pmmc_view_mov_details($id) {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_adm_mov_view() {
+function pmmc_view_mov_view() {
   global $lang;
-  $cnt['skin'] = 'admin.movies.list.tpl.php';
-  $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
+  $cnt['skin'] = 'view.movies.list.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
   $cnt['page'] = pmmc_mov_view();
   return $cnt;
 }

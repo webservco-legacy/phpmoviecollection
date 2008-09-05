@@ -12,17 +12,17 @@ if($t > 0) {
 <?php echo $lang['pmmc']['sortby']; ?>
 &#160;
 <select id="sort" name="sort" size="1">
-  <option value="title"><?php echo $lang['pmmc']['tt']; ?></option>
-  <option value="categ"><?php echo $lang['categ']['categ']; ?></option>
-  <option value="year"><?php echo $lang['pmmc']['year']; ?></option>
+  <option value="title"<?php if($cnt['sort'] == 'title') {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['tt']; ?></option>
+  <option value="categ"<?php if($cnt['sort'] == 'categ') {echo 'selected="selected"';} ?>><?php echo $lang['categ']['categ']; ?></option>
+  <option value="year"<?php if($cnt['sort'] == 'year')   {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['year']; ?></option>
 </select>
   </td>
   <td class="mov_adm_ford">
 <?php echo $lang['pmmc']['order']; ?>
 &#160;
 <select id="order" name="order" size="1">
-  <option value="a"><?php echo $lang['pmmc']['ordera']; ?></option>
-  <option value="d"><?php echo $lang['pmmc']['orderd']; ?></option>
+  <option value="a"<?php if($cnt['order'] == 'a') {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['ordera']; ?></option>
+  <option value="d"<?php if($cnt['order'] == 'd') {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['orderd']; ?></option>
 </select>
   </td>
   <td class="mov_adm_fok">
