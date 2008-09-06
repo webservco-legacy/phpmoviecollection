@@ -347,7 +347,7 @@ function pmmc_mov_details($id) {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_mov_view() {
+function pmmc_mov_view($cnttype = 'admin') {
   // categories
   $rc = pmmc_qry_exec("SELECT * FROM pmmc_mov_cat ORDER BY cat_ord ASC");
   $tc = pmmc_qry_total($rc);
@@ -387,6 +387,12 @@ function pmmc_mov_view() {
       default  : {break;}
     }
   }
+  
+  $genre = '0';
+  if(isset($_GET['genre'])) {
+    if(pmmc_is_int($_GET['genre'])) {$genre = pmmc_filter_input($_GET['genre']);}
+  }
+  
   // filter (search)
   $searchtype = 0;
   if(isset($_POST['search'])) {
@@ -420,16 +426,31 @@ function pmmc_mov_view() {
   
   $page = 1;
   if(isset($_GET['page']) && pmmc_is_int($_GET['page'])) {$page = $_GET['page'];}
-  $items = 2;
+  $items = _APP_IMOV;
   $offset = ($page - 1) * $items;
   if ($searchtype == 0) {$q_limit = " LIMIT ".$offset.", ".$items."";}
   else {$q_limit = "";}
   
+  //genre query
+  $q_genres = "IS NOT NULL";
+  if($genre != '0') {
+    $rg = pmmc_qry_exec("SELECT DISTINCT(mov_id) FROM pmmc_mov_rel WHERE gen_id = '{$genre}'");
+    $tg = pmmc_qry_total($rg);
+    if($tg != 0) {
+      $mi = '';
+      for($g=0;$g<$tg;$g++) {
+      $qg = pmmc_qry_row($rg);
+      $mi .= $qg['mov_id'];
+      if($g != $tg-1) {$mi .= ', ';}
+      }
+      $q_genres = "IN ({$mi})";
+    }
+    else {$q_genres = "IN (0)";}
+  }
+  
   // build query
-  $q1 = "SELECT SQL_CALC_FOUND_ROWS * FROM pmmc_mov_tt WHERE cat_id {$q_cat_id} AND mov_imdb {$q_mov_imdb} AND mov_tt {$q_mov_tt} AND mov_aka {$q_mov_aka} AND mov_year {$q_mov_year} AND mov_country {$q_mov_country} AND mov_language {$q_mov_language} AND mov_dir {$q_mov_dir} AND mov_wrt {$q_mov_wrt} AND mov_tag {$q_mov_tag} AND mov_plot {$q_mov_plot} AND mov_cast {$q_mov_cast} ORDER BY {$q_sort} {$q_order} {$q_limit}";
+  $q1 = "SELECT SQL_CALC_FOUND_ROWS * FROM pmmc_mov_tt WHERE cat_id {$q_cat_id} AND mov_id {$q_genres} AND mov_imdb {$q_mov_imdb} AND mov_tt {$q_mov_tt} AND mov_aka {$q_mov_aka} AND mov_year {$q_mov_year} AND mov_country {$q_mov_country} AND mov_language {$q_mov_language} AND mov_dir {$q_mov_dir} AND mov_wrt {$q_mov_wrt} AND mov_tag {$q_mov_tag} AND mov_plot {$q_mov_plot} AND mov_cast {$q_mov_cast} ORDER BY {$q_sort} {$q_order} {$q_limit}";
   $q2 = "SELECT FOUND_ROWS() as totalitems";
-  
-  
   
   $cnt['page']['movies'] = array();
   $r = pmmc_qry_exec($q1);
@@ -442,14 +463,15 @@ function pmmc_mov_view() {
         $lock = pmmc_lock_tables(array('pmmc_mov_tt'));
         if(isset($_POST['mov_del-'.$rw[$i]['mov_id']])) {
           if(is_file(_APP_DIR.'var/pic_mov/'.$rw[$i]['mov_pic'])) {unlink(_APP_DIR.'var/pic_mov/'.$rw[$i]['mov_pic']);}
-          $delete = pmmc_qry_exec("DELETE FROM pmmc_mov_tt WHERE mov_id = '{$rw[$i]['mov_id']}' LIMIT 1");
-          if($delete === true) {$_SESSION['pmmc_msg'] = 40;}
+          $delete  = pmmc_qry_exec("DELETE FROM pmmc_mov_tt WHERE mov_id = '{$rw[$i]['mov_id']}' LIMIT 1");
+          $delete2 = pmmc_qry_exec("DELETE FROM pmmc_mov_rel WHERE mov_id = '{$rw[$i]['mov_id']}'");
+          if($delete === true && $delete2 === true) {$_SESSION['pmmc_msg'] = 40;}
         }
         $unlock = pmmc_unlock_tables();
       }  
     }
     if(isset($_POST['mov_save_mod']) && $_SESSION['pmmc_usr_level'] >= 4) {
-      header("Location: " . _APP_URL . "admin/movies/categ/".$cat_id."/sort/".$sort."/order/".$order);
+      header("Location: " . _APP_URL . "admin/movies/categ/".$cat_id."/sort/".$sort."/order/".$order."/genre/".$genre);
       exit;
     }
   }
@@ -462,19 +484,20 @@ function pmmc_mov_view() {
   $cnt['page']['nextpage']   = $page + 1;
   $cnt['page']['categ']      = $cat_id;
   $cnt['page']['sort']       = $sort;
-  $cnt['page']['order']       = $order;
+  $cnt['page']['order']      = $order;
+  //$cnt['page']['genre']      = $genre;
   
   $cnt['page']['link_first'] = '&#60;&#60;';
   $cnt['page']['link_prev']  = '&#60;';
   if($cnt['page']['page'] > 1) {
-    $cnt['page']['link_first'] = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/1">'.$cnt['page']['link_first'].'</a>';
-    $cnt['page']['link_prev']  = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/'.$cnt['page']['prevpage'].'">'.$cnt['page']['link_prev'].'</a>';
+    $cnt['page']['link_first'] = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/1">'.$cnt['page']['link_first'].'</a>';
+    $cnt['page']['link_prev']  = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/'.$cnt['page']['prevpage'].'">'.$cnt['page']['link_prev'].'</a>';
   }
   $cnt['page']['link_next']  = '&#62;';
   $cnt['page']['link_last']  = '&#62;&#62;';
   if($cnt['page']['page'] < $cnt['page']['maxpage']) {
-    $cnt['page']['link_next']  = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/'.$cnt['page']['nextpage'].'">'.$cnt['page']['link_next'].'</a>';
-    $cnt['page']['link_last']  = '<a href="'._APP_URL.'admin/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
+    $cnt['page']['link_next']  = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/'.$cnt['page']['nextpage'].'">'.$cnt['page']['link_next'].'</a>';
+    $cnt['page']['link_last']  = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
   }
   $cnt['page']['movies'] = $rw;
   if($cnt['page']['total'] == 0) {$_SESSION['pmmc_msg'] = 39;}
@@ -532,7 +555,7 @@ function pmmc_usr_view() {
   */
   $page = 1;
   if(isset($_GET['page']) && pmmc_is_int($_GET['page'])) {$page = $_GET['page'];}
-  $items = 2;
+  $items = _APP_IUSR;
   $offset = ($page - 1) * $items;
   $q_limit = " LIMIT ".$offset.", ".$items."";
   
@@ -581,4 +604,31 @@ function pmmc_usr_view() {
 /*
 * ********** ********** ********** ********** GENERAL USERS FUNCTIONS END ********** ********** ********** **********
 */
+
+/*
+* ********** ********** ********** ********** GENERAL GENRES FUNCTIONS START ********** ********** ********** **********
+*/
+function pmmc_genre_menu() {
+  global $lang;
+  $gen['tt'] = $lang['genre']['genres'];
+  
+  $gen['genre_id']    = '';
+  $gen['genre_title'] = '';
+  $gen['genre_items'] = '';
+  $result = pmmc_qry_exec("SELECT A.gen_id AS genre_id, A.gen_tt AS genre_title, count(distinct(B.mov_id)) AS genre_items FROM pmmc_mov_gen AS A LEFT JOIN pmmc_mov_rel AS B ON (A.gen_id = B.gen_id) GROUP BY genre_title");
+  $total = pmmc_qry_total($result);
+  if($total > 0) {
+    for($i=1;$i<=$total;$i++) {
+      $row = pmmc_qry_row($result);
+      $gen['genre_id'][$i]    = $row['genre_id'];
+      $gen['genre_title'][$i] = $row['genre_title'];
+      $gen['genre_items'][$i] = $row['genre_items'];
+    }
+  }
+  return $gen;
+}
+/*
+* ********** ********** ********** ********** GENERAL GENRES FUNCTIONS END ********** ********** ********** **********
+*/
+
 ?>

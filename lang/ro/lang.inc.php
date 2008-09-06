@@ -109,7 +109,7 @@ $lang['genre']['genres'] = 'Genuri';
 */
 $lang['imdb']['imdb']  = 'IMDb';
 $lang['imdb']['url']   = 'URL IMDb';
-$lang['imdb']['fetch'] = 'Preluare date';
+$lang['imdb']['fetch'] = 'Preluare';
 /**
 * Settings
 */

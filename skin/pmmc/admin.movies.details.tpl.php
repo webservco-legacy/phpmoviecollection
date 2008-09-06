@@ -51,12 +51,12 @@ if($tc > 0) {
 
 <div class="clear">
 <label for="mov_tt" class="required"><?php echo $lang['pmmc']['tt']; ?></label>
-<input id="mov_tt" name="mov_tt" type="text" size="50" maxlength="150" value="<?php echo $cnt['mov_tt']; ?>" />
+<input id="mov_tt" name="mov_tt" type="text" size="40" maxlength="150" value="<?php echo $cnt['mov_tt']; ?>" />
 </div>
 
 <div class="clear">
 <label for="mov_aka"><?php echo $lang['movie']['aka']; ?></label>
-<input id="mov_aka" name="mov_aka" type="text" size="50" maxlength="255" value="<?php echo $cnt['mov_aka']; ?>" />
+<input id="mov_aka" name="mov_aka" type="text" size="40" maxlength="255" value="<?php echo $cnt['mov_aka']; ?>" />
 </div>
 
 <div class="clear">
@@ -87,22 +87,22 @@ if($tc > 0) {
 
 <div class="clear">
 <label for="mov_tag"><?php echo $lang['movie']['tagline']; ?></label>
-<input id="mov_tag" name="mov_tag" type="text" size="50" maxlength="255" value="<?php echo $cnt['mov_tag']; ?>" />
+<input id="mov_tag" name="mov_tag" type="text" size="40" maxlength="255" value="<?php echo $cnt['mov_tag']; ?>" />
 </div>
 
 <div class="clear">
 <label for="mov_plot"><?php echo $lang['movie']['plot']; ?></label>
-<input id="mov_plot" name="mov_plot" type="text" size="50" maxlength="255" value="<?php echo $cnt['mov_plot']; ?>" />
+<input id="mov_plot" name="mov_plot" type="text" size="40" maxlength="255" value="<?php echo $cnt['mov_plot']; ?>" />
 </div>
 
 <div class="clear">
 <label for="mov_cast"><?php echo $lang['movie']['cast']; ?></label>
-<input id="mov_cast" name="mov_cast" type="text" size="50" maxlength="255" value="<?php echo $cnt['mov_cast']; ?>" />
+<input id="mov_cast" name="mov_cast" type="text" size="40" maxlength="255" value="<?php echo $cnt['mov_cast']; ?>" />
 </div>
 
 <div class="clear">
 <label for="mov_notes"><?php echo $lang['pmmc']['notes']; ?></label>
-<input id="mov_notes" name="mov_notes" type="text" size="50" maxlength="255" value="<?php echo $cnt['mov_notes']; ?>" />
+<input id="mov_notes" name="mov_notes" type="text" size="40" maxlength="255" value="<?php echo $cnt['mov_notes']; ?>" />
 </div>
 
 <div class="clear">

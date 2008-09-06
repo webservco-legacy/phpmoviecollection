@@ -5,7 +5,7 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
   if($tc > 0) {
 ?>
 <form enctype="multipart/form-data" id="categs_mod_form" name="categs_mod_form" action="" method="post">
-<table border="0" cellspacing="1">
+<table border="0" cellspacing="2">
 <tr>
   <td class="cat_adm_hord">
   <?php echo $lang['pmmc']['order']; ?>
@@ -34,7 +34,7 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
   <?php echo pmmc_image_thumb($cnt['cat_pic'][$i], 'var/pic_cat/', $cnt['cat_tt'][$i]); ?>
   </td>
   <td class="cat_adm_ctt">
-  <a href="<?php echo _APP_URL; ?>admin/categ/view/<?php echo $cnt['cat_id'][$i]; ?>" title="<?php echo $cnt['cat_tt'][$i]; ?>"><?php echo $cnt['cat_tt'][$i]; ?></a>
+  <a href="<?php echo _APP_URL; ?>admin/categ/details/<?php echo $cnt['cat_id'][$i]; ?>" title="<?php echo $cnt['cat_tt'][$i]; ?>"><?php echo $cnt['cat_tt'][$i]; ?></a>
   </td>
   <td class="cat_adm_citm">
   <?php echo $cnt['cat_items'][$i]; ?>

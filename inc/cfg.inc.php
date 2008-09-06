@@ -60,4 +60,8 @@ $ap_cfg['mod']['mod_usr'] = 1;
 * Control the loading of the test module
 */
 $ap_cfg['mod']['mod_test'] = 1;
+/**
+* Control the loading of the genres module
+*/
+$ap_cfg['mod']['mod_gen'] = 1;
 ?>

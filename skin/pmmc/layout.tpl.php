@@ -46,6 +46,7 @@
         {RIGHT}
         <br />
         <?php echo $mod_test;?>
+        <?php echo $mod_gen;?>
       </div>
       <div id="cnt_page">
         <?php echo $page; ?>

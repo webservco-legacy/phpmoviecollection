@@ -4,7 +4,7 @@ $t = count($cnt['users']);
 if($t > 0) {
 ?>
 <form enctype="multipart/form-data" id="categs_mod_form" name="categs_mod_form" action="" method="post">
-<table border="0" cellspacing="1">
+<table border="0" cellspacing="2">
 <tr>
   <td class="usr_adm_halias">
   <?php echo $lang['usr']['name']; ?>

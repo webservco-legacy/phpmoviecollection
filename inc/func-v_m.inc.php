@@ -44,7 +44,7 @@ function pmmc_view_mov_view() {
   global $lang;
   $cnt['skin'] = 'view.movies.list.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
-  $cnt['page'] = pmmc_mov_view();
+  $cnt['page'] = pmmc_mov_view('view');
   return $cnt;
 }
 ?>

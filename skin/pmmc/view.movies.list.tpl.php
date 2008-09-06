@@ -6,8 +6,10 @@ if($t > 0) {
 ?>
 <form enctype="application/x-www-form-urlencoded" id="mov_filter_form" name="mov_filter_form" action="<?php echo _APP_URL; ?>view/movies" method="get">
 <table border="0" cellspacing="1">
+<tr><td>
+<table border="0" cellspacing="0">
 <tr>
-<td class="mov_adm_fsort">
+<td class="mov_view_fsort">
 <input id="categ" name="categ" type="hidden" value="<?php echo $cnt['categ']; ?>" />
 <?php echo $lang['pmmc']['sortby']; ?>
 &#160;
@@ -17,7 +19,7 @@ if($t > 0) {
   <option value="year"<?php if($cnt['sort'] == 'year')   {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['year']; ?></option>
 </select>
   </td>
-  <td class="mov_adm_ford">
+  <td class="mov_view_ford">
 <?php echo $lang['pmmc']['order']; ?>
 &#160;
 <select id="order" name="order" size="1">
@@ -25,68 +27,65 @@ if($t > 0) {
   <option value="d"<?php if($cnt['order'] == 'd') {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['orderd']; ?></option>
 </select>
   </td>
-  <td class="mov_adm_fok">
+  <td class="mov_view_fok">
 <input id="filter" name="filter" type="submit" value="<?php echo $lang['pmmc']['ok']; ?>" />
   </td>
 </tr>
 </table>
+</td></tr></table>
 </form>
 
-<form enctype="multipart/form-data" id="categs_mod_form" name="categs_mod_form" action="" method="post">
-<table border="0" cellspacing="1">
+<table border="0" cellspacing="2">
+<!--
 <tr>
-  <td class="mov_adm_hmovie">
-  <?php echo $lang['movie']['movie']; ?>
+  <td class="mov_view_hmovie">
+  <?php //echo $lang['movie']['movie']; ?>
   </td>
-  <td class="mov_adm_hdel">
-  <?php echo $lang['pmmc']['del']; ?>
+  <td class="mov_view_hdel">
+  &#160;
   </td>
 </tr>
+-->
 <?php
   for($i=0;$i<$t;$i++) {
     if($cnt['movies'][$i]['mov_tt_pre'] != '') {$movie_title[$i] = $cnt['movies'][$i]['mov_tt_pre'] . '&#160;' . $cnt['movies'][$i]['mov_tt'];}
     else {$movie_title[$i] = $cnt['movies'][$i]['mov_tt'];}
 ?>
 <tr>
-  <td class="mov_adm_cmovie">
+  <td class="mov_view_cmovie">
     <table border="0" cellspacing="1">
     <tr>
-      <td class="mov_adm_img" rowspan="2">
+      <td class="mov_view_img" rowspan="2">
       <?php echo pmmc_image_thumb($cnt['movies'][$i]['mov_pic'], 'var/pic_mov/', $movie_title[$i]); ?>
       </td>
-      <td class="mov_adm_tt">
-      <a href="<?php echo _APP_URL; ?>admin/movies/details/<?php echo $cnt['movies'][$i]['mov_id']; ?>"><?php echo $movie_title[$i]; ?></a>
+      <td class="mov_view_tt">
+      <a href="<?php echo _APP_URL; ?>view/movies/details/<?php echo $cnt['movies'][$i]['mov_id']; ?>"><?php echo $movie_title[$i]; ?></a>
       </td>
-      <td class="mov_adm_year">
+      <td class="mov_view_year">
       <?php echo $cnt['movies'][$i]['mov_year']; ?>
       </td>
     </tr>
     <tr>
-      <td class="mov_adm_cat">
-      <a href="<?php echo _APP_URL; ?>admin/movies/categ/<?php echo $cnt['movies'][$i]['cat_id']; ?>"><?php echo $cnt['cat_tt'][$cnt['movies'][$i]['cat_id']]; ?></a>
+      <td class="mov_view_cat">
+      <a href="<?php echo _APP_URL; ?>view/movies/categ/<?php echo $cnt['movies'][$i]['cat_id']; ?>"><?php echo $cnt['cat_tt'][$cnt['movies'][$i]['cat_id']]; ?></a>
       </td>
-      <td class="mov_adm_imdb">
+      <td class="mov_view_imdb">
       <a href="http://www.imdb.com/title/tt<?php echo $cnt['movies'][$i]['mov_imdb']; ?>/" target="_blank"><?php echo $lang['imdb']['imdb']; ?></a>
       </td>
     </tr>
     </table>
   </td>
-  <td class="mov_adm_cdel">
-  <input id="mov_del-<?php echo $cnt['movies'][$i]['mov_id']; ?>" name="mov_del-<?php echo $cnt['movies'][$i]['mov_id']; ?>" type="checkbox" />
+  <td class="mov_view_cdel">
+  &#160;
   </td>
 </tr>
 <?php
   }
 ?>
-<tr>
-  <td colspan="2" class="mov_adm_subm">
-  <input id="mov_save_mod" name="mov_save_mod" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
-  </td>
-</tr>
 <?php
   if($cnt['searchtype'] == 0) {
     echo '<tr>';
-    echo '<td class="mov_adm_nav" colspan="2">';
+    echo '<td class="mov_view_nav" colspan="2">';
     echo $cnt['link_first'] . '&#160;';
     echo $cnt['link_prev'] . '&#160;';
     echo $lang['pmmc']['page'] . '&#160;';
@@ -100,7 +99,6 @@ if($t > 0) {
   }
 ?>
 </table>
-</form>
 <?php
 }
 ?>
