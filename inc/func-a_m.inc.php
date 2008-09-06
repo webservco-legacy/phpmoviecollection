@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    15:32 2008-09-03
+* @version    23:07 2008-09-06
 * @since      15:32 2008-09-03
 * @access     public
 * @package    pmc
@@ -78,7 +78,7 @@ function pmc_adm_mov_add() {
   else if(isset($_POST['mov_imdb_fetch'])) {
     if(isset($_POST['imdb_url'])) {
       require_once './lib/browseremulator.class.php';
-      require_once './inc/imdb.inc.php';
+      require_once './lib/imdb.inc.php';
       $imdb_id = pmc_filter_input($_POST['imdb_url']);
       $imdb_id = str_replace('http://www.imdb.com/title/tt', '', $imdb_id);
       $imdb_id = str_replace('/', '', $imdb_id);
@@ -203,7 +203,7 @@ function pmc_adm_mov_details($id) {
   else if(isset($_POST['mov_imdb_fetch'])) {
     if(isset($_POST['imdb_url'])) {
       require_once './lib/browseremulator.class.php';
-      require_once './inc/imdb.inc.php';
+      require_once './lib/imdb.inc.php';
       $imdb_id = pmc_filter_input($_POST['imdb_url']);
       $imdb_id = str_replace('http://www.imdb.com/title/tt', '', $imdb_id);
       $imdb_id = str_replace('/', '', $imdb_id);

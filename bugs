@@ -1,0 +1,4 @@
+[x] imdb fetch: doesn't work if only one writer (see snatch.)
+[x] categories: deletes picture from db on categ modify
+[x] categories: error on try to update picture with an invalid format
+[-] 

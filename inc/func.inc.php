@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    17:04 2008-09-05
+* @version    19:08 2008-09-06
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -460,7 +460,7 @@ function pmc_mov_view($cnttype = 'admin') {
     for($i=0;$i<$t;$i++) {
       $rw[$i] = pmc_qry_row($r);
       if(isset($_POST['mov_save_mod']) && $_SESSION['pmc_usr_level'] >= 4) {
-        $lock = pmc_lock_tables(array('pmc_mov_tt'));
+        $lock = pmc_lock_tables(array('pmc_mov_tt', 'pmc_mov_rel'));
         if(isset($_POST['mov_del-'.$rw[$i]['mov_id']])) {
           if(is_file(_APP_DIR.'var/pic_mov/'.$rw[$i]['mov_pic'])) {unlink(_APP_DIR.'var/pic_mov/'.$rw[$i]['mov_pic']);}
           $delete  = pmc_qry_exec("DELETE FROM pmc_mov_tt WHERE mov_id = '{$rw[$i]['mov_id']}' LIMIT 1");

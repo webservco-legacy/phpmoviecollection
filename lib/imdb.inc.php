@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:30 2008-08-29
+* @version    23:12 2008-09-06
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -108,7 +108,7 @@ function pmc_get_imdb($imdb_id) {
       
       /* writers */
       if($i > 150) {
-        $res = strpos($line[$i], '<h5>Writers');
+        $res = strpos($line[$i], '<h5>Writer');
         if ($res !== false ) {$wrtline = $i+1;}
         else if($wrtline != 0 && $i == $wrtline) {
           $wrts = explode("<br/>", trim($line[$i]));

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:45 2008-09-03
+* @version    23:13 2008-09-06
 * @since      14:32 2008-09-03
 * @access     public
 * @package    pmc
@@ -43,6 +43,7 @@ function pmc_adm_categ_add() {
       $id      = pmc_next_auto_id('pmc_mov_cat');
       $cat_pic = '';
       $err = 0;
+      $pic_store = 2;
       if(isset($_FILES['cat_pic'])) {
         $pic_name     = $_FILES['cat_pic']['name'];
         $pic_type     = $_FILES['cat_pic']['type'];
@@ -106,8 +107,9 @@ function pmc_adm_categ_details($id) {
     if($cnt['page']['cat_tt'] != '' && $cnt['page']['cat_desc'] != '') {
       $lock    = pmc_lock_tables(array('pmc_mov_cat'));
       //$id      = pmc_next_auto_id('pmc_mov_cat');
-      $cat_pic     = $row['cat_pic'];
-      $new_cat_pic = $row['cat_pic'];
+      $dbpic = pmc_qry_result(pmc_qry_exec("SELECT cat_pic FROM pmc_mov_cat WHERE cat_id = '{$id}' LIMIT 1"));
+      $cat_pic     = $dbpic;
+      $new_cat_pic = $dbpic;
       $err = 0;
       $pic_store = 2;
       if(isset($_FILES['cat_pic'])) {
@@ -121,7 +123,6 @@ function pmc_adm_categ_details($id) {
         else if ($pic_error == 2) {$_SESSION['pmc_msg'] = 15; $err = 1;} /* too big */
         else if ($pic_error == 4) {$err = 2;} /* no file uploaded but that's ok */
         else if ($pic_error == 3) {$_SESSION['pmc_msg'] = 13; $err = 1;} /* partial upload */
-        else if ($pic_error == 3) {$_SESSION['pmc_msg'] = 13; $err = 1;} /* partial upload */
         if($pic_error == 0 && !is_uploaded_file($pic_tmp_name)) {$_SESSION['pmc_msg'] = 14; $err = 1;} /* not sent by form */
         if($err == 0) {
           $pic_ext = pmc_pic_ext($pic_type);
@@ -133,18 +134,18 @@ function pmc_adm_categ_details($id) {
         }
       }
       if($err == 0 || $err == 2) {
-        //$cat_ord = pmc_next_id('pmc_mov_cat', 'cat_ord');
         $update = pmc_qry_exec("UPDATE pmc_mov_cat SET cat_pic = '{$new_cat_pic}', cat_tt = '{$cnt['page']['cat_tt']}', cat_desc = '{$cnt['page']['cat_desc']}' WHERE cat_id = '{$id}' LIMIT 1");
         $unlock = pmc_unlock_tables();
         if($update === true) {
           if($pic_store == 1 || $pic_store == 2) {$_SESSION['pmc_msg'] = 25;}
           else {$_SESSION['pmc_msg'] = 30;}
-          header("Location: " . _APP_URL . 'admin/categ/view/' . $id); exit;
+          header("Location: " . _APP_URL . 'admin/categ/details/' . $id); exit;
         }
-        else {$_SESSION['pmc_msg'] = 24; header("Location: " . _APP_URL . 'admin/categ/view/' . $id); exit;}
+        else {$_SESSION['pmc_msg'] = 24; header("Location: " . _APP_URL . 'admin/categ/details/' . $id); exit;}
       }
+      else {header("Location: " . _APP_URL . 'admin/categ/details/' . $id); exit;}
     }
-    else {$_SESSION['pmc_msg'] = 16; header("Location: " . _APP_URL . 'admin/categ/view/' . $id); exit;}
+    else {$_SESSION['pmc_msg'] = 16; header("Location: " . _APP_URL . 'admin/categ/details/' . $id); exit;}
   }
   else {
     $cnt['page'] = pmc_categ_details($id);
