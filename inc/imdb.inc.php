@@ -14,7 +14,7 @@
 * @version    19:30 2008-08-29
 * @since      19:30 2008-08-29
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Imdb
 * @todo       fetch: mpaa, runtime, color, trivia, goofs
 */
@@ -32,7 +32,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 * @param string $imdb_id id of the movie to be fetched
 * @return array imdb data
 */
-function pmmc_get_imdb($imdb_id) {
+function pmc_get_imdb($imdb_id) {
   $imdb_url = 'http://www.imdb.com/title/tt'.$imdb_id.'/';
   $be = new BrowserEmulator(); 
   $be->addHeaderLine("Referer", "http://www.google.com/"); 

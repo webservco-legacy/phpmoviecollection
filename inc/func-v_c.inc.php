@@ -13,7 +13,7 @@
 * @version    18:39 2008-09-03
 * @since      18:39 2008-09-03
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Application Front
 * @todo       Everything :-)
 */
@@ -29,11 +29,11 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_view_categ_details($id) {
+function pmc_view_categ_details($id) {
   global $lang;
   $cnt['skin'] = 'view.categ.details.tpl.php';
   $cnt['tt']   = $lang['view']['view'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['view'];
-  $cnt['page'] = pmmc_categ_details($id);
+  $cnt['page'] = pmc_categ_details($id);
   return $cnt;
 }
 /**
@@ -41,14 +41,14 @@ function pmmc_view_categ_details($id) {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_view_categ_view() {
+function pmc_view_categ_view() {
   $cnt = NULL;
   global $lang;
   $cnt['skin'] = 'view.categ.view.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['viewall'];
   $cnt['page'] = array();
   $cnt['page']['cat_id'] = array();
-  $cnt['page'] = pmmc_categ_view();
+  $cnt['page'] = pmc_categ_view();
   return $cnt;
 }
 ?>

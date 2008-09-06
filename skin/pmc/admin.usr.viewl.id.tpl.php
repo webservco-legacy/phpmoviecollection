@@ -45,7 +45,7 @@ for($i=0;$i<$ts;$i++) {
 </div>
 
 <div class="clear">
-<label for="usr_lang" class="required"><?php echo $lang['pmmc']['language']; ?></label>
+<label for="usr_lang" class="required"><?php echo $lang['pmc']['language']; ?></label>
 <select id="usr_lang" name="usr_lang" size="1">
 <?php
 $tl = count($cnt['langs']);
@@ -83,7 +83,7 @@ for($k=1;$k<=5;$k++) {
 
 <div class="clear">
 <label for="usr_mod">&#160;</label>
-<input id="usr_mod" name="usr_mod" type="submit" value="<?php echo $lang['pmmc']['mod']; ?>" />
+<input id="usr_mod" name="usr_mod" type="submit" value="<?php echo $lang['pmc']['mod']; ?>" />
 </div>
 
 </form>

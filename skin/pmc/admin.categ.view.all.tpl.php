@@ -8,19 +8,19 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
 <table border="0" cellspacing="2">
 <tr>
   <td class="cat_adm_hord">
-  <?php echo $lang['pmmc']['order']; ?>
+  <?php echo $lang['pmc']['order']; ?>
   </td>
   <td class="cat_adm_himg">
-  <?php echo $lang['pmmc']['pic']; ?>
+  <?php echo $lang['pmc']['pic']; ?>
   </td>
   <td class="cat_adm_htt">
-  <?php echo $lang['pmmc']['tt']; ?>
+  <?php echo $lang['pmc']['tt']; ?>
   </td>
   <td class="cat_adm_hitm">
-  <?php echo $lang['pmmc']['items']; ?>
+  <?php echo $lang['pmc']['items']; ?>
   </td>
   <td class="cat_adm_hdel">
-  <?php echo $lang['pmmc']['del']; ?>
+  <?php echo $lang['pmc']['del']; ?>
   </td>
 </tr>
 <?php
@@ -31,7 +31,7 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
   <input id="cat_ord-<?php echo $cnt['cat_id'][$i]; ?>" name="cat_ord-<?php echo $cnt['cat_id'][$i]; ?>" type="text" size="1" maxlength="5" value="<?php echo $cnt['cat_ord'][$i]; ?>" />
   </td>
   <td class="cat_adm_cimg">
-  <?php echo pmmc_image_thumb($cnt['cat_pic'][$i], 'var/pic_cat/', $cnt['cat_tt'][$i]); ?>
+  <?php echo pmc_image_thumb($cnt['cat_pic'][$i], 'var/pic_cat/', $cnt['cat_tt'][$i]); ?>
   </td>
   <td class="cat_adm_ctt">
   <a href="<?php echo _APP_URL; ?>admin/categ/details/<?php echo $cnt['cat_id'][$i]; ?>" title="<?php echo $cnt['cat_tt'][$i]; ?>"><?php echo $cnt['cat_tt'][$i]; ?></a>
@@ -48,7 +48,7 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
 ?>
 <tr>
   <td colspan="5" class="cat_adm_subm">
-  <input id="cat_save_mod" name="cat_save_mod" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
+  <input id="cat_save_mod" name="cat_save_mod" type="submit" value="<?php echo $lang['pmc']['save_mod']; ?>" />
   </td>
 </tr>
 </table>

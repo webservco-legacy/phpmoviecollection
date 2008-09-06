@@ -13,7 +13,7 @@
 * @version    16:12 2008-09-03
 * @since      16:12 2008-09-03
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Application Back
 * @todo       Everything :-)
 */
@@ -27,58 +27,58 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_adm_usr_add() {
+function pmc_adm_usr_add() {
   global $lang;
   $cnt['skin'] = 'admin.usr.add.new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['usr']['add'];
   
-  $cnt['page']['langs'] = pmmc_lsdir(_APP_DIR.'lang/');
-  $cnt['page']['skins'] = pmmc_lsdir(_APP_DIR.'skin/');
+  $cnt['page']['langs'] = pmc_lsdir(_APP_DIR.'lang/');
+  $cnt['page']['skins'] = pmc_lsdir(_APP_DIR.'skin/');
 
   if(isset($_POST['usr_add'])) {
     
-    if(isset($_POST['usr_name']))   {$cnt['page']['usr_name']   = pmmc_filter_input($_POST['usr_name']);}
-    if(isset($_POST['usr_fname']))  {$cnt['page']['usr_fname']  = pmmc_filter_input($_POST['usr_fname']);}
-    if(isset($_POST['usr_lname']))  {$cnt['page']['usr_lname']  = pmmc_filter_input($_POST['usr_lname']);}
-    if(isset($_POST['usr_mail1']))  {$cnt['page']['usr_mail1']  = pmmc_filter_input($_POST['usr_mail1']);}
-    if(isset($_POST['usr_mail2']))  {$cnt['page']['usr_mail2']  = pmmc_filter_input($_POST['usr_mail2']);}
-    if(isset($_POST['usr_pass1']))  {$cnt['page']['usr_pass1']  = pmmc_filter_input($_POST['usr_pass1']);}
-    if(isset($_POST['usr_pass2']))  {$cnt['page']['usr_pass2']  = pmmc_filter_input($_POST['usr_pass2']);}
-    if(isset($_POST['usr_skin']))   {$cnt['page']['usr_skin']   = pmmc_filter_input($_POST['usr_skin']);}
-    if(isset($_POST['usr_lang']))   {$cnt['page']['usr_lang']   = pmmc_filter_input($_POST['usr_lang']);}
-    if(isset($_POST['usr_level']))  {$cnt['page']['usr_level']  = pmmc_filter_input($_POST['usr_level']);}
-    if(isset($_POST['usr_status'])) {$cnt['page']['usr_status'] = pmmc_filter_input($_POST['usr_status']);}
+    if(isset($_POST['usr_name']))   {$cnt['page']['usr_name']   = pmc_filter_input($_POST['usr_name']);}
+    if(isset($_POST['usr_fname']))  {$cnt['page']['usr_fname']  = pmc_filter_input($_POST['usr_fname']);}
+    if(isset($_POST['usr_lname']))  {$cnt['page']['usr_lname']  = pmc_filter_input($_POST['usr_lname']);}
+    if(isset($_POST['usr_mail1']))  {$cnt['page']['usr_mail1']  = pmc_filter_input($_POST['usr_mail1']);}
+    if(isset($_POST['usr_mail2']))  {$cnt['page']['usr_mail2']  = pmc_filter_input($_POST['usr_mail2']);}
+    if(isset($_POST['usr_pass1']))  {$cnt['page']['usr_pass1']  = pmc_filter_input($_POST['usr_pass1']);}
+    if(isset($_POST['usr_pass2']))  {$cnt['page']['usr_pass2']  = pmc_filter_input($_POST['usr_pass2']);}
+    if(isset($_POST['usr_skin']))   {$cnt['page']['usr_skin']   = pmc_filter_input($_POST['usr_skin']);}
+    if(isset($_POST['usr_lang']))   {$cnt['page']['usr_lang']   = pmc_filter_input($_POST['usr_lang']);}
+    if(isset($_POST['usr_level']))  {$cnt['page']['usr_level']  = pmc_filter_input($_POST['usr_level']);}
+    if(isset($_POST['usr_status'])) {$cnt['page']['usr_status'] = pmc_filter_input($_POST['usr_status']);}
     $err = 0;
-    $check_email = pmmc_qry_total(pmmc_qry_exec("SELECT usr_id FROM pmmc_set_usr WHERE usr_mail = '{$cnt['page']['usr_mail1']}' LIMIT 1"));
-    if($check_email != 0) {$_SESSION['pmmc_msg'] = 47; header("Location: "._APP_URL . 'admin/users/add/new'); exit;}
+    $check_email = pmc_qry_total(pmc_qry_exec("SELECT usr_id FROM pmc_set_usr WHERE usr_mail = '{$cnt['page']['usr_mail1']}' LIMIT 1"));
+    if($check_email != 0) {$_SESSION['pmc_msg'] = 47; header("Location: "._APP_URL . 'admin/users/add/new'); exit;}
     else if($cnt['page']['usr_name'] == '')                                                              {$err = 1;}
     else if($cnt['page']['usr_fname'] == '')                                                             {$err = 1;}
     else if($cnt['page']['usr_lname'] == '')                                                             {$err = 1;}
-    else if($cnt['page']['usr_mail1'] == '' || !pmmc_is_email($cnt['page']['usr_mail1']))                {$err = 1;}
-    else if($cnt['page']['usr_mail2'] == '' || !pmmc_is_email($cnt['page']['usr_mail2']))                {$err = 1;}
+    else if($cnt['page']['usr_mail1'] == '' || !pmc_is_email($cnt['page']['usr_mail1']))                {$err = 1;}
+    else if($cnt['page']['usr_mail2'] == '' || !pmc_is_email($cnt['page']['usr_mail2']))                {$err = 1;}
     else if($cnt['page']['usr_mail1'] != $cnt['page']['usr_mail2'])                                      {$err = 1;}
     else if($cnt['page']['usr_pass1'] == '')                                                             {$err = 1;}
     else if($cnt['page']['usr_pass2'] == '')                                                             {$err = 1;}
     else if($cnt['page']['usr_pass1'] != $cnt['page']['usr_pass2'])                                      {$err = 1;}
     else if($cnt['page']['usr_skin'] == '')                                                              {$err = 1;}
     else if($cnt['page']['usr_lang'] == '')                                                              {$err = 1;}
-    else if($cnt['page']['usr_level'] == '' || $cnt['page']['usr_level'] >= $_SESSION['pmmc_usr_level']) {$err = 1;}
+    else if($cnt['page']['usr_level'] == '' || $cnt['page']['usr_level'] >= $_SESSION['pmc_usr_level']) {$err = 1;}
     else if($cnt['page']['usr_status'] == '')                                                            {$err = 1;}
     if($err == 0) {
-      $lock   = pmmc_lock_tables(array('pmmc_set_usr'));
-      $id     = pmmc_next_auto_id('pmmc_set_usr');
+      $lock   = pmc_lock_tables(array('pmc_set_usr'));
+      $id     = pmc_next_auto_id('pmc_set_usr');
       $udate  = date("Y-m-d");
       $upass = md5($cnt['page']['usr_pass2']);
-      $insert = pmmc_qry_exec("INSERT INTO pmmc_set_usr (usr_name, usr_fname, usr_lname, usr_mail, usr_pass, usr_skin, usr_lang, usr_level, usr_status, usr_date) VALUES ('{$cnt['page']['usr_name']}', '{$cnt['page']['usr_fname']}', '{$cnt['page']['usr_lname']}', '{$cnt['page']['usr_mail2']}', '{$upass}', '{$cnt['page']['usr_skin']}', '{$cnt['page']['usr_lang']}', '{$cnt['page']['usr_level']}', '{$cnt['page']['usr_status']}', '{$udate}')");
-      $unlock = pmmc_unlock_tables();
+      $insert = pmc_qry_exec("INSERT INTO pmc_set_usr (usr_name, usr_fname, usr_lname, usr_mail, usr_pass, usr_skin, usr_lang, usr_level, usr_status, usr_date) VALUES ('{$cnt['page']['usr_name']}', '{$cnt['page']['usr_fname']}', '{$cnt['page']['usr_lname']}', '{$cnt['page']['usr_mail2']}', '{$upass}', '{$cnt['page']['usr_skin']}', '{$cnt['page']['usr_lang']}', '{$cnt['page']['usr_level']}', '{$cnt['page']['usr_status']}', '{$udate}')");
+      $unlock = pmc_unlock_tables();
       if($insert === true) {
-          $_SESSION['pmmc_msg'] = 43;
+          $_SESSION['pmc_msg'] = 43;
           header("Location: " . _APP_URL . 'admin/users/details/' . $id);
           exit;
       }
-      else {$_SESSION['pmmc_msg'] = 44; header("Location: "._APP_URL . 'admin/users/add/new'); exit;}
+      else {$_SESSION['pmc_msg'] = 44; header("Location: "._APP_URL . 'admin/users/add/new'); exit;}
     }
-    else {$_SESSION['pmmc_msg'] = 16;}
+    else {$_SESSION['pmc_msg'] = 16;}
   }
   else {
     $cnt['page']['usr_name']   = '';
@@ -100,22 +100,22 @@ function pmmc_adm_usr_add() {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_adm_usr_details($id) {
+function pmc_adm_usr_details($id) {
   global $lang;
-  $id_level = pmmc_qry_result(pmmc_qry_exec("SELECT usr_level FROM pmmc_set_usr WHERE usr_id = '{$id}'"));
-  if($id_level == 0) {$_SESSION['pmmc_msg'] = 48; header("Location: "._APP_URL . 'admin/users'); exit;}
+  $id_level = pmc_qry_result(pmc_qry_exec("SELECT usr_level FROM pmc_set_usr WHERE usr_id = '{$id}'"));
+  if($id_level == 0) {$_SESSION['pmc_msg'] = 48; header("Location: "._APP_URL . 'admin/users'); exit;}
   
-  if($_SESSION['pmmc_usr_level'] == 5) {
+  if($_SESSION['pmc_usr_level'] == 5) {
     $cnt['skin'] = 'admin.usr.view.id.tpl.php';
   }
   else {
-    if($_SESSION['pmmc_usr_id'] != 1 && $_SESSION['pmmc_usr_id'] == $id) {
+    if($_SESSION['pmc_usr_id'] != 1 && $_SESSION['pmc_usr_id'] == $id) {
       $cnt['skin'] = 'admin.usr.view.own.tpl.php';
     }
-    else if($_SESSION['pmmc_usr_level'] > $id_level && $_SESSION['pmmc_usr_level'] >= 4) {
+    else if($_SESSION['pmc_usr_level'] > $id_level && $_SESSION['pmc_usr_level'] >= 4) {
       $cnt['skin'] = 'admin.usr.viewl.id.tpl.php';
     }
-    else if($_SESSION['pmmc_usr_level'] <= $id_level) {
+    else if($_SESSION['pmc_usr_level'] <= $id_level) {
       $cnt['skin'] = 'admin.usr.display.id.tpl.php';
     }
   }
@@ -123,15 +123,15 @@ function pmmc_adm_usr_details($id) {
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['usr']['view'];
   
   if(isset($_POST['usr_mod'])) {
-    if(isset($_POST['usr_name']))   {$cnt['page']['usr_name']   = pmmc_filter_input($_POST['usr_name']);}
-    if(isset($_POST['usr_fname']))  {$cnt['page']['usr_fname']  = pmmc_filter_input($_POST['usr_fname']);}
-    if(isset($_POST['usr_lname']))  {$cnt['page']['usr_lname']  = pmmc_filter_input($_POST['usr_lname']);}
-    if(isset($_POST['usr_pass1']))  {$cnt['page']['usr_pass1']  = pmmc_filter_input($_POST['usr_pass1']);}
-    if(isset($_POST['usr_pass2']))  {$cnt['page']['usr_pass2']  = pmmc_filter_input($_POST['usr_pass2']);}
-    if(isset($_POST['usr_skin']))   {$cnt['page']['usr_skin']   = pmmc_filter_input($_POST['usr_skin']);}
-    if(isset($_POST['usr_lang']))   {$cnt['page']['usr_lang']   = pmmc_filter_input($_POST['usr_lang']);}
-    if(isset($_POST['usr_level']))  {$cnt['page']['usr_level']  = pmmc_filter_input($_POST['usr_level']);}
-    if(isset($_POST['usr_status'])) {$cnt['page']['usr_status'] = pmmc_filter_input($_POST['usr_status']);}
+    if(isset($_POST['usr_name']))   {$cnt['page']['usr_name']   = pmc_filter_input($_POST['usr_name']);}
+    if(isset($_POST['usr_fname']))  {$cnt['page']['usr_fname']  = pmc_filter_input($_POST['usr_fname']);}
+    if(isset($_POST['usr_lname']))  {$cnt['page']['usr_lname']  = pmc_filter_input($_POST['usr_lname']);}
+    if(isset($_POST['usr_pass1']))  {$cnt['page']['usr_pass1']  = pmc_filter_input($_POST['usr_pass1']);}
+    if(isset($_POST['usr_pass2']))  {$cnt['page']['usr_pass2']  = pmc_filter_input($_POST['usr_pass2']);}
+    if(isset($_POST['usr_skin']))   {$cnt['page']['usr_skin']   = pmc_filter_input($_POST['usr_skin']);}
+    if(isset($_POST['usr_lang']))   {$cnt['page']['usr_lang']   = pmc_filter_input($_POST['usr_lang']);}
+    if(isset($_POST['usr_level']))  {$cnt['page']['usr_level']  = pmc_filter_input($_POST['usr_level']);}
+    if(isset($_POST['usr_status'])) {$cnt['page']['usr_status'] = pmc_filter_input($_POST['usr_status']);}
     $err = 0;
     if($cnt['page']['usr_name'] == '')                                                              {$err = 1;}
     else if($cnt['page']['usr_fname'] == '')                                                        {$err = 1;}
@@ -149,28 +149,28 @@ function pmmc_adm_usr_details($id) {
     }
     else if($cnt['page']['usr_skin'] == '')                                                              {$err = 1;}
     else if($cnt['page']['usr_lang'] == '')                                                              {$err = 1;}
-    else if($cnt['page']['usr_level'] == '' || $cnt['page']['usr_level'] >= $_SESSION['pmmc_usr_level']) {$err = 1;}
+    else if($cnt['page']['usr_level'] == '' || $cnt['page']['usr_level'] >= $_SESSION['pmc_usr_level']) {$err = 1;}
     else if($cnt['page']['usr_status'] == '')                                                            {$err = 1;}
     if($err == 0) {
-      $lock   = pmmc_lock_tables(array('pmmc_set_usr'));
+      $lock   = pmc_lock_tables(array('pmc_set_usr'));
       $upass = "";
       if($cnt['page']['usr_pass2'] != '') {
         $pass = md5($cnt['page']['usr_pass2']);
         $upass = "usr_pass = '{$pass}', ";
       }
-      $update = pmmc_qry_exec("UPDATE pmmc_set_usr SET usr_name = '{$cnt['page']['usr_name']}', usr_fname = '{$cnt['page']['usr_fname']}', usr_lname = '{$cnt['page']['usr_lname']}', {$upass}usr_skin = '{$cnt['page']['usr_skin']}', usr_lang = '{$cnt['page']['usr_lang']}', usr_level = '{$cnt['page']['usr_level']}', usr_status = '{$cnt['page']['usr_status']}' WHERE usr_id = '{$id}' LIMIT 1");
-      $unlock = pmmc_unlock_tables();
+      $update = pmc_qry_exec("UPDATE pmc_set_usr SET usr_name = '{$cnt['page']['usr_name']}', usr_fname = '{$cnt['page']['usr_fname']}', usr_lname = '{$cnt['page']['usr_lname']}', {$upass}usr_skin = '{$cnt['page']['usr_skin']}', usr_lang = '{$cnt['page']['usr_lang']}', usr_level = '{$cnt['page']['usr_level']}', usr_status = '{$cnt['page']['usr_status']}' WHERE usr_id = '{$id}' LIMIT 1");
+      $unlock = pmc_unlock_tables();
       if($update === true) {
-          $_SESSION['pmmc_msg'] = 45;
+          $_SESSION['pmc_msg'] = 45;
           header("Location: " . _APP_URL . 'admin/users/details/' . $id);
           exit;
       }
-      else {$_SESSION['pmmc_msg'] = 46; header("Location: "._APP_URL . 'admin/users/details' . $id); exit;}
+      else {$_SESSION['pmc_msg'] = 46; header("Location: "._APP_URL . 'admin/users/details' . $id); exit;}
     }
-    else {$_SESSION['pmmc_msg'] = 16;}
+    else {$_SESSION['pmc_msg'] = 16;}
   }
   else {
-    $cnt['page'] = pmmc_usr_details($id);
+    $cnt['page'] = pmc_usr_details($id);
   }
   return $cnt;
 }
@@ -179,11 +179,11 @@ function pmmc_adm_usr_details($id) {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_adm_usr_view() {
+function pmc_adm_usr_view() {
   global $lang;
   $cnt['skin'] = 'admin.usr.view.all.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['categ']['viewall'];
-  $cnt['page'] = pmmc_usr_view();
+  $cnt['page'] = pmc_usr_view();
   //$cnt['page']['users'] = array();
   //$rw = array();
   return $cnt;

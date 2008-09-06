@@ -13,7 +13,7 @@
 * @version    12:35 2008-08-25
 * @since      19:27 2008-08-19
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Core
 * @todo       Everything :-)
 */

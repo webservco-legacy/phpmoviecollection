@@ -13,7 +13,7 @@
 * @version    18:44 2008-08-26
 * @since      16:52 2008-08-26
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Core
 * @todo       generate a small image on error in order not to break caller scripts
 * @todo       support more input formats
@@ -37,7 +37,7 @@ header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");
 /**
 * Check if the request is valid
 */
-if (isset($_SESSION['pmmc_token'])) {
+if (isset($_SESSION['pmc_token'])) {
 
   $img = '';
   if (!isset($_GET['img'])) {die('Oops!');}

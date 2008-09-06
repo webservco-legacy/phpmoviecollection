@@ -3,8 +3,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="content-language" content="en" />
-  <link rel="icon" type="image/ico" href="<?php echo $_SESSION['pmmc_usr_skin_url']; ?>favicon.ico" />
-  <link rel="shortcut icon" type="image/ico" href="<?php echo $_SESSION['pmmc_usr_skin_url']; ?>favicon.ico" />
+  <link rel="icon" type="image/ico" href="<?php echo $_SESSION['pmc_usr_skin_url']; ?>favicon.ico" />
+  <link rel="shortcut icon" type="image/ico" href="<?php echo $_SESSION['pmc_usr_skin_url']; ?>favicon.ico" />
   <title><?php echo _APP_NAME . _APP_SEP . $title; ?></title>
   <meta name="title" content="Title" />
   <meta name="subject" content="Subject" />
@@ -18,7 +18,7 @@
   <meta name="distribution" content="Global" />
   <meta name="robots" content="Index, Follow" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <link rel="stylesheet" type="text/css" charset="utf-8" href="<?php echo $_SESSION['pmmc_usr_skin_url']; ?>style.css" />
+  <link rel="stylesheet" type="text/css" charset="utf-8" href="<?php echo $_SESSION['pmc_usr_skin_url']; ?>style.css" />
 </head>
 <body>
   <div id="layout">
@@ -40,12 +40,9 @@
     </div>
     <div id="container_cnt">
       <div id="cnt_left">
-        {LEFT}
+        <?php echo $mod_test;?>
       </div>
       <div id="cnt_right">
-        {RIGHT}
-        <br />
-        <?php echo $mod_test;?>
         <?php echo $mod_gen;?>
       </div>
       <div id="cnt_page">

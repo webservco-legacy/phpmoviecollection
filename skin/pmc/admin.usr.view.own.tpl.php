@@ -17,8 +17,7 @@
 </div>
 
 <div class="clear">
-<label for="mail" class="required"><?php echo $lang['usr']['mail1']; ?></label>
-<input id="mail" name="mail" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail']; ?>" readonly="readonly" />
+<div class="dname"><?php echo $lang['usr']['mail1']; ?></div><div class="dvalue"><?php echo $cnt['usr_mail']; ?></div>
 </div>
 
 <div class="clear">
@@ -46,7 +45,7 @@ for($i=0;$i<$ts;$i++) {
 </div>
 
 <div class="clear">
-<label for="usr_lang" class="required"><?php echo $lang['pmmc']['language']; ?></label>
+<label for="usr_lang" class="required"><?php echo $lang['pmc']['language']; ?></label>
 <select id="usr_lang" name="usr_lang" size="1">
 <?php
 $tl = count($cnt['langs']);
@@ -60,31 +59,16 @@ for($j=0;$j<$tl;$j++) {
 </div>
 
 <div class="clear">
-<label for="usr_level" class="required"><?php echo $lang['usr']['level']; ?></label>
-<select id="usr_level" name="usr_level" size="1">
-<?php
-for($k=1;$k<=5;$k++) {
-  if($k == 1) {
-?>
-<option value="<?php echo $k; ?>"<?php if($cnt['usr_level'] == $k) {echo ' selected="selected"';}?>><?php echo $lang['usr']['lvl'][$k]; ?></option>
-<?php
-  }
-}
-?>
-</select>
+<div class="dname"><?php echo $lang['usr']['level']; ?></div><div class="dvalue"><?php echo $lang['usr']['lvl'][$cnt['usr_level']]; ?></div>
 </div>
 
 <div class="clear">
-<label for="usr_status" class="required"><?php echo $lang['usr']['status']; ?></label>
-<select id="usr_status" name="usr_status" size="1">
-<option value="0"<?php if($cnt['usr_status'] == 0) {echo ' selected="selected"';}?>><?php echo $lang['usr']['stat'][0]; ?></option>
-<option value="1"<?php if($cnt['usr_status'] == 1) {echo ' selected="selected"';}?>><?php echo $lang['usr']['stat'][1]; ?></option>
-</select>
+<div class="dname"><?php echo $lang['usr']['status']; ?></div><div class="dvalue"><?php echo $lang['usr']['stat'][$cnt['usr_status']]; ?></div>
 </div>
 
 <div class="clear">
 <label for="usr_mod">&#160;</label>
-<input id="usr_mod" name="usr_mod" type="submit" value="<?php echo $lang['pmmc']['mod']; ?>" />
+<input id="usr_mod" name="usr_mod" type="submit" value="<?php echo $lang['pmc']['mod']; ?>" />
 </div>
 
 </form>

@@ -1,4 +1,4 @@
-<h1><?php echo $lang['movie']['add']; ?></h1>
+<h1><?php echo $lang['movie']['details']; ?></h1>
 <form enctype="multipart/form-data" id="movie_imdb_form" name="movie_imdb_form" action="" method="post">
 <div class="clear">
 <label for="imdb_url"><?php echo $lang['imdb']['url'];?></label>
@@ -6,16 +6,22 @@
 <input id="mov_imdb_fetch" name="mov_imdb_fetch" type="submit" value="<?php echo $lang['imdb']['fetch']; ?>" />
 </div>
 </form>
-<form enctype="multipart/form-data" id="movie_add_form" name="movie_add_form" action="" method="post">
+
+<div style="float: right">
+<?php echo pmc_image_thumb($cnt['mov_pic'], 'var/pic_mov/', $cnt['mov_tt']); ?>
+</div>
+
+
+<form enctype="multipart/form-data" id="movie_mod_form" name="movie_mod_form" action="" method="post">
 
 <div class="clear">
 <label for="cat_id" class="required"><?php echo $lang['categ']['categ']; ?></label>
 <select id="cat_id" name="cat_id" size="q">
-  <option value="0"><?php echo $lang['pmmc']['select']; ?></option>
+  <option value="0"><?php echo $lang['pmc']['select']; ?></option>
 <?php
 $tc = count($cnt['categs']['id']);
 if($tc > 0) {
-  for($j=0;$j<$tc;$j++) {
+  for($j=1;$j<=$tc;$j++) {
   $sel[$j] = '';
   if($cnt['categs']['id'][$j] == $cnt['cat_id']) {$sel[$j] = ' selected="selected"';}
 ?>
@@ -29,7 +35,7 @@ if($tc > 0) {
 
 <div class="clear">
 <input id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" type="hidden" value="1024000" />
-<label for="mov_pic"><?php echo $lang['pmmc']['pic']; ?></label>
+<label for="mov_pic"><?php echo $lang['pmc']['pic']; ?></label>
 <input id="mov_pic" name="mov_pic" type="file" />
 </div>
 
@@ -39,12 +45,12 @@ if($tc > 0) {
 </div>
 
 <div class="clear">
-<label for="mov_tt_pre"><?php echo $lang['pmmc']['ttpre']; ?></label>
+<label for="mov_tt_pre"><?php echo $lang['pmc']['ttpre']; ?></label>
 <input id="mov_tt_pre" name="mov_tt_pre" type="text" size="3" maxlength="5" value="<?php echo $cnt['mov_tt_pre']; ?>" />
 </div>
 
 <div class="clear">
-<label for="mov_tt" class="required"><?php echo $lang['pmmc']['tt']; ?></label>
+<label for="mov_tt" class="required"><?php echo $lang['pmc']['tt']; ?></label>
 <input id="mov_tt" name="mov_tt" type="text" size="40" maxlength="150" value="<?php echo $cnt['mov_tt']; ?>" />
 </div>
 
@@ -54,17 +60,17 @@ if($tc > 0) {
 </div>
 
 <div class="clear">
-<label for="mov_year"><?php echo $lang['pmmc']['year']; ?></label>
+<label for="mov_year"><?php echo $lang['pmc']['year']; ?></label>
 <input id="mov_year" name="mov_year" type="text" size="4" maxlength="4" value="<?php echo $cnt['mov_year']; ?>" />
 </div>
 
 <div class="clear">
-<label for="mov_country"><?php echo $lang['pmmc']['country']; ?></label>
+<label for="mov_country"><?php echo $lang['pmc']['country']; ?></label>
 <input id="mov_country" name="mov_country" type="text" size="20" maxlength="30" value="<?php echo $cnt['mov_country']; ?>" />
 </div>
 
 <div class="clear">
-<label for="mov_language"><?php echo $lang['pmmc']['language']; ?></label>
+<label for="mov_language"><?php echo $lang['pmc']['language']; ?></label>
 <input id="mov_language" name="mov_language" type="text" size="20" maxlength="30" value="<?php echo $cnt['mov_language']; ?>" />
 </div>
 
@@ -95,7 +101,7 @@ if($tc > 0) {
 </div>
 
 <div class="clear">
-<label for="mov_notes"><?php echo $lang['pmmc']['notes']; ?></label>
+<label for="mov_notes"><?php echo $lang['pmc']['notes']; ?></label>
 <input id="mov_notes" name="mov_notes" type="text" size="40" maxlength="255" value="<?php echo $cnt['mov_notes']; ?>" />
 </div>
 
@@ -119,7 +125,7 @@ if($cnt['genre'][$cnt['genres'][$i]] == 1) {$chk[$i] = ' checked="checked"';}
 </div>
 
 <div class="clear">
-<label for="mov_add">&#160;</label>
-<input id="mov_add" name="mov_add" type="submit" value="<?php echo $lang['pmmc']['add']; ?>" />
+<label for="mov_mod">&#160;</label>
+<input id="mov_mod" name="mov_mod" type="submit" value="<?php echo $lang['pmc']['mod']; ?>" />
 </div>
 </form>

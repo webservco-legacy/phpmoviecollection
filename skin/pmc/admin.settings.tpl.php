@@ -51,7 +51,7 @@ for($j=0;$j<$ts;$j++) {
 
 <div class="clear">
 <label for="set_save">&#160;</label>
-<input id="set_save" name="set_save" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
+<input id="set_save" name="set_save" type="submit" value="<?php echo $lang['pmc']['save_mod']; ?>" />
 </div>
 
 </form>

@@ -1,6 +1,6 @@
 <div id="mod_gen">
 <?php
-$gen = pmmc_genre_menu();
+$gen = pmc_genre_menu();
 ?>
 <h2><?php echo $gen['tt']; ?></h2>
 <?php

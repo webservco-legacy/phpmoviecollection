@@ -1,4 +1,4 @@
--- phpMyMovieCollection
+-- pmc
 -- DATABASE STRUCTURE
 
 -- ////////////////////////////////////////////////////////////////////////////////
@@ -8,8 +8,8 @@
 -- --------------------------------------------------------------------------------
 -- CATEGORIES
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_mov_cat;
-CREATE TABLE pmmc_mov_cat (
+DROP TABLE IF EXISTS pmc_mov_cat;
+CREATE TABLE pmc_mov_cat (
   cat_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   cat_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- adjust here to match default settings
   cat_tt VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -21,8 +21,8 @@ CREATE TABLE pmmc_mov_cat (
 -- --------------------------------------------------------------------------------
 -- MOVIES
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_mov_tt;
-CREATE TABLE pmmc_mov_tt (
+DROP TABLE IF EXISTS pmc_mov_tt;
+CREATE TABLE pmc_mov_tt (
   mov_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   cat_id INT(5) UNSIGNED NOT NULL,
   mov_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- adjust here to match default settings
@@ -47,8 +47,8 @@ CREATE TABLE pmmc_mov_tt (
 -- --------------------------------------------------------------------------------
 -- GENRES
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_mov_gen;
-CREATE TABLE pmmc_mov_gen (
+DROP TABLE IF EXISTS pmc_mov_gen;
+CREATE TABLE pmc_mov_gen (
   gen_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   gen_tt VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (gen_id)
@@ -57,8 +57,8 @@ CREATE TABLE pmmc_mov_gen (
 -- --------------------------------------------------------------------------------
 -- GENRES - MOVIES RELATIONS
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_mov_rel;
-CREATE TABLE pmmc_mov_rel (
+DROP TABLE IF EXISTS pmc_mov_rel;
+CREATE TABLE pmc_mov_rel (
   rel_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   mov_id INT(5) UNSIGNED NOT NULL,
   gen_id INT(5) UNSIGNED NOT NULL,
@@ -72,8 +72,8 @@ CREATE TABLE pmmc_mov_rel (
 -- --------------------------------------------------------------------------------
 -- USERS
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_set_usr;
-CREATE TABLE pmmc_set_usr (
+DROP TABLE IF EXISTS pmc_set_usr;
+CREATE TABLE pmc_set_usr (
   usr_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   usr_name VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL,
   usr_fname VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -91,8 +91,8 @@ CREATE TABLE pmmc_set_usr (
 -- --------------------------------------------------------------------------------
 -- SETTINGS
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_set_cfg;
-CREATE TABLE pmmc_set_cfg (
+DROP TABLE IF EXISTS pmc_set_cfg;
+CREATE TABLE pmc_set_cfg (
   cfg_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   cfg_set VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   cfg_val VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
@@ -102,8 +102,8 @@ CREATE TABLE pmmc_set_cfg (
 -- --------------------------------------------------------------------------------
 -- USER LISTS
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_set_lst;
-CREATE TABLE pmmc_set_lst (
+DROP TABLE IF EXISTS pmc_set_lst;
+CREATE TABLE pmc_set_lst (
   lst_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   usr_id INT(5) UNSIGNED NOT NULL,
   mov_id INT(5) UNSIGNED NOT NULL,
@@ -119,8 +119,8 @@ CREATE TABLE pmmc_set_lst (
 -- --------------------------------------------------------------------------------
 -- LOGIN HISTORY
 -- --------------------------------------------------------------------------------
-DROP TABLE IF EXISTS pmmc_var_log;
-CREATE TABLE pmmc_var_log (
+DROP TABLE IF EXISTS pmc_var_log;
+CREATE TABLE pmc_var_log (
   log_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   usr_id INT(5) UNSIGNED NOT NULL,
   log_date DATE NOT NULL,

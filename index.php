@@ -13,7 +13,7 @@
 * @version    16:36 2008-09-03
 * @since      19:27 2008-08-19
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Application
 * @todo       Everything :-)
 */
@@ -33,35 +33,35 @@ require_once './inc/lib.inc.php';
 /**
 * Set app configuration options
 */
-pmmc_cfg($ap_cfg);
+pmc_cfg($ap_cfg);
 /**
 * Set error reporting
 */
-pmmc_error_reporting(1);
+pmc_error_reporting(1);
 /**
 * Search engine friendly URLs
 */
-pmmc_seo_urls();
+pmc_seo_urls();
 /**
 * Open database connection
 */
-$pmmc_dbconn = pmmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
+$pmc_dbconn = pmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
 /**
 * Set variable configuration options (stored in database)
 */
-pmmc_cfg_var();
+pmc_cfg_var();
 /**
 * Initialize session
 */
-$usr_status = pmmc_session();
+$usr_status = pmc_session();
 /**
 * Load language file with main dialogs
 */
-require_once _APP_DIR . 'lang/' . $_SESSION['pmmc_usr_lang'] . '/lang.inc.php';
+require_once _APP_DIR . 'lang/' . $_SESSION['pmc_usr_lang'] . '/lang.inc.php';
 /**
 * Load language file with messages
 */
-require_once _APP_DIR . 'lang/' . $_SESSION['pmmc_usr_lang'] . '/msg.inc.php';
+require_once _APP_DIR . 'lang/' . $_SESSION['pmc_usr_lang'] . '/msg.inc.php';
 /**
 * Load application functions
 */
@@ -69,21 +69,21 @@ require_once './inc/func.inc.php';
 /**
 * Logout user
 */
-if(isset($_GET['logout']) && $_GET['logout'] == 'true') {pmmc_usr_logout();}
+if(isset($_GET['logout']) && $_GET['logout'] == 'true') {pmc_usr_logout();}
 /**
 * Process requests
 */
-$cnt = pmmc_process();
+$cnt = pmc_process();
 /**
 * Load additional content modules
 */
-$mod = pmmc_mod_add();
+$mod = pmc_mod_add();
 /**
 * Display page
 */
-echo pmmc_output($cnt, $mod);
+echo pmc_output($cnt, $mod);
 /**
 * Close database connection
 */
-pmmc_dbclose($pmmc_dbconn, $db_type=0)
+pmc_dbclose($pmc_dbconn, $db_type=0)
 ?>

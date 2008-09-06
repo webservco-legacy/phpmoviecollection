@@ -13,7 +13,7 @@
 * @version    16:58 2008-09-05
 * @since      19:32 2008-09-03
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Application Front
 * @todo       Everything :-)
 */
@@ -27,12 +27,12 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_view_mov_details($id) {
+function pmc_view_mov_details($id) {
   global $lang;
   $cnt['skin'] = 'view.movies.details.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['details'];
   
-  $cnt['page'] = pmmc_mov_details($id);
+  $cnt['page'] = pmc_mov_details($id);
   return  $cnt;
 }
 /**
@@ -40,11 +40,11 @@ function pmmc_view_mov_details($id) {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_view_mov_view() {
+function pmc_view_mov_view() {
   global $lang;
   $cnt['skin'] = 'view.movies.list.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
-  $cnt['page'] = pmmc_mov_view('view');
+  $cnt['page'] = pmc_mov_view('view');
   return $cnt;
 }
 ?>

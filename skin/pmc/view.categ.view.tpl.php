@@ -7,7 +7,7 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
 ?>
 <div id="cat_view_holder" class="clear">
   <div id="cat_view_pic">
-  <?php echo pmmc_image_thumb_link($cnt['cat_pic'][$i], 'var/pic_cat/', $cnt['cat_tt'][$i], _APP_URL.'view/movies/categ/'.$cnt['cat_id'][$i], _APP_PCAT); ?>
+  <?php echo pmc_image_thumb_link($cnt['cat_pic'][$i], 'var/pic_cat/', $cnt['cat_tt'][$i], _APP_URL.'view/movies/categ/'.$cnt['cat_id'][$i], _APP_PCAT); ?>
   </div>
   <div id="cat_view_tt">
   <a href="<?php echo _APP_URL; ?>view/movies/categ/<?php echo $cnt['cat_id'][$i]; ?>" title="<?php echo $cnt['cat_tt'][$i]; ?>"><?php echo $cnt['cat_tt'][$i]; ?></a>

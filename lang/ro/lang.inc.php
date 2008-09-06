@@ -13,7 +13,7 @@
 * @version    20:00 2008-09-02
 * @since      19:27 2008-08-19
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Internationalization
 * @todo       Everything :-)
 */
@@ -44,28 +44,28 @@ $lang['usr_status'][9] = 'Possible intrusion attempt';
 /**
 * General
 */
-$lang['pmmc']['order']    = 'Ordine';
-$lang['pmmc']['pic']      = 'Imagine';
-$lang['pmmc']['ttpre']    = 'Prefix Titlu';
-$lang['pmmc']['tt']       = 'Titlu';
-$lang['pmmc']['desc']     = 'Descriere';
-$lang['pmmc']['items']    = 'Articole';
-$lang['pmmc']['add']      = 'Ad&#259;ugare';
-$lang['pmmc']['mod']      = 'Modificare';
-$lang['pmmc']['del']      = '&#350;tergere';
-$lang['pmmc']['save_mod'] = 'Salvare modific&#259;ri';
-$lang['pmmc']['select']   = 'Selecta&#355;i';
-$lang['pmmc']['year']     = 'An';
-$lang['pmmc']['country']  = '&#354;ara';
-$lang['pmmc']['language'] = 'Limba';
-$lang['pmmc']['notes']    = 'Noti&#355;e';
-$lang['pmmc']['page']     = 'Pagina';
-$lang['pmmc']['of']       = 'din';
-$lang['pmmc']['sortby']   = 'Sortare dup&#259;';
-$lang['pmmc']['order']    = 'Ordonare';
-$lang['pmmc']['ordera']   = 'Ascendent&#259;';
-$lang['pmmc']['orderd']   = 'Descendent&#259;';
-$lang['pmmc']['ok']       = 'Ok';
+$lang['pmc']['order']    = 'Ordine';
+$lang['pmc']['pic']      = 'Imagine';
+$lang['pmc']['ttpre']    = 'Prefix Titlu';
+$lang['pmc']['tt']       = 'Titlu';
+$lang['pmc']['desc']     = 'Descriere';
+$lang['pmc']['items']    = 'Articole';
+$lang['pmc']['add']      = 'Ad&#259;ugare';
+$lang['pmc']['mod']      = 'Modificare';
+$lang['pmc']['del']      = '&#350;tergere';
+$lang['pmc']['save_mod'] = 'Salvare modific&#259;ri';
+$lang['pmc']['select']   = 'Selecta&#355;i';
+$lang['pmc']['year']     = 'An';
+$lang['pmc']['country']  = '&#354;ara';
+$lang['pmc']['language'] = 'Limba';
+$lang['pmc']['notes']    = 'Noti&#355;e';
+$lang['pmc']['page']     = 'Pagina';
+$lang['pmc']['of']       = 'din';
+$lang['pmc']['sortby']   = 'Sortare dup&#259;';
+$lang['pmc']['order']    = 'Ordonare';
+$lang['pmc']['ordera']   = 'Ascendent&#259;';
+$lang['pmc']['orderd']   = 'Descendent&#259;';
+$lang['pmc']['ok']       = 'Ok';
 /**
 * Users
 */

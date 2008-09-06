@@ -1,5 +1,5 @@
-<h1><?php echo $lang['usr']['add']; ?></h1>
-<form enctype="multipart/form-data" id="usr_add_form" name="usr_add_form" action="" method="post">
+<h1><?php echo $lang['usr']['view']; ?></h1>
+<form enctype="multipart/form-data" id="usr_mod_form" name="usr_mod_form" action="" method="post">
 
 <div class="clear">
 <label for="usr_name" class="required"><?php echo $lang['usr']['name']; ?></label>
@@ -17,22 +17,17 @@
 </div>
 
 <div class="clear">
-<label for="usr_mail1" class="required"><?php echo $lang['usr']['mail1']; ?></label>
-<input id="usr_mail1" name="usr_mail1" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail1']; ?>" />
+<label for="mail" class="required"><?php echo $lang['usr']['mail1']; ?></label>
+<input id="mail" name="mail" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail']; ?>" readonly="readonly" />
 </div>
 
 <div class="clear">
-<label for="usr_mail2" class="required"><?php echo $lang['usr']['mail2']; ?></label>
-<input id="usr_mail2" name="usr_mail2" type="text" size="25" maxlength="30" value="<?php echo $cnt['usr_mail2']; ?>" />
-</div>
-
-<div class="clear">
-<label for="usr_pass1" class="required"><?php echo $lang['usr']['pass1']; ?></label>
+<label for="usr_pass1" class="required"><?php echo $lang['usr']['pass1n']; ?></label>
 <input id="usr_pass1" name="usr_pass1" type="text" size="20" maxlength="30" value="<?php echo $cnt['usr_pass1']; ?>" />
 </div>
 
 <div class="clear">
-<label for="usr_pass2" class="required"><?php echo $lang['usr']['pass2']; ?></label>
+<label for="usr_pass2" class="required"><?php echo $lang['usr']['pass2n']; ?></label>
 <input id="usr_pass2" name="usr_pass2" type="text" size="20" maxlength="30" value="<?php echo $cnt['usr_pass2']; ?>" />
 </div>
 
@@ -51,7 +46,7 @@ for($i=0;$i<$ts;$i++) {
 </div>
 
 <div class="clear">
-<label for="usr_lang" class="required"><?php echo $lang['pmmc']['language']; ?></label>
+<label for="usr_lang" class="required"><?php echo $lang['pmc']['language']; ?></label>
 <select id="usr_lang" name="usr_lang" size="1">
 <?php
 $tl = count($cnt['langs']);
@@ -88,8 +83,8 @@ for($k=1;$k<=5;$k++) {
 </div>
 
 <div class="clear">
-<label for="usr_add">&#160;</label>
-<input id="usr_add" name="usr_add" type="submit" value="<?php echo $lang['pmmc']['add']; ?>" />
+<label for="usr_mod">&#160;</label>
+<input id="usr_mod" name="usr_mod" type="submit" value="<?php echo $lang['pmc']['mod']; ?>" />
 </div>
 
 </form>

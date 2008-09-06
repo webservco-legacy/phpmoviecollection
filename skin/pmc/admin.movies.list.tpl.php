@@ -9,24 +9,24 @@ if($t > 0) {
 <tr>
 <td class="mov_adm_fsort">
 <input id="categ" name="categ" type="hidden" value="<?php echo $cnt['categ']; ?>" />
-<?php echo $lang['pmmc']['sortby']; ?>
+<?php echo $lang['pmc']['sortby']; ?>
 &#160;
 <select id="sort" name="sort" size="1">
-  <option value="title"<?php if($cnt['sort'] == 'title') {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['tt']; ?></option>
+  <option value="title"<?php if($cnt['sort'] == 'title') {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['tt']; ?></option>
   <option value="categ"<?php if($cnt['sort'] == 'categ') {echo 'selected="selected"';} ?>><?php echo $lang['categ']['categ']; ?></option>
-  <option value="year"<?php if($cnt['sort'] == 'year')   {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['year']; ?></option>
+  <option value="year"<?php if($cnt['sort'] == 'year')   {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['year']; ?></option>
 </select>
   </td>
   <td class="mov_adm_ford">
-<?php echo $lang['pmmc']['order']; ?>
+<?php echo $lang['pmc']['order']; ?>
 &#160;
 <select id="order" name="order" size="1">
-  <option value="a"<?php if($cnt['order'] == 'a') {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['ordera']; ?></option>
-  <option value="d"<?php if($cnt['order'] == 'd') {echo 'selected="selected"';} ?>><?php echo $lang['pmmc']['orderd']; ?></option>
+  <option value="a"<?php if($cnt['order'] == 'a') {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['ordera']; ?></option>
+  <option value="d"<?php if($cnt['order'] == 'd') {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['orderd']; ?></option>
 </select>
   </td>
   <td class="mov_adm_fok">
-<input id="filter" name="filter" type="submit" value="<?php echo $lang['pmmc']['ok']; ?>" />
+<input id="filter" name="filter" type="submit" value="<?php echo $lang['pmc']['ok']; ?>" />
   </td>
 </tr>
 </table>
@@ -39,7 +39,7 @@ if($t > 0) {
   <?php echo $lang['movie']['movie']; ?>
   </td>
   <td class="mov_adm_hdel">
-  <?php echo $lang['pmmc']['del']; ?>
+  <?php echo $lang['pmc']['del']; ?>
   </td>
 </tr>
 <?php
@@ -52,7 +52,7 @@ if($t > 0) {
     <table border="0" cellspacing="1">
     <tr>
       <td class="mov_adm_img" rowspan="2">
-      <?php echo pmmc_image_thumb($cnt['movies'][$i]['mov_pic'], 'var/pic_mov/', $movie_title[$i]); ?>
+      <?php echo pmc_image_thumb($cnt['movies'][$i]['mov_pic'], 'var/pic_mov/', $movie_title[$i]); ?>
       </td>
       <td class="mov_adm_tt">
       <a href="<?php echo _APP_URL; ?>admin/movies/details/<?php echo $cnt['movies'][$i]['mov_id']; ?>"><?php echo $movie_title[$i]; ?></a>
@@ -80,7 +80,7 @@ if($t > 0) {
 ?>
 <tr>
   <td colspan="2" class="mov_adm_subm">
-  <input id="mov_save_mod" name="mov_save_mod" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
+  <input id="mov_save_mod" name="mov_save_mod" type="submit" value="<?php echo $lang['pmc']['save_mod']; ?>" />
   </td>
 </tr>
 <?php
@@ -89,9 +89,9 @@ if($t > 0) {
     echo '<td class="mov_adm_nav" colspan="2">';
     echo $cnt['link_first'] . '&#160;';
     echo $cnt['link_prev'] . '&#160;';
-    echo $lang['pmmc']['page'] . '&#160;';
+    echo $lang['pmc']['page'] . '&#160;';
     echo $cnt['page'] . '&#160;';
-    echo $lang['pmmc']['of'] . '&#160;';
+    echo $lang['pmc']['of'] . '&#160;';
     echo $cnt['maxpage'] . '&#160;';
     echo $cnt['link_next'] . '&#160;';
     echo $cnt['link_last'] . '&#160;';

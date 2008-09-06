@@ -19,7 +19,7 @@ if($t > 0) {
   <?php echo $lang['usr']['status']; ?>
   </td>
   <td class="usr_adm_hdel">
-  <?php echo $lang['pmmc']['del']; ?>
+  <?php echo $lang['pmc']['del']; ?>
   </td>
 </tr>
 <?php
@@ -47,7 +47,7 @@ for($i=0;$i<$t;$i++) {
 ?>
 <tr>
   <td colspan="5" class="usr_adm_subm">
-  <input id="usr_save_mod" name="usr_save_mod" type="submit" value="<?php echo $lang['pmmc']['save_mod']; ?>" />
+  <input id="usr_save_mod" name="usr_save_mod" type="submit" value="<?php echo $lang['pmc']['save_mod']; ?>" />
   </td>
 </tr>
 <?php
@@ -55,9 +55,9 @@ echo '<tr>';
 echo '<td class="usr_adm_nav" colspan="5">';
 echo $cnt['link_first'] . '&#160;';
 echo $cnt['link_prev'] . '&#160;';
-echo $lang['pmmc']['page'] . '&#160;';
+echo $lang['pmc']['page'] . '&#160;';
 echo $cnt['page'] . '&#160;';
-echo $lang['pmmc']['of'] . '&#160;';
+echo $lang['pmc']['of'] . '&#160;';
 echo $cnt['maxpage'] . '&#160;';
 echo $cnt['link_next'] . '&#160;';
 echo $cnt['link_last'] . '&#160;';

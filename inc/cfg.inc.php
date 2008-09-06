@@ -13,7 +13,7 @@
 * @version    20:00 2008-09-02
 * @since      19:27 2008-08-19
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Application
 * @todo       Everything :-)
 */
@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Main URL of the application - notice the slash at the end
 */
-$ap_cfg['app_url'] = 'http://localhost/pub/temp/phpMyMovieCollection/';
+$ap_cfg['app_url'] = 'http://localhost/pub/temp/pmc/';
 /**
 * Whether to use rewrite engine functionality or not
 */
@@ -33,9 +33,9 @@ $ap_cfg['app_index'] = '';
 /**
 * Full path to the application - notice the slash at the end
 */
-//$ap_cfg['app_dir'] = '/opt/lampp/htdocs/pub/temp/phpMyMovieCollection/';
-$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
-//$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/phpMyMovieCollection/';
+//$ap_cfg['app_dir'] = '/opt/lampp/htdocs/pub/temp/pmc/';
+$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/pmc/';
+//$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/pmc/';
 /**
 * Database host
 */

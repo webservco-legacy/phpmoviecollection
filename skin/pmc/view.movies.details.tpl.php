@@ -7,7 +7,7 @@ if($cnt['mov_tt'] != '') {
 ?>
 <div id="mov_view_holder1" class="clear">
   <div id="mov_view_pic">
-  <?php echo pmmc_image_thumb($cnt['mov_pic'], 'var/pic_mov/', $mov_tt, _APP_PMOV); ?>
+  <?php echo pmc_image_thumb($cnt['mov_pic'], 'var/pic_mov/', $mov_tt, _APP_PMOV); ?>
   </div>
   <div id="mov_view_tt">
   <?php echo $mov_tt; ?>
@@ -27,11 +27,11 @@ if($cnt['mov_tt'] != '') {
 <div class="mvalue"><?php echo $cnt['mov_aka']; ?></div>
 </div>
 <div class="clear">
-<div class="mname"><?php echo $lang['pmmc']['country']; ?></div>
+<div class="mname"><?php echo $lang['pmc']['country']; ?></div>
 <div class="mvalue"><?php echo $cnt['mov_country']; ?></div>
 </div>
 <div class="clear">
-<div class="mname"><?php echo $lang['pmmc']['language']; ?></div>
+<div class="mname"><?php echo $lang['pmc']['language']; ?></div>
 <div class="mvalue"><?php echo $cnt['mov_language']; ?></div>
 </div>
 <div class="clear">
@@ -55,7 +55,7 @@ if($cnt['mov_tt'] != '') {
 <div class="mvalue"><?php echo $cnt['mov_cast']; ?></div>
 </div>
 <div class="clear">
-<div class="mname"><?php echo $lang['pmmc']['notes']; ?></div>
+<div class="mname"><?php echo $lang['pmc']['notes']; ?></div>
 <div class="mvalue"><?php echo $cnt['mov_notes']; ?></div>
 </div>
 <div class="clear">

@@ -16,7 +16,7 @@ table {width: 100%;}
 a:link {background-color: #ffffff; background: transparent; color: #000000; text-decoration: underline;}
 a:visited {background-color: #ffffff; background: transparent; color: #000000; text-decoration: underline;}
 a:hover {background-color: #ffffff; background: transparent; color: #000000; text-decoration: none;}
-#pmmc_logout {font-weight: normal;}
+#pmc_logout {font-weight: normal;}
 /* ********** ********** ********** LINK AREA END ********** ********** ********** */
 /* ********** ********** ********** HEADER AREA START ********** ********** ********** */
 #logo {float: left; width: 250px; height: 80px; margin: 0px;}
@@ -42,10 +42,10 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 /* ********** ********** ********** MODULES AREA END ********** ********** ********** */
 /* ********** ********** ********** USER AREA START ********** ********** ********** */
 #login_form {display: inline; margin: 0px; padding: 0px;}
-#pmmc_login {width: 80px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
-#pmmc_pass {width: 80px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
-#pmmc_captcha {width: 40px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
-#pmmc_captcha_img {width: 70px; height: 18px; margin: 0px; padding: 0px; vertical-align: text-bottom;}
+#pmc_login {width: 80px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
+#pmc_pass {width: 80px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
+#pmc_captcha {width: 40px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
+#pmc_captcha_img {width: 70px; height: 18px; margin: 0px; padding: 0px; vertical-align: text-bottom;}
 #login_submit {width: 50px; font-family: Georgia, sans-serif; font-size: 12px; text-align: center; border: 1px solid #333333;}
 /* ********** ********** ********** USER AREA END ********** ********** ********** */
 label                           {float: left; width: 170px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}

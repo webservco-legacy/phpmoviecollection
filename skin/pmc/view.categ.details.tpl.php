@@ -4,7 +4,7 @@ if($cnt['cat_tt'] != '') {
 ?>
 <div id="cat_view_holder" class="clear">
   <div id="cat_view_pic">
-  <?php echo pmmc_image_thumb($cnt['cat_pic'], 'var/pic_cat/', $cnt['cat_tt'], _APP_PCAT); ?>
+  <?php echo pmc_image_thumb($cnt['cat_pic'], 'var/pic_cat/', $cnt['cat_tt'], _APP_PCAT); ?>
   </div>
   <div id="cat_view_tt">
   <?php echo $cnt['cat_tt']; ?>

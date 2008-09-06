@@ -13,7 +13,7 @@
 * @version    14:56 2008-08-25
 * @since      14:21 2008-08-25
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Core
 * @todo       Everything :-)
 */
@@ -34,8 +34,8 @@ header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");
 /**
 * Check if the request is valid
 */
-if (isset($_SESSION['pmmc_token'])) {
-  $captcha = str_split(strtoupper($_SESSION['pmmc_token']), 1);
+if (isset($_SESSION['pmc_token'])) {
+  $captcha = str_split(strtoupper($_SESSION['pmc_token']), 1);
   
   header("Content-type: image/png");
   header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1

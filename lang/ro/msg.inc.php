@@ -13,7 +13,7 @@
 * @version    20:00 2008-09-02
 * @since      23:17 2008-08-25
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Internationalization
 * @todo       Everything :-)
 */

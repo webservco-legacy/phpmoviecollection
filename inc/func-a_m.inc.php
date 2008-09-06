@@ -13,7 +13,7 @@
 * @version    15:32 2008-09-03
 * @since      15:32 2008-09-03
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Application Back
 * @todo       Everything :-)
 */
@@ -27,17 +27,17 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_adm_mov_add() {
-  $vcr = pmmc_qry_exec("SELECT cat_id, cat_tt FROM pmmc_mov_cat ORDER BY cat_ord");
-  $vct = pmmc_qry_total($vcr);
+function pmc_adm_mov_add() {
+  $vcr = pmc_qry_exec("SELECT cat_id, cat_tt FROM pmc_mov_cat ORDER BY cat_ord");
+  $vct = pmc_qry_total($vcr);
   if($vct > 0) {
     for($v=0;$v<$vct;$v++) {
-      $vcrw = pmmc_qry_row($vcr);
+      $vcrw = pmc_qry_row($vcr);
       $cnt['page']['categs']['id'][$v] = $vcrw['cat_id'];
       $cnt['page']['categs']['tt'][$v] = $vcrw['cat_tt'];
     }
   }
-  else {$_SESSION['pmmc_msg'] = 34; header("Location: " . _APP_URL . 'admin/categ/add/new'); exit;}
+  else {$_SESSION['pmc_msg'] = 34; header("Location: " . _APP_URL . 'admin/categ/add/new'); exit;}
   global $lang;
   $cnt['skin'] = 'admin.movies.add.new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['add'];
@@ -58,13 +58,13 @@ function pmmc_adm_mov_add() {
   $cnt['page']['mov_notes']    = '';
   
   /* genres */
-  $rg = pmmc_qry_exec("SELECT gen_id, gen_tt FROM pmmc_mov_gen");
-  $tg = pmmc_qry_total($rg);
+  $rg = pmc_qry_exec("SELECT gen_id, gen_tt FROM pmc_mov_gen");
+  $tg = pmc_qry_total($rg);
   $cnt['page']['genres'] = array();
   $cnt['page']['genrett'] = array();
   if($tg > 0) {
     for($i=0;$i<$tg;$i++) {
-      $rwg = pmmc_qry_row($rg); /* array cu genres ids*/
+      $rwg = pmc_qry_row($rg); /* array cu genres ids*/
       $cnt['page']['genres'][$i] = $rwg['gen_id'];
       $cnt['page']['genrett'][$cnt['page']['genres'][$i]] = $rwg['gen_tt'];
       $cnt['page']['genre'][$cnt['page']['genres'][$i]] = 0;
@@ -74,16 +74,16 @@ function pmmc_adm_mov_add() {
  
   $egl = error_get_last();
   $res = strpos($egl['message'], 'POST Content-Length of');
-  if ($res !== false ) {$_SESSION['pmmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
+  if ($res !== false ) {$_SESSION['pmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
   else if(isset($_POST['mov_imdb_fetch'])) {
     if(isset($_POST['imdb_url'])) {
       require_once './lib/browseremulator.class.php';
       require_once './inc/imdb.inc.php';
-      $imdb_id = pmmc_filter_input($_POST['imdb_url']);
+      $imdb_id = pmc_filter_input($_POST['imdb_url']);
       $imdb_id = str_replace('http://www.imdb.com/title/tt', '', $imdb_id);
       $imdb_id = str_replace('/', '', $imdb_id);
       
-      $imdb = pmmc_get_imdb($imdb_id);
+      $imdb = pmc_get_imdb($imdb_id);
       $cnt['page']['mov_imdb']     = $imdb_id;
       $cnt['page']['mov_tt_pre']   = $imdb['title_the'];
       $cnt['page']['mov_tt']       = $imdb['title'];
@@ -96,24 +96,24 @@ function pmmc_adm_mov_add() {
       $cnt['page']['mov_tag']      = $imdb['tag'];
       $cnt['page']['mov_plot']     = $imdb['plot'];
       $cnt['page']['mov_cast']     = $imdb['cast'];
-      $_SESSION['pmmc_msg'] = 35;
+      $_SESSION['pmc_msg'] = 35;
     }
   }
   else if(isset($_POST['mov_add'])) {
-    if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmmc_filter_input($_POST['cat_id']);}
-    if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmmc_filter_input($_POST['mov_imdb']);}
-    if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmmc_filter_input($_POST['mov_tt_pre']);}
-    if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmmc_filter_input($_POST['mov_tt']);}
-    if(isset($_POST['mov_aka']))      {$cnt['page']['mov_aka']      = pmmc_filter_input($_POST['mov_aka']);}
-    if(isset($_POST['mov_year']))     {$cnt['page']['mov_year']     = pmmc_filter_input($_POST['mov_year']);}
-    if(isset($_POST['mov_country']))  {$cnt['page']['mov_country']  = pmmc_filter_input($_POST['mov_country']);}
-    if(isset($_POST['mov_language'])) {$cnt['page']['mov_language'] = pmmc_filter_input($_POST['mov_language']);}
-    if(isset($_POST['mov_dir']))      {$cnt['page']['mov_dir']      = pmmc_filter_input($_POST['mov_dir']);}
-    if(isset($_POST['mov_wrt']))      {$cnt['page']['mov_wrt']      = pmmc_filter_input($_POST['mov_wrt']);}
-    if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmmc_filter_input($_POST['mov_tag']);}
-    if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmmc_filter_input($_POST['mov_plot']);}
-    if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmmc_filter_input($_POST['mov_cast']);}
-    if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmmc_filter_input($_POST['mov_notes']);}
+    if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmc_filter_input($_POST['cat_id']);}
+    if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmc_filter_input($_POST['mov_imdb']);}
+    if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmc_filter_input($_POST['mov_tt_pre']);}
+    if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmc_filter_input($_POST['mov_tt']);}
+    if(isset($_POST['mov_aka']))      {$cnt['page']['mov_aka']      = pmc_filter_input($_POST['mov_aka']);}
+    if(isset($_POST['mov_year']))     {$cnt['page']['mov_year']     = pmc_filter_input($_POST['mov_year']);}
+    if(isset($_POST['mov_country']))  {$cnt['page']['mov_country']  = pmc_filter_input($_POST['mov_country']);}
+    if(isset($_POST['mov_language'])) {$cnt['page']['mov_language'] = pmc_filter_input($_POST['mov_language']);}
+    if(isset($_POST['mov_dir']))      {$cnt['page']['mov_dir']      = pmc_filter_input($_POST['mov_dir']);}
+    if(isset($_POST['mov_wrt']))      {$cnt['page']['mov_wrt']      = pmc_filter_input($_POST['mov_wrt']);}
+    if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmc_filter_input($_POST['mov_tag']);}
+    if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmc_filter_input($_POST['mov_plot']);}
+    if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmc_filter_input($_POST['mov_cast']);}
+    if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmc_filter_input($_POST['mov_notes']);}
     
     /* genres */
     if($tg > 0) {
@@ -125,8 +125,8 @@ function pmmc_adm_mov_add() {
     /* //genres */
 
     if($cnt['page']['cat_id'] != 0 && $cnt['page']['mov_tt'] != '') {
-      $lock    = pmmc_lock_tables(array('pmmc_mov_tt', 'pmmc_mov_rel'));
-      $id      = pmmc_next_auto_id('pmmc_mov_tt');
+      $lock    = pmc_lock_tables(array('pmc_mov_tt', 'pmc_mov_rel'));
+      $id      = pmc_next_auto_id('pmc_mov_tt');
       $mov_pic = '';
       $err = 0;
       if(isset($_FILES['mov_pic'])) {
@@ -136,14 +136,14 @@ function pmmc_adm_mov_add() {
         $pic_error    = $_FILES['mov_pic']['error'];
         $pic_size     = $_FILES['mov_pic']['size'];
         $allowed_file_types = array("image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/gif");
-        if($pic_error == 0 && !in_array($pic_type, $allowed_file_types)) {$_SESSION['pmmc_msg'] = 11; $err = 1;} /* not an image */
-        else if ($pic_error == 2)                                        {$_SESSION['pmmc_msg'] = 15; $err = 1;} /* too big */
+        if($pic_error == 0 && !in_array($pic_type, $allowed_file_types)) {$_SESSION['pmc_msg'] = 11; $err = 1;} /* not an image */
+        else if ($pic_error == 2)                                        {$_SESSION['pmc_msg'] = 15; $err = 1;} /* too big */
         //else if ($pic_error == 4)                                      {$err = 1;} /* no file uploaded but that's ok */
-        else if ($pic_error == 3)                                        {$_SESSION['pmmc_msg'] = 13; $err = 1;} /* partial upload */
-        else if ($pic_error == 3)                                        {$_SESSION['pmmc_msg'] = 13; $err = 1;} /* partial upload */
-        if($pic_error == 0 && !is_uploaded_file($pic_tmp_name))          {$_SESSION['pmmc_msg'] = 14; $err = 1;} /* not sent by form */
+        else if ($pic_error == 3)                                        {$_SESSION['pmc_msg'] = 13; $err = 1;} /* partial upload */
+        else if ($pic_error == 3)                                        {$_SESSION['pmc_msg'] = 13; $err = 1;} /* partial upload */
+        if($pic_error == 0 && !is_uploaded_file($pic_tmp_name))          {$_SESSION['pmc_msg'] = 14; $err = 1;} /* not sent by form */
         if($err == 0) {
-          $pic_ext  = pmmc_pic_ext($pic_type);
+          $pic_ext  = pmc_pic_ext($pic_type);
           $mov_pic  = 'mov_' . $id . '.' . $pic_ext;
           $pic_path = _APP_DIR . 'var/pic_mov/';
           if (@move_uploaded_file($pic_tmp_name, $pic_path . $mov_pic)) {$pic_store = 1;}
@@ -153,35 +153,35 @@ function pmmc_adm_mov_add() {
       if($err == 0) {
         $idate = date("Y-m-d");
         $itime = date("H:i:s");
-        $insert  = pmmc_qry_exec("INSERT INTO pmmc_mov_tt (cat_id, mov_pic, mov_imdb, mov_tt_pre, mov_tt, mov_aka, mov_year, mov_country, mov_language, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_pre']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_aka']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_country']}', '{$cnt['page']['mov_language']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_notes']}', '{$idate}', '{$itime}')");
+        $insert  = pmc_qry_exec("INSERT INTO pmc_mov_tt (cat_id, mov_pic, mov_imdb, mov_tt_pre, mov_tt, mov_aka, mov_year, mov_country, mov_language, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_pre']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_aka']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_country']}', '{$cnt['page']['mov_language']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_notes']}', '{$idate}', '{$itime}')");
         /* genres */
         if($tg > 0) {
           for($k=0;$k<$tg;$k++) {
-            $ver = pmmc_qry_total(pmmc_qry_exec("SELECT rel_id FROM pmmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1"));
+            $ver = pmc_qry_total(pmc_qry_exec("SELECT rel_id FROM pmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1"));
             if($cnt['page']['genre'][$cnt['page']['genres'][$k]] == 1) {
               if($ver != 1) {
-                pmmc_qry_exec("INSERT INTO pmmc_mov_rel (mov_id, gen_id) VALUES ('{$id}', '{$cnt['page']['genres'][$k]}')");
+                pmc_qry_exec("INSERT INTO pmc_mov_rel (mov_id, gen_id) VALUES ('{$id}', '{$cnt['page']['genres'][$k]}')");
               }
             }
             else if($cnt['page']['genre'][$cnt['page']['genres'][$k]] == 0) {
               if($ver == 1) {
-                pmmc_qry_exec("DELETE FROM pmmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1");
+                pmc_qry_exec("DELETE FROM pmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1");
               }
             }
           }
         }
         /* //genres */
-        $unlock  = pmmc_unlock_tables();
+        $unlock  = pmc_unlock_tables();
         if($insert === true) {
-          if($pic_store == 1) {$_SESSION['pmmc_msg'] = 32;}
-          else {$_SESSION['pmmc_msg'] = 33;}
+          if($pic_store == 1) {$_SESSION['pmc_msg'] = 32;}
+          else {$_SESSION['pmc_msg'] = 33;}
           header("Location: " . _APP_URL . 'admin/movies/details/' . $id);
           exit;
         }
-        else {$_SESSION['pmmc_msg'] = 31; header("Location: "._APP_URL . 'admin/movies/add/new'); exit;}
+        else {$_SESSION['pmc_msg'] = 31; header("Location: "._APP_URL . 'admin/movies/add/new'); exit;}
       }
     }
-    else {$_SESSION['pmmc_msg'] = 16;}
+    else {$_SESSION['pmc_msg'] = 16;}
   }
   return $cnt;
 }
@@ -190,25 +190,25 @@ function pmmc_adm_mov_add() {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_adm_mov_details($id) {
+function pmc_adm_mov_details($id) {
   global $lang;
   $cnt['skin'] = 'admin.movies.details.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['details'];
   
-  $cnt['page'] = pmmc_mov_details($id);
+  $cnt['page'] = pmc_mov_details($id);
   
   $egl = error_get_last();
   $res = strpos($egl['message'], 'POST Content-Length of');
-  if ($res !== false ) {$_SESSION['pmmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
+  if ($res !== false ) {$_SESSION['pmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
   else if(isset($_POST['mov_imdb_fetch'])) {
     if(isset($_POST['imdb_url'])) {
       require_once './lib/browseremulator.class.php';
       require_once './inc/imdb.inc.php';
-      $imdb_id = pmmc_filter_input($_POST['imdb_url']);
+      $imdb_id = pmc_filter_input($_POST['imdb_url']);
       $imdb_id = str_replace('http://www.imdb.com/title/tt', '', $imdb_id);
       $imdb_id = str_replace('/', '', $imdb_id);
       
-      $imdb = pmmc_get_imdb($imdb_id);
+      $imdb = pmc_get_imdb($imdb_id);
       $cnt['page']['mov_imdb']     = $imdb_id;
       $cnt['page']['mov_tt_pre']   = $imdb['title_the'];
       $cnt['page']['mov_tt']       = $imdb['title'];
@@ -221,24 +221,24 @@ function pmmc_adm_mov_details($id) {
       $cnt['page']['mov_tag']      = $imdb['tag'];
       $cnt['page']['mov_plot']     = $imdb['plot'];
       $cnt['page']['mov_cast']     = $imdb['cast'];
-      $_SESSION['pmmc_msg'] = 35;
+      $_SESSION['pmc_msg'] = 35;
     }
   }
   else if(isset($_POST['mov_mod'])) {
-    if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmmc_filter_input($_POST['cat_id']);}
-    if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmmc_filter_input($_POST['mov_imdb']);}
-    if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmmc_filter_input($_POST['mov_tt_pre']);}
-    if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmmc_filter_input($_POST['mov_tt']);}
-    if(isset($_POST['mov_aka']))      {$cnt['page']['mov_aka']      = pmmc_filter_input($_POST['mov_aka']);}
-    if(isset($_POST['mov_year']))     {$cnt['page']['mov_year']     = pmmc_filter_input($_POST['mov_year']);}
-    if(isset($_POST['mov_country']))  {$cnt['page']['mov_country']  = pmmc_filter_input($_POST['mov_country']);}
-    if(isset($_POST['mov_language'])) {$cnt['page']['mov_language'] = pmmc_filter_input($_POST['mov_language']);}
-    if(isset($_POST['mov_dir']))      {$cnt['page']['mov_dir']      = pmmc_filter_input($_POST['mov_dir']);}
-    if(isset($_POST['mov_wrt']))      {$cnt['page']['mov_wrt']      = pmmc_filter_input($_POST['mov_wrt']);}
-    if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmmc_filter_input($_POST['mov_tag']);}
-    if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmmc_filter_input($_POST['mov_plot']);}
-    if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmmc_filter_input($_POST['mov_cast']);}
-    if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmmc_filter_input($_POST['mov_notes']);}
+    if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmc_filter_input($_POST['cat_id']);}
+    if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmc_filter_input($_POST['mov_imdb']);}
+    if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmc_filter_input($_POST['mov_tt_pre']);}
+    if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmc_filter_input($_POST['mov_tt']);}
+    if(isset($_POST['mov_aka']))      {$cnt['page']['mov_aka']      = pmc_filter_input($_POST['mov_aka']);}
+    if(isset($_POST['mov_year']))     {$cnt['page']['mov_year']     = pmc_filter_input($_POST['mov_year']);}
+    if(isset($_POST['mov_country']))  {$cnt['page']['mov_country']  = pmc_filter_input($_POST['mov_country']);}
+    if(isset($_POST['mov_language'])) {$cnt['page']['mov_language'] = pmc_filter_input($_POST['mov_language']);}
+    if(isset($_POST['mov_dir']))      {$cnt['page']['mov_dir']      = pmc_filter_input($_POST['mov_dir']);}
+    if(isset($_POST['mov_wrt']))      {$cnt['page']['mov_wrt']      = pmc_filter_input($_POST['mov_wrt']);}
+    if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmc_filter_input($_POST['mov_tag']);}
+    if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmc_filter_input($_POST['mov_plot']);}
+    if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmc_filter_input($_POST['mov_cast']);}
+    if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmc_filter_input($_POST['mov_notes']);}
     
     /* genres */
     if($cnt['page']['tg'] > 0) {
@@ -250,8 +250,8 @@ function pmmc_adm_mov_details($id) {
     /* //genres */
 
     if($cnt['page']['cat_id'] != 0 && $cnt['page']['mov_tt'] != '') {
-      $lock    = pmmc_lock_tables(array('pmmc_mov_tt', 'pmmc_mov_rel'));
-      //$id      = pmmc_next_auto_id('pmmc_mov_tt');
+      $lock    = pmc_lock_tables(array('pmc_mov_tt', 'pmc_mov_rel'));
+      //$id      = pmc_next_auto_id('pmc_mov_tt');
       $mov_pic     = $cnt['page']['mov_pic'];
       $new_mov_pic = $cnt['page']['mov_pic'];
       $err = 0;
@@ -263,14 +263,14 @@ function pmmc_adm_mov_details($id) {
         $pic_error    = $_FILES['mov_pic']['error'];
         $pic_size     = $_FILES['mov_pic']['size'];
         $allowed_file_types = array("image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/gif");
-        if($pic_error == 0 && !in_array($pic_type, $allowed_file_types)) {$_SESSION['pmmc_msg'] = 11; $err = 1;} /* not an image */
-        else if ($pic_error == 2)                                        {$_SESSION['pmmc_msg'] = 15; $err = 1;} /* too big */
+        if($pic_error == 0 && !in_array($pic_type, $allowed_file_types)) {$_SESSION['pmc_msg'] = 11; $err = 1;} /* not an image */
+        else if ($pic_error == 2)                                        {$_SESSION['pmc_msg'] = 15; $err = 1;} /* too big */
         else if ($pic_error == 4)                                        {$err = 2;} /* no file uploaded but that's ok */
-        else if ($pic_error == 3)                                        {$_SESSION['pmmc_msg'] = 13; $err = 1;} /* partial upload */
-        else if ($pic_error == 3)                                        {$_SESSION['pmmc_msg'] = 13; $err = 1;} /* partial upload */
-        if($pic_error == 0 && !is_uploaded_file($pic_tmp_name))          {$_SESSION['pmmc_msg'] = 14; $err = 1;} /* not sent by form */
+        else if ($pic_error == 3)                                        {$_SESSION['pmc_msg'] = 13; $err = 1;} /* partial upload */
+        else if ($pic_error == 3)                                        {$_SESSION['pmc_msg'] = 13; $err = 1;} /* partial upload */
+        if($pic_error == 0 && !is_uploaded_file($pic_tmp_name))          {$_SESSION['pmc_msg'] = 14; $err = 1;} /* not sent by form */
         if($err == 0) {
-          $pic_ext  = pmmc_pic_ext($pic_type);
+          $pic_ext  = pmc_pic_ext($pic_type);
           $new_mov_pic  = 'mov_' . $id . '.' . $pic_ext;
           $pic_path = _APP_DIR . 'var/pic_mov/';
           if(is_file($pic_path.$mov_pic)) {@unlink($pic_path.$mov_pic);}
@@ -281,36 +281,36 @@ function pmmc_adm_mov_details($id) {
       if($err == 0 || $err == 2) {
         //$idate = date("Y-m-d");
         //$itime = date("H:i:s");
-        $update = pmmc_qry_exec("UPDATE pmmc_mov_tt SET cat_id = '{$cnt['page']['cat_id']}', mov_pic = '{$new_mov_pic}', mov_imdb = '{$cnt['page']['mov_imdb']}', mov_tt_pre = '{$cnt['page']['mov_tt_pre']}', mov_tt = '{$cnt['page']['mov_tt']}', mov_aka = '{$cnt['page']['mov_aka']}', mov_year= '{$cnt['page']['mov_year']}', mov_country = '{$cnt['page']['mov_country']}', mov_language = '{$cnt['page']['mov_language']}', mov_dir = '{$cnt['page']['mov_dir']}', mov_wrt = '{$cnt['page']['mov_wrt']}', mov_tag = '{$cnt['page']['mov_tag']}', mov_plot = '{$cnt['page']['mov_plot']}', mov_cast = '{$cnt['page']['mov_cast']}', mov_notes = '{$cnt['page']['mov_notes']}' WHERE mov_id = '{$id}' LIMIT 1");
+        $update = pmc_qry_exec("UPDATE pmc_mov_tt SET cat_id = '{$cnt['page']['cat_id']}', mov_pic = '{$new_mov_pic}', mov_imdb = '{$cnt['page']['mov_imdb']}', mov_tt_pre = '{$cnt['page']['mov_tt_pre']}', mov_tt = '{$cnt['page']['mov_tt']}', mov_aka = '{$cnt['page']['mov_aka']}', mov_year= '{$cnt['page']['mov_year']}', mov_country = '{$cnt['page']['mov_country']}', mov_language = '{$cnt['page']['mov_language']}', mov_dir = '{$cnt['page']['mov_dir']}', mov_wrt = '{$cnt['page']['mov_wrt']}', mov_tag = '{$cnt['page']['mov_tag']}', mov_plot = '{$cnt['page']['mov_plot']}', mov_cast = '{$cnt['page']['mov_cast']}', mov_notes = '{$cnt['page']['mov_notes']}' WHERE mov_id = '{$id}' LIMIT 1");
 
         /* genres */
         if($cnt['page']['tg'] > 0) {
           for($k=0;$k<$cnt['page']['tg'];$k++) {
-            $ver = pmmc_qry_total(pmmc_qry_exec("SELECT rel_id FROM pmmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1"));
+            $ver = pmc_qry_total(pmc_qry_exec("SELECT rel_id FROM pmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1"));
             if($cnt['page']['genre'][$cnt['page']['genres'][$k]] == 1) {
               if($ver != 1) {
-                pmmc_qry_exec("INSERT INTO pmmc_mov_rel (mov_id, gen_id) VALUES ('{$id}', '{$cnt['page']['genres'][$k]}')");
+                pmc_qry_exec("INSERT INTO pmc_mov_rel (mov_id, gen_id) VALUES ('{$id}', '{$cnt['page']['genres'][$k]}')");
               }
             }
             else if($cnt['page']['genre'][$cnt['page']['genres'][$k]] == 0) {
               if($ver == 1) {
-                pmmc_qry_exec("DELETE FROM pmmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1");
+                pmc_qry_exec("DELETE FROM pmc_mov_rel WHERE mov_id = '{$id}' AND gen_id = '{$cnt['page']['genres'][$k]}' LIMIT 1");
               }
             }
           }
         }
         /* //genres */
-        $unlock  = pmmc_unlock_tables();
+        $unlock  = pmc_unlock_tables();
         if($update === true) {
-          if($pic_store == 1 || $pic_store == 2) {$_SESSION['pmmc_msg'] = 36;}
-          else {$_SESSION['pmmc_msg'] = 37;}
+          if($pic_store == 1 || $pic_store == 2) {$_SESSION['pmc_msg'] = 36;}
+          else {$_SESSION['pmc_msg'] = 37;}
           header("Location: " . _APP_URL . 'admin/movies/details/' . $id);
           exit;
         }
-        else {$_SESSION['pmmc_msg'] = 38; header("Location: "._APP_URL . 'admin/movies/details/' . $id); exit;}
+        else {$_SESSION['pmc_msg'] = 38; header("Location: "._APP_URL . 'admin/movies/details/' . $id); exit;}
       }
     }
-    else {$_SESSION['pmmc_msg'] = 16;}
+    else {$_SESSION['pmc_msg'] = 16;}
   }
   return  $cnt;
 }
@@ -319,11 +319,11 @@ function pmmc_adm_mov_details($id) {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmmc_adm_mov_view() {
+function pmc_adm_mov_view() {
   global $lang;
   $cnt['skin'] = 'admin.movies.list.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
-  $cnt['page'] = pmmc_mov_view();
+  $cnt['page'] = pmc_mov_view();
   return $cnt;
 }
 ?>

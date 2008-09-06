@@ -13,7 +13,7 @@
 * @version    19:27 2008-09-03
 * @since      19:27 2008-08-19
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Core
 * @todo       Everything :-)
 */
@@ -30,7 +30,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 * @version    12:58 2008-08-22
 * @since      19:27 2008-08-19
 * @access     public
-* @package    phpMyMovieCollection
+* @package    pmc
 * @subpackage Core
 */
 class skin {
@@ -91,12 +91,12 @@ class skin {
 *
 * @return mixed page to diplay
 */
-function pmmc_output($cnt, $mod=null) {
+function pmc_output($cnt, $mod=null) {
   global $lang, $usr_status;
   /**
   * Initialize
   */
-  $skin = new Skin($_SESSION['pmmc_usr_skin']);
+  $skin = new Skin($_SESSION['pmc_usr_skin']);
   /**
   * Title
   */
@@ -104,14 +104,14 @@ function pmmc_output($cnt, $mod=null) {
   /**
   * Message
   */
-  $msg = new Skin($_SESSION['pmmc_usr_skin']);
+  $msg = new Skin($_SESSION['pmc_usr_skin']);
   $msg->set('lang', $lang);
   //$msg->set('msg', $cnt['msg']);
   $skin->set('msg', $msg->parse('msg.tpl.php'));
   /**
   * Page
   */
-  $page = new Skin($_SESSION['pmmc_usr_skin']);
+  $page = new Skin($_SESSION['pmc_usr_skin']);
   //$page->set('h1', $cnt['tt']);
   $page->set('lang', $lang);
   $page->set('cnt', $cnt['page']);
@@ -122,7 +122,7 @@ function pmmc_output($cnt, $mod=null) {
   if(is_array($mod) && count($mod) >= 1) {
     $tm = count($mod);
     for($i=0;$i<$tm;$i++) {
-      $opt_mod[$i] = new Skin($_SESSION['pmmc_usr_skin']);
+      $opt_mod[$i] = new Skin($_SESSION['pmc_usr_skin']);
       $opt_mod[$i]->set('lang', $lang);
       if($mod[$i]['name'] == 'mod_usr') {$opt_mod[$i]->set('usr_status', $usr_status);}
       $skin->set($mod[$i]['name'], $opt_mod[$i]->parse($mod[$i]['file'].'.tpl.php'));
@@ -142,9 +142,9 @@ function pmmc_output($cnt, $mod=null) {
 function my_err($errno, $error) {
   //header('HTTP/1.1 404 Not Found');
   /*
-  $skin = new Skin($_SESSION['pmmc_usr_skin']);
+  $skin = new Skin($_SESSION['pmc_usr_skin']);
   $skin->set('title', 'MySQL Error'); 
-  $content = new Skin($_SESSION['pmmc_usr_skin']);
+  $content = new Skin($_SESSION['pmc_usr_skin']);
   $content->set('msg404', '<h1>MySQL Error</h1>' . "\n\t" . $errno . ' : ' . $error . '.<br />');
   $skin->set('page', $content->parse('404.tpl.php'));
   echo $skin->parse('layout.tpl.php');
@@ -161,7 +161,7 @@ function my_err($errno, $error) {
 * @param integer $level Error level to report
 * @return mixed
 */
-function pmmc_error_reporting($level=0) {
+function pmc_error_reporting($level=0) {
   switch($level) {
     case 0 : {return error_reporting(E_ALL ^ E_NOTICE); break;}
     case 1 : {return error_reporting(E_ALL); break;}
@@ -175,7 +175,7 @@ function pmmc_error_reporting($level=0) {
 * after: index.php/id/2/page/3
 * inspiration from code snippets in the php manual
 */
-function pmmc_seo_urls() {
+function pmc_seo_urls() {
   // we will not be taking orders from normal style requests!
   // ignore ?id=2&page=3
   // we didn't do our stuff yet, so if GET exists it means it has values from normal style requests
@@ -216,7 +216,7 @@ function pmmc_seo_urls() {
 * @param array The configuration directives from ./inc/cfg.inc.php
 * @return void
 */
-function pmmc_cfg($ap_cfg) {
+function pmc_cfg($ap_cfg) {
   /**
   * Whether to use rewrite engine functionality or not
   */
@@ -252,7 +252,7 @@ function pmmc_cfg($ap_cfg) {
   /**
   * Application name
   */
-  define('_APP_NAME','phpMyMovieCollection');
+  define('_APP_NAME','PersonalMediaCollection - Movie Edition');
 }
 /**
 * Open a database connection
@@ -265,14 +265,14 @@ function pmmc_cfg($ap_cfg) {
 * @param integer Database type defaults to 0 (MySQL)
 * @return mixed Connection link
 */
-function pmmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_type=0) {
-  $pmmc_dbconn = NULL;
+function pmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_type=0) {
+  $pmc_dbconn = NULL;
   switch($db_type) {
     case 0 : {
       /**
       * Create connection
       */
-      $pmmc_dbconn = @mysql_connect($db_host . ":" . $db_port , $db_user, $db_pass) or my_err(mysql_errno(), mysql_error());
+      $pmc_dbconn = @mysql_connect($db_host . ":" . $db_port , $db_user, $db_pass) or my_err(mysql_errno(), mysql_error());
       /**
       * Select database
       */
@@ -280,11 +280,11 @@ function pmmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_ty
       /**
       * Enable UTF-8 support
       */
-      pmmc_qry_exec("SET NAMES 'utf8'");
+      pmc_qry_exec("SET NAMES 'utf8'");
       break;
     }
   }
-  return $pmmc_dbconn;
+  return $pmc_dbconn;
 }
 /**
 * Close a database connection
@@ -293,9 +293,9 @@ function pmmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_ty
 * @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
-function pmmc_dbclose($pmmc_dbconn, $db_type=0) {
+function pmc_dbclose($pmc_dbconn, $db_type=0) {
   switch($db_type) {
-    case 0 : {mysql_close($pmmc_dbconn); break;}
+    case 0 : {mysql_close($pmc_dbconn); break;}
   }
 }
 /**
@@ -305,7 +305,7 @@ function pmmc_dbclose($pmmc_dbconn, $db_type=0) {
 * @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
-function pmmc_qry_exec($query, $db_type=0) {
+function pmc_qry_exec($query, $db_type=0) {
   $result = NULL;
   switch($db_type) {
     case 0 : {$result = mysql_query($query) or my_err(mysql_errno(), mysql_error()); break;}
@@ -319,7 +319,7 @@ function pmmc_qry_exec($query, $db_type=0) {
 * @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
-function pmmc_qry_row($result, $db_type=0) {
+function pmc_qry_row($result, $db_type=0) {
   $row = NULL;
   switch($db_type) {
     case 0 : {
@@ -337,7 +337,7 @@ function pmmc_qry_row($result, $db_type=0) {
 * @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
-function pmmc_qry_result($result, $row=0, $db_type=0) {
+function pmc_qry_result($result, $row=0, $db_type=0) {
   $res = NULL;
   switch($db_type) {
     case 0 : {
@@ -354,7 +354,7 @@ function pmmc_qry_result($result, $row=0, $db_type=0) {
 * @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
-function pmmc_qry_total($result, $db_type=0) {
+function pmc_qry_total($result, $db_type=0) {
   $total = NULL;
   switch($db_type) {
     case 0 : {$total = mysql_num_rows($result); break;}
@@ -368,7 +368,7 @@ function pmmc_qry_total($result, $db_type=0) {
 * @param integer Database type defaults to 0 (MySQL)
 * @return mixed
 */
-function pmmc_qry_aff($result, $db_type=0) {
+function pmc_qry_aff($result, $db_type=0) {
   $aff = NULL;
   switch($db_type) {
     // MySQL: INSERT, UPDATE, REPLACE, DELETE
@@ -381,11 +381,11 @@ function pmmc_qry_aff($result, $db_type=0) {
 *
 * @return mixed
 */
-function pmmc_cfg_var() {
-  $r = pmmc_qry_exec("SELECT cfg_set, cfg_val FROM pmmc_set_cfg");
-  $t = pmmc_qry_total($r);
+function pmc_cfg_var() {
+  $r = pmc_qry_exec("SELECT cfg_set, cfg_val FROM pmc_set_cfg");
+  $t = pmc_qry_total($r);
   for($i=1; $i<=$t; $i++) {
-    $rw = pmmc_qry_row($r);
+    $rw = pmc_qry_row($r);
     /**
     * Define settings
     */
@@ -399,8 +399,8 @@ function pmmc_cfg_var() {
 * @param string value
 * @return boolean result
 */
-function pmmc_cfg_var_set($set, $val) {
-  return pmmc_qry_exec("UPDATE pmmc_set_cfg SET cfg_val = '{$val}' WHERE cfg_set = '{$set}' LIMIT 1");
+function pmc_cfg_var_set($set, $val) {
+  return pmc_qry_exec("UPDATE pmc_set_cfg SET cfg_val = '{$val}' WHERE cfg_set = '{$set}' LIMIT 1");
 }
 /**
 * Lock tables for writing
@@ -409,14 +409,14 @@ function pmmc_cfg_var_set($set, $val) {
 *
 * @return mixed
 */
-function pmmc_lock_tables($tables) {
+function pmc_lock_tables($tables) {
   $t = count($tables);
   $q = "LOCK TABLES ";
   for($i=0;$i<$t;$i++) {
     $q .= "{$tables[$i]} WRITE";
     if($i!=$t-1) {$q .= ", ";}
   }
-  $r = pmmc_qry_exec($q);
+  $r = pmc_qry_exec($q);
   return $r;
 }
 /**
@@ -424,8 +424,8 @@ function pmmc_lock_tables($tables) {
 *
 * @return mixed
 */
-function pmmc_unlock_tables() {
-  $r = pmmc_qry_exec("UNLOCK TABLES");
+function pmc_unlock_tables() {
+  $r = pmc_qry_exec("UNLOCK TABLES");
   return $r;
 }
 /**
@@ -435,12 +435,12 @@ function pmmc_unlock_tables() {
 *
 * @return int next auto increment id
 */
-function pmmc_next_auto_id($table) {
+function pmc_next_auto_id($table) {
   $id = 0;
-  $r = pmmc_qry_exec("SHOW TABLE STATUS LIKE '{$table}'");
-  $t = pmmc_qry_total($r);
+  $r = pmc_qry_exec("SHOW TABLE STATUS LIKE '{$table}'");
+  $t = pmc_qry_total($r);
   if($t == 1) {
-    $rw = pmmc_qry_row($r);
+    $rw = pmc_qry_row($r);
     $id = $rw['Auto_increment'];
   }
   return $id;
@@ -453,11 +453,11 @@ function pmmc_next_auto_id($table) {
 *
 * @return int next id
 */
-function pmmc_next_id($table, $col) {
+function pmc_next_id($table, $col) {
   $id = 0;
-  $r = pmmc_qry_exec("SELECT MAX({$col}) FROM {$table}");
-  $t = pmmc_qry_total($r);
-  if($t == 1) {$id = pmmc_qry_result($r) + 1;}
+  $r = pmc_qry_exec("SELECT MAX({$col}) FROM {$table}");
+  $t = pmc_qry_total($r);
+  if($t == 1) {$id = pmc_qry_result($r) + 1;}
   return $id;
 }
 /**
@@ -465,7 +465,7 @@ function pmmc_next_id($table, $col) {
 *
 * @return mixed
 */
-function pmmc_session() {
+function pmc_session() {
   session_cache_limiter('public, must-revalidate');
   session_cache_expire(600); // minutes (10 hours);
   ini_set("session.gc_maxlifetime","36000"); //seconds (1 hours)
@@ -479,52 +479,52 @@ function pmmc_session() {
   /**
   * First load of the page
   */
-  if (!isset($_SESSION['pmmc_token'])) {
+  if (!isset($_SESSION['pmc_token'])) {
     /**
     * Unique token for security
     */
-    $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+    $_SESSION['pmc_token'] = md5(uniqid(rand(), TRUE));
     /**
     * Visit date
     */
-    $_SESSION['pmmc_vdate'] = date("Y-m-d");
+    $_SESSION['pmc_vdate'] = date("Y-m-d");
     /**
     * Visit time
     */
-    $_SESSION['pmmc_vtime'] = date("H:i:s");
+    $_SESSION['pmc_vtime'] = date("H:i:s");
     /**
     * User id
     */
-    $_SESSION['pmmc_usr_id']    = '0';
+    $_SESSION['pmc_usr_id']    = '0';
     /**
     * User access level
     */
-    $_SESSION['pmmc_usr_level'] = '0';
+    $_SESSION['pmc_usr_level'] = '0';
     /**
     * User alias
     */
-    $_SESSION['pmmc_usr_alias'] = 'Guest';
+    $_SESSION['pmc_usr_alias'] = 'Guest';
     /**
     * User full name
     */
-    $_SESSION['pmmc_usr_name']  = 'Anonymous';
+    $_SESSION['pmc_usr_name']  = 'Anonymous';
     /**
     * Default language
     */
-    $_SESSION['pmmc_usr_lang']  = _APP_LANG;
+    $_SESSION['pmc_usr_lang']  = _APP_LANG;
     /**
     * Default skin
     */
-    $_SESSION['pmmc_usr_skin']  = _APP_DIR . 'skin/' . _APP_SKIN . '/';
-    $_SESSION['pmmc_usr_skin_url']  = _APP_URL . 'skin/' . _APP_SKIN . '/';
+    $_SESSION['pmc_usr_skin']  = _APP_DIR . 'skin/' . _APP_SKIN . '/';
+    $_SESSION['pmc_usr_skin_url']  = _APP_URL . 'skin/' . _APP_SKIN . '/';
     /**
     * Reset user movie list
     */
-    $_SESSION['pmmc_usr_lst'] = NULL;
+    $_SESSION['pmc_usr_lst'] = NULL;
     /**
     * Default message
     */
-    $_SESSION['pmmc_msg'] = 0;
+    $_SESSION['pmc_msg'] = 0;
     /**
     * User status message
     */
@@ -537,16 +537,16 @@ function pmmc_session() {
     /**
     * User is not logged in, include login functionality
     */
-    if (!isset($_SESSION['pmmc_auth'])) {
+    if (!isset($_SESSION['pmc_auth'])) {
       /**
       * User status message
       */
-      $usr_status = pmmc_usr_login();
+      $usr_status = pmc_usr_login();
     }
     /**
     * User is already logged in
     */
-    else if (isset($_SESSION['pmmc_auth']) && $_SESSION['pmmc_auth'] == 'ok') {
+    else if (isset($_SESSION['pmc_auth']) && $_SESSION['pmc_auth'] == 'ok') {
       /**
       * User status message
       */
@@ -560,22 +560,22 @@ function pmmc_session() {
 *
 * @return integer login status
 */
-function pmmc_usr_login() {
-  if((isset($_POST['pmmc_login']) && isset($_POST['pmmc_pass'])) && isset($_POST['pmmc_captcha'])) {
-    if(isset($_SESSION['pmmc_token']) && isset($_POST['pmmc_token'])) {
-      if($_POST['pmmc_token'] === $_SESSION['pmmc_token']) {
-        $pmmc_login   = pmmc_filter_input($_POST['pmmc_login']);
-        $pmmc_pass    = md5($_POST['pmmc_pass']);
-        $pmmc_captcha = strtoupper(pmmc_filter_input($_POST['pmmc_captcha']));
-        if(($pmmc_login != '' && $pmmc_pass != '') && $pmmc_captcha != '') {
-          $verif = str_split($_SESSION['pmmc_token'], 5);
+function pmc_usr_login() {
+  if((isset($_POST['pmc_login']) && isset($_POST['pmc_pass'])) && isset($_POST['pmc_captcha'])) {
+    if(isset($_SESSION['pmc_token']) && isset($_POST['pmc_token'])) {
+      if($_POST['pmc_token'] === $_SESSION['pmc_token']) {
+        $pmc_login   = pmc_filter_input($_POST['pmc_login']);
+        $pmc_pass    = md5($_POST['pmc_pass']);
+        $pmc_captcha = strtoupper(pmc_filter_input($_POST['pmc_captcha']));
+        if(($pmc_login != '' && $pmc_pass != '') && $pmc_captcha != '') {
+          $verif = str_split($_SESSION['pmc_token'], 5);
           $verif = strtoupper(strrev($verif[0]));
-          if($pmmc_captcha == $verif) {
+          if($pmc_captcha == $verif) {
             
-            $r  = pmmc_qry_exec("SELECT * FROM pmmc_set_usr WHERE usr_mail = '{$pmmc_login}' AND usr_pass = '{$pmmc_pass}' LIMIT 1");
-            $t  = pmmc_qry_total($r);
+            $r  = pmc_qry_exec("SELECT * FROM pmc_set_usr WHERE usr_mail = '{$pmc_login}' AND usr_pass = '{$pmc_pass}' LIMIT 1");
+            $t  = pmc_qry_total($r);
             if($t == 1) { // we have a match, do the thing
-              $rw = pmmc_qry_row($r);
+              $rw = pmc_qry_row($r);
               if($rw['usr_status'] == 0) { // account suspended
                 return 4;
               }
@@ -587,82 +587,82 @@ function pmmc_usr_login() {
                 /**
                 * Authorize user
                 */
-                $_SESSION['pmmc_auth'] = 'ok';
+                $_SESSION['pmc_auth'] = 'ok';
                 /**
                 * Unique token for security
                 */
-                $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+                $_SESSION['pmc_token'] = md5(uniqid(rand(), TRUE));
                 /**
                 * Visit date
                 */
-                $_SESSION['pmmc_vdate'] = date("Y-m-d");
+                $_SESSION['pmc_vdate'] = date("Y-m-d");
                 /**
                 * Visit time
                 */
-                $_SESSION['pmmc_vtime'] = date("H:i:s");
+                $_SESSION['pmc_vtime'] = date("H:i:s");
                 /**
                 * User id
                 */
-                $_SESSION['pmmc_usr_id'] = $rw['usr_id'];
+                $_SESSION['pmc_usr_id'] = $rw['usr_id'];
                 /**
                 * User access level
                 */
-                $_SESSION['pmmc_usr_level'] = $rw['usr_level'];
+                $_SESSION['pmc_usr_level'] = $rw['usr_level'];
                 /**
                 * User alias
                 */
-                $_SESSION['pmmc_usr_alias'] = $rw['usr_name'];
+                $_SESSION['pmc_usr_alias'] = $rw['usr_name'];
                 /**
                 * User full name
                 */
-                $_SESSION['pmmc_usr_name']  = $rw['usr_fname'] . ' ' . $rw['usr_lname'];
+                $_SESSION['pmc_usr_name']  = $rw['usr_fname'] . ' ' . $rw['usr_lname'];
                 /**
                 * User language
                 */
-                $_SESSION['pmmc_usr_lang']  = $rw['usr_lang'];
+                $_SESSION['pmc_usr_lang']  = $rw['usr_lang'];
                 /**
                 * User skin
                 */
-                $_SESSION['pmmc_usr_skin']  = _APP_DIR . 'skin/' . $rw['usr_skin'] . '/';
-                $_SESSION['pmmc_usr_skin_url']  = _APP_URL . 'skin/' . $rw['usr_skin'] . '/';
+                $_SESSION['pmc_usr_skin']  = _APP_DIR . 'skin/' . $rw['usr_skin'] . '/';
+                $_SESSION['pmc_usr_skin_url']  = _APP_URL . 'skin/' . $rw['usr_skin'] . '/';
                 /**
                 * Default message
                 */
-                $_SESSION['pmmc_msg'] = 1;
+                $_SESSION['pmc_msg'] = 1;
                 /**
                 * Get last login data
                 */
-                $rl1  = pmmc_qry_exec("SELECT MAX(log_id) FROM pmmc_var_log WHERE usr_id = '{$_SESSION['pmmc_usr_id']}'");
-                $tl1  = pmmc_qry_total($rl1);
+                $rl1  = pmc_qry_exec("SELECT MAX(log_id) FROM pmc_var_log WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
+                $tl1  = pmc_qry_total($rl1);
                 if($tl1 == 1) {
-                  $l1 = pmmc_qry_result($rl1, 0);
-                  $rl2  = pmmc_qry_exec("SELECT log_date, log_time FROM pmmc_var_log WHERE log_id = '{$l1}'");
-                  $tl2  = pmmc_qry_total($rl2);
+                  $l1 = pmc_qry_result($rl1, 0);
+                  $rl2  = pmc_qry_exec("SELECT log_date, log_time FROM pmc_var_log WHERE log_id = '{$l1}'");
+                  $tl2  = pmc_qry_total($rl2);
                   if($tl2 == 1) {
-                    $rwl2 = pmmc_qry_row($rl2);
+                    $rwl2 = pmc_qry_row($rl2);
                     /**
                     * Last login date
                     */
-                    $_SESSION['pmmc_ldate'] = $rwl2['log_date'];
+                    $_SESSION['pmc_ldate'] = $rwl2['log_date'];
                     /**
                     * Last login time
                     */
-                    $_SESSION['pmmc_ltime'] = $rwl2['log_time'];
+                    $_SESSION['pmc_ltime'] = $rwl2['log_time'];
                   }
                 }
                 else { // first login
-                  $_SESSION['pmmc_ldate'] = '0000-00-00';
-                  $_SESSION['pmmc_ltime'] = '00:00:00';
+                  $_SESSION['pmc_ldate'] = '0000-00-00';
+                  $_SESSION['pmc_ltime'] = '00:00:00';
                 }
                 /**
                 * Count total logins
                 */
-                $rtl  = pmmc_qry_exec("SELECT COUNT(log_id) FROM pmmc_var_log WHERE usr_id = '{$_SESSION['pmmc_usr_id']}'");
-                $_SESSION['pmmc_ltotal'] = pmmc_qry_result($rtl, 0) + 1;
+                $rtl  = pmc_qry_exec("SELECT COUNT(log_id) FROM pmc_var_log WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
+                $_SESSION['pmc_ltotal'] = pmc_qry_result($rtl, 0) + 1;
                 /**
                 * Record current login
                 */
-                pmmc_qry_exec("INSERT INTO pmmc_var_log (usr_id, log_date, log_time) VALUES ('{$_SESSION['pmmc_usr_id']}', '{$_SESSION['pmmc_vdate']}', '{$_SESSION['pmmc_vtime']}')");
+                pmc_qry_exec("INSERT INTO pmc_var_log (usr_id, log_date, log_time) VALUES ('{$_SESSION['pmc_usr_id']}', '{$_SESSION['pmc_vdate']}', '{$_SESSION['pmc_vtime']}')");
                 
                 /**
                 * Redirect to the same page where we came from to avoid double submit
@@ -683,31 +683,31 @@ function pmmc_usr_login() {
             }
             else { //invalid login
               session_regenerate_id(TRUE);
-              $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+              $_SESSION['pmc_token'] = md5(uniqid(rand(), TRUE));
               return 3;
             }
           }
           else { // invalid security code
             session_regenerate_id(TRUE);
-            $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+            $_SESSION['pmc_token'] = md5(uniqid(rand(), TRUE));
             return 7;
           }
         }
         else { // empty fields
           session_regenerate_id(TRUE);
-          $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+          $_SESSION['pmc_token'] = md5(uniqid(rand(), TRUE));
           return 2;
         }
       }
       else { // hacking attempt
         session_regenerate_id(TRUE);
-        $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+        $_SESSION['pmc_token'] = md5(uniqid(rand(), TRUE));
         return 8;
       }
     }
     else { // hacking attempt
       session_regenerate_id(TRUE);
-      $_SESSION['pmmc_token'] = md5(uniqid(rand(), TRUE));
+      $_SESSION['pmc_token'] = md5(uniqid(rand(), TRUE));
       return 9;
     }
   }
@@ -720,7 +720,7 @@ function pmmc_usr_login() {
 *
 * @return mixed
 */
-function pmmc_usr_logout() {
+function pmc_usr_logout() {
   $_SESSION = array();
   session_destroy();
 
@@ -749,7 +749,7 @@ function pmmc_usr_logout() {
 *
 * @return string filtered input
 */
-function pmmc_filter_input($input) {
+function pmc_filter_input($input) {
   if(get_magic_quotes_gpc()) {$input = stripslashes($input);}
   // get rid of unwanted characters
   $unwanted = array('\\', '');
@@ -766,8 +766,8 @@ function pmmc_filter_input($input) {
 *
 * @return string filtered input
 */
-function pmmc_filter_input_search($input) {
-  $input  = pmmc_filter_input($input);
+function pmc_filter_input_search($input) {
+  $input  = pmc_filter_input($input);
   $common = array(' the ', ' and ', ' or ');
   $input  = str_replace($common, ' ', $input);
   // split by words
@@ -789,7 +789,7 @@ function pmmc_filter_input_search($input) {
 *
 * @return bool result
 */
-function pmmc_is_email($email) { 
+function pmc_is_email($email) { 
   return(preg_match("/^[-_.[:alnum:]]+@((([[:alnum:]]|[[:alnum:]][[:alnum:]-]*[[:alnum:]])\.)+(ad|ae|aero|af|ag|ai|al|am|an|ao|aq|ar|arpa|as|at|au|aw|az|ba|bb|bd|be|bf|bg|bh|bi|biz|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|com|coop|cr|cs|cu|cv|cx|cy|cz|de|dj|dk|dm|do|dz|ec|edu|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gh|gi|gl|gm|gn|gov|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|in|info|int|io|iq|ir|is|it|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mil|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|museum|mv|mw|mx|my|mz|na|name|nc|ne|net|nf|ng|ni|nl|no|np|nr|nt|nu|nz|om|org|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|pro|ps|pt|pw|py|qa|re|ro|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|um|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw)$|(([0-9][0-9]?|[0-1][0-9][0-9]|[2][0-4][0-9]|[2][5][0-5])\.){3}([0-9][0-9]?|[0-1][0-9][0-9]|[2][0-4][0-9]|[2][5][0-5]))$/i", $email));
 }
 /**
@@ -797,7 +797,7 @@ function pmmc_is_email($email) {
 *
 * @return bool result
 */
-function pmmc_is_int($input) {
+function pmc_is_int($input) {
   return(preg_match("/^[1-9]$|^[1-9][0-9]$|^[1-9][0-9][0-9]$|^[1-9][0-9][0-9][0-9]$|^[1-9][0-9][0-9][0-9][0-9]$/", $input));
 }
 /**
@@ -807,7 +807,7 @@ function pmmc_is_int($input) {
 *
 * @return string extension
 */
-function pmmc_pic_ext($pic_type) {
+function pmc_pic_ext($pic_type) {
   $ext = 'unknown';
   switch($pic_type) {
     case 'image/jpeg'  : {$ext = 'jpg'; break;}
@@ -828,7 +828,7 @@ function pmmc_pic_ext($pic_type) {
 *
 * @return string link
 */
-function pmmc_image_thumb($img, $path, $title, $max=50) {
+function pmc_image_thumb($img, $path, $title, $max=50) {
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
     $img_u = _APP_URL.$path.$img;
@@ -854,7 +854,7 @@ function pmmc_image_thumb($img, $path, $title, $max=50) {
 *
 * @return string link
 */
-function pmmc_image_thumb_link($img, $path, $title, $url, $max=50) {
+function pmc_image_thumb_link($img, $path, $title, $url, $max=50) {
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
     $link  = '<a href="'.$url.'" title="'.$title.'" target="_blank">';
@@ -877,11 +877,11 @@ function pmmc_image_thumb_link($img, $path, $title, $url, $max=50) {
 *
 * @return string query search expression
 */
-function pmmc_queryfill_search($searchtype, $input) {
+function pmc_queryfill_search($searchtype, $input) {
   $query_fill = "IS NOT NULL";
-  if($searchtype == 1)      {$input = pmmc_filter_input($input);        $query_fill = "= '{$input}'";}
-  else if($searchtype == 2) {$input = pmmc_filter_input($input);        $query_fill = "LIKE '%{$input}%'";}
-  else if($searchtype == 3) {$input = pmmc_filter_input_search($input); $query_fill = "REGEXP '{$input}'";}
+  if($searchtype == 1)      {$input = pmc_filter_input($input);        $query_fill = "= '{$input}'";}
+  else if($searchtype == 2) {$input = pmc_filter_input($input);        $query_fill = "LIKE '%{$input}%'";}
+  else if($searchtype == 3) {$input = pmc_filter_input_search($input); $query_fill = "REGEXP '{$input}'";}
   return $query_fill;
 }
 /**
@@ -891,7 +891,7 @@ function pmmc_queryfill_search($searchtype, $input) {
 *
 * @return array subdirectory list
 */
-function pmmc_lsdir($dir) {
+function pmc_lsdir($dir) {
   $subdirs = NULL;
   $i = '0';
   if (is_dir($dir)) {

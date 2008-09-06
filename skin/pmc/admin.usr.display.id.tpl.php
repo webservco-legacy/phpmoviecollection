@@ -9,7 +9,7 @@
 </div>
 
 <div class="clear">
-<div class="dname"><?php echo $lang['pmmc']['language']; ?></div><div class="dvalue"><?php echo $cnt['usr_lang']; ?></div>
+<div class="dname"><?php echo $lang['pmc']['language']; ?></div><div class="dvalue"><?php echo $cnt['usr_lang']; ?></div>
 </div>
 
 <div class="clear">
