@@ -1,8 +1,13 @@
-[-] support utf8
+[x] support utf8
 [x] search engine friendly URLs
 [x] uses an internal skin system for easy interface changing
 [x] developer documentation for easy customization
 [-] no JavaScript
+
+[x] users
+only users >=4 can view other users
+only users > id can modify other users
+user >= 5 can do anything
 
 
 

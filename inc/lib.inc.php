@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:27 2008-09-03
+* @version    20:42 2008-09-07
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -140,17 +140,6 @@ function pmc_output($cnt, $mod=null) {
 * @param mixed $error error message (mysql_error)
 */
 function my_err($errno, $error) {
-  //header('HTTP/1.1 404 Not Found');
-  /*
-  $skin = new Skin($_SESSION['pmc_usr_skin']);
-  $skin->set('title', 'MySQL Error'); 
-  $content = new Skin($_SESSION['pmc_usr_skin']);
-  $content->set('msg404', '<h1>MySQL Error</h1>' . "\n\t" . $errno . ' : ' . $error . '.<br />');
-  $skin->set('page', $content->parse('404.tpl.php'));
-  echo $skin->parse('layout.tpl.php');
-  */
-  //echo '<h1>MySQL Error</h1>' . "\n\t" . $errno . ' : ' . $error . '.<br />';
-  //exit;
   return false;
 }
 /**
@@ -879,9 +868,9 @@ function pmc_image_thumb_link($img, $path, $title, $url, $max=50) {
 */
 function pmc_queryfill_search($searchtype, $input) {
   $query_fill = "IS NOT NULL";
-  if($searchtype == 1)      {$input = pmc_filter_input($input);        $query_fill = "= '{$input}'";}
-  else if($searchtype == 2) {$input = pmc_filter_input($input);        $query_fill = "LIKE '%{$input}%'";}
-  else if($searchtype == 3) {$input = pmc_filter_input_search($input); $query_fill = "REGEXP '{$input}'";}
+  if($searchtype == 1)      {$input = pmc_filter_input($input);        if($input != '') {$query_fill = "= '{$input}'";}}
+  else if($searchtype == 2) {$input = pmc_filter_input($input);        if($input != '') {$query_fill = "LIKE '%{$input}%'";}}
+  else if($searchtype == 3) {$input = pmc_filter_input_search($input); if($input != '') {$query_fill = "REGEXP '{$input}'";}}
   return $query_fill;
 }
 /**

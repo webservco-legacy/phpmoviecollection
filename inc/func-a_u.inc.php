@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    16:12 2008-09-03
+* @version    11:18 2008-09-07
 * @since      16:12 2008-09-03
 * @access     public
 * @package    pmc
@@ -102,6 +102,7 @@ function pmc_adm_usr_add() {
 */
 function pmc_adm_usr_details($id) {
   global $lang;
+  
   $id_level = pmc_qry_result(pmc_qry_exec("SELECT usr_level FROM pmc_set_usr WHERE usr_id = '{$id}'"));
   if($id_level == 0) {$_SESSION['pmc_msg'] = 48; header("Location: "._APP_URL . 'admin/users'); exit;}
   
@@ -121,6 +122,25 @@ function pmc_adm_usr_details($id) {
   }
   
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['usr']['view'];
+  
+  $cnt['page']['langs'] = pmc_lsdir(_APP_DIR.'lang/');
+  $cnt['page']['skins'] = pmc_lsdir(_APP_DIR.'skin/');
+    
+  $result = pmc_qry_exec("SELECT * FROM pmc_set_usr WHERE usr_id = '{$id}'");
+  $total = pmc_qry_total($result);
+  if($total == 1) {
+    $row = pmc_qry_row($result);
+    $cnt['page']['usr_name']   = $row['usr_name'];
+    $cnt['page']['usr_fname']  = $row['usr_fname'];
+    $cnt['page']['usr_lname']  = $row['usr_lname'];
+    $cnt['page']['usr_mail']  = $row['usr_mail'];
+    $cnt['page']['usr_pass1']  = '';
+    $cnt['page']['usr_pass2']  = '';
+    $cnt['page']['usr_skin']   = $row['usr_skin'];
+    $cnt['page']['usr_lang']   = $row['usr_lang'];
+    $cnt['page']['usr_level']  = $row['usr_level'];
+    $cnt['page']['usr_status'] = $row['usr_status'];
+  }
   
   if(isset($_POST['usr_mod'])) {
     if(isset($_POST['usr_name']))   {$cnt['page']['usr_name']   = pmc_filter_input($_POST['usr_name']);}
@@ -149,8 +169,10 @@ function pmc_adm_usr_details($id) {
     }
     else if($cnt['page']['usr_skin'] == '')                                                              {$err = 1;}
     else if($cnt['page']['usr_lang'] == '')                                                              {$err = 1;}
-    else if($cnt['page']['usr_level'] == '' || $cnt['page']['usr_level'] >= $_SESSION['pmc_usr_level']) {$err = 1;}
-    else if($cnt['page']['usr_status'] == '')                                                            {$err = 1;}
+    else if(isset($_POST['usr_level']) && $cnt['page']['usr_level'] == '') {
+      if($cnt['page']['usr_level'] >= $_SESSION['pmc_usr_level']) {$err = 1;}
+    }
+    else if(isset($_POST['usr_status']) && $cnt['page']['usr_status'] == '')                              {$err = 1;}
     if($err == 0) {
       $lock   = pmc_lock_tables(array('pmc_set_usr'));
       $upass = "";
@@ -167,11 +189,11 @@ function pmc_adm_usr_details($id) {
       }
       else {$_SESSION['pmc_msg'] = 46; header("Location: "._APP_URL . 'admin/users/details' . $id); exit;}
     }
-    else {$_SESSION['pmc_msg'] = 16;}
+    else {$_SESSION['pmc_msg'] = 16; header("Location: "._APP_URL . 'admin/users/details' . $id); exit;}
   }
-  else {
-    $cnt['page'] = pmc_usr_details($id);
-  }
+  //else {
+    //$cnt['page'] = pmc_usr_details($id);
+  //}
   return $cnt;
 }
 /**
@@ -184,8 +206,6 @@ function pmc_adm_usr_view() {
   $cnt['skin'] = 'admin.usr.view.all.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['categ']['viewall'];
   $cnt['page'] = pmc_usr_view();
-  //$cnt['page']['users'] = array();
-  //$rw = array();
   return $cnt;
 }
 ?>

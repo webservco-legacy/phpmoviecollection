@@ -22,6 +22,9 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
   <div id="cat_view_dsc">
   <?php echo $cnt['cat_desc'][$i]; ?>
   </div>
+  <div id="cat_view_det">
+  <a href="<?php echo _APP_URL; ?>view/categ/details/<?php echo $cnt['cat_id'][$i]; ?>" title="<?php echo $cnt['cat_tt'][$i]; ?>"><?php echo $lang['categ']['view']; ?></a>
+  </div>
 </div>
 <?php
     }

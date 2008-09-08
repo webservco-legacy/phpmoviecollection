@@ -40,7 +40,8 @@
     </div>
     <div id="container_cnt">
       <div id="cnt_left">
-        <?php echo $mod_test;?>
+        <?php echo $mod_src;?>
+        <?php echo $mod_imdb;?>
       </div>
       <div id="cnt_right">
         <?php echo $mod_gen;?>

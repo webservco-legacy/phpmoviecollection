@@ -38,8 +38,9 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #ftr {padding: 10px 0px 10px 0px;}
 /* ********** ********** ********** FOOTER AREA END ********** ********** ********** */
 /* ********** ********** ********** MODULES AREA START ********** ********** ********** */
-#mod_test {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_gen {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_src {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_imdb {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li  {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
 /* ********** ********** ********** MODULES AREA END ********** ********** ********** */
@@ -59,7 +60,8 @@ select                         {font-family: Verdana, serif; font-size: 11px; te
 input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .genrehold              {float: left; width: 119px; padding: 2px 0px 2px 0px;}
 .genreholdtt          {float: left; width: 150px; padding: 5px 5px 5px 0px; text-align: right;}
-.clear                      {clear: left;}
+.clear                      {clear: none;}
+.clear2                      {clear: left;}
 .msg                          {color: #000099; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
 .ok                            {color: #009900; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
 .err                          {color: #990000; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
@@ -86,6 +88,8 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 * html #cat_view_itms {margin-left: 157px;}
 #cat_view_dsc {margin-left: 160px; padding: 10px 10px 10px 10px;}
 * html #cat_view_dsc {margin-left: 157px;}
+#cat_view_det {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #cat_view_det {margin-left: 157px;}
 /* ********** ********** ********** CATEG AREA END ********** ********** ********** */
 /* ********** ********** ********** MOVIE AREA START ********** ********** ********** */
 .mov_adm_hmovie {border: 1px solid #000000; padding: 0px; text-align: center;}

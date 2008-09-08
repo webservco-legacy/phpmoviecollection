@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:00 2008-09-02
+* @version    20:56 2008-09-07
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -82,7 +82,7 @@ $lang['adm']['adm'] = 'Administrare';
 $lang['categ']['categ']     = 'Categorie';
 $lang['categ']['categs']    = 'Categorii';
 $lang['categ']['add']       = 'Ad&#259;ugare Categorie';
-$lang['categ']['view']      = 'Vizualizare Categorie';
+$lang['categ']['view']      = 'Detalii Categorie';
 $lang['categ']['viewall']   = 'Vizualizare Categorii';
 $lang['categ']['allcategs'] = 'Toate Categoriile';
 /**
@@ -154,4 +154,18 @@ $lang['skin']['skin']   = 'Skin';
 * Vizualization
 */
 $lang['view']['view'] = 'Vizualizare';
+/**
+* Search
+*/
+$lang['search']['search']   = 'C&#259;utare';
+$lang['search']['reset']    = 'Resetare';
+$lang['search']['imdb']     = 'C&#259;utare IMDb';
+$lang['search']['simple']   = 'C&#259;utare simpl&#259;';
+$lang['search']['advanced'] = 'C&#259;utare avansat&#259;';
+$lang['search']['results']  = 'Rezultatele c&#259;ut&#259;rii';
+$lang['search']['exact']    = 'Potrivire exact&#259;';
+$lang['search']['aprox']    = 'Toate cuvintele';
+$lang['search']['regexp']   = 'Orice cuv&#226;nt';
+$lang['search']['after']    = 'C&#259;utare dup&#259;';
+
 ?>

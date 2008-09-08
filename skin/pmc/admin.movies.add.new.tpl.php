@@ -104,7 +104,7 @@ if($tc > 0) {
 <?php echo $lang['genre']['genres']; ?>
 </div>
 </div>
-<div class="clear">
+<div class="clear2">
 <?php
 $tg = count($cnt['genres']);
 for($i=0;$i<$tg;$i++) {
@@ -118,7 +118,7 @@ if($cnt['genre'][$cnt['genres'][$i]] == 1) {$chk[$i] = ' checked="checked"';}
 <?php } ?>
 </div>
 
-<div class="clear">
+<div class="clear2">
 <label for="mov_add">&#160;</label>
 <input id="mov_add" name="mov_add" type="submit" value="<?php echo $lang['pmc']['add']; ?>" />
 </div>

@@ -9,7 +9,7 @@ if($total>0) {
   echo '<div id="gen_list">';
   echo '<ul>';
   for($i=1;$i<=$total;$i++) {
-    $tt = $gen['genre_title'][$i] . ' (' . $gen['genre_items'][$i] . ')';
+    $tt = $gen['genre_title'][$i];
     echo '<li>';
     if($gen['genre_items'][$i] > 0) {
       echo '<a href="'._APP_URL.'view/movies/genre/'.$gen['genre_id'][$i].'" title="'.$gen['tt'].'">';
@@ -17,6 +17,7 @@ if($total>0) {
       echo '</a>';
     }
     else {echo $tt;}
+    echo ' (' . $gen['genre_items'][$i] . ')';
     echo  '</li>';
   }
   echo '</ul>';

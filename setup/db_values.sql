@@ -73,9 +73,9 @@ INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('LANG', 'ro');
 -- DEFAULT SKIN
 INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('SKIN', 'pmc');
 -- CATEGOY PICTURE MAX SIZE
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('PCAT', '80');
+INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('PCAT', '150');
 -- MOVIE PICTURE MAX SIZE
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('PMOV', '80');
+INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('PMOV', '150');
 -- MOVIE LIST ITEMS PER PAGE
 INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IMOV', '10');
 -- USER LIST ITEMS PER PAGE

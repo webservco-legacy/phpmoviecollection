@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:08 2008-09-06
+* @version    10:48 2008-09-08
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -62,9 +62,20 @@ function pmc_process() {
   }
   else if(isset($_GET['view']) && $_GET['view'] != '') {
     switch($_GET['view']) {
-      case 'categ' : {require_once _APP_DIR . 'inc/func-v_c.inc.php'; $cnt = pmc_view_categ(); break;}
-      case 'movies' : {require_once _APP_DIR . 'inc/func-v_m.inc.php'; $cnt = pmc_view_movies(); break;}
-      default      : {$_SESSION['pmc_msg'] = 2; header("Location: "._APP_URL); exit; break;}
+      case 'categ'    : {require_once _APP_DIR . 'inc/func-v_c.inc.php'; $cnt = pmc_view_categ(); break;}
+      case 'movies'   : {require_once _APP_DIR . 'inc/func-v_m.inc.php'; $cnt = pmc_view_movies(); break;}
+      case 'settings' : {
+      if($_SESSION['pmc_usr_level'] > 0) {
+        require_once _APP_DIR . 'inc/func-v_s.inc.php'; $cnt = pmc_view_settings();;
+      }
+      else {
+        $_SESSION['pmc_msg'] = 2; header("Location: "._APP_URL); exit;
+      }
+      break;
+      }
+      case 'users'    : {require_once _APP_DIR . 'inc/func-v_u.inc.php'; $cnt = pmc_view_users(); break;}
+      case 'search'   : {require_once _APP_DIR . 'inc/func-s.inc.php';   $cnt = pmc_view_search(); break;}
+      default         : {$_SESSION['pmc_msg'] = 2; header("Location: "._APP_URL); exit; break;}
     }
   }
   else {
@@ -152,7 +163,7 @@ function pmc_view_movies() {
     $cnt = pmc_view_mov_details($_GET['details']);
   }
   else {
-    $cnt = pmc_view_mov_view(); // xxx
+    $cnt = pmc_view_mov_view();
   }
   return $cnt;
 }
@@ -182,9 +193,50 @@ function pmc_adm_users() {
   }
   return $cnt;
 }
+/**
+* Users view function
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_users() {
+  $cnt = NULL;
+  if($_SESSION['pmc_usr_level'] >= 4) {
+    if(isset($_GET['details']) && pmc_is_int($_GET['details'])) {
+      $cnt = pmc_view_usr_details($_GET['details']);
+    }
+    else {
+      $cnt = pmc_view_usr_view();
+    }
+  }
+  else {$_SESSION['pmc_msg'] = 2; header("Location: "._APP_URL); exit;}
+  
+  return $cnt;
+}
 
 /*
 * ********** ********** ********** ********** USERS REQUEST PROCESSING END ********** ********** ********** **********
+*/
+
+/*
+* ********** ********** ********** ********** SEARCH REQUEST PROCESSING START ********** ********** ********** **********
+*/
+/**
+* Search function
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_search() {
+  $cnt = NULL;
+  if(isset($_GET['show']) && $_GET['show'] == 'results') {
+    $cnt = pmc_view_search_results();
+  }
+  else {
+    $cnt = pmc_view_search_advanced();
+  }
+  return $cnt;
+}
+/*
+* ********** ********** ********** ********** SEARCH REQUEST PROCESSING END ********** ********** ********** **********
 */
 
 /*
@@ -516,10 +568,11 @@ function pmc_mov_view($cnttype = 'admin') {
 
 /**
 * View user
+* DEPRECATED - XXX
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmc_usr_details($id) {
+function xpmc_usr_details($id) {
   $cnt['page']['langs'] = pmc_lsdir(_APP_DIR.'lang/');
   $cnt['page']['skins'] = pmc_lsdir(_APP_DIR.'skin/');
     

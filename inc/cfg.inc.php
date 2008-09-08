@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:00 2008-09-02
+* @version    20:57 2008-09-07
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -34,8 +34,8 @@ $ap_cfg['app_index'] = '';
 * Full path to the application - notice the slash at the end
 */
 //$ap_cfg['app_dir'] = '/opt/lampp/htdocs/pub/temp/pmc/';
-$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/pmc/';
-//$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/pmc/';
+//$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/pmc/';
+$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/pmc/';
 /**
 * Database host
 */
@@ -57,11 +57,15 @@ $ap_cfg['db_name'] = 'temp';
 */
 $ap_cfg['mod']['mod_usr'] = 1;
 /**
-* Control the loading of the test module
-*/
-$ap_cfg['mod']['mod_test'] = 1;
-/**
 * Control the loading of the genres module
 */
 $ap_cfg['mod']['mod_gen'] = 1;
+/**
+* Control the loading of the search module
+*/
+$ap_cfg['mod']['mod_src'] = 1;
+/**
+* Control the loading of the imdb search module
+*/
+$ap_cfg['mod']['mod_imdb'] = 1;
 ?>

@@ -1,47 +1,58 @@
 [x][x][adm][categ]
+[x]/admin/categ
 [x]/admin/categ/add/new
-[x]/admin/categ/view/{id}
-[x]/admin/categ -> /admin/categ/view/all
+[x]/admin/categ/details/{id}
 
 [x][x][adm][mov]
+[x]/admin/movies
 [x]/admin/movies/add/new
 [x]/admin/movies/details/{id}
-[x]/admin/movies
 
 [-][-][adm][usr]
+[x]/admin/users
 [x]/admin/users/add/new
 [x]/admin/users/details/{id}
-[x]/admin/users
 
 [-][-][adm][set]
 [x]/admin/settings
 
 [-][-][view][categ]
-[-]/view/categ/ (a list of all categories)
-[-]/view/categ/details/{id} (details of a category)
+[x]/view/categ/ (a list of all categories)
+[x]/view/categ/details/{id} (details of a category)
 
 [-][-][view][mov]
-[-]/view/movies (all movies)
-[-]/view/movies/categ/{id} (view movies from a certain category)
+[x]/view/movies (all movies)
+[x]/view/movies/categ/{id} (view movies from a certain category)
 {-} /sort/[categ][title][year]
 {-} /order/[a][d]
-
-[-]/view/movies/genre/{id}
+[x]/view/movies/genre/{id}
 [-]/view/latest
 
 [-][-][view][usr]
-[-]/view/users
-[-]/view/users/details/{id}
+[x]/view/users
+[x]/view/users/details/{id}
 
-[-][-][view][set]
+
+[-][-][search]
+[x]/view/search
+[x]/view/search/show/results
+
+[-][-][view][settings]
+[x]/view/settings
+[-]/view/skins
+[-]/view/langs
+
 
 [-][-][view][cart]
 
 ----------------------------------------------------------------------------------------------------------------------------------
-+genres (list)
-+view movies from a genre
-+search
-+imdb search
-+advanced search
+++genres (list)
+++view movies from a genre
+++search
+++imdb search
+++advanced search
++ my settings
++ change skin
++ change language
 +latest additions
 +my list (add, mod, delete, save, flush)
