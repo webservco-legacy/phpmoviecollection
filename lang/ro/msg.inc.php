@@ -142,4 +142,29 @@ $lang['msg'][49]['tt'] = 'Nu exist&#259; utilizatori.';
 $lang['msg'][49]['tp'] = 'err';
 $lang['msg'][50]['tt'] = 'Unul sau mai multi utilizatori au fost &#351;ter&#351;i!';
 $lang['msg'][50]['tp'] = 'ok';
+/**
+* Languages
+*/
+$lang['msg'][51]['tt'] = 'Limba a fost setat&#259;!';
+$lang['msg'][51]['tp'] = 'ok';
+/**
+* Skins
+*/
+$lang['msg'][52]['tt'] = 'Skinul a fost setat!';
+$lang['msg'][52]['tp'] = 'ok';
+/**
+* User lists
+*/
+$lang['msg'][53]['tt'] = 'Titlul a fost ad&#259;ugat &#238;n list&#259;!';
+$lang['msg'][53]['tp'] = 'ok';
+$lang['msg'][54]['tt'] = 'Titlul a fost &#351;ters din list&#259;!';
+$lang['msg'][54]['tp'] = 'ok';
+$lang['msg'][55]['tt'] = 'Trebuie s&#259; fi&#355;i autentificat pentru a beneficia de aceast&#259; facilitate;!';
+$lang['msg'][55]['tp'] = 'err';
+$lang['msg'][56]['tt'] = 'Lista a fost &#351;tears&#259;!';
+$lang['msg'][56]['tp'] = 'ok';
+$lang['msg'][57]['tt'] = 'Lista a fost salvat&#259;!';
+$lang['msg'][57]['tp'] = 'ok';
+$lang['msg'][58]['tt'] = 'Lista a fost &#238;nc&#259;rcat&#259;!';
+$lang['msg'][58]['tp'] = 'ok';
 ?>

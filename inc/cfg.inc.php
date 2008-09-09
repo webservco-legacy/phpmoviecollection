@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Main URL of the application - notice the slash at the end
 */
-$ap_cfg['app_url'] = 'http://localhost/pub/temp/pmc/';
+$ap_cfg['app_url'] = 'http://192.168.2.117/pub/temp/pmc/';
 /**
 * Whether to use rewrite engine functionality or not
 */
@@ -57,6 +57,10 @@ $ap_cfg['db_name'] = 'temp';
 */
 $ap_cfg['mod']['mod_usr'] = 1;
 /**
+* Control the loading of the user login module
+*/
+$ap_cfg['mod']['mod_login'] = 1;
+/**
 * Control the loading of the genres module
 */
 $ap_cfg['mod']['mod_gen'] = 1;
@@ -68,4 +72,8 @@ $ap_cfg['mod']['mod_src'] = 1;
 * Control the loading of the imdb search module
 */
 $ap_cfg['mod']['mod_imdb'] = 1;
+/**
+* Control the loading of the user list module
+*/
+$ap_cfg['mod']['mod_lst'] = 1;
 ?>

@@ -51,8 +51,10 @@
 ++search
 ++imdb search
 ++advanced search
-+ my settings
-+ change skin
-+ change language
+++my settings
+++change language
+++change skin
 +latest additions
-+my list (add, mod, delete, save, flush)
++statistics
+++my list (add, mod, delete, save, flush)
++ view mylist of some user

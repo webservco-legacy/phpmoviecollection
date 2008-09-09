@@ -76,7 +76,22 @@ if($t > 0) {
     </table>
   </td>
   <td class="mov_view_cdel">
-  &#160;
+  <form enctype="multipart/form-data" id="lst_form-<?php echo $cnt['movies'][$i]['mov_id']; ?>" name="lst_form-<?php echo $cnt['movies'][$i]['mov_id']; ?>" action="" method="post">
+  <?php
+  if(isset($_SESSION['pmc_usr_lst'][$cnt['movies'][$i]['mov_id']])) {
+  ?>
+  <input name="pmc_cart_act[<?php echo $cnt['movies'][$i]['mov_id']; ?>]" type="hidden" value="del" />
+  <input name="go" type="submit" value="<?php echo $lang['list']['del']; ?>" />
+  <?php
+  }
+  else {
+  ?>
+  <input name="pmc_cart_act[<?php echo $cnt['movies'][$i]['mov_id']; ?>]" type="hidden" value="add" />
+  <input name="go" type="submit" value="<?php echo $lang['list']['add']; ?>" />
+  <?php
+  }
+  ?>
+  </form>
   </td>
 </tr>
 <?php

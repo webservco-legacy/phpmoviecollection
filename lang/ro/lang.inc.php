@@ -23,13 +23,6 @@
 */
 if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
-* Language info
-*/
-$lang_info['name']       = 'Romanian';
-$lang_info['local_name'] = 'Rom&#226;ne&#351;te';
-$lang_info['tr_name']    = 'Radu Maier';
-$lang_info['tr_url']     = 'http://www.rudisoft.net';
-/**
 * User status
 */
 $lang['usr_status'][1] = 'Neautentificat';
@@ -44,6 +37,7 @@ $lang['usr_status'][9] = 'Possible intrusion attempt';
 /**
 * General
 */
+$lang['pmc']['welcome']  = 'Bun venit';
 $lang['pmc']['order']    = 'Ordine';
 $lang['pmc']['pic']      = 'Imagine';
 $lang['pmc']['ttpre']    = 'Prefix Titlu';
@@ -66,12 +60,12 @@ $lang['pmc']['order']    = 'Ordonare';
 $lang['pmc']['ordera']   = 'Ascendent&#259;';
 $lang['pmc']['orderd']   = 'Descendent&#259;';
 $lang['pmc']['ok']       = 'Ok';
-/**
-* Users
-*/
-$lang['usr']['login']  = 'login';
-$lang['usr']['logout'] = 'logout';
-$lang['usr']['level']  = 'nivel de acces';
+$lang['pmc']['url']      = 'Adresa';
+$lang['pmc']['captcha']  = 'Cod de verificare';
+$lang['pmc']['today']    = 'ast&#259;zi';
+$lang['pmc']['yesterday'] = 'ieri';
+$lang['pmc']['ago1']      = 'acum';
+$lang['pmc']['ago2']      = 'zile';
 /**
 * Administration
 */
@@ -113,6 +107,7 @@ $lang['imdb']['fetch'] = 'Preluare';
 /**
 * Settings
 */
+$lang['set']['set']  = 'Setare';
 $lang['set']['sets'] = 'Set&#259;ri';
 $lang['set']['lang'] = 'Limba implicit&#259; a aplica&#355;iei';
 $lang['set']['skin'] = 'Skin-ul implicit al aplica&#355;iei';
@@ -146,10 +141,12 @@ $lang['usr']['lvl'][5]  = 'Root';
 $lang['usr']['status']  = 'Stare';
 $lang['usr']['stat'][0] = 'Blocat';
 $lang['usr']['stat'][1] = 'Activ';
-/**
-* Skins
-*/
-$lang['skin']['skin']   = 'Skin';
+$lang['usr']['login']   = 'Login';
+$lang['usr']['logout']  = 'Logout';
+$lang['usr']['status']  = 'Status';
+$lang['usr']['vfirst']  = 'Prima vizit&#259;';
+$lang['usr']['vtotal']  = 'vizite &#238;n total';
+$lang['usr']['vlast']   = 'Ultima vizit&#259;';
 /**
 * Vizualization
 */
@@ -167,5 +164,31 @@ $lang['search']['exact']    = 'Potrivire exact&#259;';
 $lang['search']['aprox']    = 'Toate cuvintele';
 $lang['search']['regexp']   = 'Orice cuv&#226;nt';
 $lang['search']['after']    = 'C&#259;utare dup&#259;';
-
+/**
+* Language
+*/
+$lang['lang']['lang']       = 'Limba';
+$lang['lang']['langs']      = 'Limbi';
+$lang['lang']['trans']      = 'Traduc&#259;tor';
+$lang['lang']['current']    = 'Limba curent&#259;';
+/**
+* Skins
+*/
+$lang['skin']['skin']       = 'Skin';
+$lang['skin']['skins']      = 'Skinuri';
+$lang['skin']['auth']       = 'Traduc&#259;tor';
+$lang['skin']['current']    = 'Skinul curent';
+/**
+* User list
+*/
+$lang['list']['mylist']     = 'Lista mea';
+$lang['list']['view']       = 'Vizualizare list&#259;';
+$lang['list']['add']        = 'Ad&#259;ugare';
+$lang['list']['del']        = '&#350;tergere';
+$lang['list']['save']       = 'Salvare';
+$lang['list']['clear']      = '&#350;tergere';
+$lang['list']['load']       = '&#206;nc&#259;rcare';
+$lang['list']['isempty']    = 'Lista este goal&#259;';
+$lang['list']['onetitle']   = 'Un titlu';
+$lang['list']['titles']     = 'titluri';
 ?>

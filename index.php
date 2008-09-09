@@ -67,6 +67,10 @@ require_once _APP_DIR . 'lang/' . $_SESSION['pmc_usr_lang'] . '/msg.inc.php';
 */
 require_once './inc/func.inc.php';
 /**
+* Manage user list
+*/
+if(isset($_POST['pmc_cart_act'])) {pmc_usr_list($_POST['pmc_cart_act']);}
+/**
 * Logout user
 */
 if(isset($_GET['logout']) && $_GET['logout'] == 'true') {pmc_usr_logout();}

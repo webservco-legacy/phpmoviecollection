@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    10:48 2008-09-08
+* @version    21:09 2008-09-09
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -75,6 +75,9 @@ function pmc_process() {
       }
       case 'users'    : {require_once _APP_DIR . 'inc/func-v_u.inc.php'; $cnt = pmc_view_users(); break;}
       case 'search'   : {require_once _APP_DIR . 'inc/func-s.inc.php';   $cnt = pmc_view_search(); break;}
+      case 'langs'    : {$cnt = pmc_view_langs(); break;}
+      case 'skins'    : {$cnt = pmc_view_skins(); break;}
+      case 'list'     : {$cnt = pmc_view_list(); break;}
       default         : {$_SESSION['pmc_msg'] = 2; header("Location: "._APP_URL); exit; break;}
     }
   }
@@ -567,33 +570,6 @@ function pmc_mov_view($cnttype = 'admin') {
 */
 
 /**
-* View user
-* DEPRECATED - XXX
-*
-* @return array $cnt content to be displayed to the user
-*/
-function xpmc_usr_details($id) {
-  $cnt['page']['langs'] = pmc_lsdir(_APP_DIR.'lang/');
-  $cnt['page']['skins'] = pmc_lsdir(_APP_DIR.'skin/');
-    
-  $result = pmc_qry_exec("SELECT * FROM pmc_set_usr WHERE usr_id = '{$id}'");
-  $total = pmc_qry_total($result);
-  if($total == 1) {
-    $row = pmc_qry_row($result);
-    $cnt['page']['usr_name']   = $row['usr_name'];
-    $cnt['page']['usr_fname']  = $row['usr_fname'];
-    $cnt['page']['usr_lname']  = $row['usr_lname'];
-    $cnt['page']['usr_mail']  = $row['usr_mail'];
-    $cnt['page']['usr_pass1']  = '';
-    $cnt['page']['usr_pass2']  = '';
-    $cnt['page']['usr_skin']   = $row['usr_skin'];
-    $cnt['page']['usr_lang']   = $row['usr_lang'];
-    $cnt['page']['usr_level']  = $row['usr_level'];
-    $cnt['page']['usr_status'] = $row['usr_status'];
-  }
-  return $cnt['page'];
-}
-/**
 * Users - view all
 *
 * @return array $cnt content to be displayed to the user
@@ -661,6 +637,11 @@ function pmc_usr_view() {
 /*
 * ********** ********** ********** ********** GENERAL GENRES FUNCTIONS START ********** ********** ********** **********
 */
+/**
+* Genres - all genres
+*
+* @return array $gen genres with total items
+*/
 function pmc_genre_menu() {
   global $lang;
   $gen['tt'] = $lang['genre']['genres'];
@@ -684,4 +665,213 @@ function pmc_genre_menu() {
 * ********** ********** ********** ********** GENERAL GENRES FUNCTIONS END ********** ********** ********** **********
 */
 
+/*
+* ********** ********** ********** ********** LANGS & SKINS FUNCTION START ********** ********** ********** **********
+*/
+/**
+* Languages - change on the fly
+*
+* @return array $cnt content to be displayed
+*/
+function pmc_view_langs() {
+  global $lang;
+  $cnt['skin'] = 'view.langs.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['lang']['langs'];
+  $langs = pmc_lsdir(_APP_DIR.'lang/');
+  $t = count($langs);
+  
+  if($t > 0) {
+    for($i=0;$i<$t;$i++) {
+      $cnt['page']['langs']['idx'][$i] = $langs[$i];
+      if(isset($_POST['lang_set-'.$cnt['page']['langs']['idx'][$i]])) {
+        $_SESSION['pmc_usr_lang'] = $cnt['page']['langs']['idx'][$i];
+        $_SESSION['pmc_msg'] = 51;
+        header("Location: " . _APP_URL . 'view/langs');
+        exit;
+      }
+      $info_file = _APP_DIR.'lang/'. $cnt['page']['langs']['idx'][$i] . '/lang.info.php';
+      $cnt['page']['langs']['name'][$i]  = 'n/a';
+      $cnt['page']['langs']['desc'][$i]  = 'n/a';
+      $cnt['page']['langs']['trans'][$i] = 'n/a';
+      $cnt['page']['langs']['mail'][$i]  = 'n/a';
+      $cnt['page']['langs']['url'][$i]   = 'n/a';
+      if(is_readable($info_file)) {
+        $lines = file($info_file);
+        $cnt['page']['langs']['name'][$i]  = trim(str_replace('\';', '', str_replace('$lang_info[\'ln_name\']  = \'', '', $lines[27])));
+        $cnt['page']['langs']['desc'][$i]  = trim(str_replace('\';', '', str_replace('$lang_info[\'ln_desc\']  = \'', '', $lines[28])));
+        $cnt['page']['langs']['trans'][$i] = trim(str_replace('\';', '', str_replace('$lang_info[\'ln_trans\'] = \'', '', $lines[29])));
+        $cnt['page']['langs']['mail'][$i]  = trim(str_replace('\';', '', str_replace('$lang_info[\'ln_mail\']  = \'', '', $lines[30])));
+        $cnt['page']['langs']['url'][$i]   = trim(str_replace('\';', '', str_replace('$lang_info[\'ln_url\']   = \'', '', $lines[31])));
+      }
+    }
+  }
+  return $cnt;
+}
+/**
+* Skins - change on the fly
+*
+* @return array $cnt content to be displayed
+*/
+function pmc_view_skins() {
+  global $lang;
+  $cnt['skin'] = 'view.skins.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['skin']['skins'];
+  $skins = pmc_lsdir(_APP_DIR.'skin/');
+  $t = count($skins);
+  
+  if($t > 0) {
+    for($i=0;$i<$t;$i++) {
+      $cnt['page']['skins']['idx'][$i] = $skins[$i];
+      if(isset($_POST['skin_set-'.$cnt['page']['skins']['idx'][$i]])) {
+        $_SESSION['pmc_usr_skin']      = _APP_DIR . 'skin/' . $cnt['page']['skins']['idx'][$i] . '/';
+        $_SESSION['pmc_usr_skin_url']  = _APP_URL . 'skin/' . $cnt['page']['skins']['idx'][$i] . '/';
+        $_SESSION['pmc_msg'] = 52;
+        header("Location: " . _APP_URL . 'view/skins');
+        exit;
+      }
+      $info_file = _APP_DIR.'skin/'. $cnt['page']['skins']['idx'][$i] . '/skin.info.php';
+      $cnt['page']['skins']['name'][$i]  = 'n/a';
+      $cnt['page']['skins']['desc'][$i]  = 'n/a';
+      $cnt['page']['skins']['auth'][$i]  = 'n/a';
+      $cnt['page']['skins']['mail'][$i]  = 'n/a';
+      $cnt['page']['skins']['url'][$i]   = 'n/a';
+      if(is_readable($info_file)) {
+        $lines = file($info_file);
+        $cnt['page']['skins']['name'][$i]  = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_name\']  = \'', '', $lines[27])));
+        $cnt['page']['skins']['desc'][$i]  = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_desc\']  = \'', '', $lines[28])));
+        $cnt['page']['skins']['auth'][$i]  = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_auth\']  = \'', '', $lines[29])));
+        $cnt['page']['skins']['mail'][$i]  = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_mail\']  = \'', '', $lines[30])));
+        $cnt['page']['skins']['url'][$i]   = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_url\']   = \'', '', $lines[31])));
+      }
+    }
+  }
+  return $cnt;
+}
+/*
+* ********** ********** ********** ********** LANGS & SKINS FUNCTION END ********** ********** ********** **********
+*/
+
+/*
+* ********** ********** ********** ********** USER LIST FUNCTIONS START ********** ********** ********** **********
+*/
+/**
+* User list - manage
+*
+* @return mixed result
+*/
+function pmc_usr_list($pmc_cart_act) {
+  $request_uri = $_SERVER['REQUEST_URI'];
+  if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] != '') {$server = $_SERVER['HTTP_HOST'];}
+  else if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != '') {$server = $_SERVER['SERVER_NAME'];}
+  $location = 'http://' . $server . $request_uri;
+  foreach($pmc_cart_act as $id => $act) {
+    switch($act) {
+      case 'add'   : {if(!isset($_SESSION['pmc_usr_lst'][$id])) {$_SESSION['pmc_usr_lst'][$id] = true; $_SESSION['pmc_msg'] = 53;} break;}
+      case 'del'   : {if(isset($_SESSION['pmc_usr_lst'][$id])) {unset($_SESSION['pmc_usr_lst'][$id]); $_SESSION['pmc_msg'] = 54;} break;}
+      case 'clear' : {pmc_usr_list_clear(); $_SESSION['pmc_msg'] = 56; break;}
+      case 'save'  : {pmc_usr_list_save(); $_SESSION['pmc_msg'] = 57; break;}
+      case 'load'  : {pmc_usr_list_load(); $_SESSION['pmc_msg'] = 58; break;}
+    }
+  }
+  header("Location: " . $location); exit;
+}
+/**
+* User list - clear
+*
+* @return mixed result
+*/
+function pmc_usr_list_clear() {
+  $_SESSION['pmc_usr_lst'] = array();
+  if($_SESSION['pmc_usr_id'] != 0) {
+    pmc_qry_exec("DELETE FROM pmc_set_lst WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
+  }
+  return true;
+}
+/**
+* User list - save
+*
+* @return mixed result
+*/
+function pmc_usr_list_save() {
+  if($_SESSION['pmc_usr_id'] != 0) {
+    pmc_qry_exec("DELETE FROM pmc_set_lst WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
+    $t = count($_SESSION['pmc_usr_lst']);
+    if($t > 0) {
+      $date = date("Y-m-d");
+      $time = date("H:i:s");
+      foreach($_SESSION['pmc_usr_lst'] as $id => $value) {
+        pmc_qry_exec("INSERT INTO pmc_set_lst (usr_id, mov_id, lst_date, lst_time) VALUES ('{$_SESSION['pmc_usr_id']}', '{$id}', '{$date}', '{$time}')");
+      }
+    }
+  }
+  else {$_SESSION['pmc_msg'] = 55;}
+  return true;
+}
+/**
+* User list - load
+*
+* @return mixed result
+*/
+function pmc_usr_list_load() {
+  if($_SESSION['pmc_usr_id'] != 0) {
+    $_SESSION['pmc_usr_lst'] = array();
+    $r = pmc_qry_exec("SELECT mov_id FROM pmc_set_lst WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
+    $t = pmc_qry_total($r);
+    if($t > 0) {
+      for($i=0;$i<$t;$i++) {
+        $rw = pmc_qry_row($r);
+        $_SESSION['pmc_usr_lst'][$rw['mov_id']] = true;
+      }
+    }
+  }
+  else {$_SESSION['pmc_msg'] = 55;}
+  return true;
+}
+/**
+* User list - view
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_list() {
+  global $lang;
+  $cnt['skin'] = 'view.list.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['list']['mylist'];
+  
+  $tl = count($_SESSION['pmc_usr_lst']);
+  if($tl > 0) {
+    $movie_list = '';
+    foreach($_SESSION['pmc_usr_lst'] as $id => $value) {$movie_list .= $id . ', ';}
+    $movie_list .= '0';
+  }
+  
+  else {$movie_list = '0';}
+  // categories
+  $rc = pmc_qry_exec("SELECT * FROM pmc_mov_cat ORDER BY cat_ord ASC");
+  $tc = pmc_qry_total($rc);
+  if($tc > 0) {
+    for($j=1;$j<=$tc;$j++) {
+      $rwc = pmc_qry_row($rc);
+      $cnt['page']['cat_tt'][$rwc['cat_id']] = $rwc['cat_tt'];
+    }
+  }
+  
+  // build query
+  $q1 = "SELECT * FROM pmc_mov_tt WHERE mov_id IN ({$movie_list}) ORDER BY mov_tt ASC";
+  
+  $cnt['page']['movies'] = array();
+  $r = pmc_qry_exec($q1);
+  $t = pmc_qry_total($r);
+  $rw = array();
+  if($t > 0) {
+    for($i=0;$i<$t;$i++) {
+      $rw[$i] = pmc_qry_row($r);
+    }
+  }
+  $cnt['page']['movies'] = $rw;
+  if($t == 0) {$_SESSION['pmc_msg'] = 39;}
+  return $cnt;
+}
+/*
+* ********** ********** ********** ********** USER LIST FUNCTIONS START ********** ********** ********** **********
+*/
 ?>

@@ -124,7 +124,7 @@ function pmc_output($cnt, $mod=null) {
     for($i=0;$i<$tm;$i++) {
       $opt_mod[$i] = new Skin($_SESSION['pmc_usr_skin']);
       $opt_mod[$i]->set('lang', $lang);
-      if($mod[$i]['name'] == 'mod_usr') {$opt_mod[$i]->set('usr_status', $usr_status);}
+      if($mod[$i]['name'] == 'mod_login') {$opt_mod[$i]->set('usr_status', $usr_status);}
       $skin->set($mod[$i]['name'], $opt_mod[$i]->parse($mod[$i]['file'].'.tpl.php'));
     }
   }
@@ -241,7 +241,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application name
   */
-  define('_APP_NAME','PersonalMediaCollection - Movie Edition');
+  define('_APP_NAME','phpMovieCollection');
 }
 /**
 * Open a database connection
@@ -509,7 +509,7 @@ function pmc_session() {
     /**
     * Reset user movie list
     */
-    $_SESSION['pmc_usr_lst'] = NULL;
+    $_SESSION['pmc_usr_lst'] = array();
     /**
     * Default message
     */
@@ -637,6 +637,10 @@ function pmc_usr_login() {
                     * Last login time
                     */
                     $_SESSION['pmc_ltime'] = $rwl2['log_time'];
+                  }
+                  else {
+                    $_SESSION['pmc_ldate'] = '0000-00-00';
+                    $_SESSION['pmc_ltime'] = '00:00:00';
                   }
                 }
                 else { // first login

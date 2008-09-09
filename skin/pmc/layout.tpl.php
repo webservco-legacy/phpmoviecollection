@@ -24,7 +24,7 @@
   <div id="layout">
     <div id="container_hdr">
       <div id="logo">
-        {LOGO}
+        <a href="<?php echo _APP_URL; ?>" title="<?php echo _APP_NAME; ?>"><img src="<?php echo $_SESSION['pmc_usr_skin_url']; ?>logo.png" title="<?php echo _APP_NAME; ?>" alt="<?php echo _APP_NAME; ?>"></a>
       </div>
       <div id="hdr">
         <div id="usr">
@@ -40,10 +40,12 @@
     </div>
     <div id="container_cnt">
       <div id="cnt_left">
+        <?php echo $mod_login;?>
         <?php echo $mod_src;?>
         <?php echo $mod_imdb;?>
       </div>
       <div id="cnt_right">
+        <?php echo $mod_lst;?>
         <?php echo $mod_gen;?>
       </div>
       <div id="cnt_page">
