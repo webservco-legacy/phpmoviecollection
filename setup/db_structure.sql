@@ -104,13 +104,14 @@ CREATE TABLE pmc_set_cfg (
 -- --------------------------------------------------------------------------------
 DROP TABLE IF EXISTS pmc_set_lst;
 CREATE TABLE pmc_set_lst (
-  lst_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  -- lst_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   usr_id INT(5) UNSIGNED NOT NULL,
   mov_id INT(5) UNSIGNED NOT NULL,
   lst_date DATE NOT NULL,
   lst_time TIME NOT NULL,
-  PRIMARY KEY  (lst_id)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+  -- PRIMARY KEY  (lst_id)
+-- ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ////////////////////////////////////////////////////////////////////////////////
 -- PART TREE: STATISTICS

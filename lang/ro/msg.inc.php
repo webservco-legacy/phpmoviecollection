@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:00 2008-09-02
+* @version    00:28 2008-09-12
 * @since      23:17 2008-08-25
 * @access     public
 * @package    pmc
@@ -159,7 +159,7 @@ $lang['msg'][53]['tt'] = 'Titlul a fost ad&#259;ugat &#238;n list&#259;!';
 $lang['msg'][53]['tp'] = 'ok';
 $lang['msg'][54]['tt'] = 'Titlul a fost &#351;ters din list&#259;!';
 $lang['msg'][54]['tp'] = 'ok';
-$lang['msg'][55]['tt'] = 'Trebuie s&#259; fi&#355;i autentificat pentru a beneficia de aceast&#259; facilitate;!';
+$lang['msg'][55]['tt'] = 'Trebuie s&#259; fi&#355;i autentificat pentru a beneficia de aceast&#259; facilitate!';
 $lang['msg'][55]['tp'] = 'err';
 $lang['msg'][56]['tt'] = 'Lista a fost &#351;tears&#259;!';
 $lang['msg'][56]['tp'] = 'ok';
@@ -167,4 +167,8 @@ $lang['msg'][57]['tt'] = 'Lista a fost salvat&#259;!';
 $lang['msg'][57]['tp'] = 'ok';
 $lang['msg'][58]['tt'] = 'Lista a fost &#238;nc&#259;rcat&#259;!';
 $lang['msg'][58]['tp'] = 'ok';
+$lang['msg'][59]['tt'] = 'Lista este goal&#259;!';
+$lang['msg'][59]['tp'] = 'msg';
+$lang['msg'][60]['tt'] = 'Nimic de &#351;ters!';
+$lang['msg'][60]['tp'] = 'msg';
 ?>

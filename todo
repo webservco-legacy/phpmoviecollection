@@ -1,5 +1,16 @@
+[+++CURRENT+++]
 [-] setup: generate cfg.inc
 [-] setup: create user in database
 [-] maybe use only one directory for all languages and each language has it's own file like ro.inc.php
 [-] contact
+[-] about
+[-] help
 ![-] user stuff interface
+[-] statistics
+[-] view user list page title needs work
+[-] latest movies
+[+++V2+++]
+[] database optimization tools
+[-] find a use for it :-)
+[+++V3+++]
+[-] online version check / update

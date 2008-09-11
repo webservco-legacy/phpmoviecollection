@@ -1,6 +1,6 @@
 <b><?php echo $_SESSION['pmc_usr_alias']; ?></b>
 &#160;&#149;&#160;
-<?php echo $lang['list']['mylist']; ?>
+<a id="pmc_list" href="<?php echo _APP_URL; ?>view/list" title="<?php echo $lang['list']['mylist']; ?>"><?php echo $lang['list']['mylist']; ?></a>
 &#160;&#149;&#160;
 <a id="pmc_lang" href="<?php echo _APP_URL; ?>view/langs" title="<?php echo $lang['lang']['lang'];?>"><?php echo $lang['lang']['lang'];?></a>
 &#160;&#149;&#160;

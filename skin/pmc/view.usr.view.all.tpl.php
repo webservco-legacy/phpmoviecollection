@@ -15,7 +15,7 @@ if($t > 0) {
   <?php echo $lang['usr']['level']; ?>
   </td>
   <td class="usr_adm_hstatus">
-  <?php echo $lang['usr']['status']; ?>
+  <?php echo $lang['movie']['list']; ?>
   </td>
 </tr>
 <?php
@@ -32,7 +32,12 @@ for($i=0;$i<$t;$i++) {
   <?php echo $lang['usr']['lvl'][$cnt['users'][$i]['usr_level']]; ?>
   </td>
   <td class="usr_adm_cstatus">
-  <?php echo $lang['usr']['stat'][$cnt['users'][$i]['usr_status']]; ?>
+  <?php
+  if($cnt['users'][$i]['list_items'] > 0) {
+    echo '<a href="'._APP_URL.'view/">'.$cnt['users'][$i]['list_items'].'</a>';
+  }
+  else {echo $cnt['users'][$i]['list_items'];}
+  ?>
   </td>
 </tr>
 <?php

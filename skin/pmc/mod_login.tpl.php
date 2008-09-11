@@ -13,13 +13,13 @@ if($_SESSION['pmc_ldate'] == '0000-00-00') {echo $lang['usr']['vfirst'] . '!';}
 else {
   echo $_SESSION['pmc_ltotal'] . '&#160;' . $lang['usr']['vtotal'];
   echo '<br />';
-  echo $lang['usr']['vlast'];
+  echo $lang['usr']['vlast'] . ':&#160;';
   
   $vd = pmc_qry_result(pmc_qry_exec("SELECT DATEDIFF('{$_SESSION['pmc_vdate']}', '{$_SESSION['pmc_ldate']}')"));
   switch($vd) {
-    case 0 :  {echo '&#160;' . $lang['pmc']['today'];     break;}
-    case 1 :  {echo '&#160;' . $lang['pmc']['yesterday']; break;}
-    default : {echo '&#160;'. $lang['pmc']['ago1'] . '&#160;' . $vd . '&#160;' . $lang['pmc']['ago2']; break;}
+    case 0 :  {echo $lang['pmc']['today']; break;}
+    case 1 :  {echo $lang['pmc']['yesterday']; break;}
+    default : {echo $lang['pmc']['ago1'] . '&#160;' . $vd . '&#160;' . $lang['pmc']['ago2']; break;}
   }
 }
 ?>

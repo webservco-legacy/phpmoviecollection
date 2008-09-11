@@ -30,7 +30,12 @@
         <div id="usr">
           <?php echo $mod_usr;?>
         </div>
-        {HEADER}
+        <div id="mnu0">
+        {mnu0}
+        </div>
+        <div id="mnu1">
+        {mnu1}
+        </div>
       </div>
     </div>
     <div id="container_msg">
@@ -41,11 +46,12 @@
     <div id="container_cnt">
       <div id="cnt_left">
         <?php echo $mod_login;?>
+        <?php echo $mod_lst;?>
         <?php echo $mod_src;?>
         <?php echo $mod_imdb;?>
       </div>
       <div id="cnt_right">
-        <?php echo $mod_lst;?>
+        <?php //echo $mod_lst;?>
         <?php echo $mod_gen;?>
       </div>
       <div id="cnt_page">

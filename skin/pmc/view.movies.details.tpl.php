@@ -17,50 +17,112 @@ if($cnt['mov_tt'] != '') {
 <?php echo $cnt['categs']['tt'][$cnt['cat_id']]; ?>
 </div>
 <div id="mov_view_year">
+<?php
+if($cnt['mov_year'] != '0000') {
+?>
 <?php echo $cnt['mov_year']; ?>
+<?php
+}
+else {echo '&#160;';}
+?>
 </div>
 <div id="mov_view_imdb">
+<?php
+if($cnt['mov_imdb'] != '') {
+?>
 <a href="http://www.imdb.com/title/tt<?php echo $cnt['mov_imdb']; ?>" title="<?php echo $mov_tt; ?>" target="_blank"><?php echo $lang['imdb']['imdb']; ?></a>
+<?php
+}
+else {echo '&#160;';}
+?>
 </div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['movie']['aka']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_aka']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['pmc']['country']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_country']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['pmc']['language']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_language']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['movie']['director']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_dir']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['movie']['writer']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_wrt']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['movie']['tagline']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_tag']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['movie']['plot']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_plot']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['movie']['cast']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_cast']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['pmc']['notes']; ?></div>
-<div class="mvalue"><?php echo $cnt['mov_notes']; ?></div>
-</div>
-<div class="clear2">
-<div class="mname"><?php echo $lang['genre']['genres']; ?></div>
-<div class="mvalue">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td class="mname">
+  <?php echo $lang['movie']['aka']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_aka']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['pmc']['country']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_country']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['pmc']['language']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_language']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['movie']['director']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_dir']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['movie']['writer']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_wrt']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['movie']['tagline']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_tag']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['movie']['plot']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_plot']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['movie']['cast']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_cast']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['pmc']['notes']; ?>
+  </td>
+  <td class="mvalue">
+  <?php echo $cnt['mov_notes']; ?>
+  </td>
+</tr>
+
+<tr>
+  <td class="mname">
+  <?php echo $lang['genre']['genres']; ?>
+  </td>
+  <td class="mvalue">
 <?php
 $tg = count($cnt['genres']);
 for($i=0;$i<$tg;$i++) {
@@ -74,8 +136,10 @@ if($tg2 > 0) {
   }
 }
 ?>
-</div>
-</div>
+  </td>
+</tr>
+
+</table>
 <?php
 }
 ?>

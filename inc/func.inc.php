@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    21:09 2008-09-09
+* @version    00:47 2008-09-12
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -83,6 +83,7 @@ function pmc_process() {
   }
   else {
     /* TEMP SOLUTION */
+    $_SESSION['pmc_msg'] = 0;
     $cnt['skin'] = 'tester.tpl.php';
     $cnt['tt'] = 'Tester';
     $cnt['page'] = 'Hello World!';
@@ -203,7 +204,7 @@ function pmc_adm_users() {
 */
 function pmc_view_users() {
   $cnt = NULL;
-  if($_SESSION['pmc_usr_level'] >= 4) {
+  if($_SESSION['pmc_usr_level'] > 0) {
     if(isset($_GET['details']) && pmc_is_int($_GET['details'])) {
       $cnt = pmc_view_usr_details($_GET['details']);
     }
@@ -588,7 +589,8 @@ function pmc_usr_view() {
   $offset = ($page - 1) * $items;
   $q_limit = " LIMIT ".$offset.", ".$items."";
   
-  $r = pmc_qry_exec("SELECT SQL_CALC_FOUND_ROWS usr_id, usr_name, usr_fname, usr_lname, usr_level, usr_status FROM pmc_set_usr ORDER BY usr_level DESC, usr_name ASC {$q_limit}");
+  //$r = pmc_qry_exec("SELECT SQL_CALC_FOUND_ROWS usr_id, usr_name, usr_fname, usr_lname, usr_level, usr_status FROM pmc_set_usr ORDER BY usr_level DESC, usr_name ASC {$q_limit}");
+  $r = pmc_qry_exec("SELECT SQL_CALC_FOUND_ROWS U.usr_id, U.usr_name, U.usr_fname, U.usr_lname, U.usr_level, U.usr_status, count(distinct(l.mov_id)) as list_items FROM pmc_set_usr AS U LEFT JOIN pmc_set_lst AS l ON (U.usr_id = L.usr_id) GROUP BY U.usr_name {$q_limit}");
   $t = pmc_qry_total($r);
   if($t > 0) {
     for($i=0;$i<$t;$i++) {
@@ -689,6 +691,7 @@ function pmc_view_langs() {
         header("Location: " . _APP_URL . 'view/langs');
         exit;
       }
+      else {$_SESSION['pmc_msg'] = 0;}
       $info_file = _APP_DIR.'lang/'. $cnt['page']['langs']['idx'][$i] . '/lang.info.php';
       $cnt['page']['langs']['name'][$i]  = 'n/a';
       $cnt['page']['langs']['desc'][$i]  = 'n/a';
@@ -729,6 +732,7 @@ function pmc_view_skins() {
         header("Location: " . _APP_URL . 'view/skins');
         exit;
       }
+      else {$_SESSION['pmc_msg'] = 0;}
       $info_file = _APP_DIR.'skin/'. $cnt['page']['skins']['idx'][$i] . '/skin.info.php';
       $cnt['page']['skins']['name'][$i]  = 'n/a';
       $cnt['page']['skins']['desc'][$i]  = 'n/a';
@@ -768,9 +772,9 @@ function pmc_usr_list($pmc_cart_act) {
     switch($act) {
       case 'add'   : {if(!isset($_SESSION['pmc_usr_lst'][$id])) {$_SESSION['pmc_usr_lst'][$id] = true; $_SESSION['pmc_msg'] = 53;} break;}
       case 'del'   : {if(isset($_SESSION['pmc_usr_lst'][$id])) {unset($_SESSION['pmc_usr_lst'][$id]); $_SESSION['pmc_msg'] = 54;} break;}
-      case 'clear' : {pmc_usr_list_clear(); $_SESSION['pmc_msg'] = 56; break;}
-      case 'save'  : {pmc_usr_list_save(); $_SESSION['pmc_msg'] = 57; break;}
-      case 'load'  : {pmc_usr_list_load(); $_SESSION['pmc_msg'] = 58; break;}
+      case 'clear' : {pmc_usr_list_clear(); break;}
+      case 'save'  : {pmc_usr_list_save(); break;}
+      case 'load'  : {pmc_usr_list_load(); break;}
     }
   }
   header("Location: " . $location); exit;
@@ -785,6 +789,7 @@ function pmc_usr_list_clear() {
   if($_SESSION['pmc_usr_id'] != 0) {
     pmc_qry_exec("DELETE FROM pmc_set_lst WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
   }
+  $_SESSION['pmc_msg'] = 56;
   return true;
 }
 /**
@@ -793,7 +798,7 @@ function pmc_usr_list_clear() {
 * @return mixed result
 */
 function pmc_usr_list_save() {
-  if($_SESSION['pmc_usr_id'] != 0) {
+  if($_SESSION['pmc_usr_level'] > 0) {
     pmc_qry_exec("DELETE FROM pmc_set_lst WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
     $t = count($_SESSION['pmc_usr_lst']);
     if($t > 0) {
@@ -802,7 +807,9 @@ function pmc_usr_list_save() {
       foreach($_SESSION['pmc_usr_lst'] as $id => $value) {
         pmc_qry_exec("INSERT INTO pmc_set_lst (usr_id, mov_id, lst_date, lst_time) VALUES ('{$_SESSION['pmc_usr_id']}', '{$id}', '{$date}', '{$time}')");
       }
+      $_SESSION['pmc_msg'] = 57;
     }
+    else {$_SESSION['pmc_msg'] = 60;}
   }
   else {$_SESSION['pmc_msg'] = 55;}
   return true;
@@ -813,7 +820,7 @@ function pmc_usr_list_save() {
 * @return mixed result
 */
 function pmc_usr_list_load() {
-  if($_SESSION['pmc_usr_id'] != 0) {
+  if($_SESSION['pmc_usr_level'] > 0) {
     $_SESSION['pmc_usr_lst'] = array();
     $r = pmc_qry_exec("SELECT mov_id FROM pmc_set_lst WHERE usr_id = '{$_SESSION['pmc_usr_id']}'");
     $t = pmc_qry_total($r);
@@ -822,17 +829,64 @@ function pmc_usr_list_load() {
         $rw = pmc_qry_row($r);
         $_SESSION['pmc_usr_lst'][$rw['mov_id']] = true;
       }
+      $_SESSION['pmc_msg'] = 58;
     }
+    else {$_SESSION['pmc_msg'] = 59;}
   }
   else {$_SESSION['pmc_msg'] = 55;}
   return true;
 }
 /**
-* User list - view
+* User list - view personal or other's
 *
 * @return array $cnt content to be displayed to the user
 */
 function pmc_view_list() {
+  $cnt = NULL;
+  if($_SESSION['pmc_usr_level'] > 0) {
+    if(isset($_GET['user']) && pmc_is_int($_GET['user'])) {
+      $cnt = pmc_view_list_user($_GET['user']);
+    }
+    else {
+      $cnt = pmc_view_list_usr();
+    }
+  }
+  else if($_SESSION['pmc_usr_level'] == 0 && !isset($_GET['user'])) {$cnt = pmc_view_list_usr();}
+  else {$_SESSION['pmc_msg'] = 55; header("Location: "._APP_URL); exit;}
+  
+  return $cnt;
+}
+/**
+* User list - view other's
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_list_user($usrid) {
+  global $lang;
+  $cnt['skin'] = 'view.list.usr.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['list']['mylist'];
+  
+  
+  $r = pmc_qry_exec("SELECT mov_id FROM pmc_set_lst WHERE usr_id = '{$usrid}'");
+  $tl = pmc_qry_total($r);
+  if($tl > 0) {
+    $movie_list = '';
+    for($i=0;$i<$tl;$i++) {
+      $rw = pmc_qry_row($r);
+      $movie_list .= $rw['mov_id'] . ', ';
+    }
+    $movie_list .= '0';
+  }
+  else {$movie_list = '0';}
+  $cnt['page'] = pmc_view_list_get($movie_list);
+  return $cnt;
+}
+/**
+* User list - view own
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_list_usr() {
   global $lang;
   $cnt['skin'] = 'view.list.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['list']['mylist'];
@@ -843,8 +897,16 @@ function pmc_view_list() {
     foreach($_SESSION['pmc_usr_lst'] as $id => $value) {$movie_list .= $id . ', ';}
     $movie_list .= '0';
   }
-  
   else {$movie_list = '0';}
+  $cnt['page'] = pmc_view_list_get($movie_list);
+  return $cnt;
+}
+/**
+* User list - get from db
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_list_get($movie_list) {
   // categories
   $rc = pmc_qry_exec("SELECT * FROM pmc_mov_cat ORDER BY cat_ord ASC");
   $tc = pmc_qry_total($rc);
@@ -869,7 +931,8 @@ function pmc_view_list() {
   }
   $cnt['page']['movies'] = $rw;
   if($t == 0) {$_SESSION['pmc_msg'] = 39;}
-  return $cnt;
+  else {$_SESSION['pmc_msg'] = 0;}
+  return $cnt['page'];
 }
 /*
 * ********** ********** ********** ********** USER LIST FUNCTIONS START ********** ********** ********** **********
