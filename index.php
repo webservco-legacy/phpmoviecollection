@@ -25,15 +25,21 @@ define("_VALID_REQUEST", TRUE);
 /**
 * Load app configuration options
 */
-require_once './inc/cfg.inc.php';
+if(is_readable('./inc/cfg.inc.php')) {require_once './inc/cfg.inc.php';}
+else {header("Location: ./setup/install.php"); exit;}
 /**
 * Load runtime libraries
 */
-require_once './inc/lib.inc.php';
+if(is_readable('./inc/lib.inc.php')) {require_once './inc/lib.inc.php';}
+else {die('ERROR! Files missing. Please re-install the application.');}
 /**
 * Set app configuration options
 */
 pmc_cfg($ap_cfg);
+/**
+* Check valid configuration
+*/
+pmc_check_install();
 /**
 * Set error reporting
 */
@@ -89,5 +95,5 @@ echo pmc_output($cnt, $mod);
 /**
 * Close database connection
 */
-pmc_dbclose($pmc_dbconn, $db_type=0)
+pmc_dbclose($pmc_dbconn);
 ?>

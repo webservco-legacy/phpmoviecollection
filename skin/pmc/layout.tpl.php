@@ -6,13 +6,13 @@
   <link rel="icon" type="image/ico" href="<?php echo $_SESSION['pmc_usr_skin_url']; ?>favicon.ico" />
   <link rel="shortcut icon" type="image/ico" href="<?php echo $_SESSION['pmc_usr_skin_url']; ?>favicon.ico" />
   <title><?php echo _APP_NAME . _APP_SEP . $title; ?></title>
-  <meta name="title" content="Title" />
-  <meta name="subject" content="Subject" />
-  <meta name="description" content="Description" />
-  <meta name="keywords" content="key, words" />
-  <meta name="copyright" content="&copy; 2008 RudiSoft.Net" />
+  <meta name="title" content="<?php echo _APP_NAME . _APP_SEP . $title; ?>" />
+  <meta name="subject" content="<?php echo _APP_NAME . _APP_SEP . $title; ?>" />
+  <meta name="description" content="<?php echo _APP_NAME . _APP_SEP . $title; ?>" />
+  <meta name="keywords" content="<?php echo _APP_NAME; ?>, pmc" />
+  <meta name="copyright" content="&copy; 2008 Radu Maier" />
   <meta name="designer" content="Radu Maier" />
-  <meta name="publisher" content="RudiSoft.Net" />
+  <meta name="publisher" content="Radu Maier" />
   <meta name="author" content="Radu Maier" />
   <meta name="rating" content="General" />
   <meta name="distribution" content="Global" />
@@ -51,7 +51,7 @@
         <?php echo $mod_imdb;?>
       </div>
       <div id="cnt_right">
-        <?php //echo $mod_lst;?>
+        <?php echo $mod_sts;?>
         <?php echo $mod_gen;?>
       </div>
       <div id="cnt_page">

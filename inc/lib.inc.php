@@ -242,6 +242,10 @@ function pmc_cfg($ap_cfg) {
   * Application name
   */
   define('_APP_NAME','phpMovieCollection');
+  /**
+  * Application version
+  */
+  define('_APP_VER','0.0.0.000000');
 }
 /**
 * Open a database connection
@@ -265,11 +269,13 @@ function pmc_dbopen($db_host, $db_user, $db_pass, $db_name, $db_port='', $db_typ
       /**
       * Select database
       */
-      mysql_select_db($db_name) or my_err(mysql_errno(), mysql_error());
+      if($pmc_dbconn) {$dbcon = mysql_select_db($db_name) or my_err(mysql_errno(), mysql_error());}
+      else {return false; break;}
       /**
       * Enable UTF-8 support
       */
-      pmc_qry_exec("SET NAMES 'utf8'");
+      if($dbcon) {pmc_qry_exec("SET NAMES 'utf8'");}
+      else {return false; break;}
       break;
     }
   }
@@ -901,5 +907,21 @@ function pmc_lsdir($dir) {
     }
   }
   return $subdirs;
+}
+/**
+* Checks for valid instalation
+*
+* @return boolean result
+*/
+function pmc_check_install() {
+  if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] != '') {$server = $_SERVER['HTTP_HOST'];}
+  else if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != '') {$server = $_SERVER['SERVER_NAME'];}
+  $app_url = 'http://' . $server . $_SERVER['REQUEST_URI'];
+  if(!is_readable(_APP_DIR.'inc/cfg.inc.php')) {header("Location: ./setup/install.php"); exit;}
+  else if(_APP_URL != $app_url) {header("Location: ./setup/install.php"); exit;}
+  $pmc_dbconn = pmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
+  if(!$pmc_dbconn) {header("Location: ./setup/install.php"); exit;}
+  else {pmc_dbclose($pmc_dbconn);}
+  return true;
 }
 ?>

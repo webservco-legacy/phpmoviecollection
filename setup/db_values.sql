@@ -80,6 +80,8 @@ INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('PMOV', '150');
 INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IMOV', '10');
 -- USER LIST ITEMS PER PAGE
 INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IUSR', '10');
+-- DAYS FOR NEW MOVIES
+INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('DMOV', '3');
 -- --------------------------------------------------------------------------------
 -- USER LISTS
 -- --------------------------------------------------------------------------------

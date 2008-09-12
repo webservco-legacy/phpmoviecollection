@@ -10,12 +10,12 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:24 2008-09-11
-* @since      19:27 2008-08-19
+* @version    15:08 2008-09-12
+* @since      15:08 2008-09-12
 * @access     public
 * @package    pmc
-* @subpackage Application
-* @todo       Everything :-)
+* @subpackage Configuration
+* @todo       stuff
 */
 
 /**
@@ -33,9 +33,7 @@ $ap_cfg['app_index'] = '';
 /**
 * Full path to the application - notice the slash at the end
 */
-//$ap_cfg['app_dir'] = '/opt/lampp/htdocs/pub/temp/pmc/';
-//$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/pmc/';
-$ap_cfg['app_dir'] = 'e:/home/devel/server/htdocs/pub/temp/pmc/';
+$ap_cfg['app_dir'] = 'd:/home/devel/server/htdocs/pub/temp/pmc/';
 /**
 * Database host
 */
@@ -76,4 +74,8 @@ $ap_cfg['mod']['mod_imdb'] = 1;
 * Control the loading of the user list module
 */
 $ap_cfg['mod']['mod_lst'] = 1;
+/**
+* Control the loading of the stats module
+*/
+$ap_cfg['mod']['mod_sts'] = 1;
 ?>

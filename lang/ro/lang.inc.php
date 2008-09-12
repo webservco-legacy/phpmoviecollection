@@ -23,6 +23,11 @@
 */
 if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
+* Setup
+*/
+$lang['set']['x'] = '';
+
+/**
 * User status
 */
 $lang['usr_status'][1] = 'Neautentificat';
@@ -191,4 +196,11 @@ $lang['list']['load']       = '&#206;nc&#259;rcare';
 $lang['list']['isempty']    = 'Lista este goal&#259;';
 $lang['list']['onetitle']   = 'Un titlu';
 $lang['list']['titles']     = 'titluri';
+/**
+* Statistics
+*/
+$lang['stats']['stats']     = 'Statistici';
+$lang['stats']['movies']    = 'Total filme';
+$lang['stats']['newmovies'] = 'Filme noi';
+$lang['stats']['users']     = 'Total utilizatori';
 ?>

@@ -33,8 +33,8 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 * html #cnt_left {margin-right: -3px;}
 #cnt_right {float: right; width: 190px; padding: 5px 5px 5px 5px; overflow: auto;}
 * html #cnt_right {margin-left: -3px;}
-#cnt_page {clear: none; margin-left: 200px; margin-right: 200px; min-height: 400px; padding: 5px 10px 5px 10px; border-left: 1px solid #333333; border-right: 1px solid #333333;}
-* html #cnt_page {height: 400px; margin-left: 197px; margin-right: 197px;}
+#cnt_page {clear: none; margin-left: 200px; margin-right: 200px; min-height: 430px; padding: 5px 10px 5px 10px; border-left: 1px solid #333333; border-right: 1px solid #333333;}
+* html #cnt_page {height: 430px; margin-left: 197px; margin-right: 197px;}
 /* ********** ********** ********** CONTENT AREA END ********** ********** ********** */
 /* ********** ********** ********** FOOTER AREA START ********** ********** ********** */
 #ftr {padding: 10px 0px 10px 0px;}
@@ -45,6 +45,7 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #mod_src       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_imdb     {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_lst       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_sts       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li  {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
 /* ********** ********** ********** MODULES AREA END ********** ********** ********** */
