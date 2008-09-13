@@ -1,5 +1,6 @@
 -- pmc
 -- DATABASE STRUCTURE
+-- 18:11 2008-09-13
 
 -- ////////////////////////////////////////////////////////////////////////////////
 -- PART ONE: ACTUAL COLLECTION
@@ -11,7 +12,7 @@
 DROP TABLE IF EXISTS pmc_mov_cat;
 CREATE TABLE pmc_mov_cat (
   cat_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-  cat_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- adjust here to match default settings
+  cat_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL,
   cat_tt VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL,
   cat_ord INT(5) UNSIGNED NOT NULL,
   cat_desc VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -25,14 +26,14 @@ DROP TABLE IF EXISTS pmc_mov_tt;
 CREATE TABLE pmc_mov_tt (
   mov_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   cat_id INT(5) UNSIGNED NOT NULL,
-  mov_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- adjust here to match default settings
+  mov_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL,
   mov_imdb VARCHAR(8) COLLATE utf8_unicode_ci NOT NULL,
   mov_tt_pre VARCHAR(5) COLLATE utf8_unicode_ci NOT NULL,
   mov_tt VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   mov_aka VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
   mov_year YEAR NOT NULL,
-  mov_country VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- almost forgot
-  mov_language VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL, -- almost forgot
+  mov_country VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL,
+  mov_language VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL,
   mov_dir VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   mov_wrt VARCHAR(150) COLLATE utf8_unicode_ci NOT NULL,
   mov_tag VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -104,13 +105,10 @@ CREATE TABLE pmc_set_cfg (
 -- --------------------------------------------------------------------------------
 DROP TABLE IF EXISTS pmc_set_lst;
 CREATE TABLE pmc_set_lst (
-  -- lst_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   usr_id INT(5) UNSIGNED NOT NULL,
   mov_id INT(5) UNSIGNED NOT NULL,
   lst_date DATE NOT NULL,
-  lst_time TIME NOT NULL,
-  -- PRIMARY KEY  (lst_id)
--- ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+  lst_time TIME NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ////////////////////////////////////////////////////////////////////////////////

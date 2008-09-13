@@ -15,7 +15,7 @@
 * @access     public
 * @package    pmc
 * @subpackage Core
-* @todo       Everything :-)
+* @todo       stuff
 */
 
 /**

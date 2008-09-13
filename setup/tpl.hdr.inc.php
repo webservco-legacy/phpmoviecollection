@@ -26,6 +26,6 @@
       &#160;
     </div>
     <div id="cnt">
-      <img src="../skin/pmc/logo.png" title="phpMovieCollection" alt="phpMovieCollection">
+      <img src="../skin/pmc/logo.png" title="phpMovieCollection" alt="phpMovieCollection" />
       <br /><br />
       <h1>Setup</h1>

@@ -3,3 +3,4 @@
 [x] categories: error on try to update picture with an invalid format
 [-] view movies: if view by genre is selected if you filter you get all movies
 [-] css bugs with div clear/div clear2, must use tables everywhere :-(
+[-] very bad design bug, ff3 clears after left content _sometimes_

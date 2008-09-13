@@ -10,12 +10,12 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    14:34 2008-09-12
+* @version    18:10 2008-09-13
 * @since      14:34 2008-09-12
 * @access     public
 * @package    pmc
 * @subpackage Setup
-* @todo       Everything :-)
+* @todo       stuff
 */
 
 
@@ -29,7 +29,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 *
 * return mixed stuff
 */
-function gen_cfg_str() {
+function gen_cfg_str($cfg, $datime) {
 $c = '<?php
 /**
 * ./inc/cfg.inc.php (app configuration options)
@@ -42,8 +42,8 @@ $c = '<?php
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    15:08 2008-09-12
-* @since      15:08 2008-09-12
+* @version    '.$datime.'
+* @since      '.$datime.'
 * @access     public
 * @package    pmc
 * @subpackage Configuration
@@ -57,59 +57,59 @@ if(!defined(\'_VALID_REQUEST\')) {require_once \'../lib/404.php\';}
 /**
 * Main URL of the application - notice the slash at the end
 */
-$ap_cfg[\'app_url\'] = \'http://localhost/pub/temp/pmc/\';
+$ap_cfg[\'app_url\'] = \''.$cfg['app_url'].'\';
 /**
 * Full path to the application - notice the slash at the end
 */
-$ap_cfg[\'app_dir\'] = \'d:/home/devel/server/htdocs/pub/temp/pmc/\';
+$ap_cfg[\'app_dir\'] = \''.$cfg['app_dir'].'\';
 /**
 * Whether to use rewrite engine functionality or not
 */
-$ap_cfg[\'app_index\'] = \'\';
+$ap_cfg[\'app_index\'] = \''.$cfg['app_index'].'\';
 /**
 * Database host
 */
-$ap_cfg[\'db_host\'] = \'localhost\';
+$ap_cfg[\'db_host\'] = \''.$cfg['db_host'].'\';
 /**
 * Database user
 */
-$ap_cfg[\'db_user\'] = \'temp\';
+$ap_cfg[\'db_user\'] = \''.$cfg['db_user'].'\';
 /**
 * Database password
 */
-$ap_cfg[\'db_pass\'] = \'temp\';
+$ap_cfg[\'db_pass\'] = \''.$cfg['db_pass'].'\';
 /**
 * Database name
 */
-$ap_cfg[\'db_name\'] = \'temp\';
+$ap_cfg[\'db_name\'] = \''.$cfg['db_name'].'\';
 /**
 * Control the loading of the user module
 */
-$ap_cfg[\'mod\'][\'mod_usr\'] = 1;
+$ap_cfg[\'mod\'][\'mod_usr\'] = '.$cfg['mod_usr'].';
 /**
 * Control the loading of the user login module
 */
-$ap_cfg[\'mod\'][\'mod_login\'] = 1;
+$ap_cfg[\'mod\'][\'mod_login\'] = '.$cfg['mod_login'].';
 /**
 * Control the loading of the genres module
 */
-$ap_cfg[\'mod\'][\'mod_gen\'] = 1;
+$ap_cfg[\'mod\'][\'mod_gen\'] = '.$cfg['mod_gen'].';
 /**
 * Control the loading of the search module
 */
-$ap_cfg[\'mod\'][\'mod_src\'] = 1;
+$ap_cfg[\'mod\'][\'mod_src\'] = '.$cfg['mod_src'].';
 /**
 * Control the loading of the imdb search module
 */
-$ap_cfg[\'mod\'][\'mod_imdb\'] = 1;
+$ap_cfg[\'mod\'][\'mod_imdb\'] = '.$cfg['mod_imdb'].';
 /**
 * Control the loading of the user list module
 */
-$ap_cfg[\'mod\'][\'mod_lst\'] = 1;
+$ap_cfg[\'mod\'][\'mod_lst\'] = '.$cfg['mod_lst'].';
 /**
 * Control the loading of the stats module
 */
-$ap_cfg[\'mod\'][\'mod_sts\'] = 1;
+$ap_cfg[\'mod\'][\'mod_sts\'] = '.$cfg['mod_sts'].';
 ?>
 ';
 return $c;
@@ -142,5 +142,32 @@ function chk_cfg_wrt($path, $file) {
   else if(file_exists($path.$file) && !is_writable($path.$file)) {$err = 2;}
   else if(!file_exists($path.$file) && !is_writable($path)) {$err = 3;}
   return $err;
+}
+/**
+* Split sql file into separate queries
+*
+* inspired by phpbb code
+*
+* return mixed stuff
+*/
+function split_sql($file, $delimiter) {
+  $sql = file_get_contents($file);
+  // trim
+  $sql = trim($sql);
+	// remove # comments
+  $sql = preg_replace('/\n{2,}/', "\n", preg_replace('/^#.*$/m', "\n", $sql));
+  // remove -- comments
+	$sql = preg_replace('/\n{2,}/', "\n", preg_replace('/^--.*$/m', "\n", $sql));
+  // remove \r
+  $sql = eregi_replace("\r", "", $sql);
+  // split
+  $sql = preg_split('/' . preg_quote($delimiter, '/') . '$/m', $sql);
+  // trim pieces
+  $sql = array_map('trim', $sql);
+  // delete last one if empty
+  $last_one = end($sql);
+  if(empty($last_one)) {unset($sql[key($sql)]);}
+  // return
+  return $sql;
 }
 ?>

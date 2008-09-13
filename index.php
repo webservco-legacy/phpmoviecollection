@@ -10,12 +10,12 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    16:36 2008-09-03
+* @version    18:10 2008-09-13
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
 * @subpackage Application
-* @todo       Everything :-)
+* @todo       stuff
 */
 
 /**
@@ -37,10 +37,6 @@ else {die('ERROR! Files missing. Please re-install the application.');}
 */
 pmc_cfg($ap_cfg);
 /**
-* Check valid configuration
-*/
-pmc_check_install();
-/**
 * Set error reporting
 */
 pmc_error_reporting(1);
@@ -52,6 +48,7 @@ pmc_seo_urls();
 * Open database connection
 */
 $pmc_dbconn = pmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
+if(!$pmc_dbconn) {header("Location: ./setup/install.php"); exit;}
 /**
 * Set variable configuration options (stored in database)
 */
@@ -59,7 +56,7 @@ pmc_cfg_var();
 /**
 * Initialize session
 */
-$usr_status = pmc_session();
+$usr_status = pmc_session($pmc_dbconn);
 /**
 * Load language file with main dialogs
 */

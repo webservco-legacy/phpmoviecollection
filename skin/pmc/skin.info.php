@@ -15,7 +15,7 @@
 * @access     public
 * @package    pmc
 * @subpackage Skins
-* @todo       Everything :-)
+* @todo       stuff
 */
 
 /**

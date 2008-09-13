@@ -21,3 +21,5 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #label     {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; background-color: #cccccc;}
 input     {font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px; vertical-align: middle;}
 select   {font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px; vertical-align: middle;}
+.err {color: #990000; font-weight: bold;}
+.ok {color: #009900; font-weight: bold;}

@@ -1,6 +1,5 @@
 <form enctype="multipart/form-data" id="setup_form" name="setup_form" action="" method="post">
 <table border="0" cellspacing="0" cellpadding="0" align="center">
-
 <tr>
   <td class="label">
   &#160;
@@ -75,81 +74,6 @@
  </td>
  <td class="input">
  <input id="db_name" name="db_name" type="text" size="20" maxlength="30" value="<?php echo $cfg['db_name']; ?>" />
- </td>
-</tr>
-
-<tr>
-  <td class="label">
-  &#160;
-  </td>
-  <td class="input">
-  <h3>Load content modules</h3>
-  </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_usr">"User" module:</label>
- </td>
- <td class="input">
- <select id="mod_usr" name="mod_usr" size="1">
-  <option value="0"<?php if($cfg['mod_usr'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_usr'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_login">"Login" module:</label>
- </td>
- <td class="input">
- <select id="mod_login" name="mod_login" size="1">
-  <option value="0"<?php if($cfg['mod_login'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_login'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_gen">"Genres" module:</label>
- </td>
- <td class="input">
- <select id="mod_gen" name="mod_gen" size="1">
-  <option value="0"<?php if($cfg['mod_gen'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_gen'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_src">"Search" module:</label>
- </td>
- <td class="input">
- <select id="mod_src" name="mod_src" size="1">
-  <option value="0"<?php if($cfg['mod_src'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_src'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_imdb">"IMDb search" module:</label>
- </td>
- <td class="input">
- <select id="mod_imdb" name="mod_imdb" size="1">
-  <option value="0"<?php if($cfg['mod_imdb'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_imdb'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_lst">"MyList" module:</label>
- </td>
- <td class="input">
- <select id="mod_lst" name="mod_lst" size="1">
-  <option value="0"<?php if($cfg['mod_lst'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_lst'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
  </td>
 </tr>
 
@@ -291,7 +215,6 @@ for($l=0;$l<$ts;$l++) {
  </td>
 </tr>
 <tr>
-<tr>
  <td class="label">
  <label for="app_pmov">Movie picture thumbnail size:</label>
  </td>
@@ -299,7 +222,6 @@ for($l=0;$l<$ts;$l++) {
  <input id="app_pmov" name="app_pmov" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_pmov']; ?>" />
  </td>
 </tr>
-<tr>
 <tr>
  <td class="label">
  <label for="app_imov">Number of movies per page:</label>
@@ -309,7 +231,6 @@ for($l=0;$l<$ts;$l++) {
  </td>
 </tr>
 <tr>
-<tr>
  <td class="label">
  <label for="app_iusr">Number of users per page:</label>
  </td>
@@ -318,15 +239,100 @@ for($l=0;$l<$ts;$l++) {
  </td>
 </tr>
 <tr>
-<tr>
  <td class="label">
- <label for="app_dmov">Days a movie is considered "new":</label>
+ <label for="app_dmov">Days a movie is considered new:</label>
  </td>
  <td class="input">
  <input id="app_dmov" name="app_dmov" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_dmov']; ?>" />
  </td>
 </tr>
+
 <tr>
+  <td class="label">
+  &#160;
+  </td>
+  <td class="input">
+  <h3>Load content modules</h3>
+  </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="mod_usr">"User" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_usr" name="mod_usr" size="1">
+  <option value="0"<?php if($cfg['mod_usr'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_usr'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="mod_login">"Login" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_login" name="mod_login" size="1">
+  <option value="0"<?php if($cfg['mod_login'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_login'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="mod_gen">"Genres" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_gen" name="mod_gen" size="1">
+  <option value="0"<?php if($cfg['mod_gen'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_gen'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="mod_src">"Search" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_src" name="mod_src" size="1">
+  <option value="0"<?php if($cfg['mod_src'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_src'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="mod_imdb">"IMDb search" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_imdb" name="mod_imdb" size="1">
+  <option value="0"<?php if($cfg['mod_imdb'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_imdb'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="mod_lst">"MyList" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_lst" name="mod_lst" size="1">
+  <option value="0"<?php if($cfg['mod_lst'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_lst'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="mod_sts">"Statistics" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_sts" name="mod_sts" size="1">
+  <option value="0"<?php if($cfg['mod_sts'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_sts'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+
 <tr>
  <td class="label">
  &#160;
@@ -337,9 +343,6 @@ for($l=0;$l<$ts;$l++) {
  <input id="reset" name="reset" type="reset" value="Reset" />
  </td>
 </tr>
-<tr>
-
-
 
 </table>
 </form>

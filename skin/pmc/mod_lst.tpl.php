@@ -16,7 +16,7 @@ switch($t) {
 <a href="<?php echo _APP_URL; ?>view/list" title="<?php echo $lang['view']['view']; ?>"><?php echo $lang['view']['view']; ?></a>
   </td>
   <td class="listd">
-<form enctype="multipart/form-data" id="lst_form" name="lst_form" action="" method="post">
+<form enctype="multipart/form-data" id="lst_form1" name="lst_form1" action="" method="post">
 <input name="pmc_cart_act[2]" type="hidden" value="clear" />
 <input id="lst_clear" name="lst_clear" type="submit" value="<?php echo $lang['list']['clear']; ?>" />
 </form>
@@ -24,13 +24,13 @@ switch($t) {
 </tr>
 <tr>
   <td class="listd">
-<form enctype="multipart/form-data" id="lst_form" name="lst_form" action="" method="post">
+<form enctype="multipart/form-data" id="lst_form2" name="lst_form2" action="" method="post">
 <input name="pmc_cart_act[1]" type="hidden" value="load" />
 <input id="lst_load" name="lst_load" type="submit" value="<?php echo $lang['list']['load']; ?>" />
 </form>  
   </td>
   <td class="listd">
-<form enctype="multipart/form-data" id="lst_form" name="lst_form" action="" method="post">
+<form enctype="multipart/form-data" id="lst_form3" name="lst_form3" action="" method="post">
 <input name="pmc_cart_act[3]" type="hidden" value="save" />
 <input id="lst_save" name="lst_save" type="submit" value="<?php echo $lang['list']['save']; ?>" />
 </form>

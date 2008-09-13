@@ -1,5 +1,7 @@
 -- pmc
 -- DATABASE DEFAULT VALUES
+-- except user and settings
+-- 18:11 2008-09-13
 
 -- ////////////////////////////////////////////////////////////////////////////////
 -- PART ONE: ACTUAL COLLECTION
@@ -62,26 +64,11 @@ TRUNCATE TABLE pmc_mov_rel;
 -- --------------------------------------------------------------------------------
 TRUNCATE TABLE pmc_set_usr;
 
--- ADMIN
-INSERT INTO pmc_set_usr (usr_name, usr_fname, usr_lname, usr_mail, usr_pass, usr_skin, usr_lang, usr_level, usr_status, usr_date) VALUES ('Root', 'Radu', 'Maier', 'radu@rudisoft.net', 'REDACTED', 'pmc', 'ro', '5', '1', '2008-08-22');
 -- --------------------------------------------------------------------------------
 -- SETTINGS
 -- --------------------------------------------------------------------------------
 TRUNCATE TABLE pmc_set_cfg;
--- DEFAULT LANGUAGE
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('LANG', 'ro');
--- DEFAULT SKIN
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('SKIN', 'pmc');
--- CATEGOY PICTURE MAX SIZE
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('PCAT', '150');
--- MOVIE PICTURE MAX SIZE
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('PMOV', '150');
--- MOVIE LIST ITEMS PER PAGE
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IMOV', '10');
--- USER LIST ITEMS PER PAGE
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IUSR', '10');
--- DAYS FOR NEW MOVIES
-INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('DMOV', '3');
+
 -- --------------------------------------------------------------------------------
 -- USER LISTS
 -- --------------------------------------------------------------------------------

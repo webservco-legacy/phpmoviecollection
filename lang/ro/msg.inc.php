@@ -15,7 +15,7 @@
 * @access     public
 * @package    pmc
 * @subpackage Internationalization
-* @todo       Everything :-)
+* @todo       stuff
 */
 
 /**

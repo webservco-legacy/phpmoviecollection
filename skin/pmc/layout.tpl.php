@@ -24,7 +24,7 @@
   <div id="layout">
     <div id="container_hdr">
       <div id="logo">
-        <a href="<?php echo _APP_URL; ?>" title="<?php echo _APP_NAME; ?>"><img src="<?php echo $_SESSION['pmc_usr_skin_url']; ?>logo.png" title="<?php echo _APP_NAME; ?>" alt="<?php echo _APP_NAME; ?>"></a>
+        <a href="<?php echo _APP_URL; ?>" title="<?php echo _APP_NAME; ?>"><img src="<?php echo $_SESSION['pmc_usr_skin_url']; ?>logo.png" title="<?php echo _APP_NAME; ?>" alt="<?php echo _APP_NAME; ?>" /></a>
       </div>
       <div id="hdr">
         <div id="usr">

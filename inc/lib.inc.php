@@ -10,12 +10,12 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:42 2008-09-07
+* @version    18:09 2008-09-13
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
 * @subpackage Core
-* @todo       Everything :-)
+* @todo       stuff
 */
 
 /**
@@ -460,7 +460,7 @@ function pmc_next_id($table, $col) {
 *
 * @return mixed
 */
-function pmc_session() {
+function pmc_session($pmc_dbconn) {
   session_cache_limiter('public, must-revalidate');
   session_cache_expire(600); // minutes (10 hours);
   ini_set("session.gc_maxlifetime","36000"); //seconds (1 hours)
@@ -475,6 +475,10 @@ function pmc_session() {
   * First load of the page
   */
   if (!isset($_SESSION['pmc_token'])) {
+    /**
+    * Check valid configuration
+    */
+    pmc_check_install($pmc_dbconn);
     /**
     * Unique token for security
     */
@@ -913,15 +917,17 @@ function pmc_lsdir($dir) {
 *
 * @return boolean result
 */
-function pmc_check_install() {
+function pmc_check_install($pmc_dbconn) {
+  global $ap_cfg;
   if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] != '') {$server = $_SERVER['HTTP_HOST'];}
   else if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != '') {$server = $_SERVER['SERVER_NAME'];}
   $app_url = 'http://' . $server . $_SERVER['REQUEST_URI'];
+  if($ap_cfg['app_index'] != '') {$app_url = $app_url.$ap_cfg['app_index'];}
   if(!is_readable(_APP_DIR.'inc/cfg.inc.php')) {header("Location: ./setup/install.php"); exit;}
   else if(_APP_URL != $app_url) {header("Location: ./setup/install.php"); exit;}
-  $pmc_dbconn = pmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
+  //$pmc_dbconn = pmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
   if(!$pmc_dbconn) {header("Location: ./setup/install.php"); exit;}
-  else {pmc_dbclose($pmc_dbconn);}
+  //else {pmc_dbclose($pmc_dbconn);}
   return true;
 }
 ?>
