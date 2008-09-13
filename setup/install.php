@@ -29,6 +29,11 @@ define("_VALID_REQUEST", TRUE);
 if(is_readable('./setup.inc.php')) {require_once './setup.inc.php';}
 else {die('ERROR! Files missing. Please re-install the application.');}
 /**
+* Load core functions
+*/
+if(is_readable('../inc/lib.inc.php')) {require_once '../inc/lib.inc.php';}
+else {die('ERROR! Files missing. Please re-install the application.');}
+/**
 * xxx
 */
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -85,273 +90,56 @@ ok) - > cfg= -> -> check if vales are ok
   ok) ->wrt_cfg -> insert dbs -> insert dbv -> echo ok(redirect)
 * if not post echo form
 
-
 */
+
 require_once 'tpl.hdr.inc.php';
 
 if(isset($_POST['install'])) {
-  echo 'install';
+  $err = 0;
+  $msg = '';
+  $unwanted = array("\\", "\x00", "\n", "\r", "'", '"', "\xla", '&lt;', '&gt;', '<', '>');
+  $cfg['db_host']   = trim(str_replace($unwanted, ' ', $_POST['db_host']));
+  $cfg['db_user']   = trim(str_replace($unwanted, ' ', $_POST['db_user']));
+  $cfg['db_pass']   = trim(str_replace($unwanted, ' ', $_POST['db_pass']));
+  $cfg['db_name']   = trim(str_replace($unwanted, ' ', $_POST['db_name']));
+  
+  $pmc_dbconn = pmc_dbopen($cfg['db_host'], $cfg['db_user'], $cfg['db_pass'], $cfg['db_name']);
+  if(!$pmc_dbconn) {$err = 1; $msg = 'Database information is invalid!';}
+  else {
+    $cfg['app_url']   = pmc_filter_input($_POST['app_url']);
+    $cfg['app_index'] = pmc_filter_input($_POST['app_index']);
+    $cfg['app_dir']   = pmc_filter_input($_POST['app_dir']);
+    
+    $cfg['mod_usr']   = pmc_filter_input($_POST['mod_usr']);
+    $cfg['mod_login'] = pmc_filter_input($_POST['mod_login']);
+    $cfg['mod_gen']   = pmc_filter_input($_POST['mod_gen']);
+    $cfg['mod_src']   = pmc_filter_input($_POST['mod_src']);
+    $cfg['mod_imdb']  = pmc_filter_input($_POST['mod_imdb']);
+    $cfg['mod_lst']   = pmc_filter_input($_POST['mod_lst']);
+    
+    $cfg['usr_name']  = pmc_filter_input($_POST['usr_name']);
+    $cfg['usr_fname'] = pmc_filter_input($_POST['usr_fname']);
+    $cfg['usr_lname'] = pmc_filter_input($_POST['usr_lame']);
+    $cfg['usr_mail']  = pmc_filter_input($_POST['usr_mail']);
+    $cfg['usr_pass']  = pmc_filter_input($_POST['usr_pass']);
+    $cfg['usr_skin']  = pmc_filter_input($_POST['usr_skin']);
+    $cfg['usr_lang']  = pmc_filter_input($_POST['usr_lang']);
+    
+    $cfg['app_lang']  = pmc_filter_input($_POST['app_lang']);
+    $cfg['app_skin']  = pmc_filter_input($_POST['app_skin']);
+    $cfg['app_pcat']  = pmc_filter_input($_POST['app_pcat']);
+    $cfg['app_pmov']  = pmc_filter_input($_POST['app_pmov']);
+    $cfg['app_imov']  = pmc_filter_input($_POST['app_imov']);
+    $cfg['app_iusr']  = pmc_filter_input($_POST['app_iusr']);
+    $cfg['app_dmov']  = pmc_filter_input($_POST['app_dmov']);
+    
+    pmc_dbclose($pmc_dbconn);
+  }
+  if($err == 0) {echo 'install';}
+  else {echo 'err';}
 }
 else {
-?>
-<form enctype="multipart/form-data" id="setup_form" name="setup_form" action="" method="post">
-<table border="0" cellspacing="0" cellpadding="0" align="center">
-
-<tr>
-  <td class="label">
-  &#160;
-  </td>
-  <td class="input">
-  <h3>Application information</h3>
-  </td>
-</tr>
-<tr>
- <td class="label">
- <label for="app_url">Application URL:</label>
- </td>
- <td class="input">
- <input id="app_url" name="app_url" type="text" size="50" maxlength="150" value="<?php echo $cfg['app_url']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="app_dir">Application Path:</label>
- </td>
- <td class="input">
- <input id="app_dir" name="app_dir" type="text" size="50" maxlength="150" value="<?php echo $cfg['app_dir']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="app_index">Remove "index.php" from application URL:</label>
- </td>
- <td class="input">
- <select id="app_index" name="app_index" size="1">
-  <option value="0"<?php if($cfg['app_index'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['app_index'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-
-<tr>
-  <td class="label">
-  &#160;
-  </td>
-  <td class="input">
-  <h3>Database information</h3>
-  </td>
-</tr>
-<tr>
- <td class="label">
- <label for="db_host">Database host:</label>
- </td>
- <td class="input">
- <input id="db_host" name="db_host" type="text" size="20" maxlength="30" value="<?php echo $cfg['db_host']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="db_user">Database user:</label>
- </td>
- <td class="input">
- <input id="db_user" name="db_user" type="text" size="20" maxlength="30" value="<?php echo $cfg['db_user']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="db_pass">Database password:</label>
- </td>
- <td class="input">
- <input id="db_pass" name="db_pass" type="text" size="20" maxlength="30" value="<?php echo $cfg['db_pass']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="db_name">Database name:</label>
- </td>
- <td class="input">
- <input id="db_name" name="db_name" type="text" size="20" maxlength="30" value="<?php echo $cfg['db_name']; ?>" />
- </td>
-</tr>
-
-<tr>
-  <td class="label">
-  &#160;
-  </td>
-  <td class="input">
-  <h3>Load content modules</h3>
-  </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_usr">"User" module:</label>
- </td>
- <td class="input">
- <select id="mod_usr" name="mod_usr" size="1">
-  <option value="0"<?php if($cfg['mod_usr'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_usr'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_login">"Login" module:</label>
- </td>
- <td class="input">
- <select id="mod_login" name="mod_login" size="1">
-  <option value="0"<?php if($cfg['mod_login'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_login'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_gen">"Genres" module:</label>
- </td>
- <td class="input">
- <select id="mod_gen" name="mod_gen" size="1">
-  <option value="0"<?php if($cfg['mod_gen'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_gen'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_src">"Search" module:</label>
- </td>
- <td class="input">
- <select id="mod_src" name="mod_src" size="1">
-  <option value="0"<?php if($cfg['mod_src'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_src'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_imdb">"IMDb search" module:</label>
- </td>
- <td class="input">
- <select id="mod_imdb" name="mod_imdb" size="1">
-  <option value="0"<?php if($cfg['mod_imdb'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_imdb'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="mod_lst">"MyList" module:</label>
- </td>
- <td class="input">
- <select id="mod_lst" name="mod_lst" size="1">
-  <option value="0"<?php if($cfg['mod_lst'] == 0) {echo ' selected="selected"';} ?>>No</option>
-  <option value="1"<?php if($cfg['mod_lst'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
- </select>
- </td>
-</tr>
-
-<tr>
-  <td class="label">
-  &#160;
-  </td>
-  <td class="input">
-  <h3>Root User</h3>
-  </td>
-</tr>
-<tr>
- <td class="label">
- <label for="usr_name">Alias:</label>
- </td>
- <td class="input">
- <input id="usr_name" name="usr_name" type="text" size="20" maxlength="30" value="<?php echo $cfg['usr_name']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="usr_fname">First name:</label>
- </td>
- <td class="input">
- <input id="usr_fname" name="usr_fname" type="text" size="20" maxlength="30" value="<?php echo $cfg['usr_fname']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="usr_lname">Last name:</label>
- </td>
- <td class="input">
- <input id="usr_lname" name="usr_lname" type="text" size="20" maxlength="30" value="<?php echo $cfg['usr_lname']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="usr_mail">Valid email:</label>
- </td>
- <td class="input">
- <input id="usr_mail" name="usr_mail" type="text" size="20" maxlength="30" value="<?php echo $cfg['usr_mail']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="usr_pass">Password:</label>
- </td>
- <td class="input">
- <input id="usr_pass" name="usr_pass" type="text" size="20" maxlength="30" value="<?php echo $cfg['usr_pass']; ?>" />
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="usr_skin">Skin:</label>
- </td>
- <td class="input">
-<select id="usr_skin" name="usr_skin" size="1">
-<?php
-$skins = pmc_lsdir('../skin/');
-$ts = count($skins);
-for($i=0;$i<$ts;$i++) {
-?>
-<option value="<?php echo $skins[$i]; ?>"<?php if($cfg['usr_skin'] == $skins[$i]) {echo ' selected="selected"';}?>><?php echo $skins[$i]; ?></option>
-<?php
-}
-?>
-</select> 
- </td>
-</tr>
-<tr>
- <td class="label">
- <label for="usr_lang">Language:</label>
- </td>
- <td class="input">
-<select id="usr_lang" name="usr_lang" size="1">
-<?php
-$langs = pmc_lsdir('../lang/');
-$tl = count($langs);
-for($j=0;$j<$tl;$j++) {
-?>
-<option value="<?php echo $langs[$j]; ?>"<?php if($cfg['usr_lang'] == $langs[$j]) {echo ' selected="selected"';}?>><?php echo $langs[$j]; ?></option>
-<?php
-}
-?>
-</select> 
- </td>
-</tr>
-
-
-
-
-
-
-
-<tr>
-  <td class="label">
-  &#160;
-  </td>
-  <td class="input">
-  <h3>Application settings</h3>
-  </td>
-</tr>
-</table>
-</form>
-<?php
-
+  require_once 'tpl.frm.inc.php';
 }
 
 require_once 'tpl.ftr.inc.php';

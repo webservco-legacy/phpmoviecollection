@@ -143,29 +143,4 @@ function chk_cfg_wrt($path, $file) {
   else if(!file_exists($path.$file) && !is_writable($path)) {$err = 3;}
   return $err;
 }
-/**
-* List subdirectories within a certain directory
-*
-* @param string directory to scan
-*
-* @return array subdirectory list
-*/
-function pmc_lsdir($dir) {
-  $subdirs = NULL;
-  $i = '0';
-  if (is_dir($dir)) {
-    if ($dh = opendir($dir)) {
-      while (($file = readdir($dh)) !== false) {
-        if ($file != "." && $file != "..") {
-          if (filetype($dir . $file) == 'dir') {
-            $subdirs[$i] = $file;
-            $i++;
-          }
-        }
-      }
-    closedir($dh);
-    }
-  }
-  return $subdirs;
-}
 ?>
