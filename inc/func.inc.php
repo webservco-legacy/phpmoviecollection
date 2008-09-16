@@ -51,10 +51,11 @@ function pmc_process() {
   if(isset($_GET['admin']) && $_GET['admin'] != '') {
     if($_SESSION['pmc_usr_level'] >= 4) {
       switch($_GET['admin']) {
-        case 'categ'    : {require_once _APP_DIR . 'inc/func-a_c.inc.php'; $cnt = pmc_adm_categ(); break;}
-        case 'movies'   : {require_once _APP_DIR . 'inc/func-a_m.inc.php'; $cnt = pmc_adm_movies(); break;}
-        case 'settings' : {require_once _APP_DIR . 'inc/func-a_s.inc.php'; $cnt = pmc_adm_settings(); break;}
-        case 'users'    : {require_once _APP_DIR . 'inc/func-a_u.inc.php'; $cnt = pmc_adm_users(); break;}
+        case 'categ'    : {require_once _APP_DIR . 'inc/func-a_c.inc.php';  $cnt = pmc_adm_categ(); break;}
+        case 'movies'   : {require_once _APP_DIR . 'inc/func-a_m.inc.php';  $cnt = pmc_adm_movies(); break;}
+        case 'settings' : {require_once _APP_DIR . 'inc/func-a_s.inc.php';  $cnt = pmc_adm_settings(); break;}
+        case 'users'    : {require_once _APP_DIR . 'inc/func-a_u.inc.php';  $cnt = pmc_adm_users(); break;}
+        case 'media'    : {require_once _APP_DIR . 'inc/func-a_md.inc.php'; $cnt = pmc_adm_media(); break;}
         default         : {$_SESSION['pmc_msg'] = 2; header("Location: "._APP_URL); exit; break;}
       }
     }
@@ -78,6 +79,8 @@ function pmc_process() {
       case 'langs'    : {$cnt = pmc_view_langs(); break;}
       case 'skins'    : {$cnt = pmc_view_skins(); break;}
       case 'list'     : {$cnt = pmc_view_list(); break;}
+      case 'help'     : {$cnt = pmc_view_help(); break;}
+      case 'about'    : {$cnt = pmc_view_about(); break;}
       default         : {$_SESSION['pmc_msg'] = 2; header("Location: "._APP_URL); exit; break;}
     }
   }
@@ -244,6 +247,28 @@ function pmc_view_search() {
 */
 
 /*
+* ********** ********** ********** ********** MEDIA REQUEST PROCESSING START ********** ********** ********** **********
+*/
+/**
+* Media administration function
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_adm_media() {
+  $cnt = NULL;
+  if(isset($_GET['add']) && $_GET['add'] == 'new') {
+    $cnt = pmc_adm_media_add();
+  }
+  else {
+    $cnt = pmc_adm_media_view();
+  }
+  return $cnt;
+}
+/*
+* ********** ********** ********** ********** MEDIA REQUEST PROCESSING END ********** ********** ********** **********
+*/
+
+/*
 * ********** ********** ********** ********** GENERAL CATEGORY FUNCTIONS START ********** ********** ********** **********
 */
 
@@ -330,6 +355,7 @@ function pmc_categ_view() {
 * @return array $cnt content to be displayed to the user
 */
 function pmc_mov_details($id) {
+  // categs
   $vcr = pmc_qry_exec("SELECT cat_id, cat_tt FROM pmc_mov_cat ORDER BY cat_ord");
   $vct = pmc_qry_total($vcr);
   if($vct > 0) {
@@ -341,11 +367,25 @@ function pmc_mov_details($id) {
   }
   else {$_SESSION['pmc_msg'] = 34; header("Location: " . _APP_URL . 'admin/categ/add/new'); exit;}
   
+  // media
+  $rm = pmc_qry_exec("SELECT * FROM pmc_mov_med ORDER BY med_cat ASC");
+  $tm = pmc_qry_total($rm);
+  if($tm > 0) {
+    for($j=1;$j<=$tm;$j++) {
+      $rwm = pmc_qry_row($rm);
+      $cnt['page']['media']['id'][$v] = $rwm['med_id'];
+      $cnt['page']['media']['tt'][$v] = $rwm['med_cat'] . ' : ' . $rwm['med_tt'];
+    }
+  }
+  else {$cnt['page']['media']['id'] = array();}
+  
   $result = pmc_qry_exec("SELECT * FROM pmc_mov_tt WHERE mov_id = '{$id}'");
   $total = pmc_qry_total($result);
   if($total == 1) {
     $row = pmc_qry_row($result);
     $cnt['page']['cat_id']       = $row['cat_id'];
+    $cnt['page']['med_id']       = $row['med_id'];
+    $cnt['page']['mov_cat']      = $row['mov_cat'];
     $cnt['page']['mov_pic']      = $row['mov_pic'];
     $cnt['page']['mov_imdb']     = $row['mov_imdb'];
     $cnt['page']['mov_tt_pre']   = $row['mov_tt_pre'];
@@ -359,11 +399,15 @@ function pmc_mov_details($id) {
     $cnt['page']['mov_tag']      = $row['mov_tag'];
     $cnt['page']['mov_plot']     = $row['mov_plot'];
     $cnt['page']['mov_cast']     = $row['mov_cast'];
+    $cnt['page']['mov_format']   = $row['mov_format'];
+    $cnt['page']['mov_subs']     = $row['mov_subs'];
     $cnt['page']['mov_notes']    = $row['mov_notes'];
   }
   else {
     $cnt['page']['cat_id']       = '';
+    $cnt['page']['med_id']       = '';
     $cnt['page']['mov_pic']      = '';
+    $cnt['page']['mov_cat']      = '';
     $cnt['page']['mov_imdb']     = '';
     $cnt['page']['mov_tt_pre']   = '';
     $cnt['page']['mov_tt']       = '';
@@ -376,6 +420,8 @@ function pmc_mov_details($id) {
     $cnt['page']['mov_tag']      = '';
     $cnt['page']['mov_plot']     = '';
     $cnt['page']['mov_cast']     = '';
+    $cnt['page']['mov_format']   = '';
+    $cnt['page']['mov_subs']     = '';
     $cnt['page']['mov_notes']    = '';
   }
   /* genres */
@@ -413,7 +459,15 @@ function pmc_mov_view($cnttype = 'admin') {
       $cnt['page']['cat_tt'][$rwc['cat_id']] = $rwc['cat_tt'];
     }
   }
-  
+  // media  
+  $rm = pmc_qry_exec("SELECT * FROM pmc_mov_med ORDER BY med_cat ASC");
+  $tm = pmc_qry_total($rm);
+  if($tm > 0) {
+    for($k=1;$k<=$tm;$k++) {
+      $rwm = pmc_qry_row($rm);
+      $cnt['page']['med_cat'][$rwm['med_id']] = $rwm['med_cat'];
+    }
+  }
   // categ
   $cat_id = 0;
   $q_cat_id        = "IS NOT NULL";
@@ -576,20 +630,12 @@ function pmc_mov_view($cnttype = 'admin') {
 * @return array $cnt content to be displayed to the user
 */
 function pmc_usr_view() {
-  /*
-  global $lang;
-  $cnt['skin'] = 'admin.usr.view.all.tpl.php';
-  $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['categ']['viewall'];
-  $cnt['page']['users'] = array();
-  $rw = array();
-  */
   $page = 1;
   if(isset($_GET['page']) && pmc_is_int($_GET['page'])) {$page = $_GET['page'];}
   $items = _APP_IUSR;
   $offset = ($page - 1) * $items;
   $q_limit = " LIMIT ".$offset.", ".$items."";
   
-  //$r = pmc_qry_exec("SELECT SQL_CALC_FOUND_ROWS usr_id, usr_name, usr_fname, usr_lname, usr_level, usr_status FROM pmc_set_usr ORDER BY usr_level DESC, usr_name ASC {$q_limit}");
   $r = pmc_qry_exec("SELECT SQL_CALC_FOUND_ROWS U.usr_id, U.usr_name, U.usr_fname, U.usr_lname, U.usr_level, U.usr_status, count(distinct(l.mov_id)) as list_items FROM pmc_set_usr AS U LEFT JOIN pmc_set_lst AS l ON (U.usr_id = L.usr_id) GROUP BY U.usr_name {$q_limit}");
   $t = pmc_qry_total($r);
   if($t > 0) {
@@ -601,11 +647,11 @@ function pmc_usr_view() {
           $delete = pmc_qry_exec("DELETE FROM pmc_set_usr WHERE usr_id = '{$rw[$i]['usr_id']}' LIMIT 1");
           if($delete === true) {$_SESSION['pmc_msg'] = 50;}
           $unlock = pmc_unlock_tables();
-          header("Location: " . _APP_URL . 'admin/users');
-          exit;
+          
         }
       }
     }
+    if(isset($_POST['usr_save_mod']) && $_SESSION['pmc_usr_level'] >= 4) {header("Location: " . _APP_URL . 'admin/users'); exit;}
   }
   $cnt['page']['total']    = pmc_qry_result(pmc_qry_exec("SELECT FOUND_ROWS() as totalitems"));
   $cnt['page']['page']     = $page;
@@ -677,7 +723,7 @@ function pmc_genre_menu() {
 */
 function pmc_view_langs() {
   global $lang;
-  $cnt['skin'] = 'view.langs.tpl.php';
+  $cnt['skin'] = 'view/langs/v_l.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['lang']['langs'];
   $langs = pmc_lsdir(_APP_DIR.'lang/');
   $t = count($langs);
@@ -717,7 +763,7 @@ function pmc_view_langs() {
 */
 function pmc_view_skins() {
   global $lang;
-  $cnt['skin'] = 'view.skins.tpl.php';
+  $cnt['skin'] = 'view/skins/v_sk.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['skin']['skins'];
   $skins = pmc_lsdir(_APP_DIR.'skin/');
   $t = count($skins);
@@ -863,7 +909,7 @@ function pmc_view_list() {
 */
 function pmc_view_list_user($usrid) {
   global $lang;
-  $cnt['skin'] = 'view.list.usr.tpl.php';
+  $cnt['skin'] = 'view/list/v_l-user.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['list']['mylist'];
   
   
@@ -888,7 +934,7 @@ function pmc_view_list_user($usrid) {
 */
 function pmc_view_list_usr() {
   global $lang;
-  $cnt['skin'] = 'view.list.tpl.php';
+  $cnt['skin'] = 'view/list/v_l.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['list']['mylist'];
   
   $tl = count($_SESSION['pmc_usr_lst']);
@@ -935,6 +981,44 @@ function pmc_view_list_get($movie_list) {
   return $cnt['page'];
 }
 /*
-* ********** ********** ********** ********** USER LIST FUNCTIONS START ********** ********** ********** **********
+* ********** ********** ********** ********** USER LIST FUNCTIONS END ********** ********** ********** **********
+*/
+
+/*
+* ********** ********** ********** ********** HELP FUNCTIONS START ********** ********** ********** **********
+*/
+/**
+* Help page
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_help() {
+  global $lang;
+  $cnt['skin'] = 'help.tpl.php';
+  $cnt['tt']   = $lang['help']['help'];
+  $cnt['page']['text']  = $lang['help']['text'];
+  $cnt['page']['urltt'] = $lang['help']['urltt'];
+  return $cnt;
+}
+/*
+* ********** ********** ********** ********** HELP FUNCTIONS END ********** ********** ********** **********
+*/
+/*
+* ********** ********** ********** ********** ABOUT FUNCTIONS START ********** ********** ********** **********
+*/
+/**
+* About page
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_about() {
+  global $lang;
+  $cnt['skin'] = 'about.tpl.php';
+  $cnt['tt']   = $lang['about']['about'];
+  $cnt['page'] = null;
+  return $cnt;
+}
+/*
+* ********** ********** ********** ********** ABOUT FUNCTIONS END ********** ********** ********** **********
 */
 ?>

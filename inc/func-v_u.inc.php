@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    11:18 2008-09-07
+* @version    01:32 2008-09-14
 * @since      11:01 2008-09-07
 * @access     public
 * @package    pmc
@@ -30,7 +30,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 function pmc_view_usr_details($id) {
   global $lang;
 
-  $cnt['skin'] = 'admin.usr.display.id.tpl.php';
+  $cnt['skin'] = 'view/users/v_u-details.tpl.php';
   
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['usr']['view'];
   
@@ -62,8 +62,8 @@ function pmc_view_usr_details($id) {
 */
 function pmc_view_usr_view() {
   global $lang;
-  $cnt['skin'] = 'view.usr.view.all.tpl.php';
-  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['categ']['viewall'];
+  $cnt['skin'] = 'view/users/v_u-view.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['usr']['viewall'];
   $cnt['page'] = pmc_usr_view();
   return $cnt;
 }

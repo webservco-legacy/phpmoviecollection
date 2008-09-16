@@ -31,7 +31,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 */
 function pmc_view_categ_details($id) {
   global $lang;
-  $cnt['skin'] = 'view.categ.details.tpl.php';
+  $cnt['skin'] = 'view/categ/v_c-details.tpl.php';
   $cnt['tt']   = $lang['view']['view'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['view'];
   $cnt['page'] = pmc_categ_details($id);
   return $cnt;
@@ -44,7 +44,7 @@ function pmc_view_categ_details($id) {
 function pmc_view_categ_view() {
   $cnt = NULL;
   global $lang;
-  $cnt['skin'] = 'view.categ.view.tpl.php';
+  $cnt['skin'] = 'view/categ/v_c-view.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['viewall'];
   $cnt['page'] = array();
   $cnt['page']['cat_id'] = array();

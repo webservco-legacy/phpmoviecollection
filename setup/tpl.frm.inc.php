@@ -1,3 +1,4 @@
+<div id="frm">
 <form enctype="multipart/form-data" id="setup_form" name="setup_form" action="" method="post">
 <table border="0" cellspacing="0" cellpadding="0" align="center">
 <tr>
@@ -24,6 +25,9 @@
  <input id="app_dir" name="app_dir" type="text" size="45" maxlength="150" value="<?php echo $cfg['app_dir']; ?>" />
  </td>
 </tr>
+<?php
+if($mod_rewrite == 1) {
+?>
 <tr>
  <td class="label">
  <label for="app_index">Remove "index.php" from application URL:</label>
@@ -35,7 +39,9 @@
  </select>
  </td>
 </tr>
-
+<?php
+}
+?>
 <tr>
   <td class="label">
   &#160;
@@ -208,7 +214,7 @@ for($l=0;$l<$ts;$l++) {
 </tr>
 <tr>
  <td class="label">
- <label for="app_pcat">Category picture thumbnail size:</label>
+ <label for="app_pcat">Category image thumbnail size:</label>
  </td>
  <td class="input">
  <input id="app_pcat" name="app_pcat" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_pcat']; ?>" />
@@ -216,7 +222,7 @@ for($l=0;$l<$ts;$l++) {
 </tr>
 <tr>
  <td class="label">
- <label for="app_pmov">Movie picture thumbnail size:</label>
+ <label for="app_pmov">Movie image thumbnail size:</label>
  </td>
  <td class="input">
  <input id="app_pmov" name="app_pmov" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_pmov']; ?>" />
@@ -236,6 +242,14 @@ for($l=0;$l<$ts;$l++) {
  </td>
  <td class="input">
  <input id="app_iusr" name="app_iusr" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_iusr']; ?>" />
+ </td>
+</tr>
+<tr>
+ <td class="label">
+ <label for="app_imed">Number of media per page:</label>
+ </td>
+ <td class="input">
+ <input id="app_imed" name="app_imed" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_imed']; ?>" />
  </td>
 </tr>
 <tr>
@@ -346,3 +360,4 @@ for($l=0;$l<$ts;$l++) {
 
 </table>
 </form>
+</div>

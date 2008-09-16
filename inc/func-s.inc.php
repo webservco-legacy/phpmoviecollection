@@ -31,7 +31,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 */
 function pmc_view_search_advanced() {
   global $lang;
-  $cnt['skin'] = 'search.advanced.tpl.php';
+  $cnt['skin'] = 'view/search/v_s.tpl.php';
   $cnt['tt'] = $lang['search']['search'] . _APP_SEP . $lang['search']['advanced'];
   $cnt['page']['tt'] = Null;
   return  $cnt;
@@ -43,7 +43,7 @@ function pmc_view_search_advanced() {
 */
 function pmc_view_search_results() {
   global $lang;
-  $cnt['skin'] = 'search.results.tpl.php';
+  $cnt['skin'] = 'view/search/v_s-results.tpl.php';
   $cnt['tt'] = $lang['search']['search'] . _APP_SEP . $lang['search']['results'];
   $cnt['page'] = pmc_mov_view('view');
   return $cnt;

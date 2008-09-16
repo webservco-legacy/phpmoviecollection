@@ -26,6 +26,8 @@
       &#160;
     </div>
     <div id="cnt">
-      <img src="../skin/pmc/logo.png" title="phpMovieCollection" alt="phpMovieCollection" />
-      <br /><br />
+      <div id="hdr">
+      <img src="../skin/pmc/graphics/pmc.png" title="phpMovieCollection" alt="phpMovieCollection" />
       <h1>Setup</h1>
+      </div>
+      

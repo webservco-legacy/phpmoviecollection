@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:10 2008-09-13
+* @version    01:35 2008-09-14
 * @since      14:22 2008-09-12
 * @access     public
 * @package    pmc
@@ -36,13 +36,28 @@ else {die('ERROR! Files missing. Please re-install the application.');}
 
 if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] != '') {$server = $_SERVER['HTTP_HOST'];}
 else if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != '') {$server = $_SERVER['SERVER_NAME'];}
+
+$check_err = 0;
+$php_version = phpversion();
+$php_file_uploads = (int) ini_get('file_uploads');
+$gd_check = check_gd();
+if (in_array('mod_rewrite', apache_get_modules())) {$mod_rewrite = 1;}
+else {$mod_rewrite = 0;}
+
+$php_short_open_tag   = (int) ini_get('short_open_tag');
+$php_safe_mode        = (int) ini_get('safe_mode');
+$php_register_globals = (int) ini_get('register_globals');
+$php_magic_quotes_gpc = (int) ini_get('magic_quotes_gpg');
+$php_allow_url_fopen  = (int) ini_get('allow_url_fopen');
+  
 $request_uri = str_replace('/setup/install.php', '/', $_SERVER['REQUEST_URI']);
 $app_url = 'http://' . $server . $request_uri;
 
 $cfg = array();
 
 $cfg['app_url']   = $app_url;
-$cfg['app_index'] = '1';
+if($mod_rewrite == 1) {$cfg['app_index'] = '1';}
+else {$cfg['app_index'] = '0';}
 $cfg['app_dir']   = str_replace('\\', '/', realpath(dirname('../index.php'))) . '/';
 
 $cfg['db_host']   = 'localhost';
@@ -72,6 +87,7 @@ $cfg['app_pcat']  = '150';
 $cfg['app_pmov']  = '150';
 $cfg['app_imov']  = '10';
 $cfg['app_iusr']  = '10';
+$cfg['app_imed']  = '20';
 $cfg['app_dmov']  = '3';
 
 require_once 'tpl.hdr.inc.php';
@@ -80,38 +96,39 @@ if(isset($_POST['install'])) {
   $err = 0;
   $msg = '';
   $unwanted = array("\\", "\x00", "\n", "\r", "'", '"', "\xla", '&lt;', '&gt;', '<', '>');
-  $cfg['db_host']   = trim(str_replace($unwanted, ' ', $_POST['db_host']));
-  $cfg['db_user']   = trim(str_replace($unwanted, ' ', $_POST['db_user']));
-  $cfg['db_pass']   = trim(str_replace($unwanted, ' ', $_POST['db_pass']));
-  $cfg['db_name']   = trim(str_replace($unwanted, ' ', $_POST['db_name']));
+  if(isset($_POST['db_host'])) {$cfg['db_host']   = trim(str_replace($unwanted, ' ', $_POST['db_host']));}
+  if(isset($_POST['db_user'])) {$cfg['db_user']   = trim(str_replace($unwanted, ' ', $_POST['db_user']));}
+  if(isset($_POST['db_pass'])) {$cfg['db_pass']   = trim(str_replace($unwanted, ' ', $_POST['db_pass']));}
+  if(isset($_POST['db_name'])) {$cfg['db_name']   = trim(str_replace($unwanted, ' ', $_POST['db_name']));}
   
-  $cfg['app_url']   = $_POST['app_url'];
-  $cfg['app_index'] = $_POST['app_index'];
-  $cfg['app_dir']   = $_POST['app_dir'];
+  if(isset($_POST['app_url']))   {$cfg['app_url']   = $_POST['app_url'];}
+  if(isset($_POST['app_index'])) {$cfg['app_index'] = $_POST['app_index'];}
+  if(isset($_POST['app_dir']))   {$cfg['app_dir']   = $_POST['app_dir'];}
   
-  $cfg['usr_name']  = $_POST['usr_name'];
-  $cfg['usr_fname'] = $_POST['usr_fname'];
-  $cfg['usr_lname'] = $_POST['usr_lname'];
-  $cfg['usr_mail']  = $_POST['usr_mail'];
-  $cfg['usr_pass']  = $_POST['usr_pass'];
-  $cfg['usr_skin']  = $_POST['usr_skin'];
-  $cfg['usr_lang']  = $_POST['usr_lang'];
-      
-  $cfg['app_lang']  = $_POST['app_lang'];
-  $cfg['app_skin']  = $_POST['app_skin'];
-  $cfg['app_pcat']  = $_POST['app_pcat'];
-  $cfg['app_pmov']  = $_POST['app_pmov'];
-  $cfg['app_imov']  = $_POST['app_imov'];
-  $cfg['app_iusr']  = $_POST['app_iusr'];
-  $cfg['app_dmov']  = $_POST['app_dmov'];
-        
-  $cfg['mod_usr']   = $_POST['mod_usr'];
-  $cfg['mod_login'] = $_POST['mod_login'];
-  $cfg['mod_gen']   = $_POST['mod_gen'];
-  $cfg['mod_src']   = $_POST['mod_src'];
-  $cfg['mod_imdb']  = $_POST['mod_imdb'];
-  $cfg['mod_lst']   = $_POST['mod_lst'];
-  $cfg['mod_sts']   = $_POST['mod_sts'];
+  if(isset($_POST['usr_name']))  {$cfg['usr_name']  = $_POST['usr_name'];}
+  if(isset($_POST['usr_fname'])) {$cfg['usr_fname'] = $_POST['usr_fname'];}
+  if(isset($_POST['usr_lname'])) {$cfg['usr_lname'] = $_POST['usr_lname'];}
+  if(isset($_POST['usr_mail']))  {$cfg['usr_mail']  = $_POST['usr_mail'];}
+  if(isset($_POST['usr_pass']))  {$cfg['usr_pass']  = $_POST['usr_pass'];}
+  if(isset($_POST['usr_skin']))  {$cfg['usr_skin']  = $_POST['usr_skin'];}
+  if(isset($_POST['usr_lang']))  {$cfg['usr_lang']  = $_POST['usr_lang'];}
+
+  if(isset($_POST['app_lang'])) {$cfg['app_lang']  = $_POST['app_lang'];}
+  if(isset($_POST['app_skin'])) {$cfg['app_skin']  = $_POST['app_skin'];}
+  if(isset($_POST['app_pcat'])) {$cfg['app_pcat']  = $_POST['app_pcat'];}
+  if(isset($_POST['app_pmov'])) {$cfg['app_pmov']  = $_POST['app_pmov'];}
+  if(isset($_POST['app_imov'])) {$cfg['app_imov']  = $_POST['app_imov'];}
+  if(isset($_POST['app_iusr'])) {$cfg['app_iusr']  = $_POST['app_iusr'];}
+  if(isset($_POST['app_imed'])) {$cfg['app_imed']  = $_POST['app_imed'];}
+  if(isset($_POST['app_dmov'])) {$cfg['app_dmov']  = $_POST['app_dmov'];}
+
+  if(isset($_POST['mod_usr']))   {$cfg['mod_usr']   = $_POST['mod_usr'];}
+  if(isset($_POST['mod_login'])) {$cfg['mod_login'] = $_POST['mod_login'];}
+  if(isset($_POST['mod_gen']))   {$cfg['mod_gen']   = $_POST['mod_gen'];}
+  if(isset($_POST['mod_src']))   {$cfg['mod_src']   = $_POST['mod_src'];}
+  if(isset($_POST['mod_imdb']))  {$cfg['mod_imdb']  = $_POST['mod_imdb'];}
+  if(isset($_POST['mod_lst']))   {$cfg['mod_lst']   = $_POST['mod_lst'];}
+  if(isset($_POST['mod_sts']))   {$cfg['mod_sts']   = $_POST['mod_sts'];}
   
   $pmc_dbconn = pmc_dbopen($cfg['db_host'], $cfg['db_user'], $cfg['db_pass'], $cfg['db_name']);
   if(!$pmc_dbconn) {$err = 1; $msg = 'Database information is invalid!';}
@@ -134,6 +151,7 @@ if(isset($_POST['install'])) {
     $cfg['app_pmov']  = pmc_filter_input($_POST['app_pmov']);
     $cfg['app_imov']  = pmc_filter_input($_POST['app_imov']);
     $cfg['app_iusr']  = pmc_filter_input($_POST['app_iusr']);
+    $cfg['app_imed']  = pmc_filter_input($_POST['app_imed']);
     $cfg['app_dmov']  = pmc_filter_input($_POST['app_dmov']);
           
     $cfg['mod_usr']   = pmc_filter_input($_POST['mod_usr']);
@@ -159,6 +177,7 @@ if(isset($_POST['install'])) {
         else if(!pmc_is_int($cfg['app_pmov'])) {$err = 1; $msg = 'Movie picture thumbnail size is invalid!';}
         else if(!pmc_is_int($cfg['app_imov'])) {$err = 1; $msg = 'Number of movies per page is invalid!';}
         else if(!pmc_is_int($cfg['app_iusr'])) {$err = 1; $msg = 'Number of users per page is invalid!';}
+        else if(!pmc_is_int($cfg['app_imed'])) {$err = 1; $msg = 'Number of media per page is invalid!';}
         else if(!pmc_is_int($cfg['app_dmov'])) {$err = 1; $msg = 'Days a movie is considered new is invalid!';}
       }
     }
@@ -170,6 +189,7 @@ if(isset($_POST['install'])) {
     $datime = date("H:i Y-m-d");
     $c = gen_cfg_str($cfg, $datime);
     $chk = chk_cfg_wrt($cfg['app_dir'].'inc/', 'cfg.inc.php');
+    echo '<div class="msg">';
     if($chk == 0) {
       $w = wrt_cfg_str($c, $cfg['app_dir'].'inc/cfg.inc.php');
       if($w == 0) {echo '<div class="ok">Config file sucessfully saved!</div>';}
@@ -215,8 +235,10 @@ if(isset($_POST['install'])) {
     if($rs5 !== true) {$dbx_err = 1;}
     $rs6 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IUSR', '{$cfg['app_iusr']}')");
     if($rs6 !== true) {$dbx_err = 1;}
-    $rs7 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('DMOV', '{$cfg['app_dmov']}')");
-    if($rs6 !== true) {$dbx_err = 1;}
+    $rs7 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IMED', '{$cfg['app_imed']}')");
+    if($rs7 !== true) {$dbx_err = 1;}
+    $rs8 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('DMOV', '{$cfg['app_dmov']}')");
+    if($rs8 !== true) {$dbx_err = 1;}
     if($dbx_err == 0) {echo '<div class="ok">User and settings sucessfully saved (7 queries)!</div>';}
     else {echo '<div class="err">Error saving user and settings!</div>';}
     // optimization
@@ -229,23 +251,38 @@ if(isset($_POST['install'])) {
     }
     if($dbo_err == 0) {echo '<div class="ok">Database optimization sucessfull ('.$t_dbo.' queries)!</div>';}
     else {echo '<div class="err">Database optimization error!</div>';}
+    echo '</div>';
     // final message
-    echo '<div>';
+    echo '<div class="msg">';
     echo '<br />Setup is finished.<br />';
-    echo 'If you encountered errors please read the manual and <a href="install.php" title="phpMovieCollection Setup">try again</a>.<br />';
+    echo '<br />Don\'t forget to remove the write permissions on the configuration file<br />('.$cfg['app_dir'].'inc/cfg.inc.php)<br />';
+    echo 'and to delete the setup directory<br />('.$cfg['app_dir'].'setup/) or make it inaccessible.<br />';
+    echo '<br />If you encountered errors please read the manual and <a href="install.php" title="phpMovieCollection Setup">try again</a>.<br />';
     echo 'Else, <a href="'.$cfg['app_url'].'" title="phpMovieCollection">have fun with phpMovieCollection</a>!';
     echo '</div>';
     if($pmc_dbconn) {pmc_dbclose($pmc_dbconn);}
   }
   else {
+    echo '<div class="msg">';
     echo '<div class="err">';
     echo $msg;
+    echo '</div>';
     echo '</div>';
     require_once 'tpl.frm.inc.php';
   }
 }
 else {
-  require_once 'tpl.frm.inc.php';
+  require_once 'tpl.chk.inc.php';
+  if($check_err == 0) {
+    require_once 'tpl.frm.inc.php';
+  }
+  else {
+    echo '<div class="msg">';
+    echo '<span class="err">';
+    echo 'Your system does not meet the minimum system requirements for using phpMovieCollection. Please read the manual and <a href="install.php" title="phpMovieCollection Setup">try again</a>.';
+    echo '</span>';
+    echo '</div>';
+  }
 }
 
 require_once 'tpl.ftr.inc.php';

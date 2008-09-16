@@ -125,7 +125,7 @@ function pmc_output($cnt, $mod=null) {
       $opt_mod[$i] = new Skin($_SESSION['pmc_usr_skin']);
       $opt_mod[$i]->set('lang', $lang);
       if($mod[$i]['name'] == 'mod_login') {$opt_mod[$i]->set('usr_status', $usr_status);}
-      $skin->set($mod[$i]['name'], $opt_mod[$i]->parse($mod[$i]['file'].'.tpl.php'));
+      $skin->set($mod[$i]['name'], $opt_mod[$i]->parse('mod/'.$mod[$i]['file'].'.tpl.php'));
     }
   }
   /**
@@ -245,7 +245,15 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','0.0.0.000000');
+  define('_APP_VER','1.0.0-080914');
+  /**
+  * Application author
+  */
+  define('_APP_AUTH','Radu Maier');
+  /**
+  * Application copyright
+  */
+  define('_APP_CPY','&copy; 2008 '._APP_AUTH);
 }
 /**
 * Open a database connection

@@ -10,8 +10,8 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:16 2008-09-13
-* @since      18:16 2008-09-13
+* @version    01:28 2008-09-14
+* @since      01:28 2008-09-14
 * @access     public
 * @package    pmc
 * @subpackage Configuration
@@ -29,11 +29,11 @@ $ap_cfg['app_url'] = 'http://localhost/pub/temp/pmc/';
 /**
 * Full path to the application - notice the slash at the end
 */
-$ap_cfg['app_dir'] = 'D:/home/devel/server/htdocs/pub/temp/pmc/';
+$ap_cfg['app_dir'] = 'E:/home/devel/server/htdocs/pub/temp/pmc/';
 /**
 * Whether to use rewrite engine functionality or not
 */
-$ap_cfg['app_index'] = 'index.php/';
+$ap_cfg['app_index'] = '';
 /**
 * Database host
 */

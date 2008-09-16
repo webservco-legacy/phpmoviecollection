@@ -3,6 +3,11 @@ html, body {background-color: #FFFFFF; color: #000000; margin: 0; padding: 0; fo
 * html #layout {height: 100%;}
 .space {height: 30px; clear: both; width: 90%; margin: auto; display: table;}
 #cnt {clear: both; width: 70%; margin: auto; padding: 10px 10px 10px 10px; display: table; text-align: center; border: 1px solid #333333;}
+#hdr {clear: both; width: 90%; margin: auto; margin-bottom: 10px; padding: 10px 10px 10px 10px; display: table; text-align: center; border: 1px solid #333333;}
+#chk {clear: both; width: 90%; margin: auto; margin-bottom: 10px; padding: 10px 10px 10px 10px; display: table; text-align: center; border: 1px solid #333333;}
+#frm {clear: both; width: 90%; margin: auto; margin-bottom: 10px; padding: 10px 10px 10px 10px; display: table; text-align: center; border: 1px solid #333333;}
+#rst {clear: both; width: 90%; margin: auto; margin-bottom: 10px; padding: 10px 10px 10px 10px; display: table; text-align: center; border: 1px solid #333333;}
+.msg {clear: both; width: 90%; margin: auto; margin-bottom: 10px; padding: 10px 10px 10px 10px; display: table; text-align: center; border: 1px solid #333333;}
 
 form {display: inline; margin: 0px; padding: 0px;}
 h1 {margin: 0px 0px 10px 0px; line-height: 130%; font-size: 1.3em;}
@@ -16,10 +21,11 @@ a:link {background-color: #ffffff; background: transparent; color: #333333; text
 a:visited {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
 a:hover {background-color: #ffffff; background: transparent; color: #000000; text-decoration: none; font-weight: bold;}
 /* ********** ********** ********** LINK AREA END ********** ********** ********** */
-.label    {width: 250px; text-align: right; padding: 5px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+.label    {width: 250px; text-align: right; padding: 5px 10px 0px 0px; margin: 5px 0px 5px 0px;}
 .input    {font-family: Verdana, serif; font-size: 11px; text-align: left; padding: 5px 0px 0px 0px; margin: 5px 0px 5px 0px; vertical-align: middle;}
 #label     {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; background-color: #cccccc;}
 input     {font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px; vertical-align: middle;}
 select   {font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px; vertical-align: middle;}
 .err {color: #990000; font-weight: bold;}
 .ok {color: #009900; font-weight: bold;}
+.neu {color: #555555; font-weight: bold;}

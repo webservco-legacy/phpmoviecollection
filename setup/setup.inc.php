@@ -170,4 +170,21 @@ function split_sql($file, $delimiter) {
   // return
   return $sql;
 }
+/**
+* Check for GD/FreeType
+*
+* return mixed stuff
+*/
+function check_gd() {
+  if(function_exists('gd_info')) {
+    $raw_gd_info = gd_info();
+    $gd_check[0] = ereg_replace('[[:alpha:][:space:]()]+', '', $raw_gd_info['GD Version']);
+    $gd_check[1] = $raw_gd_info['FreeType Support'];
+  }
+  else {
+    $gd_check[0] = '0';
+    $gd_check[1] = '0';
+  }
+  return $gd_check;
+}
 ?>

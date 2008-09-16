@@ -30,7 +30,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 function pmc_view_settings() {
   global $lang;
   $id = $_SESSION['pmc_usr_id'];
-  $cnt['skin'] = 'view.settings.tpl.php';
+  $cnt['skin'] = 'view/settings/v_s.tpl.php';
   
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['set']['sets'];
   

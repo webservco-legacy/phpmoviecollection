@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:28 2008-09-12
+* @version    11:24 2008-09-14
 * @since      23:17 2008-08-25
 * @access     public
 * @package    pmc
@@ -27,7 +27,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 */
 $lang['msg'][0]['tt'] = 'Status ok'; // default
 $lang['msg'][0]['tp'] = 'msg';
-$lang['msg'][1]['tt'] = 'Welcome'; // logged in user
+$lang['msg'][1]['tt'] = 'Bun venit'; // logged in user
 $lang['msg'][1]['tp'] = 'ok';
 $lang['msg'][2]['tt'] = 'Resursa solicitat&#259; nu a fost g&#259;sit&#259;!'; // invalid request
 $lang['msg'][2]['tp'] = 'err';
@@ -60,9 +60,9 @@ $lang['msg'][14]['tt'] = 'Eroare la procesarea imaginii. Fi&#351;ierul nu a fost
 $lang['msg'][14]['tp'] = 'err';
 $lang['msg'][15]['tt'] = 'Eroare la procesarea imaginii. Dimensiunea fi&#351;ierului este prea mare!';
 $lang['msg'][15]['tp'] = 'err';
-$lang['msg'][16]['tt'] = 'Eroare la procesarea formularului. Completa&#355;i toate c&#226;mpurile obligatorii.';
+$lang['msg'][16]['tt'] = 'Eroare la procesarea formularului. Completa&#355;i toate c&#226;mpurile obligatorii!';
 $lang['msg'][16]['tp'] = 'err';
-$lang['msg'][17]['tt'] = 'Eroare la procEsarea formularului. Dimensiunea fi&#351;ierului trimis este prea mare. Formularul a fost resetat.';
+$lang['msg'][17]['tt'] = 'Eroare la procesarea formularului. Dimensiunea fi&#351;ierului trimis este prea mare. Formularul a fost resetat!';
 $lang['msg'][17]['tp'] = 'err';
 $lang['msg'][18]['tt'] = '';
 $lang['msg'][18]['tp'] = 'err';
@@ -91,7 +91,7 @@ $lang['msg'][28]['tt'] = 'Una sau mai multe categorii au fost &#351;terse!';
 $lang['msg'][28]['tp'] = 'ok';
 $lang['msg'][29]['tt'] = 'Noua categorie a fost ad&#259;ugat&#259; cu succes, dar stocarea imaginii a e&#351;uat!';
 $lang['msg'][29]['tp'] = 'msg';
-$lang['msg'][30]['tt'] = 'Categoria a fost modificat&#259; cu succes, dar stocarea imaginii a e&#351;uat!!';
+$lang['msg'][30]['tt'] = 'Categoria a fost modificat&#259; cu succes, dar stocarea imaginii a e&#351;uat!';
 $lang['msg'][30]['tp'] = 'msg';
 /**
 * Movies
@@ -104,7 +104,7 @@ $lang['msg'][33]['tt'] = 'Noul film a fost ad&#259;ugat cu succes, dar stocarea 
 $lang['msg'][33]['tp'] = 'msg';
 $lang['msg'][34]['tt'] = 'Nu exist&#259; categorii! &#206;nainte de a putea ad&#259;uga filme, ad&#259;uga&#355;i cel pu&#355;in o categorie!';
 $lang['msg'][34]['tp'] = 'err';
-$lang['msg'][35]['tt'] = 'S-a &#238;ncercat preluarea datelor de la IMDb';
+$lang['msg'][35]['tt'] = 'S-a &#238;ncercat preluarea datelor de la IMDb...';
 $lang['msg'][35]['tp'] = 'msg';
 $lang['msg'][36]['tt'] = 'Filmul a fost modificat cu succes!';
 $lang['msg'][36]['tp'] = 'ok';
@@ -171,4 +171,17 @@ $lang['msg'][59]['tt'] = 'Lista este goal&#259;!';
 $lang['msg'][59]['tp'] = 'msg';
 $lang['msg'][60]['tt'] = 'Nimic de &#351;ters!';
 $lang['msg'][60]['tp'] = 'msg';
+/**
+* Media
+*/
+$lang['msg'][61]['tt'] = 'Media a fost ad&#259;ugat&#259; cu succes!';
+$lang['msg'][61]['tp'] = 'ok';
+$lang['msg'][62]['tt'] = 'Eroare intern&#259;. Media nu a fost ad&#259;ugat&#259;. Dac&#259; este prima dat&#259; c&#226;nd vede&#355;i acest mesaj...';
+$lang['msg'][62]['tp'] = 'err';
+$lang['msg'][63]['tt'] = 'Datele media au fost modificate cu succes!';
+$lang['msg'][63]['tp'] = 'ok';
+$lang['msg'][64]['tt'] = 'Una sau mai multe media au fost &#351;terse!';
+$lang['msg'][64]['tp'] = 'ok';
+$lang['msg'][65]['tt'] = 'Nu exist&#259; media.';
+$lang['msg'][65]['tp'] = 'err';
 ?>

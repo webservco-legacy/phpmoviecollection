@@ -29,7 +29,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 */
 function pmc_adm_usr_add() {
   global $lang;
-  $cnt['skin'] = 'admin.usr.add.new.tpl.php';
+  $cnt['skin'] = 'admin/users/a_u-new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['usr']['add'];
   
   $cnt['page']['langs'] = pmc_lsdir(_APP_DIR.'lang/');
@@ -107,17 +107,17 @@ function pmc_adm_usr_details($id) {
   if($id_level == 0) {$_SESSION['pmc_msg'] = 48; header("Location: "._APP_URL . 'admin/users'); exit;}
   
   if($_SESSION['pmc_usr_level'] == 5) {
-    $cnt['skin'] = 'admin.usr.view.id.tpl.php';
+    $cnt['skin'] = 'admin/users/a_u-details.tpl.php';
   }
   else {
     if($_SESSION['pmc_usr_id'] != 1 && $_SESSION['pmc_usr_id'] == $id) {
-      $cnt['skin'] = 'admin.usr.view.own.tpl.php';
+      $cnt['skin'] = 'admin/users/a_u-details-own.tpl.php';
     }
     else if($_SESSION['pmc_usr_level'] > $id_level && $_SESSION['pmc_usr_level'] >= 4) {
-      $cnt['skin'] = 'admin.usr.viewl.id.tpl.php';
+      $cnt['skin'] = 'admin/users/a_u-details-limited.tpl.php';
     }
     else if($_SESSION['pmc_usr_level'] <= $id_level) {
-      $cnt['skin'] = 'admin.usr.display.id.tpl.php';
+      $cnt['skin'] = 'admin/users/a_u-details-show.tpl.php';
     }
   }
   
@@ -203,7 +203,7 @@ function pmc_adm_usr_details($id) {
 */
 function pmc_adm_usr_view() {
   global $lang;
-  $cnt['skin'] = 'admin.usr.view.all.tpl.php';
+  $cnt['skin'] = 'admin/users/a_u-view.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['usr']['usrs'] . _APP_SEP . $lang['categ']['viewall'];
   $cnt['page'] = pmc_usr_view();
   return $cnt;

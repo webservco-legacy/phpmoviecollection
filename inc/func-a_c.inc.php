@@ -29,7 +29,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 */
 function pmc_adm_categ_add() {
   global $lang;
-  $cnt['skin'] = 'admin.categ.add.new.tpl.php';
+  $cnt['skin'] = 'admin/categ/a_c-new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['add'];
 
   $egl = error_get_last();
@@ -95,7 +95,7 @@ function pmc_adm_categ_add() {
 */
 function pmc_adm_categ_details($id) {
   global $lang;
-  $cnt['skin'] = 'admin.categ.view.id.tpl.php';
+  $cnt['skin'] = 'admin/categ/a_c-details.tpl.php';
   $cnt['tt']   = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['view'];
   
   $egl = error_get_last();
@@ -160,7 +160,7 @@ function pmc_adm_categ_details($id) {
 function pmc_adm_categ_view() {
   $cnt = NULL;
   global $lang;
-  $cnt['skin'] = 'admin.categ.view.all.tpl.php';
+  $cnt['skin'] = 'admin/categ/a_c-view.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['viewall'];
   $cnt['page'] = array();
   $cnt['page']['cat_id'] = array();

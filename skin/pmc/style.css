@@ -57,9 +57,8 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #pmc_captcha_img {width: 70px; height: 18px; margin: 0px; padding: 0px; vertical-align: text-bottom;}
 #login_submit {width: 50px; font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #333333;}
 /* ********** ********** ********** USER AREA END ********** ********** ********** */
-
-.label                           {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
-.input                           {font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #333333; margin: 5px 0px 5px 0px; vertical-align: middle;}
+.label                       {width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+.input                       {margin: 5px 0px 5px 0px; vertical-align: middle;}
 label                           {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
 label.genres             {float: none; vertical-align: middle;}
 label.required         {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; color: #990000; font-weight: normal;}
@@ -121,19 +120,21 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .mov_adm_ford     {border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding: 0px; text-align: center;}
 .mov_adm_fok       {width: 75px; border-top: 1px solid #000000; border-right: 1px solid #000000; border-bottom: 1px solid #000000; padding: 0px; text-align: center;}
 
-#mov_view_holder1     {border: 0px; margin: 0px 0px 0px 0px; padding: 0px; border: 1px solid #000000;}
-#mov_view_pic             {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
-* html #mov_view_pic   {}
-#mov_view_tt               {margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
-* html #mov_view_tt     {margin-left: 157px;}
-#mov_view_cat             {margin-left: 160px; padding: 10px 10px 10px 10px;}
-* html #mov_view_cat   {margin-left: 157px;}
-#mov_view_year           {font-size: 1.2em; font-weight: bold; margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right}
-* html #mov_view_year {margin-left: 157px;}
-#mov_view_imdb           {margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right;}
-* html #mov_view_imdb {margin-left: 157px;}
-.mname                           {float: left; width: 150px; text-align: right; padding: 5px 5px 5px 5px; border-top: 1px solid #000000;}
-.mvalue                         {margin-left: 160px; text-align: left; padding: 5px 5px 5px 5px; border-top: 1px solid #000000;}
+#mov_view_holder1       {border: 0px; margin: 0px 0px 0px 0px; padding: 0px; border: 1px solid #000000;}
+#mov_view_pic               {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
+* html #mov_view_pic     {}
+#mov_view_tt                 {margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
+* html #mov_view_tt       {margin-left: 157px;}
+#mov_view_cat               {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #mov_view_cat     {margin-left: 157px;}
+#mov_view_year             {font-size: 1.2em; font-weight: bold; margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right}
+* html #mov_view_year   {margin-left: 157px;}
+#mov_view_imdb             {margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right;}
+* html #mov_view_imdb   {margin-left: 157px;}
+#mov_view_catno           {margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right;}
+* html #mov_view_catno {margin-left: 157px;}
+.mname                             {float: left; width: 150px; text-align: right; padding: 5px 5px 5px 5px; border-top: 1px solid #000000;}
+.mvalue                           {margin-left: 160px; text-align: left; padding: 5px 5px 5px 5px; border-top: 1px solid #000000;}
 
 .mov_view_hmovie {border: 1px solid #000000; padding: 0px; text-align: center;}
 .mov_view_hdel     {width: 51px; border: 1px solid #000000; padding: 2px; text-align: center;}
@@ -172,3 +173,17 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .skinsb {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px; text-align: center; font-weight: bold;}
 .skins   {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px; text-align: center;}
 /* ********** ********** ********** SKINS AREA END ********** ********** ********** */
+/* ********** ********** ********** MEDIA AREA START ********** ********** ********** */
+.media_adm_hcat {width: 50px; border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_htt   {border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_htyp {width: 100px; border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_hmov {width: 51px; border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_hdel {width: 51px; border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_ccat {border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_ctt   {border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_ctyp {border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_cmov {border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_cdel {border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_subm {border: 1px solid #000000; padding: 2px; text-align: center;}
+.media_adm_nav   {border: 1px solid #000000; padding: 2px; text-align: center;}
+/* ********** ********** ********** MEDIA AREA END ********** ********** ********** */

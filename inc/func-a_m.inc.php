@@ -28,6 +28,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 * @return array $cnt content to be displayed to the user
 */
 function pmc_adm_mov_add() {
+  global $lang;
   $vcr = pmc_qry_exec("SELECT cat_id, cat_tt FROM pmc_mov_cat ORDER BY cat_ord");
   $vct = pmc_qry_total($vcr);
   if($vct > 0) {
@@ -37,11 +38,26 @@ function pmc_adm_mov_add() {
       $cnt['page']['categs']['tt'][$v] = $vcrw['cat_tt'];
     }
   }
+  
   else {$_SESSION['pmc_msg'] = 34; header("Location: " . _APP_URL . 'admin/categ/add/new'); exit;}
-  global $lang;
-  $cnt['skin'] = 'admin.movies.add.new.tpl.php';
+  
+  // media
+  $rm = pmc_qry_exec("SELECT * FROM pmc_mov_med ORDER BY med_cat ASC");
+  $tm = pmc_qry_total($rm);
+  if($tm > 0) {
+    for($j=1;$j<=$tm;$j++) {
+      $rwm = pmc_qry_row($rm);
+      $cnt['page']['media']['id'][$v] = $rwm['med_id'];
+      $cnt['page']['media']['tt'][$v] = $rwm['med_cat'] . ' : ' . $rwm['med_tt'];
+    }
+  }
+  else {$cnt['page']['media']['id'] = array();}
+  
+  $cnt['skin'] = 'admin/movies/a_m-new.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['add'];
   $cnt['page']['cat_id']       = '';
+  $cnt['page']['med_id']       = 0;
+  $cnt['page']['mov_cat']      = '';
   $cnt['page']['mov_pic']      = '';
   $cnt['page']['mov_imdb']     = '';
   $cnt['page']['mov_tt_pre']   = '';
@@ -55,6 +71,8 @@ function pmc_adm_mov_add() {
   $cnt['page']['mov_tag']      = '';
   $cnt['page']['mov_plot']     = '';
   $cnt['page']['mov_cast']     = '';
+  $cnt['page']['mov_format']   = '';
+  $cnt['page']['mov_subs']     = '';
   $cnt['page']['mov_notes']    = '';
   
   /* genres */
@@ -101,6 +119,8 @@ function pmc_adm_mov_add() {
   }
   else if(isset($_POST['mov_add'])) {
     if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmc_filter_input($_POST['cat_id']);}
+    if(isset($_POST['med_id']))       {$cnt['page']['med_id']       = pmc_filter_input($_POST['med_id']);}
+    if(isset($_POST['mov_cat']))      {$cnt['page']['mov_cat']      = pmc_filter_input($_POST['mov_cat']);}
     if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmc_filter_input($_POST['mov_imdb']);}
     if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmc_filter_input($_POST['mov_tt_pre']);}
     if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmc_filter_input($_POST['mov_tt']);}
@@ -113,6 +133,8 @@ function pmc_adm_mov_add() {
     if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmc_filter_input($_POST['mov_tag']);}
     if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmc_filter_input($_POST['mov_plot']);}
     if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmc_filter_input($_POST['mov_cast']);}
+    if(isset($_POST['mov_format']))   {$cnt['page']['mov_format']   = pmc_filter_input($_POST['mov_format']);}
+    if(isset($_POST['mov_subs']))     {$cnt['page']['mov_subs']     = pmc_filter_input($_POST['mov_subs']);}
     if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmc_filter_input($_POST['mov_notes']);}
     
     /* genres */
@@ -153,7 +175,7 @@ function pmc_adm_mov_add() {
       if($err == 0) {
         $idate = date("Y-m-d");
         $itime = date("H:i:s");
-        $insert  = pmc_qry_exec("INSERT INTO pmc_mov_tt (cat_id, mov_pic, mov_imdb, mov_tt_pre, mov_tt, mov_aka, mov_year, mov_country, mov_language, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_pre']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_aka']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_country']}', '{$cnt['page']['mov_language']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_notes']}', '{$idate}', '{$itime}')");
+        $insert  = pmc_qry_exec("INSERT INTO pmc_mov_tt (cat_id, med_id, mov_cat, mov_pic, mov_imdb, mov_tt_pre, mov_tt, mov_aka, mov_year, mov_country, mov_language, mov_dir, mov_wrt, mov_tag, mov_plot, mov_cast, mov_format, mov_subs, mov_notes, mov_date, mov_time) VALUES ('{$cnt['page']['cat_id']}', '{$cnt['page']['med_id']}', '{$cnt['page']['mov_cat']}', '{$mov_pic}', '{$cnt['page']['mov_imdb']}', '{$cnt['page']['mov_tt_pre']}', '{$cnt['page']['mov_tt']}', '{$cnt['page']['mov_aka']}', '{$cnt['page']['mov_year']}', '{$cnt['page']['mov_country']}', '{$cnt['page']['mov_language']}', '{$cnt['page']['mov_dir']}', '{$cnt['page']['mov_wrt']}', '{$cnt['page']['mov_tag']}', '{$cnt['page']['mov_plot']}', '{$cnt['page']['mov_cast']}', '{$cnt['page']['mov_format']}', '{$cnt['page']['mov_subs']}', '{$cnt['page']['mov_notes']}', '{$idate}', '{$itime}')");
         /* genres */
         if($tg > 0) {
           for($k=0;$k<$tg;$k++) {
@@ -192,7 +214,7 @@ function pmc_adm_mov_add() {
 */
 function pmc_adm_mov_details($id) {
   global $lang;
-  $cnt['skin'] = 'admin.movies.details.tpl.php';
+  $cnt['skin'] = 'admin/movies/a_m-details.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['details'];
   
   $cnt['page'] = pmc_mov_details($id);
@@ -226,6 +248,8 @@ function pmc_adm_mov_details($id) {
   }
   else if(isset($_POST['mov_mod'])) {
     if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmc_filter_input($_POST['cat_id']);}
+    if(isset($_POST['med_id']))       {$cnt['page']['med_id']       = pmc_filter_input($_POST['med_id']);}
+    if(isset($_POST['mov_cat']))      {$cnt['page']['mov_cat']      = pmc_filter_input($_POST['mov_cat']);}
     if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmc_filter_input($_POST['mov_imdb']);}
     if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmc_filter_input($_POST['mov_tt_pre']);}
     if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmc_filter_input($_POST['mov_tt']);}
@@ -238,6 +262,8 @@ function pmc_adm_mov_details($id) {
     if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmc_filter_input($_POST['mov_tag']);}
     if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmc_filter_input($_POST['mov_plot']);}
     if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmc_filter_input($_POST['mov_cast']);}
+    if(isset($_POST['mov_format']))   {$cnt['page']['mov_format']   = pmc_filter_input($_POST['mov_format']);}
+    if(isset($_POST['mov_subs']))     {$cnt['page']['mov_subs']     = pmc_filter_input($_POST['mov_subs']);}
     if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmc_filter_input($_POST['mov_notes']);}
     
     /* genres */
@@ -281,7 +307,7 @@ function pmc_adm_mov_details($id) {
       if($err == 0 || $err == 2) {
         //$idate = date("Y-m-d");
         //$itime = date("H:i:s");
-        $update = pmc_qry_exec("UPDATE pmc_mov_tt SET cat_id = '{$cnt['page']['cat_id']}', mov_pic = '{$new_mov_pic}', mov_imdb = '{$cnt['page']['mov_imdb']}', mov_tt_pre = '{$cnt['page']['mov_tt_pre']}', mov_tt = '{$cnt['page']['mov_tt']}', mov_aka = '{$cnt['page']['mov_aka']}', mov_year= '{$cnt['page']['mov_year']}', mov_country = '{$cnt['page']['mov_country']}', mov_language = '{$cnt['page']['mov_language']}', mov_dir = '{$cnt['page']['mov_dir']}', mov_wrt = '{$cnt['page']['mov_wrt']}', mov_tag = '{$cnt['page']['mov_tag']}', mov_plot = '{$cnt['page']['mov_plot']}', mov_cast = '{$cnt['page']['mov_cast']}', mov_notes = '{$cnt['page']['mov_notes']}' WHERE mov_id = '{$id}' LIMIT 1");
+        $update = pmc_qry_exec("UPDATE pmc_mov_tt SET cat_id = '{$cnt['page']['cat_id']}', med_id = '{$cnt['page']['med_id']}', mov_cat = '{$cnt['page']['mov_cat']}', mov_pic = '{$new_mov_pic}', mov_imdb = '{$cnt['page']['mov_imdb']}', mov_tt_pre = '{$cnt['page']['mov_tt_pre']}', mov_tt = '{$cnt['page']['mov_tt']}', mov_aka = '{$cnt['page']['mov_aka']}', mov_year= '{$cnt['page']['mov_year']}', mov_country = '{$cnt['page']['mov_country']}', mov_language = '{$cnt['page']['mov_language']}', mov_dir = '{$cnt['page']['mov_dir']}', mov_wrt = '{$cnt['page']['mov_wrt']}', mov_tag = '{$cnt['page']['mov_tag']}', mov_plot = '{$cnt['page']['mov_plot']}', mov_cast = '{$cnt['page']['mov_cast']}', mov_format = '{$cnt['page']['mov_format']}', mov_subs = '{$cnt['page']['mov_subs']}', mov_notes = '{$cnt['page']['mov_notes']}' WHERE mov_id = '{$id}' LIMIT 1");
 
         /* genres */
         if($cnt['page']['tg'] > 0) {
@@ -321,7 +347,7 @@ function pmc_adm_mov_details($id) {
 */
 function pmc_adm_mov_view() {
   global $lang;
-  $cnt['skin'] = 'admin.movies.list.tpl.php';
+  $cnt['skin'] = 'admin/movies/a_m-view.tpl.php';
   $cnt['tt'] = $lang['adm']['adm'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
   $cnt['page'] = pmc_mov_view();
   return $cnt;
