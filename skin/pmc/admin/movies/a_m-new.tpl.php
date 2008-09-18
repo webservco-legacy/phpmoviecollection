@@ -48,7 +48,7 @@ $tm = count($cnt['media']['id']);
 if($tm > 0) {
   for($k=1;$k<=$tm;$k++) {
   $sel[$k] = '';
-  if($cnt['media']['id'][$k] == $cnt['media_id']) {$sel[$k] = ' selected="selected"';}
+  if($cnt['media']['id'][$k] == $cnt['med_id']) {$sel[$k] = ' selected="selected"';}
 ?>
   <option value="<?php echo $cnt['media']['id'][$k]; ?>"<?php echo $sel[$k]; ?>><?php echo $cnt['media']['tt'][$k]; ?></option>
 <?php

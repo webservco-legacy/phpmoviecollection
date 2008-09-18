@@ -43,7 +43,7 @@ for($i=0;$i<$t;$i++) {
   <td class="media_adm_cmov">
   <?php
   if($cnt['meds'][$i]['med_items'] > 0) {
-  echo '<a href="" title="">';
+  echo '<a href="'._APP_URL.'admin/movies/media/'.$cnt['meds'][$i]['med_id'].'" title="'.$lang['movie']['movies'].'">';
   echo $cnt['meds'][$i]['med_items'];
   echo '</a>';
   }

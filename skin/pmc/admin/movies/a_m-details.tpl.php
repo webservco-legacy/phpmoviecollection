@@ -28,7 +28,7 @@
 <?php
 $tc = count($cnt['categs']['id']);
 if($tc > 0) {
-  for($j=1;$j<$tc;$j++) {
+  for($j=1;$j<=$tc;$j++) {
   $sel[$j] = '';
   if($cnt['categs']['id'][$j] == $cnt['cat_id']) {$sel[$j] = ' selected="selected"';}
 ?>
@@ -48,7 +48,6 @@ if($tc > 0) {
 <select id="med_id" name="med_id" size="1">
   <option value="0"><?php echo $lang['media']['nomedia']; ?></option>
 <?php
-die(print_r($cnt)); exit;
 $tm = count($cnt['media']['id']);
 if($tm > 0) {
   for($k=1;$k<=$tm;$k++) {

@@ -271,6 +271,17 @@ for($l=0;$l<$ts;$l++) {
 </tr>
 <tr>
  <td class="label">
+ <label for="mod_mnu">"Menu" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_mnu" name="mod_mnu" size="1">
+  <option value="0"<?php if($cfg['mod_mnu'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_mnu'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
+<tr>
+ <td class="label">
  <label for="mod_usr">"User" module:</label>
  </td>
  <td class="input">

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:10 2008-09-13
+* @version    20:01 2008-09-17
 * @since      14:34 2008-09-12
 * @access     public
 * @package    pmc
@@ -82,6 +82,10 @@ $ap_cfg[\'db_pass\'] = \''.$cfg['db_pass'].'\';
 * Database name
 */
 $ap_cfg[\'db_name\'] = \''.$cfg['db_name'].'\';
+/**
+* Control the loading of the menu module
+*/
+$ap_cfg[\'mod\'][\'mod_mnu\'] = '.$cfg['mod_mnu'].';
 /**
 * Control the loading of the user module
 */

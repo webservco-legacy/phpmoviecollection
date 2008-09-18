@@ -5,7 +5,6 @@
 [x] help
 [x] about
 [-] latest additions
-[-] view movies by media_id (admin)
 [-] movie list needs a lot of work (query/filters)
 [-] navigation menu
 [x] footer
@@ -13,6 +12,9 @@
 [-] documentation (user/developer)
 [-] check all page titles
 [-] optimize/fix status messages
+[x] movie sort: med_id(media)
+[-] movie formats menu/module (can filter by that)
+[-] advanced search: mov_cat, mov_format, mov_subs, 
 [+++V2+++]
 [-] database optimization tools
 [-] find a use for it :-)

@@ -16,6 +16,9 @@ table {width: 100%;}
 a:link {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
 a:visited {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
 a:hover {background-color: #ffffff; background: transparent; color: #000000; text-decoration: none; font-weight: bold;}
+a.mnulnk:link {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
+a.mnulnk:visited {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
+a.mnulnk:hover {background-color: #ffffff; background: transparent; color: #000000; text-decoration: none; font-weight: bold;}
 #pmc_logout {}
 /* ********** ********** ********** LINK AREA END ********** ********** ********** */
 /* ********** ********** ********** HEADER AREA START ********** ********** ********** */
@@ -25,7 +28,7 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 * html #hdr { margin-bottom: -2px;}
 #usr {height: 14px; text-align: right; padding: 3px 3px 3px 0px; border-bottom: 1px solid #333333;}
 #mnu0 {height: 38px; border-bottom: 1px solid #333333;}
-#mnu1 {height: 14px; padding: 3px 0px 3px 0px;}
+#mnu1 {height: 20px; padding: 0px 0px 0px 0px;}
 #msg {height: 20px; padding: 5px 0px 0px 205px; border-top: 1px solid #333333;}
 /* ********** ********** ********** HEADER AREA END ********** ********** ********** */
 /* ********** ********** ********** CONTENT AREA START ********** ********** ********** */
@@ -46,6 +49,7 @@ a:hover {background-color: #ffffff; background: transparent; color: #000000; tex
 #mod_imdb     {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_lst       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_sts       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_mnu       {height: 20px; padding: 0px 0px 0px 0px; background-color: #eeeeee;}
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li  {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
 /* ********** ********** ********** MODULES AREA END ********** ********** ********** */

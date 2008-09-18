@@ -34,7 +34,7 @@
         {mnu0}
         </div>
         <div id="mnu1">
-        {mnu1}
+        <?php echo $mod_mnu; ?>
         </div>
       </div>
     </div>

@@ -51,6 +51,10 @@ $ap_cfg['db_pass'] = 'REDACTED';
 */
 $ap_cfg['db_name'] = 'temp';
 /**
+* Control the loading of the menu module
+*/
+$ap_cfg['mod']['mod_mnu'] = 1;
+/**
 * Control the loading of the user module
 */
 $ap_cfg['mod']['mod_usr'] = 1;

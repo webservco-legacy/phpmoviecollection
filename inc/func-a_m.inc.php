@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    23:07 2008-09-06
+* @version    20:14 2008-09-17
 * @since      15:32 2008-09-03
 * @access     public
 * @package    pmc
@@ -47,8 +47,8 @@ function pmc_adm_mov_add() {
   if($tm > 0) {
     for($j=1;$j<=$tm;$j++) {
       $rwm = pmc_qry_row($rm);
-      $cnt['page']['media']['id'][$v] = $rwm['med_id'];
-      $cnt['page']['media']['tt'][$v] = $rwm['med_cat'] . ' : ' . $rwm['med_tt'];
+      $cnt['page']['media']['id'][$j] = $rwm['med_id'];
+      $cnt['page']['media']['tt'][$j] = $rwm['med_cat'] . ' : ' . $rwm['med_tt'];
     }
   }
   else {$cnt['page']['media']['id'] = array();}

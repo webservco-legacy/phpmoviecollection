@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    01:35 2008-09-14
+* @version    20:00 2008-09-17
 * @since      14:22 2008-09-12
 * @access     public
 * @package    pmc
@@ -65,6 +65,7 @@ $cfg['db_user']   = '';
 $cfg['db_pass']   = '';
 $cfg['db_name']   = '';
 
+$cfg['mod_mnu']   = '1';
 $cfg['mod_usr']   = '1';
 $cfg['mod_login'] = '1';
 $cfg['mod_gen']   = '1';
@@ -122,6 +123,7 @@ if(isset($_POST['install'])) {
   if(isset($_POST['app_imed'])) {$cfg['app_imed']  = $_POST['app_imed'];}
   if(isset($_POST['app_dmov'])) {$cfg['app_dmov']  = $_POST['app_dmov'];}
 
+  if(isset($_POST['mod_mnu']))   {$cfg['mod_mnu']   = $_POST['mod_mnu'];}
   if(isset($_POST['mod_usr']))   {$cfg['mod_usr']   = $_POST['mod_usr'];}
   if(isset($_POST['mod_login'])) {$cfg['mod_login'] = $_POST['mod_login'];}
   if(isset($_POST['mod_gen']))   {$cfg['mod_gen']   = $_POST['mod_gen'];}
@@ -154,6 +156,7 @@ if(isset($_POST['install'])) {
     $cfg['app_imed']  = pmc_filter_input($_POST['app_imed']);
     $cfg['app_dmov']  = pmc_filter_input($_POST['app_dmov']);
           
+    $cfg['mod_mnu']   = pmc_filter_input($_POST['mod_mnu']);
     $cfg['mod_usr']   = pmc_filter_input($_POST['mod_usr']);
     $cfg['mod_login'] = pmc_filter_input($_POST['mod_login']);
     $cfg['mod_gen']   = pmc_filter_input($_POST['mod_gen']);

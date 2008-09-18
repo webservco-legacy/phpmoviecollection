@@ -5,16 +5,14 @@ $t = count($cnt['movies']);
 if($t > 0) {
 ?>
 <table border="0" cellspacing="2">
-<!--
 <tr>
   <td class="mov_view_hmovie">
-  <?php //echo $lang['movie']['movie']; ?>
+  <?php echo $lang['movie']['movie']; ?>
   </td>
   <td class="mov_view_hdel">
   &#160;
   </td>
 </tr>
--->
 <?php
   for($i=0;$i<$t;$i++) {
     if($cnt['movies'][$i]['mov_tt_pre'] != '') {$movie_title[$i] = $cnt['movies'][$i]['mov_tt_pre'] . '&#160;' . $cnt['movies'][$i]['mov_tt'];}
@@ -45,6 +43,7 @@ if($t > 0) {
     </table>
   </td>
   <td class="mov_view_cdel">
+  <?php if($cnt['movies'][$i]['mov_cat'] != '') {echo $cnt['movies'][$i]['mov_cat'];} ?><br />
   &#160;
   </td>
 </tr>

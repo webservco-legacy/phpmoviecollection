@@ -4,6 +4,10 @@
 $t = count($cnt['movies']);
 if($t > 0) {
 ?>
+<?php
+if($t<0) {
+// hide the filter box until we solve the bug
+?>
 <form enctype="application/x-www-form-urlencoded" id="mov_filter_form" name="mov_filter_form" action="<?php echo _APP_URL; ?>view/movies" method="get">
 <table border="0" cellspacing="1">
 <tr><td>
@@ -34,18 +38,18 @@ if($t > 0) {
 </table>
 </td></tr></table>
 </form>
-
+<?php
+}
+?>
 <table border="0" cellspacing="2">
-<!--
 <tr>
   <td class="mov_view_hmovie">
-  <?php //echo $lang['movie']['movie']; ?>
+  <?php echo $lang['movie']['movie']; ?>
   </td>
   <td class="mov_view_hdel">
   &#160;
   </td>
 </tr>
--->
 <?php
   for($i=0;$i<$t;$i++) {
     if($cnt['movies'][$i]['mov_tt_pre'] != '') {$movie_title[$i] = $cnt['movies'][$i]['mov_tt_pre'] . '&#160;' . $cnt['movies'][$i]['mov_tt'];}
@@ -76,6 +80,7 @@ if($t > 0) {
     </table>
   </td>
   <td class="mov_view_cdel">
+  <?php if($cnt['movies'][$i]['mov_cat'] != '') {echo $cnt['movies'][$i]['mov_cat'];} ?><br />
   <form enctype="multipart/form-data" id="lst_form-<?php echo $cnt['movies'][$i]['mov_id']; ?>" name="lst_form-<?php echo $cnt['movies'][$i]['mov_id']; ?>" action="" method="post">
   <?php
   if(isset($_SESSION['pmc_usr_lst'][$cnt['movies'][$i]['mov_id']])) {

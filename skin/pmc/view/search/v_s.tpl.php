@@ -10,6 +10,11 @@
 </div>
 
 <div class="clear">
+<label for="mov_cat"><?php echo $lang['movie']['catno']; ?></label>
+<input id="mov_catno" name="mov_catno" type="text" size="5" maxlength="15" />
+</div>
+
+<div class="clear">
 <label for="mov_imdb"><?php echo $lang['movie']['imdb']; ?></label>
 <input id="mov_imdb" name="mov_imdb" type="text" size="8" maxlength="8" />
 </div>

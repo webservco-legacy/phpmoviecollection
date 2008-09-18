@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:47 2008-09-12
+* @version    20:14 2008-09-17
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -373,8 +373,8 @@ function pmc_mov_details($id) {
   if($tm > 0) {
     for($j=1;$j<=$tm;$j++) {
       $rwm = pmc_qry_row($rm);
-      $cnt['page']['media']['id'][$v] = $rwm['med_id'];
-      $cnt['page']['media']['tt'][$v] = $rwm['med_cat'] . ' : ' . $rwm['med_tt'];
+      $cnt['page']['media']['id'][$j] = $rwm['med_id'];
+      $cnt['page']['media']['tt'][$j] = $rwm['med_cat'] . ' : ' . $rwm['med_tt'];
     }
   }
   else {$cnt['page']['media']['id'] = array();}
@@ -475,6 +475,20 @@ function pmc_mov_view($cnttype = 'admin') {
     $cat_id = pmc_filter_input($_GET['categ']);
     if(pmc_is_int($cat_id) && $cat_id != 0) {$q_cat_id = "= '{$cat_id}'";}
   }
+  // med
+  $med_id = 0;
+  $q_med_id        = "IS NOT NULL";
+  if(isset($_GET['media'])) {
+    $med_id = pmc_filter_input($_GET['media']);
+    if(pmc_is_int($med_id) && $med_id != 0) {$q_med_id = "= '{$med_id}'";}
+  }
+  // format
+  $mov_format = 0;
+  $q_mov_format        = "IS NOT NULL";
+  if(isset($_GET['format'])) {
+    $mov_format = pmc_filter_input($_GET['format']);
+    if(pmc_is_int($mov_format) && $mov_format != 0) {$q_mov_format = "= '{$mov_format}'";}
+  }
   // sorting
   $sort = 'title';
   $q_sort         = "mov_tt";
@@ -510,6 +524,8 @@ function pmc_mov_view($cnttype = 'admin') {
     else if(pmc_filter_input($_POST['search']) == 2) {$searchtype = 2;}
     else if(pmc_filter_input($_POST['search']) == 3) {$searchtype = 3;}
   }
+  $q_mov_cat     = "IS NOT NULL";
+  if(isset($_POST['mov_cat'])) {$q_mov_cat = pmc_queryfill_search($searchtype, $_POST['mov_cat']);}
   $q_mov_imdb     = "IS NOT NULL";
   if(isset($_POST['mov_imdb'])) {$q_mov_imdb = pmc_queryfill_search($searchtype, $_POST['mov_imdb']);}
   $q_mov_tt       = "IS NOT NULL";
@@ -559,7 +575,7 @@ function pmc_mov_view($cnttype = 'admin') {
   }
   
   // build query
-  $q1 = "SELECT SQL_CALC_FOUND_ROWS * FROM pmc_mov_tt WHERE cat_id {$q_cat_id} AND mov_id {$q_genres} AND mov_imdb {$q_mov_imdb} AND mov_tt {$q_mov_tt} AND mov_aka {$q_mov_aka} AND mov_year {$q_mov_year} AND mov_country {$q_mov_country} AND mov_language {$q_mov_language} AND mov_dir {$q_mov_dir} AND mov_wrt {$q_mov_wrt} AND mov_tag {$q_mov_tag} AND mov_plot {$q_mov_plot} AND mov_cast {$q_mov_cast} ORDER BY {$q_sort} {$q_order} {$q_limit}";
+  $q1 = "SELECT SQL_CALC_FOUND_ROWS * FROM pmc_mov_tt WHERE med_id {$q_med_id} AND cat_id {$q_cat_id} AND mov_id {$q_genres} AND mov_imdb {$q_mov_imdb} AND mov_tt {$q_mov_tt} AND mov_aka {$q_mov_aka} AND mov_year {$q_mov_year} AND mov_country {$q_mov_country} AND mov_language {$q_mov_language} AND mov_dir {$q_mov_dir} AND mov_wrt {$q_mov_wrt} AND mov_tag {$q_mov_tag} AND mov_plot {$q_mov_plot} AND mov_cast {$q_mov_cast} AND mov_format {$q_mov_format} ORDER BY {$q_sort} {$q_order} {$q_limit}";
   $q2 = "SELECT FOUND_ROWS() as totalitems";
   
   $cnt['page']['movies'] = array();
@@ -581,7 +597,7 @@ function pmc_mov_view($cnttype = 'admin') {
       }  
     }
     if(isset($_POST['mov_save_mod']) && $_SESSION['pmc_usr_level'] >= 4) {
-      header("Location: " . _APP_URL . "admin/movies/categ/".$cat_id."/sort/".$sort."/order/".$order."/genre/".$genre);
+      header("Location: " . _APP_URL . "admin/movies/media/".$med_id."/categ/".$cat_id."/sort/".$sort."/order/".$order."/genre/".$genre."/format/".$mov_format);
       exit;
     }
   }
@@ -600,14 +616,14 @@ function pmc_mov_view($cnttype = 'admin') {
   $cnt['page']['link_first'] = '&#60;&#60;';
   $cnt['page']['link_prev']  = '&#60;';
   if($cnt['page']['page'] > 1) {
-    $cnt['page']['link_first'] = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/1">'.$cnt['page']['link_first'].'</a>';
-    $cnt['page']['link_prev']  = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/'.$cnt['page']['prevpage'].'">'.$cnt['page']['link_prev'].'</a>';
+    $cnt['page']['link_first'] = '<a href="'._APP_URL.$cnttype.'/movies/media/'.$med_id.'/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/format/'.$mov_format.'/page/1">'.$cnt['page']['link_first'].'</a>';
+    $cnt['page']['link_prev']  = '<a href="'._APP_URL.$cnttype.'/movies/media/'.$med_id.'/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/format/'.$mov_format.'/page/'.$cnt['page']['prevpage'].'">'.$cnt['page']['link_prev'].'</a>';
   }
   $cnt['page']['link_next']  = '&#62;';
   $cnt['page']['link_last']  = '&#62;&#62;';
   if($cnt['page']['page'] < $cnt['page']['maxpage']) {
-    $cnt['page']['link_next']  = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/'.$cnt['page']['nextpage'].'">'.$cnt['page']['link_next'].'</a>';
-    $cnt['page']['link_last']  = '<a href="'._APP_URL.$cnttype.'/movies/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
+    $cnt['page']['link_next']  = '<a href="'._APP_URL.$cnttype.'/movies/media/'.$med_id.'/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/format/'.$mov_format.'/page/'.$cnt['page']['nextpage'].'">'.$cnt['page']['link_next'].'</a>';
+    $cnt['page']['link_last']  = '<a href="'._APP_URL.$cnttype.'/movies/media/'.$med_id.'/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/format/'.$mov_format.'/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
   }
   $cnt['page']['movies'] = $rw;
   if($cnt['page']['total'] == 0) {$_SESSION['pmc_msg'] = 39;}

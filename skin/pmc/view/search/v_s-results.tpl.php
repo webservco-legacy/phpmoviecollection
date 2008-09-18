@@ -4,17 +4,52 @@
 $t = count($cnt['movies']);
 if($t > 0) {
 ?>
+<?php
+if($t<0) {
+// hide the filter box until we solve the bug
+?>
+<form enctype="application/x-www-form-urlencoded" id="mov_filter_form" name="mov_filter_form" action="<?php echo _APP_URL; ?>view/movies" method="get">
+<table border="0" cellspacing="1">
+<tr><td>
+<table border="0" cellspacing="0">
+<tr>
+<td class="mov_view_fsort">
+<input id="categ" name="categ" type="hidden" value="<?php echo $cnt['categ']; ?>" />
+<?php echo $lang['pmc']['sortby']; ?>
+&#160;
+<select id="sort" name="sort" size="1">
+  <option value="title"<?php if($cnt['sort'] == 'title') {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['tt']; ?></option>
+  <option value="categ"<?php if($cnt['sort'] == 'categ') {echo 'selected="selected"';} ?>><?php echo $lang['categ']['categ']; ?></option>
+  <option value="year"<?php if($cnt['sort'] == 'year')   {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['year']; ?></option>
+</select>
+  </td>
+  <td class="mov_view_ford">
+<?php echo $lang['pmc']['order']; ?>
+&#160;
+<select id="order" name="order" size="1">
+  <option value="a"<?php if($cnt['order'] == 'a') {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['ordera']; ?></option>
+  <option value="d"<?php if($cnt['order'] == 'd') {echo 'selected="selected"';} ?>><?php echo $lang['pmc']['orderd']; ?></option>
+</select>
+  </td>
+  <td class="mov_view_fok">
+<input id="filter" name="filter" type="submit" value="<?php echo $lang['pmc']['ok']; ?>" />
+  </td>
+</tr>
+</table>
+</td></tr></table>
+</form>
+<?php
+}
+?>
 <table border="0" cellspacing="2">
-<!--
 <tr>
   <td class="mov_view_hmovie">
-  <?php //echo $lang['movie']['movie']; ?>
+  <?php echo $lang['movie']['movie']; ?>
   </td>
   <td class="mov_view_hdel">
   &#160;
   </td>
 </tr>
--->
 <?php
   for($i=0;$i<$t;$i++) {
     if($cnt['movies'][$i]['mov_tt_pre'] != '') {$movie_title[$i] = $cnt['movies'][$i]['mov_tt_pre'] . '&#160;' . $cnt['movies'][$i]['mov_tt'];}
@@ -45,6 +80,7 @@ if($t > 0) {
     </table>
   </td>
   <td class="mov_view_cdel">
+  <?php if($cnt['movies'][$i]['mov_cat'] != '') {echo $cnt['movies'][$i]['mov_cat'];} ?><br />
   <form enctype="multipart/form-data" id="lst_form-<?php echo $cnt['movies'][$i]['mov_id']; ?>" name="lst_form-<?php echo $cnt['movies'][$i]['mov_id']; ?>" action="<?php echo _APP_URL; ?>view/list" method="post">
   <?php
   if(isset($_SESSION['pmc_usr_lst'][$cnt['movies'][$i]['mov_id']])) {
@@ -64,6 +100,22 @@ if($t > 0) {
   </td>
 </tr>
 <?php
+  }
+?>
+<?php
+  if($cnt['searchtype'] == 0) {
+    echo '<tr>';
+    echo '<td class="mov_view_nav" colspan="2">';
+    echo $cnt['link_first'] . '&#160;';
+    echo $cnt['link_prev'] . '&#160;';
+    echo $lang['pmc']['page'] . '&#160;';
+    echo $cnt['page'] . '&#160;';
+    echo $lang['pmc']['of'] . '&#160;';
+    echo $cnt['maxpage'] . '&#160;';
+    echo $cnt['link_next'] . '&#160;';
+    echo $cnt['link_last'] . '&#160;';
+    echo '</td>';
+    echo '</tr>';
   }
 ?>
 </table>

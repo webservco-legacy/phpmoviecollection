@@ -4,7 +4,11 @@
 $t = count($cnt['movies']);
 if($t > 0) {
 ?>
-<form enctype="application/x-www-form-urlencoded" id="mov_filter_form" name="mov_filter_form" action="<?php echo _APP_URL; ?>admin/movies" method="get">
+<?php
+if($t<0) {
+// hide the filter box until we solve the bug
+?>
+<form enctype="application/x-www-form-urlencoded" id="mov_filter_form" name="mov_filter_form" action="" method="get">
 <table border="0" cellspacing="1">
 <tr>
 <td class="mov_adm_fsort">
@@ -31,8 +35,10 @@ if($t > 0) {
 </tr>
 </table>
 </form>
-
-<form enctype="multipart/form-data" id="categs_mod_form" name="categs_mod_form" action="" method="post">
+<?php
+}
+?>
+<form enctype="multipart/form-data" id="movies_mod_form" name="movies_mod_form" action="" method="post">
 <table border="0" cellspacing="1">
 <tr>
   <td class="mov_adm_hmovie">
@@ -55,7 +61,6 @@ if($t > 0) {
       <?php echo pmc_image_thumb($cnt['movies'][$i]['mov_pic'], 'var/pic_mov/', $movie_title[$i]); ?>
       </td>
       <td class="mov_adm_tt">
-      <?php if($cnt['movies'][$i]['mov_cat']) {echo $cnt['movies'][$i]['mov_cat'] . ' : ';} ?>
       <a href="<?php echo _APP_URL; ?>admin/movies/details/<?php echo $cnt['movies'][$i]['mov_id']; ?>"><?php echo $movie_title[$i]; ?></a>
       </td>
       <td class="mov_adm_year">
@@ -67,7 +72,7 @@ if($t > 0) {
       <?php
       if($cnt['movies'][$i]['med_id'] != 0) {
       ?>
-      <a href="<?php echo _APP_URL; ?><?php echo $cnt['movies'][$i]['med_id']; ?>"><?php echo $cnt['med_cat'][$cnt['movies'][$i]['med_id']]; ?></a>
+      <a href="<?php echo _APP_URL; ?>admin/movies/media/<?php echo $cnt['movies'][$i]['med_id']; ?>"><?php echo $cnt['med_cat'][$cnt['movies'][$i]['med_id']]; ?></a>
       <?php
       }
       ?>
@@ -80,6 +85,7 @@ if($t > 0) {
     </table>
   </td>
   <td class="mov_adm_cdel">
+  <?php if($cnt['movies'][$i]['mov_cat'] != '') {echo $cnt['movies'][$i]['mov_cat'];} ?><br />
   <input id="mov_del-<?php echo $cnt['movies'][$i]['mov_id']; ?>" name="mov_del-<?php echo $cnt['movies'][$i]['mov_id']; ?>" type="checkbox" />
   </td>
 </tr>
