@@ -89,7 +89,7 @@ $cfg['app_pmov']  = '150';
 $cfg['app_imov']  = '10';
 $cfg['app_iusr']  = '10';
 $cfg['app_imed']  = '20';
-$cfg['app_dmov']  = '3';
+$cfg['app_lmov']  = '3';
 
 require_once 'tpl.hdr.inc.php';
 
@@ -121,7 +121,7 @@ if(isset($_POST['install'])) {
   if(isset($_POST['app_imov'])) {$cfg['app_imov']  = $_POST['app_imov'];}
   if(isset($_POST['app_iusr'])) {$cfg['app_iusr']  = $_POST['app_iusr'];}
   if(isset($_POST['app_imed'])) {$cfg['app_imed']  = $_POST['app_imed'];}
-  if(isset($_POST['app_dmov'])) {$cfg['app_dmov']  = $_POST['app_dmov'];}
+  if(isset($_POST['app_lmov'])) {$cfg['app_lmov']  = $_POST['app_lmov'];}
 
   if(isset($_POST['mod_mnu']))   {$cfg['mod_mnu']   = $_POST['mod_mnu'];}
   if(isset($_POST['mod_usr']))   {$cfg['mod_usr']   = $_POST['mod_usr'];}
@@ -154,7 +154,7 @@ if(isset($_POST['install'])) {
     $cfg['app_imov']  = pmc_filter_input($_POST['app_imov']);
     $cfg['app_iusr']  = pmc_filter_input($_POST['app_iusr']);
     $cfg['app_imed']  = pmc_filter_input($_POST['app_imed']);
-    $cfg['app_dmov']  = pmc_filter_input($_POST['app_dmov']);
+    $cfg['app_lmov']  = pmc_filter_input($_POST['app_lmov']);
           
     $cfg['mod_mnu']   = pmc_filter_input($_POST['mod_mnu']);
     $cfg['mod_usr']   = pmc_filter_input($_POST['mod_usr']);
@@ -181,7 +181,7 @@ if(isset($_POST['install'])) {
         else if(!pmc_is_int($cfg['app_imov'])) {$err = 1; $msg = 'Number of movies per page is invalid!';}
         else if(!pmc_is_int($cfg['app_iusr'])) {$err = 1; $msg = 'Number of users per page is invalid!';}
         else if(!pmc_is_int($cfg['app_imed'])) {$err = 1; $msg = 'Number of media per page is invalid!';}
-        else if(!pmc_is_int($cfg['app_dmov'])) {$err = 1; $msg = 'Days a movie is considered new is invalid!';}
+        else if(!pmc_is_int($cfg['app_lmov'])) {$err = 1; $msg = 'Days a movie is considered new is invalid!';}
       }
     }
   }
@@ -240,7 +240,7 @@ if(isset($_POST['install'])) {
     if($rs6 !== true) {$dbx_err = 1;}
     $rs7 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IMED', '{$cfg['app_imed']}')");
     if($rs7 !== true) {$dbx_err = 1;}
-    $rs8 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('DMOV', '{$cfg['app_dmov']}')");
+    $rs8 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('LMOV', '{$cfg['app_lmov']}')");
     if($rs8 !== true) {$dbx_err = 1;}
     if($dbx_err == 0) {echo '<div class="ok">User and settings sucessfully saved (7 queries)!</div>';}
     else {echo '<div class="err">Error saving user and settings!</div>';}

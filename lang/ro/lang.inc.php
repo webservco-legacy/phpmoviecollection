@@ -125,7 +125,7 @@ $lang['set']['pmov']        = 'Marime thumbnail imagine film';
 $lang['set']['imov']        = 'Num&#259;r de filme afi&#351;ate pe o pagin&#259;';
 $lang['set']['iusr']        = 'Num&#259;r de utilizatori afi&#351;a&#355;i pe o pagin&#259;';
 $lang['set']['imed']        = 'Num&#259;r de media afi&#351;ate pe o pagin&#259;';
-$lang['set']['dmov']        = 'Num&#259;r de zile c&#226;nd un film este considerat nou';
+$lang['set']['lmov']        = 'Num&#259;r de filme noi de afi&#351;at';
 /**
 * Users
 */
@@ -207,7 +207,7 @@ $lang['list']['titles']     = 'titluri';
 */
 $lang['stats']['stats']     = 'Statistici';
 $lang['stats']['movies']    = 'Total filme';
-$lang['stats']['newmovies'] = 'Filme noi';
+$lang['stats']['newmovies'] = 'ast&#259;zi';
 $lang['stats']['users']     = 'Total utilizatori';
 /**
 * Help

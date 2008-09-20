@@ -1,8 +1,0 @@
-searchtype
-0 - no search (pagination ok)
-1 - =
-2 - LIKE
-3 - REGEXP
-
-s = sh
-t = tz

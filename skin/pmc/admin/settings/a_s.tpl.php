@@ -87,10 +87,10 @@
 </tr>
 <tr>
   <td class="label">
-  <label for="set_dmov" class="required"><?php echo $lang['set']['dmov']; ?></label>
+  <label for="set_lmov" class="required"><?php echo $lang['set']['lmov']; ?></label>
   </td>
   <td class="input">
-  <input id="set_dmov" name="set_dmov" type="text" size="3" maxlength="3" value="<?php echo $cnt['dmov']; ?>" />
+  <input id="set_lmov" name="set_lmov" type="text" size="3" maxlength="3" value="<?php echo $cnt['lmov']; ?>" />
   </td>
 </tr>
 <tr>

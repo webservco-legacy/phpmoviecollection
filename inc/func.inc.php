@@ -498,10 +498,12 @@ function pmc_mov_view($cnttype = 'admin') {
       case 'categ' : {$q_sort = "cat_id"; break;}
       case 'title' : {$q_sort = "mov_tt"; break;}
       case 'year'  : {$q_sort = "mov_year"; break;}
+      case 'latest': {$q_sort = "x"; break;}
       default      : {break;}
     }
   }
   $order = 'a';
+  $latest = 0;
   $q_order        = "ASC";
   if(isset($_GET['order'])) {
     $order = pmc_filter_input($_GET['order']);
@@ -510,6 +512,9 @@ function pmc_mov_view($cnttype = 'admin') {
       case 'd' : {$q_order = "DESC"; break;}
       default  : {break;}
     }
+  }
+  else {
+    if($q_sort == 'x') {$q_sort = ''; $q_order = "mov_date DESC, mov_time DESC"; $latest = 1;}
   }
   
   $genre = '0';
@@ -554,7 +559,8 @@ function pmc_mov_view($cnttype = 'admin') {
   if(isset($_GET['page']) && pmc_is_int($_GET['page'])) {$page = $_GET['page'];}
   $items = _APP_IMOV;
   $offset = ($page - 1) * $items;
-  if ($searchtype == 0) {$q_limit = " LIMIT ".$offset.", ".$items."";}
+  if ($searchtype == 0 && $latest == 0) {$q_limit = " LIMIT ".$offset.", ".$items."";}
+  else if($searchtype == 0 && $latest == 1) {$q_limit = " LIMIT "._APP_LMOV;}
   else {$q_limit = "";}
   
   //genre query

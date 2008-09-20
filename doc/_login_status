@@ -1,8 +1,0 @@
-[1] = "Not submitted";
-[2] = "Empty strings";
-[3] = "Invalid login";
-[4] = "Account disabled";
-[5] = "Logged in ok";
-[6] = "Logged in";
-[7] = "Image verification failed";
-[8] = "Possible attack attempt";

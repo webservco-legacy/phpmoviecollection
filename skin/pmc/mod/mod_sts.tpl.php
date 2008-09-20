@@ -3,7 +3,7 @@
 <?php 
 $today = date("Y-m-d");
 $ttm = pmc_qry_result(pmc_qry_exec("SELECT COUNT(mov_id) FROM pmc_mov_tt"));
-$tnm = pmc_qry_result(pmc_qry_exec("SELECT COUNT(mov_id) FROM pmc_mov_tt WHERE DATEDIFF('{$today}', mov_date) <= " . _APP_DMOV));
+$tnm = pmc_qry_result(pmc_qry_exec("SELECT COUNT(mov_id) FROM pmc_mov_tt WHERE DATEDIFF('{$today}', mov_date) = '0'"));
 $ttu = pmc_qry_result(pmc_qry_exec("SELECT COUNT(usr_id) FROM pmc_set_usr"));
 ?>
 <?php echo $lang['stats']['movies']; ?>:&#160;<?php echo $ttm; ?>&#160;(<?php echo $tnm; ?>&#160;<?php echo $lang['stats']['newmovies']; ?>)<br />

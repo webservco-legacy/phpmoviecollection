@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    11:46 2008-09-14
+* @version    20:07 2008-09-20
 * @since      11:24 2008-09-14
 * @access     public
 * @package    pmc
@@ -124,7 +124,7 @@ $lang['set']['pmov']        = 'Movie image thumbnail size';
 $lang['set']['imov']        = 'Number of movies per page';
 $lang['set']['iusr']        = 'Number of users per page';
 $lang['set']['imed']        = 'Number of media per page';
-$lang['set']['dmov']        = 'Number of days a movie is considered new';
+$lang['set']['lmov']        = 'Number of latest movies to show';
 /**
 * Users
 */
@@ -206,7 +206,7 @@ $lang['list']['titles']     = 'titles';
 */
 $lang['stats']['stats']     = 'Statistics';
 $lang['stats']['movies']    = 'Total movies';
-$lang['stats']['newmovies'] = 'New movies';
+$lang['stats']['newmovies'] = 'today';
 $lang['stats']['users']     = 'Total users';
 /**
 * Help

@@ -1,8 +1,0 @@
-[x] support utf8 100%
-[x] search engine friendly URLs
-[x] uses an internal skin system for easy interface changing
-[-] developer documentation for easy customization
-[x] no JavaScript
-[-] cross browser
-[x] no echo in includes (libs, functions, etc)
-[x] movie genres from imdb
