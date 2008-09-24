@@ -1,6 +1,6 @@
 -- pmc
 -- DATABASE STRUCTURE
--- 11:04 2008-09-15
+-- 18:13 2008-09-24
 
 
 -- ////////////////////////////////////////////////////////////////////////////////
@@ -76,7 +76,7 @@ DROP TABLE IF EXISTS pmc_mov_tt;
 CREATE TABLE pmc_mov_tt (
   mov_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   cat_id INT(5) UNSIGNED NOT NULL,
-  med_id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  med_id INT(5) UNSIGNED NOT NULL,
   mov_cat VARCHAR(15) COLLATE utf8_unicode_ci NOT NULL,
   mov_pic VARCHAR(30) COLLATE utf8_unicode_ci NOT NULL,
   mov_imdb VARCHAR(8) COLLATE utf8_unicode_ci NOT NULL,

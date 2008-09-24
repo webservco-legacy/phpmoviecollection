@@ -254,10 +254,10 @@ for($l=0;$l<$ts;$l++) {
 </tr>
 <tr>
  <td class="label">
- <label for="app_dmov">Number of latest movies to show</label>
+ <label for="app_lmov">Number of latest movies to show</label>
  </td>
  <td class="input">
- <input id="app_dmov" name="app_dmov" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_lmov']; ?>" />
+ <input id="app_lmov" name="app_lmov" type="text" size="3" maxlength="4" value="<?php echo $cfg['app_lmov']; ?>" />
  </td>
 </tr>
 

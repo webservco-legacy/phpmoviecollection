@@ -1,6 +1,6 @@
 <div id="mod_sts">
 <!--<h2><?php //echo $lang['stats']['stats']; ?></h2>-->
-<?php 
+<?php
 $today = date("Y-m-d");
 $ttm = pmc_qry_result(pmc_qry_exec("SELECT COUNT(mov_id) FROM pmc_mov_tt"));
 $tnm = pmc_qry_result(pmc_qry_exec("SELECT COUNT(mov_id) FROM pmc_mov_tt WHERE DATEDIFF('{$today}', mov_date) = '0'"));

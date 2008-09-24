@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:00 2008-09-17
+* @version    18:04 2008-09-24
 * @since      14:22 2008-09-12
 * @access     public
 * @package    pmc
@@ -89,7 +89,7 @@ $cfg['app_pmov']  = '150';
 $cfg['app_imov']  = '10';
 $cfg['app_iusr']  = '10';
 $cfg['app_imed']  = '20';
-$cfg['app_lmov']  = '3';
+$cfg['app_lmov']  = '5';
 
 require_once 'tpl.hdr.inc.php';
 
@@ -181,7 +181,7 @@ if(isset($_POST['install'])) {
         else if(!pmc_is_int($cfg['app_imov'])) {$err = 1; $msg = 'Number of movies per page is invalid!';}
         else if(!pmc_is_int($cfg['app_iusr'])) {$err = 1; $msg = 'Number of users per page is invalid!';}
         else if(!pmc_is_int($cfg['app_imed'])) {$err = 1; $msg = 'Number of media per page is invalid!';}
-        else if(!pmc_is_int($cfg['app_lmov'])) {$err = 1; $msg = 'Days a movie is considered new is invalid!';}
+        else if(!pmc_is_int($cfg['app_lmov'])) {$err = 1; $msg = 'Number of latest movies to show is invalid!';}
       }
     }
   }

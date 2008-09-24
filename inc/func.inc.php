@@ -51,6 +51,7 @@ function pmc_process() {
   if(isset($_GET['admin']) && $_GET['admin'] != '') {
     if($_SESSION['pmc_usr_level'] >= 4) {
       switch($_GET['admin']) {
+        case 'admin'    : {$cnt = pmc_adm_adm(); break;}
         case 'categ'    : {require_once _APP_DIR . 'inc/func-a_c.inc.php';  $cnt = pmc_adm_categ(); break;}
         case 'movies'   : {require_once _APP_DIR . 'inc/func-a_m.inc.php';  $cnt = pmc_adm_movies(); break;}
         case 'settings' : {require_once _APP_DIR . 'inc/func-a_s.inc.php';  $cnt = pmc_adm_settings(); break;}
@@ -96,6 +97,26 @@ function pmc_process() {
   return $cnt;
 }
 
+
+
+
+/*
+* ********** ********** ********** ********** CATEGORY REQUEST PROCESSING START ********** ********** ********** **********
+*/
+
+/**
+* Administration menu function
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_adm_adm() {
+    global $lang;
+    $_SESSION['pmc_msg'] = 0;
+    $cnt['skin'] = 'admin/a-admin.tpl.php';
+    $cnt['tt'] = $lang['adm']['adm'];
+    $cnt['page'] = NULL;
+    return $cnt;
+}
 /*
 * ********** ********** ********** ********** CATEGORY REQUEST PROCESSING START ********** ********** ********** **********
 */

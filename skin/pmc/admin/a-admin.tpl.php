@@ -1,0 +1,1 @@
+<h1><?php echo $lang['adm']['adm']; ?></h1>

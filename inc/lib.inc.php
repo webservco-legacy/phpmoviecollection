@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:19 2008-09-20
+* @version    18:53 2008-09-24
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -386,13 +386,25 @@ function pmc_qry_aff($result, $db_type=0) {
 */
 function pmc_cfg_var() {
   $r = pmc_qry_exec("SELECT cfg_set, cfg_val FROM pmc_set_cfg");
-  $t = pmc_qry_total($r);
-  for($i=1; $i<=$t; $i++) {
-    $rw = pmc_qry_row($r);
-    /**
-    * Define settings
-    */
-    define('_APP_'.$rw['cfg_set'], strval($rw['cfg_val']));
+  if($r) {
+    $t = pmc_qry_total($r);
+    if($t>0) {
+      for($i=1; $i<=$t; $i++) {
+        $rw = pmc_qry_row($r);
+        /**
+        * Define settings
+        */
+        define('_APP_'.$rw['cfg_set'], strval($rw['cfg_val']));
+      }
+    }
+    else {
+      /* Some minor error like no values in table */
+      header("Location: ./setup/install.php"); exit;
+    }
+  }
+  else {
+    /* Some big error like no tables in database */
+    header("Location: ./setup/install.php"); exit;
   }
 }
 /**
@@ -523,7 +535,7 @@ function pmc_session($pmc_dbconn) {
     * Default skin
     */
     $_SESSION['pmc_usr_skin']  = _APP_DIR . 'skin/' . _APP_SKIN . '/';
-    $_SESSION['pmc_usr_skin_url']  = _APP_URL . 'skin/' . _APP_SKIN . '/';
+    $_SESSION['pmc_usr_skin_url']  = str_replace('index.php/', '', _APP_URL) . 'skin/' . _APP_SKIN . '/';
     /**
     * Reset user movie list
     */
@@ -929,13 +941,15 @@ function pmc_check_install($pmc_dbconn) {
   global $ap_cfg;
   if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] != '') {$server = $_SERVER['HTTP_HOST'];}
   else if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] != '') {$server = $_SERVER['SERVER_NAME'];}
-  $app_url = 'http://' . $server . $_SERVER['REQUEST_URI'];
+  if(isset($_SERVER['PATH_INFO'])) {$request_uri = str_replace($_SERVER['PATH_INFO'], '/', $_SERVER['REQUEST_URI']);}
+  else {$request_uri = $_SERVER['REQUEST_URI'];}
+  $request_uri = str_replace('index.php/', '', $request_uri);
+  $request_uri = str_replace('index.php', '', $request_uri);
+  $app_url = 'http://' . $server . $request_uri;
   if($ap_cfg['app_index'] != '') {$app_url = $app_url.$ap_cfg['app_index'];}
   if(!is_readable(_APP_DIR.'inc/cfg.inc.php')) {header("Location: ./setup/install.php"); exit;}
   else if(_APP_URL != $app_url) {header("Location: ./setup/install.php"); exit;}
-  //$pmc_dbconn = pmc_dbopen(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
   if(!$pmc_dbconn) {header("Location: ./setup/install.php"); exit;}
-  //else {pmc_dbclose($pmc_dbconn);}
   return true;
 }
 ?>
