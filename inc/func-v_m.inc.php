@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:14 2008-09-17
+* @version    08:09 2008-09-23
 * @since      19:32 2008-09-03
 * @access     public
 * @package    pmc
@@ -44,6 +44,18 @@ function pmc_view_mov_view() {
   global $lang;
   $cnt['skin'] = 'view/movies/v_m-view.tpl.php';
   $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['list'];
+  $cnt['page'] = pmc_mov_view('view');
+  return $cnt;
+}
+/**
+* Movie list latest
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_mov_latest() {
+  global $lang;
+  $cnt['skin'] = 'view/movies/v_m-latest.tpl.php';
+  $cnt['tt'] = $lang['view']['view'] . _APP_SEP . $lang['movie']['movies'] . _APP_SEP . $lang['movie']['latest'];
   $cnt['page'] = pmc_mov_view('view');
   return $cnt;
 }

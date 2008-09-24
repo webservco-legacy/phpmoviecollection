@@ -103,7 +103,7 @@ if($t<0) {
   }
 ?>
 <?php
-  if($cnt['searchtype'] == 0) {
+  if($cnt['searchtype'] == 0 && $cnt['latest'] != 1) {
     echo '<tr>';
     echo '<td class="mov_view_nav" colspan="2">';
     echo $cnt['link_first'] . '&#160;';

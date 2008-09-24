@@ -98,10 +98,12 @@ $lang['movie']['list']      = 'Movie list';
 $lang['movie']['catno']     = 'Catalogue number';
 $lang['movie']['mformat']   = 'Format';
 $lang['movie']['noformat']  = 'n/a';
+$lang['movie']['format'][0] = 'n/a';
 $lang['movie']['format'][1] = 'Avi (DivX/XviD)';
 $lang['movie']['format'][2] = 'Mpeg';
 $lang['movie']['format'][3] = 'DVD';
 $lang['movie']['subs']      = 'Subtitles';
+$lang['movie']['latest']    = 'New movies';
 /**
 * Genres
 */

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:14 2008-09-17
+* @version    08:09 2008-09-23
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -65,6 +65,7 @@ function pmc_process() {
     switch($_GET['view']) {
       case 'categ'    : {require_once _APP_DIR . 'inc/func-v_c.inc.php'; $cnt = pmc_view_categ(); break;}
       case 'movies'   : {require_once _APP_DIR . 'inc/func-v_m.inc.php'; $cnt = pmc_view_movies(); break;}
+      case 'latest'   : {require_once _APP_DIR . 'inc/func-v_m.inc.php'; $cnt = pmc_view_latest(); break;}
       case 'settings' : {
       if($_SESSION['pmc_usr_level'] > 0) {
         require_once _APP_DIR . 'inc/func-v_s.inc.php'; $cnt = pmc_view_settings();;
@@ -172,6 +173,15 @@ function pmc_view_movies() {
   else {
     $cnt = pmc_view_mov_view();
   }
+  return $cnt;
+}
+/**
+* Movies view latest function
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_view_latest() {
+  $cnt = pmc_view_mov_latest();
   return $cnt;
 }
 /*
@@ -491,21 +501,25 @@ function pmc_mov_view($cnttype = 'admin') {
   }
   // sorting
   $sort = 'title';
-  $q_sort         = "mov_tt";
+  $q_sort = "mov_tt";
   if(isset($_GET['sort'])) {
     $sort = pmc_filter_input($_GET['sort']);
     switch($sort) {
       case 'categ' : {$q_sort = "cat_id"; break;}
       case 'title' : {$q_sort = "mov_tt"; break;}
       case 'year'  : {$q_sort = "mov_year"; break;}
-      case 'latest': {$q_sort = "x"; break;}
+      case 'latest': {$q_sort = "y"; break;}
       default      : {break;}
     }
   }
+  else if(isset($_GET['view']) && $_GET['view'] == 'latest') {$q_sort = "x";}
   $order = 'a';
   $latest = 0;
   $q_order        = "ASC";
-  if(isset($_GET['order'])) {
+  
+  if($q_sort == 'x') {$q_sort = ''; $q_order = "mov_date DESC, mov_time DESC"; $latest = 1;}
+  else if($q_sort == 'y') {$q_sort = ''; $q_order = "mov_date DESC, mov_time DESC"; $latest = 2;}
+  else if(isset($_GET['order'])) {
     $order = pmc_filter_input($_GET['order']);
     switch($order) {
       case 'a' : {$q_order = "ASC";  break;}
@@ -513,10 +527,7 @@ function pmc_mov_view($cnttype = 'admin') {
       default  : {break;}
     }
   }
-  else {
-    if($q_sort == 'x') {$q_sort = ''; $q_order = "mov_date DESC, mov_time DESC"; $latest = 1;}
-  }
-  
+
   $genre = '0';
   if(isset($_GET['genre'])) {
     if(pmc_is_int($_GET['genre'])) {$genre = pmc_filter_input($_GET['genre']);}
@@ -560,7 +571,8 @@ function pmc_mov_view($cnttype = 'admin') {
   $items = _APP_IMOV;
   $offset = ($page - 1) * $items;
   if ($searchtype == 0 && $latest == 0) {$q_limit = " LIMIT ".$offset.", ".$items."";}
-  else if($searchtype == 0 && $latest == 1) {$q_limit = " LIMIT "._APP_LMOV;}
+  else if($searchtype == 0 && $latest == 1) {$q_limit = " LIMIT 0, "._APP_LMOV;}
+  else if($searchtype == 0 && $latest == 2) {$q_limit = " LIMIT ".$offset.", ".$items."";}
   else {$q_limit = "";}
   
   //genre query
@@ -583,6 +595,7 @@ function pmc_mov_view($cnttype = 'admin') {
   // build query
   $q1 = "SELECT SQL_CALC_FOUND_ROWS * FROM pmc_mov_tt WHERE med_id {$q_med_id} AND cat_id {$q_cat_id} AND mov_id {$q_genres} AND mov_imdb {$q_mov_imdb} AND mov_tt {$q_mov_tt} AND mov_aka {$q_mov_aka} AND mov_year {$q_mov_year} AND mov_country {$q_mov_country} AND mov_language {$q_mov_language} AND mov_dir {$q_mov_dir} AND mov_wrt {$q_mov_wrt} AND mov_tag {$q_mov_tag} AND mov_plot {$q_mov_plot} AND mov_cast {$q_mov_cast} AND mov_format {$q_mov_format} ORDER BY {$q_sort} {$q_order} {$q_limit}";
   $q2 = "SELECT FOUND_ROWS() as totalitems";
+  //die($q1); exit;
   
   $cnt['page']['movies'] = array();
   $r = pmc_qry_exec($q1);
@@ -609,6 +622,7 @@ function pmc_mov_view($cnttype = 'admin') {
   }
   $total = pmc_qry_result(pmc_qry_exec($q2));
   $cnt['page']['searchtype'] = $searchtype;
+  $cnt['page']['latest']     = $latest;
   $cnt['page']['page']       = $page;
   $cnt['page']['total']      = $total;
   $cnt['page']['maxpage']    = ceil($total/$items);

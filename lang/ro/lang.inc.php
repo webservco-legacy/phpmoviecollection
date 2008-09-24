@@ -103,6 +103,7 @@ $lang['movie']['format'][1] = 'Avi (DivX/XviD)';
 $lang['movie']['format'][2] = 'Mpeg';
 $lang['movie']['format'][3] = 'DVD';
 $lang['movie']['subs']      = 'Subtitrari';
+$lang['movie']['latest']    = 'Filme noi';
 /**
 * Genres
 */
