@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:07 2008-09-20
+* @version    18:11 2008-09-25
 * @since      11:24 2008-09-14
 * @access     public
 * @package    pmc
@@ -76,6 +76,7 @@ $lang['adm']['adm']         = 'Administration';
 */
 $lang['categ']['categ']     = 'Category';
 $lang['categ']['categs']    = 'Categories';
+$lang['categ']['nocategs']  = 'No categories';
 $lang['categ']['add']       = 'Add Category';
 $lang['categ']['view']      = 'Category Details';
 $lang['categ']['viewall']   = 'View Categories';
@@ -85,6 +86,8 @@ $lang['categ']['allcategs'] = 'All Categories';
 */
 $lang['movie']['movie']     = 'Movie';
 $lang['movie']['movies']    = 'Movies';
+$lang['movie']['mymovies']  = 'My Movies';
+$lang['movie']['nomovies']  = 'No movies';
 $lang['movie']['details']   = 'Movie Details';
 $lang['movie']['add']       = 'Add Movie';
 $lang['movie']['imdb']      = 'IMDb id';
@@ -226,6 +229,7 @@ $lang['about']['about']     = 'About';
 $lang['media']['media']     = 'Media';
 $lang['media']['nomedia']   = 'No media';
 $lang['media']['add']       = 'Add Media';
+$lang['media']['view']      = 'View Media';
 $lang['media']['cat']       = 'Catalogue number';
 $lang['media']['tt']        = 'Title';
 $lang['media']['type']      = 'Format';
@@ -234,4 +238,9 @@ $lang['media'][1]           = 'VHS';
 $lang['media'][2]           = 'CD';
 $lang['media'][3]           = 'DVD5';
 $lang['media'][4]           = 'DVD9';
+/**
+* Setup
+*/
+$lang['setup']['setup']     = 'Setup';
+$lang['setup']['install']   = 'Install';
 ?>

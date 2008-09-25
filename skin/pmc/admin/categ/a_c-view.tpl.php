@@ -1,4 +1,4 @@
-<h1><?php echo $lang['categ']['viewall']; ?></h1>
+<h1><?php echo $lang['categ']['categs']; ?></h1>
 <?php
 if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
   $tc = count($cnt['cat_id']);
@@ -55,5 +55,8 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
 </form>
 <?php
   }
+}
+else {
+  echo $lang['categ']['nocategs'];
 }
 ?>

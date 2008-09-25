@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    10:06 2008-09-14
+* @version    18:11 2008-09-25
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -76,6 +76,7 @@ $lang['adm']['adm']         = 'Administrare';
 */
 $lang['categ']['categ']     = 'Categorie';
 $lang['categ']['categs']    = 'Categorii';
+$lang['categ']['nocategs']  = 'Nu exist&#259; categorii';
 $lang['categ']['add']       = 'Ad&#259;ugare Categorie';
 $lang['categ']['view']      = 'Detalii Categorie';
 $lang['categ']['viewall']   = 'Vizualizare Categorii';
@@ -85,6 +86,8 @@ $lang['categ']['allcategs'] = 'Toate Categoriile';
 */
 $lang['movie']['movie']     = 'Film';
 $lang['movie']['movies']    = 'Filme';
+$lang['movie']['mymovies']  = 'Filmele Mele';
+$lang['movie']['nomovies']  = 'Nu exist&#259; filme';
 $lang['movie']['details']   = 'Detalii Film';
 $lang['movie']['add']       = 'Ad&#259;ugare Film';
 $lang['movie']['imdb']      = 'Id IMDb';
@@ -226,6 +229,7 @@ $lang['about']['about']     = 'Despre';
 $lang['media']['media']     = 'Media';
 $lang['media']['nomedia']   = 'Nu exist&#259; media';
 $lang['media']['add']       = 'Ad&#259;ugare Media';
+$lang['media']['view']      = 'Vizualizare Media';
 $lang['media']['cat']       = 'Num&#259;r catalog';
 $lang['media']['tt']        = 'Titlu';
 $lang['media']['type']      = 'Format';
@@ -234,4 +238,9 @@ $lang['media'][1]           = 'VHS';
 $lang['media'][2]           = 'CD';
 $lang['media'][3]           = 'DVD5';
 $lang['media'][4]           = 'DVD9';
+/**
+* Setup
+*/
+$lang['setup']['setup']     = 'Setup';
+$lang['setup']['install']   = 'Instalare';
 ?>

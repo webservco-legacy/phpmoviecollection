@@ -4,11 +4,11 @@ html, body {background-color: #FFFFFF; color: #000000; margin: 0; padding: 0; fo
 #container_hdr {clear: both; width: 90%; margin: auto; display: table;}
 #container_msg {clear: both; width: 90%; margin: auto; display: table;}
 #container_cnt {clear: both; width: 90%; margin: auto; display: table; padding-bottom: 40px;}
-#container_ftr {width: 100%; height: 40px; font-size: 0.9em; text-align: center; position: absolute; bottom: 0; border-top: 1px solid #333333;}
+#container_ftr {width: 100%; height: 40px; font-size: 1em; text-align: center; position: absolute; bottom: 0; border-top: 1px solid #333333;}
 form {display: inline; margin: 0px; padding: 0px;}
 h1 {margin: 0px 0px 10px 0px; line-height: 130%; font-size: 1.3em;}
-h2 {margin: 0px 0px 5px 0px; line-height: 130%; font-size: 1.2em;}
-h3 {margin: 0 0 0 0; line-height: 130%; font-size: 1.1em;}
+h2 {margin: 0px 0px 3px 0px; line-height: 130%; font-size: 1.2em;}
+h3 {margin: 3px 0px 3px 0px; line-height: 130%; font-size: 1.1em;}
 h4 {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
 img {margin: 0px; padding: 0px; border: 0px;}
 table {width: 100%;}
@@ -16,18 +16,19 @@ table {width: 100%;}
 a:link {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
 a:visited {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
 a:hover {background-color: #ffffff; background: transparent; color: #000000; text-decoration: none; font-weight: bold;}
-a.mnulnk:link {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
-a.mnulnk:visited {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
-a.mnulnk:hover {background-color: #ffffff; background: transparent; color: #000000; text-decoration: none; font-weight: bold;}
+a.mnulnk {background-color: #ffffff; background: transparent; font-weight: bold; text-decoration: none; margin: 0px 7px 0px 7px;}
+a.mnulnk:link       {color: #333333;}
+a.mnulnk:visited {color: #333333;}
+a.mnulnk:hover     {color: #000000;}
 #pmc_logout {}
 /* ********** ********** ********** LINK AREA END ********** ********** ********** */
 /* ********** ********** ********** HEADER AREA START ********** ********** ********** */
 #logo {float: left; width: 250px; height: 80px; margin: 0px;}
 * html #logo { margin-right: -3px;}
-#hdr {height: 80px; overflow: auto; padding: 0px 0px 0px 0px; border-left: 1px solid #333333;}
+#hdr {height: 80px; overflow: auto; padding: 0px 0px 0px 0px; border-left: 0px solid #333333;}
 * html #hdr { margin-bottom: -2px;}
-#usr {height: 14px; text-align: right; padding: 3px 3px 3px 0px; border-bottom: 1px solid #333333;}
-#mnu0 {height: 38px; border-bottom: 1px solid #333333;}
+#usr {height: 15px; text-align: right; padding: 3px 3px 3px 0px; border-bottom: 0px solid #333333;}
+#mnu0 {height: 39px; border-bottom: 0px solid #333333;}
 #mnu1 {height: 20px; padding: 0px 0px 0px 0px;}
 #msg {height: 20px; padding: 5px 0px 0px 205px; border-top: 1px solid #333333;}
 /* ********** ********** ********** HEADER AREA END ********** ********** ********** */
@@ -49,7 +50,8 @@ a.mnulnk:hover {background-color: #ffffff; background: transparent; color: #0000
 #mod_imdb     {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_lst       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_sts       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
-#mod_mnu       {height: 20px; padding: 0px 0px 0px 0px; background-color: #eeeeee;}
+#mod_mnu       {height: 17px; padding: 3px 0px 0px 3px;}
+#mod_apptt   {padding: 0px 0px 0px 10px; font-family: Georgia, sans-serif; font-weight: normal; font-size: 22px; font-style: italic;}
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li  {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
 /* ********** ********** ********** MODULES AREA END ********** ********** ********** */
@@ -191,3 +193,7 @@ input.genres             {border: 0px; margin: 0px; vertical-align: middle;}
 .media_adm_subm {border: 1px solid #000000; padding: 2px; text-align: center;}
 .media_adm_nav   {border: 1px solid #000000; padding: 2px; text-align: center;}
 /* ********** ********** ********** MEDIA AREA END ********** ********** ********** */
+/* ********** ********** ********** ADMIN AREA START ********** ********** ********** */
+#admin_mnu ul {margin: 0; padding: 0px 0px 0px 0px; list-style-type: none; list-style-image: none;}
+#admin_mnu li  {margin: 0; padding: 0px 0px 0px 10px; line-height: 150%;}
+/* ********** ********** ********** ADMIN AREA END ********** ********** ********** */

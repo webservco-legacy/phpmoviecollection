@@ -121,4 +121,7 @@ if($t<0) {
 </table>
 <?php
 }
+else {
+  echo $lang['movie']['nomovies'];
+}
 ?>

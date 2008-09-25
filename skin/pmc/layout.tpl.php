@@ -28,10 +28,10 @@
       </div>
       <div id="hdr">
         <div id="usr">
-          <?php echo $mod_usr;?>
+        <?php echo $mod_usr;?>
         </div>
         <div id="mnu0">
-        {mnu0}
+        <?php echo $mod_apptt; ?>
         </div>
         <div id="mnu1">
         <?php echo $mod_mnu; ?>

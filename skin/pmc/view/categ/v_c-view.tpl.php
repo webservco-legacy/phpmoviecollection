@@ -30,4 +30,7 @@ if(is_array($cnt['cat_id']) && count($cnt['cat_id'])>0) {
     }
   }
 }
+else {
+  echo $lang['categ']['nocategs'];
+}
 ?>

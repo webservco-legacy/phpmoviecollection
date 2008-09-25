@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    08:09 2008-09-23
+* @version    19:03 2008-09-25
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -87,12 +87,7 @@ function pmc_process() {
     }
   }
   else {
-    /* TEMP SOLUTION */
-    $_SESSION['pmc_msg'] = 0;
-    $cnt['skin'] = 'tester.tpl.php';
-    $cnt['tt'] = 'Tester';
-    $cnt['page'] = 'Hello World!';
-    /* //TEMP SOLUTION */
+    $cnt = pmc_home_page();
   }
   return $cnt;
 }
@@ -1077,5 +1072,43 @@ function pmc_view_about() {
 }
 /*
 * ********** ********** ********** ********** ABOUT FUNCTIONS END ********** ********** ********** **********
+*/
+/*
+* ********** ********** ********** ********** MISC FUNCTIONS START ********** ********** ********** **********
+*/
+/**
+* Collector info
+*
+* @return array $usr collector info
+*/
+function pmc_collector() {
+  global $lang;
+  $usr['name']  = 'Guest';
+  $usr['fname'] = 'Anonymous';
+  $usr['lname'] = '';
+  $result = pmc_qry_exec("SELECT usr_name, usr_fname, usr_lname FROM pmc_set_usr WHERE usr_id = '1' AND usr_level = '5' LIMIT 1");
+  $total = pmc_qry_total($result);
+  if($total > 0) {
+    $row = pmc_qry_row($result);
+    $usr['name']  = $row['usr_name'];
+    $usr['fname'] = $row['usr_fname'];
+    $usr['lname'] = $row['usr_lname'];
+  }
+  return $usr;
+}
+/**
+* Movie list latest
+*
+* @return array $cnt content to be displayed to the user
+*/
+function pmc_home_page() {
+  global $lang;
+  $cnt['skin'] = 'home.tpl.php';
+  $cnt['tt'] = $lang['pmc']['welcome'];
+  $cnt['page'] = pmc_mov_view('view');
+  return $cnt;
+}
+/*
+* ********** ********** ********** ********** MISC FUNCTIONS END ********** ********** ********** **********
 */
 ?>

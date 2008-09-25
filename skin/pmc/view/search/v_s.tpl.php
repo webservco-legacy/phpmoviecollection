@@ -71,7 +71,7 @@
 </div>
 
 <div class="clear">
-<label for="mov_cast">&#160;</label>
+<label for="s">&#160;</label>
 <input id="s" name="s" type="submit" value="<?php echo $lang['search']['search']; ?>" />
 &#160;&#160;&#160;
 <input id="r" name="r" type="reset" value="<?php echo $lang['search']['reset']; ?>" />

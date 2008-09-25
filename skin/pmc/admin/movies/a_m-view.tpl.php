@@ -1,4 +1,4 @@
-<h1><?php echo $lang['movie']['list']; ?></h1>
+<h1><?php echo $lang['movie']['movies']; ?></h1>
 
 <?php
 $t = count($cnt['movies']);
@@ -116,5 +116,8 @@ if($t<0) {
 </table>
 </form>
 <?php
+}
+else {
+  echo $lang['movie']['nomovies'];
 }
 ?>

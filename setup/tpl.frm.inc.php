@@ -357,6 +357,17 @@ for($l=0;$l<$ts;$l++) {
  </select>
  </td>
 </tr>
+<tr>
+ <td class="label">
+ <label for="mod_apptt">"Application title" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_apptt" name="mod_apptt" size="1">
+  <option value="0"<?php if($cfg['mod_apptt'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_apptt'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
 
 <tr>
  <td class="label">

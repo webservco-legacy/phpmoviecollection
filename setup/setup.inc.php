@@ -114,6 +114,10 @@ $ap_cfg[\'mod\'][\'mod_lst\'] = '.$cfg['mod_lst'].';
 * Control the loading of the stats module
 */
 $ap_cfg[\'mod\'][\'mod_sts\'] = '.$cfg['mod_sts'].';
+/**
+* Control the loading of the application title module
+*/
+$ap_cfg[\'mod\'][\'mod_apptt\'] = '.$cfg['mod_apptt'].';
 ?>
 ';
 return $c;

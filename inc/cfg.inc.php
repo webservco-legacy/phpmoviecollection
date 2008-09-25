@@ -10,8 +10,8 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:51 2008-09-24
-* @since      18:51 2008-09-24
+* @version    19:02 2008-09-25
+* @since      19:02 2008-09-25
 * @access     public
 * @package    pmc
 * @subpackage Configuration
@@ -82,4 +82,8 @@ $ap_cfg['mod']['mod_lst'] = 1;
 * Control the loading of the stats module
 */
 $ap_cfg['mod']['mod_sts'] = 1;
+/**
+* Control the loading of the application title module
+*/
+$ap_cfg['mod']['mod_apptt'] = 1;
 ?>
