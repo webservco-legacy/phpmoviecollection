@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:11 2008-09-25
+* @version    19:02 2008-09-26
 * @since      11:24 2008-09-14
 * @access     public
 * @package    pmc
@@ -106,7 +106,7 @@ $lang['movie']['format'][1] = 'Avi (DivX/XviD)';
 $lang['movie']['format'][2] = 'Mpeg';
 $lang['movie']['format'][3] = 'DVD';
 $lang['movie']['subs']      = 'Subtitles';
-$lang['movie']['latest']    = 'New movies';
+$lang['movie']['latest']    = 'Recent movies';
 /**
 * Genres
 */
@@ -120,7 +120,7 @@ $lang['imdb']['fetch']      = 'Fetch';
 /**
 * Settings
 */
-$lang['set']['set']         = 'Setting';
+$lang['set']['set']         = 'Set';
 $lang['set']['sets']        = 'Settings';
 $lang['set']['lang']        = 'Default application language';
 $lang['set']['skin']        = 'Default application skin';

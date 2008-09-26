@@ -12,24 +12,26 @@ h3 {margin: 3px 0px 3px 0px; line-height: 130%; font-size: 1.1em;}
 h4 {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
 img {margin: 0px; padding: 0px; border: 0px;}
 table {width: 100%;}
+#clear {clear:both; height:1px; overflow:hidden;}
 /* ********** ********** ********** LINK AREA START ********** ********** ********** */
 a:link {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
 a:visited {background-color: #ffffff; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
 a:hover {background-color: #ffffff; background: transparent; color: #000000; text-decoration: none; font-weight: bold;}
-a.mnulnk {background-color: #ffffff; background: transparent; font-weight: bold; text-decoration: none; margin: 0px 7px 0px 7px;}
+a.mnulnk {background-color: #ffffff; font-weight: bold; text-decoration: none; margin: 0px 2px 0px 2px; padding: 4px 6px 4px 6px; border-top: 1px solid #000000; border-right: 1px solid #000000; border-left: 1px solid #000000;}
 a.mnulnk:link       {color: #333333;}
 a.mnulnk:visited {color: #333333;}
-a.mnulnk:hover     {color: #000000;}
+a.mnulnk:hover     {background-color: #eeeeee; background: solid; color: #000000;}
+a.mnulnk:active     {color: #000000;}
 #pmc_logout {}
 /* ********** ********** ********** LINK AREA END ********** ********** ********** */
 /* ********** ********** ********** HEADER AREA START ********** ********** ********** */
 #logo {float: left; width: 250px; height: 80px; margin: 0px;}
 * html #logo { margin-right: -3px;}
-#hdr {height: 80px; overflow: auto; padding: 0px 0px 0px 0px; border-left: 0px solid #333333;}
+#hdr {height: 80px; overflow: hidden; padding: 0px 0px 0px 0px; border-left: 0px solid #333333;}
 * html #hdr { margin-bottom: -2px;}
 #usr {height: 15px; text-align: right; padding: 3px 3px 3px 0px; border-bottom: 0px solid #333333;}
-#mnu0 {height: 39px; border-bottom: 0px solid #333333;}
-#mnu1 {height: 20px; padding: 0px 0px 0px 0px;}
+#mnu0 {height: 37px;}
+#mnu1 {height: 22px; padding: 0px 0px 0px 0px;}
 #msg {height: 20px; padding: 5px 0px 0px 205px; border-top: 1px solid #333333;}
 /* ********** ********** ********** HEADER AREA END ********** ********** ********** */
 /* ********** ********** ********** CONTENT AREA START ********** ********** ********** */
@@ -50,7 +52,7 @@ a.mnulnk:hover     {color: #000000;}
 #mod_imdb     {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_lst       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
 #mod_sts       {border: 1px solid #333333; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
-#mod_mnu       {height: 17px; padding: 3px 0px 0px 3px;}
+#mod_mnu       {padding: 5px 0px 0px 0px;}
 #mod_apptt   {padding: 0px 0px 0px 10px; font-family: Georgia, sans-serif; font-weight: normal; font-size: 22px; font-style: italic;}
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li  {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}

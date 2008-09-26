@@ -57,6 +57,7 @@
       <div id="cnt_page">
         <?php echo $page; ?>
       </div>
+      <div id="clear"></div>
     </div>
     <div id="container_ftr">
       <div id="ftr">
@@ -67,7 +68,7 @@
 </body>
 </html>
 
-<pre>
+<!--<pre>-->
 <?php //print_r($GLOBALS); ?>
 <?php //print_r($_ENV); ?>
 <?php //print_r($_COOKIE); ?>
@@ -80,4 +81,4 @@
 <?php //print_r($_FILES); ?>
 <?php //print_r($_POST); ?>
 <?php //print_r(error_get_last()); ?>
-</pre>
+<!--</pre>-->

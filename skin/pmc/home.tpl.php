@@ -1,6 +1,5 @@
-<h1><?php echo $lang['pmc']['welcome']; ?></h1>
+<h1><?php echo $lang['pmc']['welcome']; ?>!</h1>
 <h2><?php echo $lang['movie']['latest']; ?>:</h2>
-
 <?php
 $t = count($cnt['movies']);
 if($t > 0) {
