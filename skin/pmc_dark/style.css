@@ -1,0 +1,192 @@
+html, body     {background-color: #000000; color: #eeeeee; margin: 0; padding: 0; font-family: Verdana, serif; font-size: 11px; height: 100%;}
+#layout        {min-height:100%; position:relative;}
+* html #layout {height: 100%;}
+#container_hdr {clear: both; width: 90%; margin: auto; display: table;}
+#container_msg {clear: both; width: 90%; margin: auto; display: table;}
+#container_cnt {clear: both; width: 90%; margin: auto; display: table; padding-bottom: 40px;}
+#container_ftr {width: 100%; height: 40px; font-size: 1em; text-align: center; position: absolute; bottom: 0; border-top: 1px solid #cccccc;}
+form           {display: inline; margin: 0px; padding: 0px;}
+h1             {margin: 0px 0px 10px 0px; line-height: 130%; font-size: 1.3em;}
+h2             {margin: 0px 0px 3px 0px; line-height: 130%; font-size: 1.2em;}
+h3             {margin: 3px 0px 3px 0px; line-height: 130%; font-size: 1.1em;}
+h4             {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
+img            {margin: 0px; padding: 0px; border: 0px;}
+table          {width: 100%;}
+#clear         {clear:both; height:1px; overflow:hidden;}
+/* ********** ********** ********** LINK AREA START ********** ********** ********** */
+a:link,a:visited               {background-color: #000000; background: transparent; color: #dddddd; text-decoration: none; font-weight: bold;}
+a:hover,a:active               {background-color: #000000; background: transparent; color: #333333; text-decoration: none; font-weight: bold;}
+a.mnulnk                       {background-color: #000000; color: #dddddd; font-weight: bold; text-decoration: none; margin: 0px 2px 0px 2px; padding: 4px 6px 4px 6px; border-top: 1px solid #cccccc; border-right: 1px solid #cccccc; border-left: 1px solid #cccccc;}
+a.mnulnk:hover,a.mnulnk:active {background-color: #111111;}
+/* ********** ********** ********** LINK AREA END ********** ********** ********** */
+/* ********** ********** ********** HEADER AREA START ********** ********** ********** */
+#logo        {float: left; width: 250px; height: 80px; margin: 0px;}
+* html #logo { margin-right: -3px;}
+#hdr         {height: 80px; overflow: hidden; padding: 0px 0px 0px 0px; border-left: 0px solid #cccccc;}
+* html #hdr  { margin-bottom: -2px;}
+#usr         {height: 15px; text-align: right; padding: 3px 3px 3px 0px; border-bottom: 0px solid #cccccc;}
+#mnu0        {height: 37px;}
+#mnu1        {height: 22px; padding: 0px 0px 0px 0px;}
+#msg         {height: 20px; padding: 5px 0px 0px 205px; border-top: 1px solid #cccccc;}
+/* ********** ********** ********** HEADER AREA END ********** ********** ********** */
+/* ********** ********** ********** CONTENT AREA START ********** ********** ********** */
+#cnt_left         {float: left; width: 190px; padding: 5px 5px 5px 5px; overflow: auto;}
+* html #cnt_left  {margin-right: -3px;}
+#cnt_right        {float: right; width: 190px; padding: 5px 5px 5px 5px; overflow: auto;}
+* html #cnt_right {margin-left: -3px;}
+#cnt_page         {clear: none; margin-left: 200px; margin-right: 200px; min-height: 430px; padding: 5px 10px 5px 10px; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc;}
+* html #cnt_page  {height: 430px; margin-left: 197px; margin-right: 197px;}
+/* ********** ********** ********** CONTENT AREA END ********** ********** ********** */
+/* ********** ********** ********** FOOTER AREA START ********** ********** ********** */
+#ftr {padding: 10px 0px 10px 0px;}
+/* ********** ********** ********** FOOTER AREA END ********** ********** ********** */
+/* ********** ********** ********** MODULES AREA START ********** ********** ********** */
+#mod_login   {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_gen     {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_src     {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_imdb    {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_lst     {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_sts     {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px;}
+#mod_mnu     {padding: 5px 0px 0px 0px;}
+#mod_apptt   {padding: 0px 0px 0px 10px; font-family: Georgia, sans-serif; font-weight: normal; font-size: 22px; font-style: italic;}
+#gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
+#gen_list li {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
+/* ********** ********** ********** MODULES AREA END ********** ********** ********** */
+/* ********** ********** ********** USER AREA START ********** ********** ********** */
+#login_form      {display: inline; margin: 0px; padding: 0px;}
+#pmc_login       {width: 80px; font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #cccccc;}
+#pmc_pass        {width: 80px; font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #cccccc;}
+#pmc_captcha     {width: 40px; font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #cccccc;}
+#pmc_captcha_img {width: 70px; height: 18px; margin: 0px; padding: 0px; vertical-align: text-bottom;}
+#login_submit    {width: 50px; font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #cccccc;}
+/* ********** ********** ********** USER AREA END ********** ********** ********** */
+.label         {width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+.input         {margin: 5px 0px 5px 0px; vertical-align: middle;}
+label          {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+label.genres   {float: none; vertical-align: middle;}
+label.required {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; color: #990000; font-weight: normal;}
+label.login    {float: left; width: 85px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+input          {background-color: #000000; color: #eeeeee; font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #cccccc; margin: 5px 0px 5px 0px; vertical-align: middle;}
+select         {font-family: Verdana, serif; font-size: 11px; text-align: center; border: 1px solid #cccccc; margin: 5px 0px 5px 0px; vertical-align: middle;}
+input.genres   {border: 0px; margin: 0px; vertical-align: middle;}
+#lst_view      {background-color: #000000; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; color: #eeeeee; font-weight: bold; cursor: pointer;}
+#lst_load      {background-color: #000000; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; color: #eeeeee; font-weight: bold; cursor: pointer;}
+#lst_clear     {background-color: #000000; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; color: #eeeeee; font-weight: bold; cursor: pointer;}
+#lst_save      {background-color: #000000; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; color: #eeeeee; font-weight: bold; cursor: pointer;}
+.listd         {text-align: center;}
+.genrehold     {float: left; width: 119px; padding: 2px 0px 2px 0px;}
+.genreholdtt   {float: left; width: 150px; padding: 5px 5px 5px 0px; text-align: right;}
+.clear         {clear: none;}
+.clear2        {clear: left;}
+.msg           {color: #000099; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+.ok            {color: #009900; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+.err           {color: #990000; font-family: verdana, serif; font-size: 11px; font-weight: normal;}
+.dname         {float: left; width: 150px; height: 20px; text-align: right; padding: 5px 5px 5px 0px; margin: 0px;}
+.dvalue        {height: 20px; margin: 0px 0px 0px 155px; padding: 5px 0px 5px 5px;}
+/* ********** ********** ********** CATEG AREA START ********** ********** ********** */
+.cat_adm_hord         {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_himg         {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_htt          {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_hitm         {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_hdel         {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_cord         {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_cimg         {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_ctt          {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_citm         {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_cdel         {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.cat_adm_subm         {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+#cat_view_holder      {height: 160px; border: 0px; margin: 0px 0px 10px 0px; padding: 0px; border: 1px solid #cccccc;}
+#cat_view_pic         {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
+* html #cat_view_pic  {margin-right: -3px;}
+#cat_view_tt          {margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
+* html #cat_view_tt   {margin-left: 157px;}
+#cat_view_itms        {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #cat_view_itms {margin-left: 157px;}
+#cat_view_dsc         {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #cat_view_dsc  {margin-left: 157px;}
+#cat_view_det         {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #cat_view_det  {margin-left: 157px;}
+/* ********** ********** ********** CATEG AREA END ********** ********** ********** */
+/* ********** ********** ********** MOVIE AREA START ********** ********** ********** */
+.mov_adm_hmovie        {border: 1px solid #cccccc; padding: 0px; text-align: center;}
+.mov_adm_hdel          {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.mov_adm_cmovie        {border: 1px solid #cccccc; padding: 3px; text-align: center;}
+.mov_adm_img           {width: 51px; height: 51px; background-color: #222222; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_cat           {border: 0px; padding: 2px; text-align: center;}
+.mov_adm_tt            {border: 0px; padding: 2px; text-align: center;}
+.mov_adm_year          {width: 51px; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_imdb          {width: 51px; border: 0px; padding: 2px; text-align: center;}
+.mov_adm_cdel          {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.mov_adm_nav           {border: 1px solid #cccccc; padding: 4px; text-align: center;}
+.mov_adm_subm          {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.mov_adm_fsort         {width: 200px; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 0px; text-align: center;}
+.mov_adm_ford          {border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 0px; text-align: center;}
+.mov_adm_fok           {width: 75px; border-top: 1px solid #cccccc; border-right: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 0px; text-align: center;}
+#mov_view_holder1      {border: 0px; margin: 0px 0px 0px 0px; padding: 0px; border: 1px solid #cccccc;}
+#mov_view_pic          {width: 150px; height: 150px; float: left; border: 0px; padding: 0px; padding: 5px 5px 5px 5px; text-align: center;}
+#mov_view_tt           {margin-left: 160px; font-size: 1.3em; font-weight: bold; padding: 10px 10px 10px 10px;}
+* html #mov_view_tt    {margin-left: 157px;}
+#mov_view_cat          {margin-left: 160px; padding: 10px 10px 10px 10px;}
+* html #mov_view_cat   {margin-left: 157px;}
+#mov_view_year         {font-size: 1.2em; font-weight: bold; margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right}
+* html #mov_view_year  {margin-left: 157px;}
+#mov_view_imdb         {margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right;}
+* html #mov_view_imdb  {margin-left: 157px;}
+#mov_view_catno        {margin-left: 160px; padding: 5px 10px 5px 5px; text-align: right;}
+* html #mov_view_catno {margin-left: 157px;}
+.mname                 {float: left; width: 150px; text-align: right; padding: 5px 5px 5px 5px; border-top: 1px solid #cccccc;}
+.mvalue                {margin-left: 160px; text-align: left; padding: 5px 5px 5px 5px; border-top: 1px solid #cccccc;}
+.mov_view_hmovie       {border: 1px solid #cccccc; padding: 0px; text-align: center;}
+.mov_view_hdel         {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.mov_view_cmovie       {border: 1px solid #cccccc; padding: 3px; text-align: center;}
+.mov_view_img          {width: 51px; height: 51px; background-color: #222222; border: 0px; padding: 2px; text-align: center;}
+.mov_view_cat          {border: 0px; padding: 2px; text-align: center;}
+.mov_view_tt           {border: 0px; padding: 2px; text-align: center;}
+.mov_view_year         {width: 51px; border: 0px; padding: 2px; text-align: center;}
+.mov_view_imdb         {width: 51px; border: 0px; padding: 2px; text-align: center;}
+.mov_view_cdel         {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.mov_view_nav          {border: 1px solid #cccccc; padding: 4px; text-align: center;}
+.mov_view_fsort        {width: 200px; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 0px; text-align: center;}
+.mov_view_ford         {border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 0px; text-align: center;}
+.mov_view_fok          {width: 75px; border-top: 1px solid #cccccc; border-right: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 0px; text-align: center;}
+/* ********** ********** ********** MOVIE AREA END ********** ********** ********** */
+/* ********** ********** ********** USER AREA START ********** ********** ********** */
+.usr_adm_halias  {width: 150px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_hname   {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_hlevel  {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_hstatus {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_hdel    {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_calias  {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_cname   {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_clevel  {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_cstatus {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_cdel    {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_subm    {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.usr_adm_nav     {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+/* ********** ********** ********** USER AREA END ********** ********** ********** */
+/* ********** ********** ********** LANGS AREA START ********** ********** ********** */
+.langsb {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px; text-align: center; font-weight: bold;}
+.langs  {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px; text-align: center;}
+/* ********** ********** ********** LANGS AREA END ********** ********** ********** */
+/* ********** ********** ********** SKINS AREA START ********** ********** ********** */
+.skinsb {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px; text-align: center; font-weight: bold;}
+.skins  {border: 1px solid #cccccc; padding: 5px 5px 5px 5px; margin-bottom: 5px; text-align: center;}
+/* ********** ********** ********** SKINS AREA END ********** ********** ********** */
+/* ********** ********** ********** MEDIA AREA START ********** ********** ********** */
+.media_adm_hcat {width: 50px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_htt  {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_htyp {width: 100px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_hmov {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_hdel {width: 51px; border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_ccat {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_ctt  {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_ctyp {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_cmov {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_cdel {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_subm {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+.media_adm_nav  {border: 1px solid #cccccc; padding: 2px; text-align: center;}
+/* ********** ********** ********** MEDIA AREA END ********** ********** ********** */
+/* ********** ********** ********** ADMIN AREA START ********** ********** ********** */
+#admin_mnu ul {margin: 0; padding: 0px 0px 0px 0px; list-style-type: none; list-style-image: none;}
+#admin_mnu li {margin: 0; padding: 0px 0px 0px 10px; line-height: 150%;}
+/* ********** ********** ********** ADMIN AREA END ********** ********** ********** */

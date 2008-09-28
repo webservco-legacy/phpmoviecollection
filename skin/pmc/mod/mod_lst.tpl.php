@@ -13,7 +13,7 @@ switch($t) {
 <table border="0" cellspacing="1">
 <tr>
   <td class="listd">
-<a href="<?php echo _APP_URL; ?>view/list" title="<?php echo $lang['view']['view']; ?>"><?php echo $lang['view']['view']; ?></a>
+<a id="lst_view" href="<?php echo _APP_URL; ?>view/list" title="<?php echo $lang['view']['view']; ?>"><?php echo $lang['view']['view']; ?></a>
   </td>
   <td class="listd">
 <form enctype="multipart/form-data" id="lst_form1" name="lst_form1" action="" method="post">
