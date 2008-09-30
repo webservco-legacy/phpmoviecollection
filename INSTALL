@@ -1,1 +1,32 @@
-Install instruction
+Note: Please make sure you check the system requirements detailed in the README file before proceeding.
+--------------
+ INSTALLATION
+--------------
+
+You can find the latest application version on the official website.
+
+Download the archived application. Please note that there is no difference between the .zip and the .tgz file.
+They are provided for convenience only.
+
+Unpack the archive somewhere on your computer. You should end up with a folder called "pmc" with some files and directories in it.
+
+Upload the files and directories in "pmc" to your server
+
+Change permissions to 777 to the following files/directories:
+./inc/cfg.inc.php
+./var/pic_cat/
+./var/pic_mov/
+
+Open your favourite web browser and point it to your installation on the server.
+The application automatically detects that it is not set up and you should see the Setup Utility.
+
+The Setup Utility checks for the minimum system requirements and also gives you some functionality and security hints.
+If the minimum requirements are met, you are presented with a form to fill with some information needed for the application.
+The Setup Utility provides some default values that can be modified, and also tries to guess some values like Application URL
+and Application Directory.
+Please note that all fields are required.
+
+After you fill the form press "Install". If everything goes well, you can start using the application.
+Otherwise check that the requirements are met and try again.
+
+Setup is now complete. You can go to the application URL and start building your collection!

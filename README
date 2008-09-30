@@ -1,1 +1,78 @@
-Read me!
+-------
+ ABOUT
+-------
+phpMovieCollection is a very simple web based software application that 
+helps you manage your movie collection and present it to your friends
+in the form of a web site.
+
+----------
+ FEATURES
+----------
+
+O.S. Independent
+- Runs on both Windows and Linux systems
+
+Lightweight
+- Small size (archived source only 120Kb)
+
+Multiple Language Support
+- Currently only English and Romanian are provided but hopefully more will follow.
+
+Setup Utility
+- Conveniently checks for the minimum system requirements and if they are met,
+provides you with an easy way set up your configuration file and database in one step.
+
+Administration
+- Organize your movies by media, catalog number and also by category
+
+IMDb
+- Search IMDb directly from the application.
+- Fetches most of the movie data from IMDb without the need of allow_url_fopen enabled!
+
+Search
+- Advanced search module with many options
+
+Multiple users
+- you can create user accounts for your friends which lets them compile their own movie lists
+from your collection for easy refference
+
+Customizible look
+- Skinnable interface for full customization of the look of the application.
+Currently only 2 skins are provided, but hopefully more will come in the future
+
+
+---------------------
+ SYSTEM REQUIREMENTS
+---------------------
+phpMovieCollection runs on both Unix and Windows platforms.
+All you need is an Apache webserver with PHP enabled and a MySQL database.
+
+Minimum requirements:
+- Apache Webserver (not tested on IIS)
+- PHP >= 5.2.0
+- MySQL database server with a database you have access to
+- possibility to change permission on some files/directories
+- file uploads enabled
+- GD support
+Also recommended:
+- Apache rewrite engine (for cleaner URL's)
+
+--------------
+ INSTALLATION
+--------------
+See INSTALL file
+
+-----
+ FAQ
+-----
+See FAQ file
+
+------------
+ CHANGE LOG
+------------
+See ChangeLog file
+
+---------
+ LICENSE
+---------
+See LICENSE file
