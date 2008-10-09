@@ -10,32 +10,33 @@ switch($t) {
 }
 ?>
 <?php if($t >= 0) { ?>
-<table border="0" cellspacing="1">
-<tr>
-  <td class="listd">
-<a id="lst_view" href="<?php echo _APP_URL; ?>view/list" title="<?php echo $lang['view']['view']; ?>"><?php echo $lang['view']['view']; ?></a>
-  </td>
-  <td class="listd">
+<div class="lst_viewd">
+<form enctype="multipart/form-data" id="lst_form0" name="lst_form0" action="<?php echo _APP_URL; ?>view/list" method="get">
+<input id="lst_view" name="lst_view" type="submit" value="<?php echo $lang['view']['view']; ?>" />
+</form>
+</div>
+
+<div class="lst_cleard">
 <form enctype="multipart/form-data" id="lst_form1" name="lst_form1" action="" method="post">
 <input name="pmc_cart_act[2]" type="hidden" value="clear" />
 <input id="lst_clear" name="lst_clear" type="submit" value="<?php echo $lang['list']['clear']; ?>" />
 </form>
-  </td>
-</tr>
-<tr>
-  <td class="listd">
+</div>
+
+<div class="lst_loadd">
 <form enctype="multipart/form-data" id="lst_form2" name="lst_form2" action="" method="post">
 <input name="pmc_cart_act[1]" type="hidden" value="load" />
 <input id="lst_load" name="lst_load" type="submit" value="<?php echo $lang['list']['load']; ?>" />
-</form>  
-  </td>
-  <td class="listd">
+</form> 
+</div>
+
+<div class="lst_saved">
 <form enctype="multipart/form-data" id="lst_form3" name="lst_form3" action="" method="post">
 <input name="pmc_cart_act[3]" type="hidden" value="save" />
 <input id="lst_save" name="lst_save" type="submit" value="<?php echo $lang['list']['save']; ?>" />
 </form>
-  </td>
-</tr>
-</table>
+</div>
+
+<div class="clearer"></div>
 <?php } ?>
 </div>

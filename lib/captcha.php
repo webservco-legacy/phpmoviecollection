@@ -42,18 +42,18 @@ if (isset($_SESSION['pmc_token'])) {
   header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
   $img = imagecreatetruecolor(70, 18);
   
-  $bgc = imagecolorallocate($img, 0xFF, 0xFF, 0xFF);
-  $fgc = imagecolorallocate($img, 0x00, 0x00, 0x00);
+  $bgc = imagecolorallocate($img, 0x11, 0x11, 0x11);
+  $fgc = imagecolorallocate($img, 0xff, 0xff, 0xff);
   
   $font = './ttf/VeraMono.ttf';
   
   imagefill($img, 0, 0, $bgc);
   
-  imagettftext($img, 15, 10, 3, 18, $fgc, $font, $captcha['4']);
-  imagettftext($img, 12, -30, 15, 15, $fgc, $font, $captcha['3']);
-  imagettftext($img, 15, 10, 28, 18, $fgc, $font, $captcha['2']);
-  imagettftext($img, 15, -10, 40, 16, $fgc, $font, $captcha['1']);
-  imagettftext($img, 15, 10, 58, 18, $fgc, $font, $captcha['0']);
+  imagettftext($img, 12, 10, 3, 16, $fgc, $font, $captcha['4']);
+  imagettftext($img, 12, -30, 13, 12, $fgc, $font, $captcha['3']);
+  imagettftext($img, 12, 10, 30, 16, $fgc, $font, $captcha['2']);
+  imagettftext($img, 12, -10, 40, 14, $fgc, $font, $captcha['1']);
+  imagettftext($img, 12, 10, 58, 16, $fgc, $font, $captcha['0']);
   
   imagepng($img); 
   imagedestroy($img);
