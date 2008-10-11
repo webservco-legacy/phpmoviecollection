@@ -368,6 +368,17 @@ for($l=0;$l<$ts;$l++) {
  </select>
  </td>
 </tr>
+<tr>
+ <td class="label">
+ <label for="mod_adm">"Quick Admin" module:</label>
+ </td>
+ <td class="input">
+ <select id="mod_adm" name="mod_adm" size="1">
+  <option value="0"<?php if($cfg['mod_adm'] == 0) {echo ' selected="selected"';} ?>>No</option>
+  <option value="1"<?php if($cfg['mod_adm'] == 1) {echo ' selected="selected"';} ?>>Yes</option>
+ </select>
+ </td>
+</tr>
 
 <tr>
  <td class="label">

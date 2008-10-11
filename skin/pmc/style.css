@@ -77,6 +77,7 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 #mod_gen     {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #mod_src     {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #mod_imdb    {padding: 5px 5px 5px 5px; margin-top: 5px;}
+#mod_adm    {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #mod_lst     {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #lst_view    {width: 88px; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; font-weight: bold; cursor: pointer;}
 #lst_clear   {width: 88px; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; font-weight: bold; cursor: pointer;}
@@ -90,6 +91,8 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 #mod_apptt   {padding: 0px 0px 0px 10px;}
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
+#mod_adm ul {margin: 0; padding: 0px 0px 0px 0px; list-style-type: none; list-style-image: none;}
+#mod_adm li {margin: 0; padding: 0px 0px 0px 10px; line-height: 130%;}
 /* ********** ********** ********** ********** ********** MODULES END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** ADMIN START ********** ********** ********** ********** ********** */
@@ -240,14 +243,14 @@ a:hover,a:active {color: #cccccc;}
 a.mnulnk:hover, a.mnulnk:active {background-color: #333333;}
 #lst_view, #lst_clear, #lst_load, #lst_save {background-color: #111111; color: #eeeeee;}
 .mov_adm_img, .mov_view_img  {background-color: #222222;}
-#mod_login, #mod_sts, #mod_gen, #mod_src, #mod_imdb, #mod_lst {background-color: #111111;}
+#mod_login, #mod_sts, #mod_gen, #mod_src, #mod_imdb, #mod_lst, #mod_adm {background-color: #111111;}
 /* ********** ********** ********** ********** ********** COLORS END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** BORDERS START ********** ********** ********** ********** ********** */
 input, select {border: 1px solid #aaaaaa;}
 a.mnulnk:link, a.mnulnk:visited {border: 1px solid #aaaaaa; border-bottom-width: 0px;}
 #msg {border-top: 1px solid #aaaaaa;}
-#mod_login, #mod_sts, #mod_gen, #mod_src, #mod_imdb, #mod_lst {border: 0px solid #aaaaaa;}
+#mod_login, #mod_sts, #mod_gen, #mod_src, #mod_imdb, #mod_lst, #mod_adm {border: 0px solid #aaaaaa;}
 #pmc_login, #pmc_pass, #pmc_captcha, #login_submit {border: 1px solid #aaaaaa;}
 .usr_adm_halias, .usr_adm_hname, .usr_adm_hlevel, .usr_adm_hstatus, .usr_adm_hdel, .usr_adm_calias, .usr_adm_cname,
 .usr_adm_clevel, .usr_adm_cstatus, .usr_adm_cdel, .usr_adm_subm, .usr_adm_nav {border: 1px solid #aaaaaa;}

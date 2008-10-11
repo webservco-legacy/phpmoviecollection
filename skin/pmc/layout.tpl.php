@@ -20,9 +20,6 @@
   <meta name="robots" content="Index, Follow" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <link rel="stylesheet" type="text/css" charset="utf-8" href="<?php echo $_SESSION['pmc_usr_skin_url']; ?>style.css" />
-  <!--[if lt IE 7]>
-  <link rel="stylesheet" type="text/css" charset="utf-8" href="<?php echo $_SESSION['pmc_usr_skin_url']; ?>style_ie.css" />
-  <![endif]-->
 </head>
 <body>
 
@@ -59,6 +56,7 @@
             <?php echo $mod_lst;?>
             <?php echo $mod_src;?>
             <?php echo $mod_imdb;?>
+            <?php echo $mod_adm;?>
           </div>
           <div class="col3">
             <?php echo $mod_sts;?>

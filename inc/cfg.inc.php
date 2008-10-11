@@ -86,4 +86,8 @@ $ap_cfg['mod']['mod_sts'] = 1;
 * Control the loading of the application title module
 */
 $ap_cfg['mod']['mod_apptt'] = 1;
+/**
+* Control the loading of the application title module
+*/
+$ap_cfg['mod']['mod_adm'] = 1;
 ?>

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    20:01 2008-09-17
+* @version    19:09 2008-10-10
 * @since      14:34 2008-09-12
 * @access     public
 * @package    pmc
@@ -118,6 +118,10 @@ $ap_cfg[\'mod\'][\'mod_sts\'] = '.$cfg['mod_sts'].';
 * Control the loading of the application title module
 */
 $ap_cfg[\'mod\'][\'mod_apptt\'] = '.$cfg['mod_apptt'].';
+/**
+* Control the loading of the quick administration module
+*/
+$ap_cfg[\'mod\'][\'mod_adm\'] = '.$cfg['mod_adm'].';
 ?>
 ';
 return $c;

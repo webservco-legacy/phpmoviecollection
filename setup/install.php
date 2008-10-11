@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:49 2008-09-25
+* @version    19:08 2008-10-10
 * @since      14:22 2008-09-12
 * @access     public
 * @package    pmc
@@ -74,6 +74,7 @@ $cfg['mod_imdb']  = '1';
 $cfg['mod_lst']   = '1';
 $cfg['mod_sts']   = '1';
 $cfg['mod_apptt'] = '1';
+$cfg['mod_adm']   = '1';
 
 $cfg['usr_name']  = 'Root';
 $cfg['usr_fname'] = '';
@@ -133,6 +134,7 @@ if(isset($_POST['install'])) {
   if(isset($_POST['mod_lst']))   {$cfg['mod_lst']   = $_POST['mod_lst'];}
   if(isset($_POST['mod_sts']))   {$cfg['mod_sts']   = $_POST['mod_sts'];}
   if(isset($_POST['mod_apptt'])) {$cfg['mod_apptt'] = $_POST['mod_apptt'];}
+  if(isset($_POST['mod_adm']))   {$cfg['mod_adm']   = $_POST['mod_adm'];}
   
   $pmc_dbconn = pmc_dbopen($cfg['db_host'], $cfg['db_user'], $cfg['db_pass'], $cfg['db_name']);
   if(!$pmc_dbconn) {$err = 1; $msg = 'Database information is invalid!';}
@@ -167,6 +169,7 @@ if(isset($_POST['install'])) {
     $cfg['mod_lst']   = pmc_filter_input($_POST['mod_lst']);
     $cfg['mod_sts']   = pmc_filter_input($_POST['mod_sts']);
     $cfg['mod_apptt'] = pmc_filter_input($_POST['mod_apptt']);
+    $cfg['mod_adm']   = pmc_filter_input($_POST['mod_adm']);
     
     if($cfg['app_url'] == '') {$err = 1; $msg = 'Application URL is empty!';}
     else if($cfg['app_dir'] == '') {$err = 1; $msg = 'Application path is empty!';}
