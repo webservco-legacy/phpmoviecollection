@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    08:09 2008-09-23
+* @version    21:52 2008-10-12
 * @since      19:32 2008-09-03
 * @access     public
 * @package    pmc

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:39 2008-10-11
+* @version    21:52 2008-10-12
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -475,7 +475,7 @@ function pmc_mov_details($id) {
 *
 * @return array $cnt content to be displayed to the user
 */
-function pmc_mov_view($cnttype = 'admin') {
+function pmc_mov_view($cnttype = 'admin', $homepage = 0) {
   // categories
   $rc = pmc_qry_exec("SELECT * FROM pmc_mov_cat ORDER BY cat_ord ASC");
   $tc = pmc_qry_total($rc);
@@ -529,6 +529,7 @@ function pmc_mov_view($cnttype = 'admin') {
     }
   }
   else if(isset($_GET['view']) && $_GET['view'] == 'latest') {$q_sort = "x";}
+  else if($homepage == 1) {$q_sort = "x";}
   $order = 'a';
   $latest = 0;
   $q_order        = "ASC";
@@ -562,6 +563,7 @@ function pmc_mov_view($cnttype = 'admin') {
   if(isset($_POST['mov_imdb'])) {$q_mov_imdb = pmc_queryfill_search($searchtype, $_POST['mov_imdb']);}
   $q_mov_tt       = "IS NOT NULL";
   if(isset($_POST['mov_tt'])) {$q_mov_tt = pmc_queryfill_search($searchtype, $_POST['mov_tt']);}
+  else if(isset($_POST['mov_tt_s'])) {$q_mov_tt = pmc_queryfill_search($searchtype, $_POST['mov_tt_s']);}
   $q_mov_aka      = "IS NOT NULL";
   if(isset($_POST['mov_aka'])) {$q_mov_aka = pmc_queryfill_search($searchtype, $_POST['mov_aka']);}
   $q_mov_year     = "IS NOT NULL";
@@ -1106,7 +1108,7 @@ function pmc_home_page() {
   global $lang;
   $cnt['skin'] = 'home.tpl.php';
   $cnt['tt'] = $lang['pmc']['welcome'];
-  $cnt['page'] = pmc_mov_view('view');
+  $cnt['page'] = pmc_mov_view('view', 1);
   return $cnt;
 }
 /*

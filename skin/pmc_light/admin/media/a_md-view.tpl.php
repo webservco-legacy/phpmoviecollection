@@ -30,7 +30,7 @@ for($i=0;$i<$t;$i++) {
   <input id="med_cat-<?php echo $cnt['meds'][$i]['med_id']; ?>" name="med_cat-<?php echo $cnt['meds'][$i]['med_id']; ?>" type="text" size="3" maxlength="15" value="<?php echo $cnt['meds'][$i]['med_cat']; ?>" />
   </td>
   <td class="media_adm_ctt">
-  <input id="med_tt-<?php echo $cnt['meds'][$i]['med_id']; ?>" name="med_tt-<?php echo $cnt['meds'][$i]['med_id']; ?>" type="text" size="30" maxlength="150" value="<?php echo $cnt['meds'][$i]['med_tt']; ?>" />
+  <input id="med_tt-<?php echo $cnt['meds'][$i]['med_id']; ?>" name="med_tt-<?php echo $cnt['meds'][$i]['med_id']; ?>" type="text" size="25" maxlength="150" value="<?php echo $cnt['meds'][$i]['med_tt']; ?>" />
   </td>
   <td class="media_adm_ctyp">
   <select id="med_typ-<?php echo $cnt['meds'][$i]['med_id']; ?>" name="med_typ-<?php echo $cnt['meds'][$i]['med_id']; ?>" size="1">

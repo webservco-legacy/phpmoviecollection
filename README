@@ -13,7 +13,7 @@ O.S. Independent
 - Runs on both Windows and Linux systems
 
 Lightweight
-- Small size (archived source only 120Kb)
+- Small size (archived source less than 150Kb)
 
 Multiple Language Support
 - Currently only English and Romanian are provided but hopefully more will follow.
@@ -36,7 +36,7 @@ Search
 - Advanced search module with many options
 
 Multiple users
-- You can create user accounts for your friends which lets them compile their own movie lists
+- You can create user accounts for your friends wich lets them compile their own movie lists
 from your collection for easy refference.
 
 User lists

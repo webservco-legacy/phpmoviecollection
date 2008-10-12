@@ -1,1 +1,7 @@
-FAQ goes here
+Rewrite engine doesn't work even though it is enabled on the server
+
+Edit .htaccess file. Uncomment the line
+#RewriteBase /pub/temp/pmc
+and change "/pub/temp/pmc" to reflect your instalation directory.
+If you installed on the server root then the line would be
+RewriteBase /

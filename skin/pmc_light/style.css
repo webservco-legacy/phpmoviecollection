@@ -25,18 +25,21 @@ h2             {margin: 0px 0px 3px 0px; line-height: 130%; font-size: 1.2em;}
 h3             {margin: 3px 0px 3px 0px; line-height: 130%; font-size: 1.1em;}
 h4             {margin: 0 0 0 0; line-height: 130%; font-size: 1em;}
 img            {margin: 0px; padding: 0px; border: 0px;}
-.label         {width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+.label         {width: 130px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
 .input         {margin: 5px 0px 5px 0px; vertical-align: middle;}
-label          {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
-label.genres   {float: none; vertical-align: middle;}
-label.required {float: left; width: 150px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; font-weight: normal;}
+label          {float: left; width: 130px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+div.label      {float: left; width: 130px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
+label.required {float: left; width: 130px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px; font-weight: normal;}
 label.login    {float: left; width: 85px; text-align: right; padding: 0px 5px 0px 0px; margin: 5px 0px 5px 0px;}
 input          {text-align: center; margin: 5px 0px 5px 0px; vertical-align: middle;}
+div.input      {text-align: left; margin: 5px 0px 5px 0px; vertical-align: middle;}
 select         {text-align: center; margin: 5px 0px 5px 0px; vertical-align: middle;}
-input.genres   {border: 0px; margin: 0px; vertical-align: middle;}
-.genrehold     {float: left; width: 126px; padding: 2px 0px 2px 0px;}
+input.genres   {border: 0px; padding: 0px; margin: 0px; text-align: left;}
+* html input.genres   {margin-left: -3px;}
+label.genres   {border: 0px; padding: 0px 0px 0px 3px; margin: 0px; text-align: left;}
+* html label.genres   {margin-left: -3px; width: 82px;}
+.genrehold     {float: left; width: 100px; padding: 2px 0px 2px 0px; margin: 1px;}
 .genreholdtt   {float: left; width: 150px; padding: 5px 5px 5px 0px; text-align: right;}
-.clear         {clear: none;} /*???*/
 .clear2        {clear: left;} /*???*/
 .clearer       {clear:both; height:1px; overflow:hidden;}
 .dname         {float: left; width: 150px; height: 20px; text-align: right; padding: 5px 5px 5px 0px; margin: 0px;}
@@ -93,7 +96,7 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
 #mod_adm ul  {margin: 0; padding: 0px 0px 0px 0px; list-style-type: none; list-style-image: none;}
-#mod_adm li  {margin: 0; padding: 0px 0px 0px 10px; line-height: 130%;}
+#mod_adm li  {margin: 0; padding: 0px 0px 0px 10px; line-height: 125%;}
 /* ********** ********** ********** ********** ********** MODULES END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** ADMIN START ********** ********** ********** ********** ********** */
