@@ -9,6 +9,7 @@ if($t > 0) {
   <td class="skinsb"><?php echo $lang['skin']['skin']; ?></td>
   <td class="skinsb"><?php echo $lang['pmc']['desc']; ?></td>
   <td class="skinsb"><?php echo $lang['skin']['auth']; ?></td>
+  <td class="skinsb"><?php echo $lang['skin']['ver']; ?></td>
   <td class="skinsb"><?php echo $lang['set']['set']; ?></td>
 </tr>
 <?php
@@ -22,7 +23,10 @@ if($t > 0) {
   <?php echo $cnt['skins']['desc'][$i]; ?>
   </td>
   <td class="skins">
-  <a href="<?php echo $cnt['skins']['url'][$i]; ?>" title="<?php echo $cnt['skins']['auth'][$i]; ?>" target="_blank"><?php echo $cnt['skins']['auth'][$i]; ?></a>
+  <?php echo $cnt['skins']['auth'][$i]; ?>
+  </td>
+  <td class="skins">
+  <a href="<?php echo $cnt['skins']['url'][$i]; ?>" title="<?php echo $cnt['skins']['auth'][$i]; ?>" target="_blank"><?php echo $cnt['skins']['ver'][$i]; ?></a>
   </td>
   <td class="skins">
 <?php

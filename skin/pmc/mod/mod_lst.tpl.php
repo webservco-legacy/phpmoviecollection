@@ -23,6 +23,7 @@ switch($t) {
 </form>
 </div>
 
+<?php if($_SESSION['pmc_usr_level'] > 0) { ?>
 <div class="lst_loadd">
 <form enctype="multipart/form-data" id="lst_form2" name="lst_form2" action="" method="post">
 <input name="pmc_cart_act[1]" type="hidden" value="load" />
@@ -36,6 +37,7 @@ switch($t) {
 <input id="lst_save" name="lst_save" type="submit" value="<?php echo $lang['list']['save']; ?>" />
 </form>
 </div>
+<?php } ?>
 
 <div class="clearer"></div>
 <?php } ?>

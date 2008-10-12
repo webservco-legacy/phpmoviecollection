@@ -25,9 +25,10 @@ if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
 * Skin info
 */
-$skin_info['sk_name']  = 'P.M.C. TEST';
+$skin_info['sk_name']  = 'P.M.C.';
 $skin_info['sk_desc']  = 'Default skin';
 $skin_info['sk_auth']  = 'Radu Maier';
 $skin_info['sk_mail']  = 'rudisoft@rudisoft.net';
 $skin_info['sk_url']   = 'http://www.rudisoft.net';
+$skin_info['sk_ver']   = '0.9.0-081011';
 ?>

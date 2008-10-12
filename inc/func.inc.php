@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:03 2008-09-25
+* @version    18:39 2008-10-11
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -662,7 +662,7 @@ function pmc_mov_view($cnttype = 'admin') {
     $cnt['page']['link_last']  = '<a href="'._APP_URL.$cnttype.'/movies/media/'.$med_id.'/categ/'.$cat_id.'/sort/'.$sort.'/order/'.$order.'/genre/'.$genre.'/format/'.$mov_format.'/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
   }
   $cnt['page']['movies'] = $rw;
-  if($cnt['page']['total'] == 0) {$_SESSION['pmc_msg'] = 39;}
+  if($cnt['page']['total'] == 0) {if($_SESSION['pmc_msg'] != 55) {$_SESSION['pmc_msg'] = 39;}}
   else if($_SESSION['pmc_msg'] != 40) {$_SESSION['pmc_msg'] = 0;}
   return $cnt['page'];
 }
@@ -844,6 +844,7 @@ function pmc_view_skins() {
         $cnt['page']['skins']['auth'][$i]  = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_auth\']  = \'', '', $lines[29])));
         $cnt['page']['skins']['mail'][$i]  = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_mail\']  = \'', '', $lines[30])));
         $cnt['page']['skins']['url'][$i]   = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_url\']   = \'', '', $lines[31])));
+        $cnt['page']['skins']['ver'][$i]   = trim(str_replace('\';', '', str_replace('$skin_info[\'sk_ver\']   = \'', '', $lines[32])));
       }
     }
   }
@@ -1028,7 +1029,7 @@ function pmc_view_list_get($movie_list) {
     }
   }
   $cnt['page']['movies'] = $rw;
-  if($t == 0) {$_SESSION['pmc_msg'] = 39;}
+  if($t == 0) {if($_SESSION['pmc_msg'] != 55) {$_SESSION['pmc_msg'] = 39;}}
   else {$_SESSION['pmc_msg'] = 0;}
   return $cnt['page'];
 }

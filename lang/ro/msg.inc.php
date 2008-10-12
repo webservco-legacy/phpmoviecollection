@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
 * General
 */
-$lang['msg'][0]['tt'] = 'Status ok'; // default
+$lang['msg'][0]['tt'] = 'phpMovieCollection'; // default
 $lang['msg'][0]['tp'] = 'msg';
 $lang['msg'][1]['tt'] = 'Bun venit'; // logged in user
 $lang['msg'][1]['tp'] = 'ok';

@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    11:24 2008-09-14
+* @version    18:34 2008-10-11
 * @since      10:56 2008-09-14
 * @access     public
 * @package    pmc
@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../../lib/404.php';}
 /**
 * General
 */
-$lang['msg'][0]['tt'] = 'Status ok'; // default
+$lang['msg'][0]['tt'] = 'phpMovieCollection'; // default
 $lang['msg'][0]['tp'] = 'msg';
 $lang['msg'][1]['tt'] = 'Welcome'; // logged in user
 $lang['msg'][1]['tp'] = 'ok';

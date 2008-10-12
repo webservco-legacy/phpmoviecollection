@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:02 2008-09-26
+* @version    18:41 2008-10-11
 * @since      11:24 2008-09-14
 * @access     public
 * @package    pmc
@@ -193,6 +193,7 @@ $lang['skin']['skin']       = 'Skin';
 $lang['skin']['skins']      = 'Skins';
 $lang['skin']['auth']       = 'Author';
 $lang['skin']['current']    = 'Current skin';
+$lang['skin']['ver']        = 'Version';
 /**
 * User list
 */
