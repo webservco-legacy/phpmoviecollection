@@ -6,18 +6,19 @@ html, body     {margin:0; padding:0; border:0; height: 100%; text-align: center;
 #container_msg {clear: both; width: 100%; margin: auto; text-align: center;}
 #container_cnt {clear: both; width: 100%; margin: auto; text-align: center;}
 #container_ftr {clear: both; width: 100%; margin: auto; text-align: center;}
-
 #clear         {clear:both; height:1px; overflow:hidden;}
 .colmask       {position: relative; clear:both; width:100%; overflow: hidden; margin: auto;}
 .colmid        {float:left; width:200%; margin-left:-230px; position: relative; right:100%;}
 .colleft       {float:left; width:100%; margin-left:-50%; position: relative; left:460px;}
 .col1wrap      {float:left; width:50%; position: relative; right:230px;}
 .col1          {text-align: left; margin:0 240px; position: relative; left:200%; overflow:hidden;}
+* html .col1   {height:1%;}
 .col2          {text-align: left; float:right; width:190px; position: relative; right:20px;}
 .col3          {text-align: left; float:right; width:190px; margin-right:60px; position: relative; left:50%;}
 /* ********** ********** ********** ********** ********** LAYOUT END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** GENERAL START ********** ********** ********** ********** ********** */
+table          {width: 100%;}
 form           {display: inline; margin: 0px; padding: 0px;}
 h1             {margin: 0px 0px 10px 0px; line-height: 130%; font-size: 1.3em;}
 h2             {margin: 0px 0px 3px 0px; line-height: 130%; font-size: 1.2em;}
@@ -33,7 +34,7 @@ label.login    {float: left; width: 85px; text-align: right; padding: 0px 5px 0p
 input          {text-align: center; margin: 5px 0px 5px 0px; vertical-align: middle;}
 select         {text-align: center; margin: 5px 0px 5px 0px; vertical-align: middle;}
 input.genres   {border: 0px; margin: 0px; vertical-align: middle;}
-.genrehold     {float: left; width: 119px; padding: 2px 0px 2px 0px;}
+.genrehold     {float: left; width: 126px; padding: 2px 0px 2px 0px;}
 .genreholdtt   {float: left; width: 150px; padding: 5px 5px 5px 0px; text-align: right;}
 .clear         {clear: none;} /*???*/
 .clear2        {clear: left;} /*???*/
@@ -77,7 +78,7 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 #mod_gen     {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #mod_src     {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #mod_imdb    {padding: 5px 5px 5px 5px; margin-top: 5px;}
-#mod_adm    {padding: 5px 5px 5px 5px; margin-top: 5px;}
+#mod_adm     {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #mod_lst     {padding: 5px 5px 5px 5px; margin-top: 5px;}
 #lst_view    {width: 88px; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; font-weight: bold; cursor: pointer;}
 #lst_clear   {width: 88px; border: 0px; padding: 0px; margin: 0px; vertical-align: middle; font-weight: bold; cursor: pointer;}
@@ -87,12 +88,12 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 .lst_cleard  {float: right; margin: 0px; margin-top: 5px; padding: 0px; text-align: center;}
 .lst_loadd   {float: left; margin: 0px; margin-top: 5px; padding: 0px; text-align: center;}
 .lst_saved   {float: right; margin: 0px; margin-top: 5px; padding: 0px; text-align: center;}
-#mod_mnu     {padding: 5px 0px 0px 0px;}
+#mod_mnu     {padding: 5px 0px 3px 0px;}
 #mod_apptt   {padding: 0px 0px 0px 10px;}
 #gen_list ul {padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; list-style: none;}
 #gen_list li {padding: 0px 0px 0px 0px; margin: 0px; line-height: 120%;}
-#mod_adm ul {margin: 0; padding: 0px 0px 0px 0px; list-style-type: none; list-style-image: none;}
-#mod_adm li {margin: 0; padding: 0px 0px 0px 10px; line-height: 130%;}
+#mod_adm ul  {margin: 0; padding: 0px 0px 0px 0px; list-style-type: none; list-style-image: none;}
+#mod_adm li  {margin: 0; padding: 0px 0px 0px 10px; line-height: 130%;}
 /* ********** ********** ********** ********** ********** MODULES END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** ADMIN START ********** ********** ********** ********** ********** */
@@ -215,68 +216,85 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 .mov_view_fok          {width: 75px; padding: 0px; text-align: center;}
 /* ********** ********** ********** ********** ********** MOVIE END ********** ********** ********** ********** ********** */
 
-/* ********** ********** ********** ********** ********** COLORS START ********** ********** ********** ********** ********** */
-html, body             {background-color: #111111; color: #eeeeee;}
-#layout         {}
-#hdr {background-image: url("graphics/hdrbg.jpg"); background-position: top left; background-repeat: repeat-x;}
-#container_hdr         {}
-#header      {}
-#container_msg        {}
-#container_cnt         {background-image: url('graphics/fr.gif'); background-position: top right; background-repeat: repeat-y;}
-#container_ftr {}
-#footer        {}
-.colmask               {background-image: url('graphics/fl.gif'); background-position: top left; background-repeat: repeat-y;} /* Right column background colour */
-.colmid                {} /* Centre column background colour */
-.colleft               {} /* Left column background colour */
-.col1                  {}
-.col2                  {background-color: #333333;}
-.col3                  {background-color: #333333;}
+/* ********** ********** ********** ********** ********** HELP START ********** ********** ********** ********** ********** */
+#help {text-align: center;}
+/* ********** ********** ********** ********** ********** HELP END ********** ********** ********** ********** ********** */
 
-label.required         {color: #990000;}
-input, select          {background-color: #111111; color: #eeeeee;}
-.msg {color: #aaaaaa;}
-.ok {color: #009900;}
-.err {color: #990000;}
-a {background-color: #111111;}
-a:link,a:visited {color: #dddddd;}
-a:hover,a:active {color: #cccccc;}
-a.mnulnk:hover, a.mnulnk:active {background-color: #333333;}
-#lst_view, #lst_clear, #lst_load, #lst_save {background-color: #111111; color: #eeeeee;}
-.mov_adm_img, .mov_view_img  {background-color: #222222;}
-#mod_login, #mod_sts, #mod_gen, #mod_src, #mod_imdb, #mod_lst, #mod_adm {background-color: #111111;}
+/* ********** ********** ********** ********** ********** COLORS START ********** ********** ********** ********** ********** */
+html, body                  {background-color: #111111; color: #bbbbbb;}
+#layout                     {}
+#hdr                        {background-image: url('graphics/hdrbg.jpg'); background-position: top left; background-repeat: repeat-x;}
+#container_hdr              {}
+#header                     {}
+#container_msg              {}
+#container_cnt              {background-image: url('graphics/fr.gif'); background-position: top right; background-repeat: repeat-y;}
+#container_ftr              {}
+#footer                     {}
+.colmask                    {background-image: url('graphics/fl.gif'); background-position: top left; background-repeat: repeat-y;} /* Right column background colour */
+.colmid                     {} /* Centre column background colour */
+.colleft                    {} /* Left column background colour */
+.col1                       {}
+.col2                       {background-color: #333333;}
+.col3                       {background-color: #333333;}
+label.required              {color: #990000;}
+input, select               {background-color: #111111; color: #bbbbbb;}
+.msg                        {color: #bbbbbb;}
+.ok                         {color: #009900;}
+.err                        {color: #990000;}
+a                           {background-color: #111111;}
+a:link,a:visited            {color: #bbbbbb;}
+a:hover,a:active            {color: #dddddd;}
+a.mnulnk:hover,
+a.mnulnk:active             {background-color: #333333;}
+#lst_view, #lst_clear,
+#lst_load, #lst_save        {background-color: #111111; color: #bbbbbb;}
+.mov_adm_img, .mov_view_img {background-color: #222222;}
+#mod_login, #mod_sts, #mod_gen, 
+#mod_src, #mod_imdb, #mod_lst, 
+#mod_adm                    {background-color: #111111;}
 /* ********** ********** ********** ********** ********** COLORS END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** BORDERS START ********** ********** ********** ********** ********** */
-input, select {border: 1px solid #aaaaaa;}
-a.mnulnk:link, a.mnulnk:visited {border: 1px solid #aaaaaa; border-bottom-width: 0px;}
-#msg {border-top: 1px solid #aaaaaa;}
-#mod_login, #mod_sts, #mod_gen, #mod_src, #mod_imdb, #mod_lst, #mod_adm {border: 0px solid #aaaaaa;}
-#pmc_login, #pmc_pass, #pmc_captcha, #login_submit {border: 1px solid #aaaaaa;}
-.usr_adm_halias, .usr_adm_hname, .usr_adm_hlevel, .usr_adm_hstatus, .usr_adm_hdel, .usr_adm_calias, .usr_adm_cname,
-.usr_adm_clevel, .usr_adm_cstatus, .usr_adm_cdel, .usr_adm_subm, .usr_adm_nav {border: 1px solid #aaaaaa;}
-.langsb , .langs {border: 1px solid #aaaaaa;}
-.skinsb , .skins {border: 1px solid #aaaaaa;}
-.media_adm_hcat, .media_adm_htt, .media_adm_htyp, .media_adm_hmov, .media_adm_hdel, .media_adm_ccat,
-.media_adm_ctt, .media_adm_ctyp, .media_adm_cmov, .media_adm_cdel, .media_adm_subm, .media_adm_nav {border: 1px solid #aaaaaa;}
-.cat_adm_hord, .cat_adm_himg, .cat_adm_htt, .cat_adm_hitm, .cat_adm_hdel,
-.cat_adm_cord, .cat_adm_cimg, .cat_adm_ctt, .cat_adm_citm, .cat_adm_cdel, .cat_adm_subm {border: 1px solid #aaaaaa;}
-#cat_view_holder {border: 1px solid #aaaaaa;}
-.mov_adm_hmovie, .mov_adm_hdel, .mov_adm_cmovie, .mov_adm_cdel, .mov_adm_nav, .mov_adm_subm {border: 1px solid #aaaaaa;}
-.mov_adm_fsort         {border-top: 1px solid #aaaaaa; border-left: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
-.mov_adm_ford          {border-top: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
-.mov_adm_fok           {border-top: 1px solid #aaaaaa; border-right: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
-#mov_view_holder1      {border: 1px solid #aaaaaa;}
-.mname, .mvalue        {border-top: 1px solid #aaaaaa;}
-.mov_view_hmovie, .mov_view_hdel, .mov_view_cmovie, .mov_view_cdel, .mov_view_nav {border-top: 1px solid #aaaaaa;}
-.mov_view_fsort        {border-top: 1px solid #aaaaaa; border-left: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
-.mov_view_ford         {border-top: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
-.mov_view_fok          {border-top: 1px solid #aaaaaa; border-right: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
+input, select                                       {border: 1px solid #aaaaaa;}
+a.mnulnk:link, a.mnulnk:visited                     {border: 1px solid #aaaaaa; border-bottom-width: 0px;}
+#msg                                                {border-top: 1px solid #aaaaaa;}
+#mod_login, #mod_sts, #mod_gen, 
+#mod_src, #mod_imdb, #mod_lst, #mod_adm             {border: 0px solid #aaaaaa;}
+#pmc_login, #pmc_pass, #pmc_captcha, #login_submit  {border: 1px solid #aaaaaa;}
+.usr_adm_halias, .usr_adm_hname, .usr_adm_hlevel, 
+.usr_adm_hstatus, .usr_adm_hdel, .usr_adm_calias, 
+.usr_adm_cname, .usr_adm_clevel, .usr_adm_cstatus,
+.usr_adm_cdel, .usr_adm_subm, .usr_adm_nav          {border: 1px solid #aaaaaa;}
+.langsb , .langs                                    {border: 1px solid #aaaaaa;}
+.skinsb , .skins                                    {border: 1px solid #aaaaaa;}
+.media_adm_hcat, .media_adm_htt, .media_adm_htyp,
+.media_adm_hmov, .media_adm_hdel, .media_adm_ccat,
+.media_adm_ctt, .media_adm_ctyp, .media_adm_cmov,
+.media_adm_cdel, .media_adm_subm, .media_adm_nav    {border: 1px solid #aaaaaa;}
+.cat_adm_hord, .cat_adm_himg, .cat_adm_htt,
+.cat_adm_hitm, .cat_adm_hdel, .cat_adm_cord,
+.cat_adm_cimg, .cat_adm_ctt, .cat_adm_citm,
+.cat_adm_cdel, .cat_adm_subm                        {border: 1px solid #aaaaaa;}
+#cat_view_holder                                    {border: 1px solid #aaaaaa;}
+.mov_adm_hmovie, .mov_adm_hdel, .mov_adm_cmovie,
+.mov_adm_cdel, .mov_adm_nav, .mov_adm_subm          {border: 1px solid #aaaaaa;}
+.mov_adm_fsort                                      {border-top: 1px solid #aaaaaa; border-left: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
+.mov_adm_ford                                       {border-top: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
+.mov_adm_fok                                        {border-top: 1px solid #aaaaaa; border-right: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
+#mov_view_holder1                                   {border: 1px solid #aaaaaa;}
+.mname, .mvalue                                     {border-top: 1px solid #aaaaaa;}
+.mov_view_hmovie, .mov_view_hdel, .mov_view_cmovie,
+.mov_view_cdel, .mov_view_nav                       {border-top: 1px solid #aaaaaa;}
+.mov_view_fsort                                     {border-top: 1px solid #aaaaaa; border-left: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
+.mov_view_ford                                      {border-top: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
+.mov_view_fok                                       {border-top: 1px solid #aaaaaa; border-right: 1px solid #aaaaaa; border-bottom: 1px solid #aaaaaa;}
 /* ********** ********** ********** ********** ********** BORDERS END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** FONTS START ********** ********** ********** ********** ********** */
-html, body, table, input, select {font-family: Verdana, serif; font-size: 11px; }
+html, body, table,
+input, select   {font-family: Verdana, serif; font-size: 11px; }
 .msg, .ok, .err {font-family: Verdana, serif; font-size: 11px; font-weight: normal;}
-#mod_apptt {font-family: Georgia, sans-serif; font-weight: normal; font-size: 22px; font-style: italic;}
+#mod_apptt      {font-family: Georgia, sans-serif; font-weight: normal; font-size: 22px; font-style: italic;}
 /* ********** ********** ********** ********** ********** FONTS END ********** ********** ********** ********** ********** */
 
 

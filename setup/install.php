@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:08 2008-10-10
+* @version    09:03 2008-10-12
 * @since      14:22 2008-09-12
 * @access     public
 * @package    pmc
@@ -201,7 +201,7 @@ if(isset($_POST['install'])) {
     echo '<div class="msg">';
     if($chk == 0) {
       $w = wrt_cfg_str($c, $cfg['app_dir'].'inc/cfg.inc.php');
-      if($w == 0) {echo '<div class="ok">Config file sucessfully saved!</div>';}
+      if($w == 0) {echo '<div class="ok">Configuration file sucessfully saved!</div>';}
       else {echo '<div class="err">Config file not saved!</div>';}
     }
     else {echo '<div class="err">Config file not saved!</div>';}

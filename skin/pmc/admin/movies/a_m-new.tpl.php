@@ -42,7 +42,7 @@ if($tc > 0) {
   </td>
   <td class="input">
 <select id="med_id" name="med_id" size="1">
-  <option value="0"><?php echo $lang['media']['nomedia']; ?></option>
+  <option value="0"><?php echo $lang['media']['media']; ?></option>
 <?php
 $tm = count($cnt['media']['id']);
 if($tm > 0) {

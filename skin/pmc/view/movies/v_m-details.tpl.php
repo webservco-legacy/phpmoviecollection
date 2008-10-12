@@ -42,6 +42,7 @@ if($cnt['mov_cat'] != '') {echo $cnt['mov_cat'];}
 else {echo '&#160;';}
 ?>
 </div>
+<div class="clearer"></div>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
   <td class="mname">

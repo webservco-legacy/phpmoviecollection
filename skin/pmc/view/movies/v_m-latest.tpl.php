@@ -102,22 +102,6 @@ if($t<0) {
 <?php
   }
 ?>
-<?php
-  if($cnt['searchtype'] == 0 && $cnt['latest'] != 1) {
-    echo '<tr>';
-    echo '<td class="mov_view_nav" colspan="2">';
-    echo $cnt['link_first'] . '&#160;';
-    echo $cnt['link_prev'] . '&#160;';
-    echo $lang['pmc']['page'] . '&#160;';
-    echo $cnt['page'] . '&#160;';
-    echo $lang['pmc']['of'] . '&#160;';
-    echo $cnt['maxpage'] . '&#160;';
-    echo $cnt['link_next'] . '&#160;';
-    echo $cnt['link_last'] . '&#160;';
-    echo '</td>';
-    echo '</tr>';
-  }
-?>
 </table>
 <?php
 }

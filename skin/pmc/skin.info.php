@@ -30,5 +30,5 @@ $skin_info['sk_desc']  = 'Default skin';
 $skin_info['sk_auth']  = 'Radu Maier';
 $skin_info['sk_mail']  = 'rudisoft@rudisoft.net';
 $skin_info['sk_url']   = 'http://www.rudisoft.net';
-$skin_info['sk_ver']   = '0.9.0-081011';
+$skin_info['sk_ver']   = '1.0.0-081012';
 ?>

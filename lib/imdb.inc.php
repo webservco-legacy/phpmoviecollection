@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    23:12 2008-09-06
+* @version    10:24 2008-10-12
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -68,11 +68,10 @@ function pmc_get_imdb($imdb_id) {
   $i = 0;
   while ($line[$i] = fgets($file, 10240)) {
       /* title+year */
-      if ($i>200 && $i<220) {
+      if ($i>240 && $i<250) {
         $res = strpos($line[$i], '<h1>');
         if ($res !== false ) {
           $line[$i] = strip_tags($line[$i]);
-          
           $pattern = array('/\(/', '/\)/');
           $replace = array('+', '');
           $line[$i] = preg_replace($pattern, $replace, $line[$i]);
@@ -84,7 +83,9 @@ function pmc_get_imdb($imdb_id) {
           $imdb['title'] = preg_replace("|The |U", '', $imdb['title'], 1);
           $imdb['title_the'] = 'The';
           }
-          $imdb['year']  = trim($liner[1]);
+          //$imdb['year']  = trim($liner[1]);
+          $imdb['year']  = preg_replace("|More at IMDb Pro &raquo;|U", '', $liner[1]);
+          $imdb['year']  = trim($imdb['year']);
         }
       }
       /* //title+year */

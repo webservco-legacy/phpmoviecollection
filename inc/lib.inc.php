@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:35 2008-10-11
+* @version    18:15 2008-10-12
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -245,7 +245,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','0.9.0-081010');
+  define('_APP_VER','1.0.0-081012');
   /**
   * Application author
   */
@@ -877,10 +877,10 @@ function pmc_image_thumb($img, $path, $title, $max=50) {
 *
 * @return string link
 */
-function pmc_image_thumb_link($img, $path, $title, $url, $max=50) {
+function pmc_image_thumb_link($img, $path, $title, $url, $target='_blank', $max=50) {
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
-    $link  = '<a href="'.$url.'" title="'.$title.'" target="_blank">';
+    $link  = '<a href="'.$url.'" title="'.$title.'" target="'.$target.'">';
     $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
     $link .= '</a>';
   }

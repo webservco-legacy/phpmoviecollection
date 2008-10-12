@@ -28,21 +28,21 @@ else {
 else {
 ?>
 <form id="login_form" name="login_form" action="" method="post">
-<div class="clear">
+<div class="clear2">
 <input id="pmc_token" name="pmc_token" type="hidden" value="<?php echo $_SESSION['pmc_token']; ?>" />
 <label for="pmc_login" class="login"><?php echo $lang['usr']['mail1']; ?></label>
 <input id="pmc_login" name="pmc_login" type="text" maxlength="30" />
 </div>
-<div class="clear">
+<div class="clear2">
 <label for="pmc_pass" class="login"><?php echo $lang['usr']['pass1']; ?></label>
 <input id="pmc_pass" name="pmc_pass" type="password" maxlength="30" />
 </div>
 
-<div class="clear">
+<div class="clear2">
 <label for="pmc_captcha" class="login"><img id="pmc_captcha_img" src="<?php echo _APP_URL;?>lib/captcha.php" title="<?php echo $lang['pmc']['captcha']; ?>" alt="<?php echo $lang['pmc']['captcha']; ?>" />&#160;=</label>
 <input id="pmc_captcha" name="pmc_captcha" type="text" maxlength="5" />
 </div>
-<div class="clear">
+<div class="clear2">
 <label for="login_submit" class="login">&#160;</label>
 <input id="login_submit" name="login_submit" type="submit" value="<?php echo $lang['usr']['login'];?>" />
 </div>

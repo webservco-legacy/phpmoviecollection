@@ -18,6 +18,9 @@ Lightweight
 Multiple Language Support
 - Currently only English and Romanian are provided but hopefully more will follow.
 
+Internationalization Support
+- 100% UTF-8 support allowing to store all kinds of special characters in the database.
+
 Setup Utility
 - Conveniently checks for the minimum system requirements and if they are met,
 provides you with an easy way set up your configuration file and database in one step.
@@ -26,15 +29,19 @@ Administration
 - Organize your movies by media, catalog number and also by category
 
 IMDb
-- Search IMDb directly from the application.
+- Submit IMDb search queries directly from the application.
 - Fetches most of the movie data from IMDb without the need of allow_url_fopen enabled!
 
 Search
 - Advanced search module with many options
 
 Multiple users
-- you can create user accounts for your friends which lets them compile their own movie lists
-from your collection for easy refference
+- You can create user accounts for your friends which lets them compile their own movie lists
+from your collection for easy refference.
+
+User lists
+- Each user can have his/her own list of movies compiled from your collection.
+The compiled list is kept after user authentication and can be saved and loaded.
 
 Customizible look
 - Skinnable interface for full customization of the look of the application.
