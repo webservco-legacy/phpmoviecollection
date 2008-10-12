@@ -1,0 +1,5 @@
+[x] imdb fetch: doesn't work if only one writer (see snatch.)
+[x] categories: deletes picture from db on categ modify
+[x] categories: error on try to update picture with an invalid format
+[x] if visit is not started from main page app crashes (Redirect Loop)
+[-] view movies/admin movies: filter clears any selection
