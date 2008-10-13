@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    17:00 2008-09-14
+* @version    18:15 2008-10-13
 * @since      17:00 2008-09-14
 * @access     public
 * @package    pmc
@@ -61,7 +61,7 @@ function pmc_adm_media_add() {
   return $cnt;
 }
 /**
-* Users - view all
+* Media - view all
 *
 * @return array $cnt content to be displayed to the user
 */
@@ -115,14 +115,14 @@ function pmc_adm_media_view() {
   $cnt['page']['link_first'] = '&#60;&#60;';
   $cnt['page']['link_prev']  = '&#60;';
   if($cnt['page']['page'] > 1) {
-    $cnt['page']['link_first'] = '<a href="'._APP_URL.'admin/users/page/1">'.$cnt['page']['link_first'].'</a>';
-    $cnt['page']['link_prev']  = '<a href="'._APP_URL.'admin/users/page/'.$cnt['page']['prevpage'].'">'.$cnt['page']['link_prev'].'</a>';
+    $cnt['page']['link_first'] = '<a href="'._APP_URL.'admin/media/page/1">'.$cnt['page']['link_first'].'</a>';
+    $cnt['page']['link_prev']  = '<a href="'._APP_URL.'admin/media/page/'.$cnt['page']['prevpage'].'">'.$cnt['page']['link_prev'].'</a>';
   }
   $cnt['page']['link_next']  = '&#62;';
   $cnt['page']['link_last']  = '&#62;&#62;';
   if($cnt['page']['page'] < $cnt['page']['maxpage']) {
-    $cnt['page']['link_next']  = '<a href="'._APP_URL.'admin/users/page/'.$cnt['page']['nextpage'].'">'.$cnt['page']['link_next'].'</a>';
-    $cnt['page']['link_last']  = '<a href="'._APP_URL.'admin/users/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
+    $cnt['page']['link_next']  = '<a href="'._APP_URL.'admin/media/page/'.$cnt['page']['nextpage'].'">'.$cnt['page']['link_next'].'</a>';
+    $cnt['page']['link_last']  = '<a href="'._APP_URL.'admin/media/page/'.$cnt['page']['maxpage'].'">'.$cnt['page']['link_last'].'</a>';
   }
   $cnt['page']['meds'] = $rw;
   

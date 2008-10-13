@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:15 2008-10-12
+* @version    18:15 2008-10-13
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -245,7 +245,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','1.0.0-081012');
+  define('_APP_VER','1.0.0-081013');
   /**
   * Application author
   */
