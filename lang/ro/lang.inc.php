@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:41 2008-10-11
+* @version    18:29 2008-10-13
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -107,6 +107,7 @@ $lang['movie']['format'][2] = 'Mpeg';
 $lang['movie']['format'][3] = 'DVD';
 $lang['movie']['subs']      = 'Subtitrari';
 $lang['movie']['latest']    = 'Filme recente';
+$lang['movie']['last']      = 'Ultimul';
 /**
 * Genres
 */

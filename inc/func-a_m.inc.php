@@ -58,6 +58,10 @@ function pmc_adm_mov_add() {
   $cnt['page']['cat_id']       = '';
   $cnt['page']['med_id']       = 0;
   $cnt['page']['mov_cat']      = '';
+  
+  $last_cat = pmc_qry_exec("SELECT MAX(mov_cat) FROM pmc_mov_tt");
+  $cnt['page']['mov_cat_last'] = pmc_qry_result($last_cat);
+  
   $cnt['page']['mov_pic']      = '';
   $cnt['page']['mov_imdb']     = '';
   $cnt['page']['mov_tt_pre']   = '';

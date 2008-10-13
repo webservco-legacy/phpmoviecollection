@@ -48,6 +48,7 @@ if($tm > 0) {
 <div class="clearer"></div>
 <label for="mov_cat"><?php echo $lang['movie']['catno']; ?></label>
 <input id="mov_cat" name="mov_cat" type="text" size="5" maxlength="15" value="<?php echo $cnt['mov_cat']; ?>" />
+&#160;(<?php echo $lang['movie']['last']; ?>:&#160;<?php echo $cnt['mov_cat_last']; ?>)
 <input id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" type="hidden" value="1024000" />
 
 <div class="clearer"></div>
