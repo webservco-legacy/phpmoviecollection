@@ -288,7 +288,7 @@ else {
   else {
     echo '<div class="msg">';
     echo '<span class="err">';
-    echo 'Your system does not meet the minimum system requirements for using phpMovieCollection. Please read the manual and <a href="install.php" title="phpMovieCollection Setup">try again</a>.';
+    echo 'Your system does not meet the minimum system requirements for installing phpMovieCollection. Please read the manual and <a href="install.php" title="phpMovieCollection Setup">try again</a> or use manual setup.';
     echo '</span>';
     echo '</div>';
   }
