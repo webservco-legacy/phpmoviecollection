@@ -1,0 +1,30 @@
+[+++CURRENT+++]
+[x] setup: generate cfg.inc
+[x] setup: create user in database
+[x] optimize skin structure
+[x] help
+[x] about
+[x] latest additions
+[x] footer
+[x] create english language
+[x] movie sort: med_id(media)
+[x] home
+[x] navigation menu
+[x] navigation menu: latest movies
+[x] stats module: links to movies
+[x] collector's name in header
+[x] fix skin (clear bug)
+[x] QuickAdmin Module (add movie, etc)
+[-] check all page titles
+[-] documentation (user/developer)
+[x] hint with last inserted movie catalog number
+[x] option for TV/VIDEO release
+[+++V2+++]
+[-] movie formats menu/module (can filter by that)
+[-] optimize/fix status messages
+[-] movie list needs a lot of work (query/filters)
+[-] online version check / update
+[-] advanced search: mov_format, mov_subs, 
+[+++V3+++]
+[-] user self login
+[-] database optimization tools
