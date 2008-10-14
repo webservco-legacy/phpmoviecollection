@@ -46,6 +46,14 @@ else {echo '&#160;';}
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
   <td class="mname">
+  <?php echo $lang['movie']['type']; ?>
+  </td>
+  <td class="mvalue">
+  &#160;<?php echo $lang['movie']['typ'][$cnt['mov_typ']]; ?>
+  </td>
+</tr>
+<tr>
+  <td class="mname">
   <?php echo $lang['movie']['aka']; ?>
   </td>
   <td class="mvalue">

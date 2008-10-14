@@ -65,7 +65,15 @@ if($tm > 0) {
 
 <div class="clearer"></div>
 <label for="mov_tt" class="required"><?php echo $lang['pmc']['tt']; ?></label>  
-<input id="mov_tt" name="mov_tt" type="text" size="38" maxlength="150" value="<?php echo $cnt['mov_tt']; ?>" />  
+<input id="mov_tt" name="mov_tt" type="text" size="38" maxlength="150" value="<?php echo $cnt['mov_tt']; ?>" />
+
+<div class="clearer"></div>
+<label for="mov_typ"><?php echo $lang['movie']['type']; ?></label>
+<select id="mov_typ" name="mov_typ" size="1">
+  <option value="0"<?php if($cnt['mov_typ'] == 0) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['typ'][0]; ?></option>
+  <option value="1"<?php if($cnt['mov_typ'] == 1) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['typ'][1]; ?></option>
+  <option value="2"<?php if($cnt['mov_typ'] == 2) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['typ'][2]; ?></option>
+</select>
 
 <div class="clearer"></div>
 <label for="mov_aka"><?php echo $lang['movie']['aka']; ?></label>  

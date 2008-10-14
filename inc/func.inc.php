@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    21:52 2008-10-12
+* @version    07:20 2008-10-14
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -416,6 +416,7 @@ function pmc_mov_details($id) {
     $cnt['page']['mov_imdb']     = $row['mov_imdb'];
     $cnt['page']['mov_tt_pre']   = $row['mov_tt_pre'];
     $cnt['page']['mov_tt']       = $row['mov_tt'];
+    $cnt['page']['mov_typ']      = $row['mov_typ'];
     $cnt['page']['mov_aka']      = $row['mov_aka'];
     $cnt['page']['mov_year']     = $row['mov_year'];
     $cnt['page']['mov_country']  = $row['mov_country'];
@@ -437,6 +438,7 @@ function pmc_mov_details($id) {
     $cnt['page']['mov_imdb']     = '';
     $cnt['page']['mov_tt_pre']   = '';
     $cnt['page']['mov_tt']       = '';
+    $cnt['page']['mov_typ']      = 0;
     $cnt['page']['mov_aka']      = '';
     $cnt['page']['mov_year']     = '';
     $cnt['page']['mov_country']  = '';

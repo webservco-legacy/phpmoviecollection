@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:29 2008-10-13
+* @version    07:21 2008-10-14
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -92,6 +92,10 @@ $lang['movie']['details']   = 'Detalii Film';
 $lang['movie']['add']       = 'Ad&#259;ugare Film';
 $lang['movie']['imdb']      = 'Id IMDb';
 $lang['movie']['aka']       = 'Titluri alternative';
+$lang['movie']['type']      = 'Tip';
+$lang['movie']['typ'][0]    = 'Theatrical';
+$lang['movie']['typ'][1]    = 'Video';
+$lang['movie']['typ'][2]    = 'Televiziune';
 $lang['movie']['director']  = 'Regizor';
 $lang['movie']['writer']    = 'Scenarist';
 $lang['movie']['tagline']   = 'Tagline';

@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    10:24 2008-10-12
+* @version    07:20 2008-10-14
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -48,6 +48,7 @@ function pmc_get_imdb($imdb_id) {
 
   $imdb['title_the'] = '';
   $imdb['title']     = '{TT}';
+  $imdb['typ']       = 0;
   $imdb['aka']       = '{AKA}';
   $imdb['year']      = '{YR}';
   $dirline           = 0;
@@ -67,11 +68,17 @@ function pmc_get_imdb($imdb_id) {
   
   $i = 0;
   while ($line[$i] = fgets($file, 10240)) {
-      /* title+year */
+      /* title+year+type */
       if ($i>240 && $i<250) {
         $res = strpos($line[$i], '<h1>');
         if ($res !== false ) {
           $line[$i] = strip_tags($line[$i]);
+
+          $typ1 = strpos($line[$i], '(V)');
+          $typ2 = strpos($line[$i], '(TV)');
+          if ($typ1 !== false ) {$imdb['typ'] = 1;}
+          else if ($typ2 !== false ) {$imdb['typ'] = 2;}
+          
           $pattern = array('/\(/', '/\)/');
           $replace = array('+', '');
           $line[$i] = preg_replace($pattern, $replace, $line[$i]);
