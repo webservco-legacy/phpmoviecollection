@@ -52,8 +52,8 @@ if($t<0) {
   for($i=0;$i<$t;$i++) {
     if($cnt['movies'][$i]['mov_tt_pre'] != '') {$movie_title[$i] = $cnt['movies'][$i]['mov_tt_pre'] . '&#160;' . $cnt['movies'][$i]['mov_tt'];}
     else {$movie_title[$i] = $cnt['movies'][$i]['mov_tt'];}
-    if($cnt['movies'][$i]['mov_typ'] == 1) {$movie_title[$i] .= '&#160;(V)'}
-    else if($cnt['movies'][$i]['mov_typ'] == 2) {$movie_title[$i] .= '&#160;(TV)'}
+    if($cnt['movies'][$i]['mov_typ'] == 1) {$movie_title[$i] .= '&#160;(V)';}
+    else if($cnt['movies'][$i]['mov_typ'] == 2) {$movie_title[$i] .= '&#160;(TV)';}
 ?>
 <tr>
   <td class="mov_adm_cmovie">

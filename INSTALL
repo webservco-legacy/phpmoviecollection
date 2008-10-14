@@ -5,7 +5,7 @@ Note: Please make sure you check the system requirements detailed in the README 
 
 You can find the latest application version on the official website.
 
-Download the archived application. Please note that there is no difference between the .zip and the .tgz file.
+Download the archived application source. Please note that there is no difference between the .zip and the .tgz file.
 They are provided for convenience only.
 
 Unpack the archive somewhere on your computer. You should end up with a folder called "pmc" with some files and directories in it.

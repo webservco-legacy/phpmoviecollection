@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    10:55 2008-09-14
+* @version    10:35 2008-10-14
 * @since      10:55 2008-09-14
 * @access     public
 * @package    pmc
@@ -29,5 +29,5 @@ $lang_info['ln_name']  = 'English';
 $lang_info['ln_desc']  = 'English';
 $lang_info['ln_trans'] = 'Radu Maier';
 $lang_info['ln_mail']  = 'rudisoft@rudisoft.net';
-$lang_info['ln_url']   = 'http://www.rudisoft.net';
+$lang_info['ln_url']   = 'http://pmc.rudisoft.net';
 ?>

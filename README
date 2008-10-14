@@ -13,7 +13,7 @@ O.S. Independent
 - Runs on both Windows and Linux systems
 
 Lightweight
-- Small size (archived source less than 150Kb)
+- Small size (unpacked source less than 0.8MB)
 
 Multiple Language Support
 - Currently only English and Romanian are provided but hopefully more will follow.

@@ -10,8 +10,8 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    23:08 2008-10-12
-* @since      23:08 2008-10-12
+* @version    09:40 2008-10-14
+* @since      09:40 2008-10-14
 * @access     public
 * @package    pmc
 * @subpackage Configuration
@@ -29,7 +29,7 @@ $ap_cfg['app_url'] = 'http://www.example.com/';
 /**
 * Full path to the application - notice the slash at the end
 */
-$ap_cfg['app_dir'] = '/home/www/';
+$ap_cfg['app_dir'] = '/home/public_html/';
 /**
 * Whether to use rewrite engine functionality or not
 */

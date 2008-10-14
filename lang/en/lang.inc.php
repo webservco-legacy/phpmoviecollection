@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    07:21 2008-10-14
+* @version    10:34 2008-10-14
 * @since      11:24 2008-09-14
 * @access     public
 * @package    pmc
@@ -90,7 +90,7 @@ $lang['movie']['mymovies']  = 'My Movies';
 $lang['movie']['nomovies']  = 'No movies';
 $lang['movie']['details']   = 'Movie Details';
 $lang['movie']['add']       = 'Add Movie';
-$lang['movie']['imdb']      = 'IMDb id';
+$lang['movie']['imdb']      = 'IMDb Id';
 $lang['movie']['type']      = 'Type';
 $lang['movie']['typ'][0]    = 'Theatrical';
 $lang['movie']['typ'][1]    = 'Video';
