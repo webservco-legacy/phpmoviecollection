@@ -39,7 +39,7 @@ else {
 </div>
 
 <div class="clear2">
-<label for="pmc_captcha" class="login"><img id="pmc_captcha_img" src="<?php echo _APP_URL;?>lib/captcha.php" title="<?php echo $lang['pmc']['captcha']; ?>" alt="<?php echo $lang['pmc']['captcha']; ?>" />&#160;=</label>
+<label for="pmc_captcha" class="login"><img id="pmc_captcha_img" src="<?php echo _APP_WWW;?>lib/captcha.php" title="<?php echo $lang['pmc']['captcha']; ?>" alt="<?php echo $lang['pmc']['captcha']; ?>" />&#160;=</label>
 <input id="pmc_captcha" name="pmc_captcha" type="text" maxlength="5" />
 </div>
 <div class="clear2">

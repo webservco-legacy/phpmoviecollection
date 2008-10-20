@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    07:21 2008-10-14
+* @version    20:06 2008-10-20
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -214,6 +214,7 @@ function pmc_cfg($ap_cfg) {
   * Full URL of the application
   */
   define('_APP_URL',$ap_cfg['app_url'] . _APP_INDEX);
+  define('_APP_WWW',$ap_cfg['app_url']);
   /**
   * Full path to the application
   */
@@ -245,7 +246,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','1.0.0-081014');
+  define('_APP_VER','1.1.0-081020');
   /**
   * Application author
   */
@@ -535,7 +536,7 @@ function pmc_session($pmc_dbconn) {
     * Default skin
     */
     $_SESSION['pmc_usr_skin']  = _APP_DIR . 'skin/' . _APP_SKIN . '/';
-    $_SESSION['pmc_usr_skin_url']  = str_replace('index.php/', '', _APP_URL) . 'skin/' . _APP_SKIN . '/';
+    $_SESSION['pmc_usr_skin_url']  = _APP_WWW . 'skin/' . _APP_SKIN . '/';
     /**
     * Reset user movie list
     */
@@ -643,7 +644,7 @@ function pmc_usr_login() {
                 * User skin
                 */
                 $_SESSION['pmc_usr_skin']  = _APP_DIR . 'skin/' . $rw['usr_skin'] . '/';
-                $_SESSION['pmc_usr_skin_url']  = _APP_URL . 'skin/' . $rw['usr_skin'] . '/';
+                $_SESSION['pmc_usr_skin_url']  = _APP_WWW . 'skin/' . $rw['usr_skin'] . '/';
                 /**
                 * Default message
                 */
@@ -854,15 +855,15 @@ function pmc_pic_ext($pic_type) {
 function pmc_image_thumb($img, $path, $title, $max=50) {
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
-    $img_u = _APP_URL.$path.$img;
+    $img_u = _APP_WWW.$path.$img;
     $link = '<a href="'.$img_u.'" title="'.$title.'" target="_blank">';
-    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
+    $link .= '<img src="'._APP_WWW.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
     $link .= '</a>';
   }
   else {
     $img_d = _APP_DIR . 'lib/nopic.png';
-    $img_u = _APP_URL . 'lib/nopic.png';
-    $link = '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
+    $img_u = _APP_WWW . 'lib/nopic.png';
+    $link = '<img src="'._APP_WWW.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
   }
   return $link;
 }
@@ -881,13 +882,13 @@ function pmc_image_thumb_link($img, $path, $title, $url, $target='_blank', $max=
   if(is_file(_APP_DIR.$path.$img)) {
     $img_d = _APP_DIR.$path.$img;
     $link  = '<a href="'.$url.'" title="'.$title.'" target="'.$target.'">';
-    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
+    $link .= '<img src="'._APP_WWW.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
     $link .= '</a>';
   }
   else {
     $img_d = _APP_DIR . 'lib/nopic.png';
     $link  = '<a href="'.$url.'" title="'.$title.'" target="_blank">';
-    $link .= '<img src="'._APP_URL.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
+    $link .= '<img src="'._APP_WWW.'lib/thumb.php?img='.$img_d.'&amp;max='.$max.'" title="'.$title.'" alt="'.$title.'" />';
     $link .= '</a>';
   }
   return $link;
