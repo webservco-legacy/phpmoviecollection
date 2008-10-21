@@ -1,2 +1,4 @@
+1.0.1-082021
+- fixed a bug that affected installations on a server without mod_rewrite (images not showing)
 1.0.0-081014
 - first public release

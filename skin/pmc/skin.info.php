@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    10:35 2008-10-14
+* @version    18:45 2008-10-21
 * @since      19:41 2008-09-08
 * @access     public
 * @package    pmc
@@ -30,5 +30,5 @@ $skin_info['sk_desc']  = 'Default skin';
 $skin_info['sk_auth']  = 'Radu Maier';
 $skin_info['sk_mail']  = 'rudisoft@rudisoft.net';
 $skin_info['sk_url']   = 'http://pmc.rudisoft.net';
-$skin_info['sk_ver']   = '1.0.0-081014';
+$skin_info['sk_ver']   = '1.0.1-081021';
 ?>
