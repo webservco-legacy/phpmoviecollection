@@ -1,4 +1,5 @@
-1.0.1-082021
+1.0.1-082022
 - fixed a bug that affected installations on a server without mod_rewrite (images not showing)
+- added La, Il, Les, Una, Os, El, Los in IMDb fetch function ("title_the")
 1.0.0-081014
 - first public release

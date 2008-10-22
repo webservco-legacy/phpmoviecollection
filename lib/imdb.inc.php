@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    07:20 2008-10-14
+* @version    19:01 2008-10-22
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -87,8 +87,36 @@ function pmc_get_imdb($imdb_id) {
           //if(strpos($imdb['title'], 'The ') !== false) {
           if(strpos($imdb['title'], 'The ') === 0) {
           //$imdb['title'] = str_replace('The ', '', $imdb['title']);
-          $imdb['title'] = preg_replace("|The |U", '', $imdb['title'], 1);
-          $imdb['title_the'] = 'The';
+            $imdb['title'] = preg_replace("|The |U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'The';
+          }
+          else if(pmc_string_exists(', La', $imdb['title'])) {
+            $imdb['title'] = preg_replace("|, La|U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'La';
+          }
+          else if(pmc_string_exists(', Il', $imdb['title'])) {
+            $imdb['title'] = preg_replace("|, Il|U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'Il';
+          }
+          else if(pmc_string_exists(', Les', $imdb['title'])) {
+            $imdb['title'] = preg_replace("|, Les|U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'Les';
+          }
+          else if(pmc_string_exists(', Una', $imdb['title'])) {
+            $imdb['title'] = preg_replace("|, Una|U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'Una';
+          }
+          else if(pmc_string_exists(', Os', $imdb['title'])) {
+            $imdb['title'] = preg_replace("|, Os|U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'Os';
+          }
+          else if(pmc_string_exists(', El', $imdb['title'])) {
+            $imdb['title'] = preg_replace("|, El|U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'El';
+          }
+          else if(pmc_string_exists(', Los', $imdb['title'])) {
+            $imdb['title'] = preg_replace("|, Los|U", '', $imdb['title'], 1);
+            $imdb['title_the'] = 'Los';
           }
           //$imdb['year']  = trim($liner[1]);
           $imdb['year']  = preg_replace("|More at IMDb Pro &raquo;|U", '', $liner[1]);

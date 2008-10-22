@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:43 2008-10-21
+* @version    19:03 2008-10-22
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -246,7 +246,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','1.0.1-081021');
+  define('_APP_VER','1.0.1-081022');
   /**
   * Application author
   */
@@ -952,5 +952,22 @@ function pmc_check_install($pmc_dbconn) {
   else if(_APP_URL != $app_url) {header("Location: ./setup/install.php"); exit;}
   if(!$pmc_dbconn) {header("Location: ./setup/install.php"); exit;}
   return true;
+}
+/**
+* Helper function for strpos
+*
+*
+* @param string $search string to be found
+* @param string $string string containing the string to be found
+* @return bool result
+*/
+function pmc_string_exists($search, $string){ 
+  $found = strpos($string, $search); 
+  if ($found === false) { 
+    return false; 
+  }
+  else { 
+    return true; 
+  } 
 }
 ?>
