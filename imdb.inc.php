@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:01 2008-10-22
+* @version    13:32 2008-10-26
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -172,6 +172,7 @@ function pmc_get_imdb($imdb_id) {
           }
           //$imdb['year']  = trim($liner[1]);
           $imdb['year']  = preg_replace("|More at IMDb Pro &raquo;|U", '', $liner[1]);
+          $imdb['year']  = preg_replace("|/[^>]|U", '', $imdb['year']);
           $imdb['year']  = trim($imdb['year']);
         }
       }
