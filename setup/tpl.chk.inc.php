@@ -38,11 +38,11 @@
 </tr>
 <tr>
   <td class="label">
-  PHP Version >= 5.2.0:
+  PHP Version >= 4.4.4:
   </td>
   <td class="input">
   <?php
-  if(version_compare($php_version, '5.2.0', '<')) {echo '<span class="err">Error</span>'; $check_err = 1;}
+  if(version_compare($php_version, '4.4.4', '<')) {echo '<span class="err">Error</span>'; $check_err = 1;}
   else {echo '<span class="ok">'.$php_version.'</span>';}
   ?>
   </td>
@@ -94,7 +94,8 @@
   </td>
   <td class="input">
   <?php
-  if (in_array('mod_rewrite', apache_get_modules())) {echo '<span class="ok">Yes</span>';}
+  if ($mod_rewrite == 1) {echo '<span class="ok">Yes</span>';}
+  else if ($mod_rewrite == 2) {echo '<span class="neu">n/a</span>';}
   else {echo '<span class="err">No</span>';}
   ?>
   </td>

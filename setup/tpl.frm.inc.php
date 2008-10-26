@@ -26,7 +26,7 @@
  </td>
 </tr>
 <?php
-if($mod_rewrite == 1) {
+if($mod_rewrite == 1 || $mod_rewrite == 2) {
 ?>
 <tr>
  <td class="label">

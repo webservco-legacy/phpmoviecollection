@@ -4,7 +4,7 @@ Options +FollowSymlinks
 RewriteEngine On
 
 # Put your installation directory here:
-#RewriteBase /pub/temp/pmc
+#RewriteBase /pmc
 
 # Do not enable rewriting for files that exist
 RewriteCond %{REQUEST_FILENAME} !-f

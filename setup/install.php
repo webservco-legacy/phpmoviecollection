@@ -41,8 +41,11 @@ $check_err = 0;
 $php_version = phpversion();
 $php_file_uploads = (int) ini_get('file_uploads');
 $gd_check = check_gd();
-if (in_array('mod_rewrite', apache_get_modules())) {$mod_rewrite = 1;}
-else {$mod_rewrite = 0;}
+if(function_exists('apache_get_modules')) {
+  if (in_array('mod_rewrite', apache_get_modules())) {$mod_rewrite = 1;}
+  else {$mod_rewrite = 0;}
+}
+else {$mod_rewrite = 2;}
 
 $php_short_open_tag   = (int) ini_get('short_open_tag');
 $php_safe_mode        = (int) ini_get('safe_mode');

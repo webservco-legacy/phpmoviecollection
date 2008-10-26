@@ -10,8 +10,8 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    09:40 2008-10-14
-* @since      09:40 2008-10-14
+* @version    11:58 2008-10-26
+* @since      11:58 2008-10-26
 * @access     public
 * @package    pmc
 * @subpackage Configuration
@@ -25,11 +25,11 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Main URL of the application - notice the slash at the end
 */
-$ap_cfg['app_url'] = 'http://www.example.com/';
+$ap_cfg['app_url'] = 'http://localhost/pmc/';
 /**
 * Full path to the application - notice the slash at the end
 */
-$ap_cfg['app_dir'] = '/home/public_html/';
+$ap_cfg['app_dir'] = 'e:/home/devel/server/www/pmc/';
 /**
 * Whether to use rewrite engine functionality or not
 */
@@ -41,15 +41,15 @@ $ap_cfg['db_host'] = 'localhost';
 /**
 * Database user
 */
-$ap_cfg['db_user'] = 'database_user';
+$ap_cfg['db_user'] = 'temp';
 /**
 * Database password
 */
-$ap_cfg['db_pass'] = 'database_password';
+$ap_cfg['db_pass'] = 'REDACTED';
 /**
 * Database name
 */
-$ap_cfg['db_name'] = 'database_name';
+$ap_cfg['db_name'] = 'temp';
 /**
 * Control the loading of the menu module
 */

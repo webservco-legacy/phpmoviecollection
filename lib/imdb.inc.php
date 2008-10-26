@@ -120,6 +120,7 @@ function pmc_get_imdb($imdb_id) {
           }
           //$imdb['year']  = trim($liner[1]);
           $imdb['year']  = preg_replace("|More at IMDb Pro &raquo;|U", '', $liner[1]);
+          $imdb['year']  = preg_replace("|/[^>]|U", '', $imdb['year']);
           $imdb['year']  = trim($imdb['year']);
         }
       }

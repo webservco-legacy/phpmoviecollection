@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    07:21 2008-10-14
+* @version    13:35 2008-10-26
 * @since      15:32 2008-09-03
 * @access     public
 * @package    pmc
@@ -95,10 +95,14 @@ function pmc_adm_mov_add() {
   }
   /* //genres */
  
+  /*
+  REMOVED FOR COMPATIBILITY WITH PHP < 5.2
   $egl = error_get_last();
   $res = strpos($egl['message'], 'POST Content-Length of');
   if ($res !== false ) {$_SESSION['pmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
   else if(isset($_POST['mov_imdb_fetch'])) {
+  */
+  if(isset($_POST['mov_imdb_fetch'])) {
     if(isset($_POST['imdb_url'])) {
       require_once './lib/browseremulator.class.php';
       require_once './lib/imdb.inc.php';
