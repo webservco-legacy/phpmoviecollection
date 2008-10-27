@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:03 2008-10-22
+* @version    18:53 2008-10-27
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -246,7 +246,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','1.0.1-081022');
+  define('_APP_VER','1.0.2-081027');
   /**
   * Application author
   */
@@ -956,7 +956,6 @@ function pmc_check_install($pmc_dbconn) {
 /**
 * Helper function for strpos
 *
-*
 * @param string $search string to be found
 * @param string $string string containing the string to be found
 * @return bool result
@@ -969,5 +968,25 @@ function pmc_string_exists($search, $string){
   else { 
     return true; 
   } 
+}
+/**
+* str_split() replacement for PHP < 5
+*
+* from php manual user notes
+* created by heavyraptor (10-Mar-2006 10:07)
+* @param string $str string for splitting
+* @param integer $length string length
+* @return array split string
+*/
+if(!function_exists("str_split")) {
+ function str_split($str,$length = 1) {
+   if ($length < 1) return false;
+   $strlen = strlen($str);
+   $ret = array();
+   for ($i = 0; $i < $strlen; $i += $length) {
+    $ret[] = substr($str,$i,$length);
+   }
+   return $ret;
+ }
 }
 ?>

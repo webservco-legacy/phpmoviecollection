@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    13:35 2008-10-26
+* @version    19:10 2008-10-27
 * @since      14:32 2008-09-03
 * @access     public
 * @package    pmc
@@ -102,10 +102,14 @@ function pmc_adm_categ_details($id) {
   $cnt['skin'] = 'admin/categ/a_c-details.tpl.php';
   $cnt['tt']   = $lang['adm']['adm'] . _APP_SEP . $lang['categ']['categs'] . _APP_SEP . $lang['categ']['view'];
   
+  /*
+  REMOVED FOR COMPATIBILITY WITH PHP < 5.2
   $egl = error_get_last();
   $res = strpos($egl['message'], 'POST Content-Length of');
   if ($res !== false ) {$_SESSION['pmc_msg'] = 17; header("Location: " . _APP_URL); exit;}
   else if(isset($_POST['cat_mod'])) {
+  */
+  if(isset($_POST['cat_mod'])) {
     if(isset($_POST['cat_tt']))   {$cnt['page']['cat_tt'] = pmc_filter_input($_POST['cat_tt']);}
     if(isset($_POST['cat_desc'])) {$cnt['page']['cat_desc'] = pmc_filter_input($_POST['cat_desc']);}
     if($cnt['page']['cat_tt'] != '' && $cnt['page']['cat_desc'] != '') {

@@ -1,3 +1,6 @@
+1.0.2-081027
+- fixed a bug with imdb fetch regarding year (I)
+- introduced backward compatibility with php4, mysql4, apache 1
 1.0.1-082022
 - fixed a bug that affected installations on a server without mod_rewrite (images not showing)
 - added La, Il, Les, Una, Os, El, Los in IMDb fetch function ("title_the")

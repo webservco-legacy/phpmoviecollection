@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    14:56 2008-08-25
+* @version    18:52 2008-10-27
 * @since      14:21 2008-08-25
 * @access     public
 * @package    pmc
@@ -34,7 +34,9 @@ header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");
 /**
 * Check if the request is valid
 */
-if (isset($_SESSION['pmc_token'])) {
+if(isset($_SESSION['pmc_token'])) {
+  define("_VALID_REQUEST", TRUE);
+  require_once '../inc/lib.inc.php';
   $captcha = str_split(strtoupper($_SESSION['pmc_token']), 1);
   
   header("Content-type: image/png");

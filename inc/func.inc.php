@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    07:20 2008-10-14
+* @version    19:03 2008-10-27
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -829,7 +829,7 @@ function pmc_view_skins() {
       $cnt['page']['skins']['idx'][$i] = $skins[$i];
       if(isset($_POST['skin_set-'.$cnt['page']['skins']['idx'][$i]])) {
         $_SESSION['pmc_usr_skin']      = _APP_DIR . 'skin/' . $cnt['page']['skins']['idx'][$i] . '/';
-        $_SESSION['pmc_usr_skin_url']  = _APP_URL . 'skin/' . $cnt['page']['skins']['idx'][$i] . '/';
+        $_SESSION['pmc_usr_skin_url']  = _APP_WWW . 'skin/' . $cnt['page']['skins']['idx'][$i] . '/';
         $_SESSION['pmc_msg'] = 52;
         header("Location: " . _APP_URL . 'view/skins');
         exit;
