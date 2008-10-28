@@ -62,23 +62,24 @@ function pmc_adm_mov_add() {
   $last_cat = pmc_qry_exec("SELECT MAX(mov_cat) FROM pmc_mov_tt");
   $cnt['page']['mov_cat_last'] = pmc_qry_result($last_cat);
   
-  $cnt['page']['mov_pic']      = '';
-  $cnt['page']['mov_imdb']     = '';
-  $cnt['page']['mov_tt_pre']   = '';
-  $cnt['page']['mov_tt']       = '';
-  $cnt['page']['mov_typ']      = 0;
-  $cnt['page']['mov_aka']      = '';
-  $cnt['page']['mov_year']     = '';
-  $cnt['page']['mov_country']  = '';
-  $cnt['page']['mov_language'] = '';
-  $cnt['page']['mov_dir']      = '';
-  $cnt['page']['mov_wrt']      = '';
-  $cnt['page']['mov_tag']      = '';
-  $cnt['page']['mov_plot']     = '';
-  $cnt['page']['mov_cast']     = '';
-  $cnt['page']['mov_format']   = '';
-  $cnt['page']['mov_subs']     = '';
-  $cnt['page']['mov_notes']    = '';
+  $cnt['page']['mov_pic']       = '';
+  $cnt['page']['mov_imdb']      = '';
+  $cnt['page']['mov_tt_pre']    = '';
+  $cnt['page']['mov_tt']        = '';
+  $cnt['page']['mov_typ']       = 0;
+  $cnt['page']['mov_aka']       = '';
+  $cnt['page']['mov_year']      = '';
+  $cnt['page']['mov_country']   = '';
+  $cnt['page']['mov_language']  = '';
+  $cnt['page']['mov_dir']       = '';
+  $cnt['page']['mov_wrt']       = '';
+  $cnt['page']['mov_tag']       = '';
+  $cnt['page']['mov_plot']      = '';
+  $cnt['page']['mov_cast']      = '';
+  $cnt['page']['mov_imdb_pics'] = '';
+  $cnt['page']['mov_format']    = '';
+  $cnt['page']['mov_subs']      = '';
+  $cnt['page']['mov_notes']     = '';
   
   /* genres */
   $rg = pmc_qry_exec("SELECT gen_id, gen_tt FROM pmc_mov_gen");
@@ -111,42 +112,44 @@ function pmc_adm_mov_add() {
       $imdb_id = str_replace('/', '', $imdb_id);
       
       $imdb = pmc_get_imdb($imdb_id);
-      $cnt['page']['mov_imdb']     = $imdb_id;
-      $cnt['page']['mov_tt_pre']   = $imdb['title_the'];
-      $cnt['page']['mov_tt']       = $imdb['title'];
-      $cnt['page']['mov_typ']      = $imdb['typ'];
-      $cnt['page']['mov_aka']      = $imdb['aka'];
-      $cnt['page']['mov_year']     = $imdb['year'];
-      $cnt['page']['mov_country']  = $imdb['country'];
-      $cnt['page']['mov_language'] = $imdb['language'];
-      $cnt['page']['mov_dir']      = $imdb['dir'];
-      $cnt['page']['mov_wrt']      = $imdb['wrt'];
-      $cnt['page']['mov_tag']      = $imdb['tag'];
-      $cnt['page']['mov_plot']     = $imdb['plot'];
-      $cnt['page']['mov_cast']     = $imdb['cast'];
+      $cnt['page']['mov_imdb']      = $imdb_id;
+      $cnt['page']['mov_tt_pre']    = $imdb['title_the'];
+      $cnt['page']['mov_tt']        = $imdb['title'];
+      $cnt['page']['mov_typ']       = $imdb['typ'];
+      $cnt['page']['mov_aka']       = $imdb['aka'];
+      $cnt['page']['mov_year']      = $imdb['year'];
+      $cnt['page']['mov_country']   = $imdb['country'];
+      $cnt['page']['mov_language']  = $imdb['language'];
+      $cnt['page']['mov_dir']       = $imdb['dir'];
+      $cnt['page']['mov_wrt']       = $imdb['wrt'];
+      $cnt['page']['mov_tag']       = $imdb['tag'];
+      $cnt['page']['mov_plot']      = $imdb['plot'];
+      $cnt['page']['mov_cast']      = $imdb['cast'];
+      $cnt['page']['mov_imdb_pics'] = pmc_get_imdb_pics($imdb['pics_url']);
       $_SESSION['pmc_msg'] = 35;
     }
   }
   else if(isset($_POST['mov_add'])) {
-    if(isset($_POST['cat_id']))       {$cnt['page']['cat_id']       = pmc_filter_input($_POST['cat_id']);}
-    if(isset($_POST['med_id']))       {$cnt['page']['med_id']       = pmc_filter_input($_POST['med_id']);}
-    if(isset($_POST['mov_cat']))      {$cnt['page']['mov_cat']      = pmc_filter_input($_POST['mov_cat']);}
-    if(isset($_POST['mov_imdb']))     {$cnt['page']['mov_imdb']     = pmc_filter_input($_POST['mov_imdb']);}
-    if(isset($_POST['mov_tt_pre']))   {$cnt['page']['mov_tt_pre']   = pmc_filter_input($_POST['mov_tt_pre']);}
-    if(isset($_POST['mov_tt']))       {$cnt['page']['mov_tt']       = pmc_filter_input($_POST['mov_tt']);}
-    if(isset($_POST['mov_typ']))      {$cnt['page']['mov_typ']      = pmc_filter_input($_POST['mov_typ']);}
-    if(isset($_POST['mov_aka']))      {$cnt['page']['mov_aka']      = pmc_filter_input($_POST['mov_aka']);}
-    if(isset($_POST['mov_year']))     {$cnt['page']['mov_year']     = pmc_filter_input($_POST['mov_year']);}
-    if(isset($_POST['mov_country']))  {$cnt['page']['mov_country']  = pmc_filter_input($_POST['mov_country']);}
-    if(isset($_POST['mov_language'])) {$cnt['page']['mov_language'] = pmc_filter_input($_POST['mov_language']);}
-    if(isset($_POST['mov_dir']))      {$cnt['page']['mov_dir']      = pmc_filter_input($_POST['mov_dir']);}
-    if(isset($_POST['mov_wrt']))      {$cnt['page']['mov_wrt']      = pmc_filter_input($_POST['mov_wrt']);}
-    if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmc_filter_input($_POST['mov_tag']);}
-    if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmc_filter_input($_POST['mov_plot']);}
-    if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmc_filter_input($_POST['mov_cast']);}
-    if(isset($_POST['mov_format']))   {$cnt['page']['mov_format']   = pmc_filter_input($_POST['mov_format']);}
-    if(isset($_POST['mov_subs']))     {$cnt['page']['mov_subs']     = pmc_filter_input($_POST['mov_subs']);}
-    if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmc_filter_input($_POST['mov_notes']);}
+    if(isset($_POST['cat_id']))        {$cnt['page']['cat_id']        = pmc_filter_input($_POST['cat_id']);}
+    if(isset($_POST['med_id']))        {$cnt['page']['med_id']        = pmc_filter_input($_POST['med_id']);}
+    if(isset($_POST['mov_cat']))       {$cnt['page']['mov_cat']       = pmc_filter_input($_POST['mov_cat']);}
+    if(isset($_POST['mov_imdb']))      {$cnt['page']['mov_imdb']      = pmc_filter_input($_POST['mov_imdb']);}
+    if(isset($_POST['mov_tt_pre']))    {$cnt['page']['mov_tt_pre']    = pmc_filter_input($_POST['mov_tt_pre']);}
+    if(isset($_POST['mov_tt']))        {$cnt['page']['mov_tt']        = pmc_filter_input($_POST['mov_tt']);}
+    if(isset($_POST['mov_typ']))       {$cnt['page']['mov_typ']       = pmc_filter_input($_POST['mov_typ']);}
+    if(isset($_POST['mov_aka']))       {$cnt['page']['mov_aka']       = pmc_filter_input($_POST['mov_aka']);}
+    if(isset($_POST['mov_year']))      {$cnt['page']['mov_year']      = pmc_filter_input($_POST['mov_year']);}
+    if(isset($_POST['mov_country']))   {$cnt['page']['mov_country']   = pmc_filter_input($_POST['mov_country']);}
+    if(isset($_POST['mov_language']))  {$cnt['page']['mov_language']  = pmc_filter_input($_POST['mov_language']);}
+    if(isset($_POST['mov_dir']))       {$cnt['page']['mov_dir']       = pmc_filter_input($_POST['mov_dir']);}
+    if(isset($_POST['mov_wrt']))       {$cnt['page']['mov_wrt']       = pmc_filter_input($_POST['mov_wrt']);}
+    if(isset($_POST['mov_tag']))       {$cnt['page']['mov_tag']       = pmc_filter_input($_POST['mov_tag']);}
+    if(isset($_POST['mov_plot']))      {$cnt['page']['mov_plot']      = pmc_filter_input($_POST['mov_plot']);}
+    if(isset($_POST['mov_cast']))      {$cnt['page']['mov_cast']      = pmc_filter_input($_POST['mov_cast']);}
+    if(isset($_POST['mov_imdb_pics'])) {$cnt['page']['mov_imdb_pics'] = pmc_filter_input($_POST['mov_imdb_pics']);}
+    if(isset($_POST['mov_format']))    {$cnt['page']['mov_format']    = pmc_filter_input($_POST['mov_format']);}
+    if(isset($_POST['mov_subs']))      {$cnt['page']['mov_subs']      = pmc_filter_input($_POST['mov_subs']);}
+    if(isset($_POST['mov_notes']))     {$cnt['page']['mov_notes']     = pmc_filter_input($_POST['mov_notes']);}
     
     /* genres */
     if($tg > 0) {
@@ -183,6 +186,8 @@ function pmc_adm_mov_add() {
           else {$pic_store = 0;}
         }
       }
+      //else if() {} /* imdb pic */
+      //else {} /* nopic */
       if($err == 0) {
         $idate = date("Y-m-d");
         $itime = date("H:i:s");

@@ -54,6 +54,19 @@ if($tm > 0) {
 <div class="clearer"></div>
 <label for="mov_pic"><?php echo $lang['pmc']['pic']; ?></label>  
 <input id="mov_pic" name="mov_pic" type="file" />
+<?php
+if($cnt['mov_imdb_pics'] != '') {
+$imdb_pics = explode('-',$cnt['mov_imdb_pics']);
+if(count($imdb_pics > 0)) {
+  echo '<div class="clearer"></div>';
+  echo '<div class="label">&#160;</div><div class="input">';
+  for($i=0;$i<count($imdb_pics);$i++) {
+    echo '<img src="'._APP_WWW.'lib/imdbpic.php?pic='.$imdb_pics[$i].'" height="80" />';
+  }
+  echo '</div>';
+}
+}
+?>
 
 <div class="clearer"></div>
 <label for="mov_imdb"><?php echo $lang['movie']['imdb']; ?></label> 

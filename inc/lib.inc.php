@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    18:53 2008-10-27
+* @version    19:32 2008-10-28
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -773,7 +773,7 @@ function pmc_usr_logout() {
 *
 * @return string filtered input
 */
-function pmc_filter_input($input) {
+function pmc_filter_input($input,$sql=1) {
   if(get_magic_quotes_gpc()) {$input = stripslashes($input);}
   // get rid of unwanted characters
   $unwanted = array('\\', '');
@@ -783,7 +783,8 @@ function pmc_filter_input($input) {
   $input = str_replace('&gt;', '&#62;', $input);
   $input = str_replace('<', '&#60;', $input);
   $input = str_replace('>', '&#62;', $input);
-  return mysql_real_escape_string(trim($input));
+  if($sql == 1) {$input = mysql_real_escape_string($input);}
+  return trim($input);
 }
 /**
 * Filter user input for searching
