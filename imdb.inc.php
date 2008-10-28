@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    13:32 2008-10-26
+* @version    15:10 2008-10-28
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -107,6 +107,7 @@ function pmc_get_imdb($imdb_id) {
   //print_r($response);
 
   $i = 0;
+  $data = '';
   while ($line[$i] = fgets($file, 10240)) {
       /* picture link */
       if ($i>190 && $i<250) {
@@ -254,6 +255,7 @@ function pmc_get_imdb($imdb_id) {
           $aka = implode(", ", $akas);
           $imdb['aka'] = trim(strip_tags($aka));
         }
+        $data .= $line[$i]; /*take data for country and language */
       }
       /* //aka */
       
@@ -286,18 +288,16 @@ function pmc_get_imdb($imdb_id) {
       /* //cast */
       
       $i++;
+      
+
   }
   fclose($file);
-  
-  /* country and language */
-  $file2 = $be->fopen($imdb_url);
-  $imdbx = stream_get_contents($file2);
-  $resx = strpos($imdbx, '<h5>Country:</h5>');
+  $resx = strpos($data, '<h5>Country:</h5>');
   if ($resx !== false ) {
-    $imdbx = trim(strip_tags($imdbx));
-    $imdb1 = strstr($imdbx, 'Country:');
-    $imdb2 = strstr($imdbx, 'Language:');
-    $imdb3 = strstr($imdbx, 'Color:');
+    $data = trim(strip_tags($data));
+    $imdb1 = strstr($data, 'Country:');
+    $imdb2 = strstr($data, 'Language:');
+    $imdb3 = strstr($data, 'Color:');
 
     $imdbc  = str_replace($imdb2, '', $imdb1);
     $imdbc  = str_replace('Country:', '', $imdbc);
@@ -315,7 +315,6 @@ function pmc_get_imdb($imdb_id) {
     $imdbl = array_diff($imdbl, array(''));
     $imdb['language'] = implode(", ", $imdbl);
   }
-  fclose($file2);
   /* //country and language */
   
   return $imdb;
