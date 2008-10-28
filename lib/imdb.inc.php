@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:01 2008-10-22
+* @version    15:10 2008-10-28
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -25,6 +25,46 @@
 if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 
 /**
+* Imdb pictures fetching function
+*
+* Description
+*
+* @param string $pics_url url returned by pmc_get_imdb
+* @return array imdb pics urls
+*/
+function pmc_get_imdb_pics($imdb_pics) {
+  $pics = array();
+  if($imdb_pics == '') {return $pics; exit;}
+  $pics_url = 'http://www.imdb.com/media/rm'.$imdb_pics;
+  $be = new BrowserEmulator(); 
+  $be->addHeaderLine("Referer", "http://www.google.com/"); 
+  $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip"); 
+  $file = $be->fopen($pics_url);
+  $i = 0;
+  while ($line[$i] = fgets($file, 10240)) {
+    $res = strpos($line[$i], '<img alt="" id=current height="80" width="80" src="http://ia.media-imdb.com/images/M/');
+    $res2 = strpos($line[$i], '<img alt="" height="80" width="80"');
+    if ($res !== false ) {
+      $line[$i] = preg_replace("|<img[^>]+src=\"|U", '', $line[$i]);
+      $line[$i] = preg_replace("|\" />|U", '', $line[$i]);
+      $line[$i] = preg_replace("|._V1.[^>]+.jpg|U", '.jpg', $line[$i]);
+      $line[$i] = preg_replace("|http://ia.media-imdb.com/images/M/|U", '', $line[$i]);
+      $pics[0] = trim($line[$i]);
+    }
+    else if ($res2 !== false ) {
+      $line[$i] = preg_replace("|<a[^>]+>|U", '', $line[$i]);
+      $line[$i] = preg_replace("|</a>|U", '', $line[$i]);
+      $line[$i] = preg_replace("|<img[^>]+src=\"|U", '', $line[$i]);
+      $line[$i] = preg_replace("|\" />|U", '', $line[$i]);
+      $line[$i] = preg_replace("|._V1.[^>]+.jpg|U", '.jpg', $line[$i]);
+      $line[$i] = preg_replace("|http://ia.media-imdb.com/images/M/|U", '', $line[$i]);
+      $pics[] = trim($line[$i]);
+    }
+  }
+  fclose($file);
+  return $pics;
+}
+/**
 * Imdb fetching function
 *
 * I've put it in a separate file because was made in a hurry and it is very raw, needing many improvements
@@ -33,19 +73,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 * @return array imdb data
 */
 function pmc_get_imdb($imdb_id) {
-  $imdb_url = 'http://www.imdb.com/title/tt'.$imdb_id.'/';
-  $be = new BrowserEmulator(); 
-  $be->addHeaderLine("Referer", "http://www.google.com/"); 
-  $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip"); 
-  //$be->addPostData("Submit", "OK"); 
-  //$be->addPostData("item", "42"); 
-  //$be->setAuth("admin", "secretpass"); 
-  // also possible: 
-  // $be->setPort(10080); 
-  $file = $be->fopen($imdb_url);
-  //$response = $be->getLastResponseHeaders(); 
-  //print_r($response);
-
+  $imdb['pics_url']  = '';
   $imdb['title_the'] = '';
   $imdb['title']     = '{TT}';
   $imdb['typ']       = 0;
@@ -64,10 +92,35 @@ function pmc_get_imdb($imdb_id) {
   $imdb['country']   = '{COUNTRY}';
   $imdb['language']  = '{LANGUAGE}';
   
+  if($imdb_id == '') {return $imdb; exit;}
+  $imdb_url = 'http://www.imdb.com/title/tt'.$imdb_id.'/';
+  $be = new BrowserEmulator(); 
+  $be->addHeaderLine("Referer", "http://www.google.com/"); 
+  $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip"); 
+  //$be->addPostData("Submit", "OK"); 
+  //$be->addPostData("item", "42"); 
+  //$be->setAuth("admin", "secretpass"); 
+  // also possible: 
+  // $be->setPort(10080); 
+  $file = $be->fopen($imdb_url);
+  //$response = $be->getLastResponseHeaders(); 
+  //print_r($response);
 
-  
   $i = 0;
+  $data = '';
   while ($line[$i] = fgets($file, 10240)) {
+      /* picture link */
+      if ($i>190 && $i<250) {
+        $res = strpos($line[$i], '<a name="poster"');
+        if ($res !== false ) {
+          $line[$i] = preg_replace("|<img[^>]+/>|U", '', $line[$i]);
+          $line[$i] = preg_replace("|<a name=\"poster\" href=\"|U", '', $line[$i]);
+          $line[$i] = preg_replace("|\" title=\"[^>]+\"></a>|U", '', $line[$i]);
+          $line[$i] = preg_replace("|/rg/action-box-title/primary-photo/media/rm|U", '', $line[$i]);
+          $imdb['pics_url'] = trim($line[$i]);
+        }
+      }
+      
       /* title+year+type */
       if ($i>240 && $i<250) {
         $res = strpos($line[$i], '<h1>');
@@ -202,6 +255,7 @@ function pmc_get_imdb($imdb_id) {
           $aka = implode(", ", $akas);
           $imdb['aka'] = trim(strip_tags($aka));
         }
+        $data .= $line[$i]; /*take data for country and language */
       }
       /* //aka */
       
@@ -234,18 +288,16 @@ function pmc_get_imdb($imdb_id) {
       /* //cast */
       
       $i++;
+      
+
   }
   fclose($file);
-  
-  /* country and language */
-  $file2 = $be->fopen($imdb_url);
-  $imdbx = stream_get_contents($file2);
-  $resx = strpos($imdbx, '<h5>Country:</h5>');
+  $resx = strpos($data, '<h5>Country:</h5>');
   if ($resx !== false ) {
-    $imdbx = trim(strip_tags($imdbx));
-    $imdb1 = strstr($imdbx, 'Country:');
-    $imdb2 = strstr($imdbx, 'Language:');
-    $imdb3 = strstr($imdbx, 'Color:');
+    $data = trim(strip_tags($data));
+    $imdb1 = strstr($data, 'Country:');
+    $imdb2 = strstr($data, 'Language:');
+    $imdb3 = strstr($data, 'Color:');
 
     $imdbc  = str_replace($imdb2, '', $imdb1);
     $imdbc  = str_replace('Country:', '', $imdbc);
@@ -263,7 +315,6 @@ function pmc_get_imdb($imdb_id) {
     $imdbl = array_diff($imdbl, array(''));
     $imdb['language'] = implode(", ", $imdbl);
   }
-  fclose($file2);
   /* //country and language */
   
   return $imdb;
