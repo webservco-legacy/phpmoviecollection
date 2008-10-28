@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:03 2008-10-22
+* @version    19:18 2008-10-28
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -246,7 +246,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','1.0.1-081022');
+  define('_APP_VER','1.0.2-081027');
   /**
   * Application author
   */
@@ -773,7 +773,7 @@ function pmc_usr_logout() {
 *
 * @return string filtered input
 */
-function pmc_filter_input($input) {
+function pmc_filter_input($input,$sql=1) {
   if(get_magic_quotes_gpc()) {$input = stripslashes($input);}
   // get rid of unwanted characters
   $unwanted = array('\\', '');
@@ -783,7 +783,8 @@ function pmc_filter_input($input) {
   $input = str_replace('&gt;', '&#62;', $input);
   $input = str_replace('<', '&#60;', $input);
   $input = str_replace('>', '&#62;', $input);
-  return mysql_real_escape_string(trim($input));
+  if($sql == 1) {$input = mysql_real_escape_string($input);}
+  return trim($input);
 }
 /**
 * Filter user input for searching
@@ -956,7 +957,6 @@ function pmc_check_install($pmc_dbconn) {
 /**
 * Helper function for strpos
 *
-*
 * @param string $search string to be found
 * @param string $string string containing the string to be found
 * @return bool result
@@ -969,5 +969,25 @@ function pmc_string_exists($search, $string){
   else { 
     return true; 
   } 
+}
+/**
+* str_split() replacement for PHP < 5
+*
+* from php manual user notes
+* created by heavyraptor (10-Mar-2006 10:07)
+* @param string $str string for splitting
+* @param integer $length string length
+* @return array split string
+*/
+if(!function_exists("str_split")) {
+ function str_split($str,$length = 1) {
+   if ($length < 1) return false;
+   $strlen = strlen($str);
+   $ret = array();
+   for ($i = 0; $i < $strlen; $i += $length) {
+    $ret[] = substr($str,$i,$length);
+   }
+   return $ret;
+ }
 }
 ?>

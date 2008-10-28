@@ -3,14 +3,15 @@
 
 error_reporting(E_ALL);
       define("_VALID_REQUEST", TRUE);
-      require_once './lib.inc.php';
+      require_once '../inc/lib.inc.php';
       require_once './browseremulator.class.php';
       require_once './imdb.inc.php';
       
-      
+
+/*      
       
 $filename = 'test.jpg';
-$imdb_url = 'http://ia.media-imdb.com/images/M/MV5BMTk2MjIxMjgwNF5BMl5BanBnXkFtZTcwNDAzNTgzMQ@@.jpg';
+$imdb_url = pmc_filter_input('http://ia.media-imdb.com/images/M/MV5BMTk2MjIxMjgwNF5BMl5BanBnXkFtZTcwNDAzNTgzMQ@@.jpg');
 $be = new BrowserEmulator(); 
 $be->addHeaderLine("Referer", "http://ia.media-imdb.com/"); 
 $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip");
@@ -34,4 +35,7 @@ else {
 }
 //echo '<img src="'.$imdb_url.'" height="100" />';
 fclose($handle);
+*/
+
+if(!pmc_save_imdb_pics('tester.jpg','MV5BMTk2MjIxMjgwNF5BMl5BanBnXkFtZTcwNDAzNTgzMQ@@.jpg')) {echo 'error';} else {echo 'ok';}
 ?>

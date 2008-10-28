@@ -37,7 +37,7 @@ function pmc_get_imdb_pics($imdb_pics) {
   if($imdb_pics == '') {return $pics; exit;}
   $pics_url = 'http://www.imdb.com/media/rm'.$imdb_pics;
   $be = new BrowserEmulator(); 
-  $be->addHeaderLine("Referer", "http://www.google.com/"); 
+  $be->addHeaderLine("Referer", "http://www.imdb.com/"); 
   $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip"); 
   $file = $be->fopen($pics_url);
   $i = 0;
@@ -95,7 +95,7 @@ function pmc_get_imdb($imdb_id) {
   if($imdb_id == '') {return $imdb; exit;}
   $imdb_url = 'http://www.imdb.com/title/tt'.$imdb_id.'/';
   $be = new BrowserEmulator(); 
-  $be->addHeaderLine("Referer", "http://www.google.com/"); 
+  $be->addHeaderLine("Referer", "http://www.imdb.com/"); 
   $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip"); 
   //$be->addPostData("Submit", "OK"); 
   //$be->addPostData("item", "42"); 
@@ -318,5 +318,33 @@ function pmc_get_imdb($imdb_id) {
   /* //country and language */
   
   return $imdb;
+}
+/**
+* Imdb pictures saving function
+*
+* Description
+*
+* @param string $file file to be written
+* @param string $picfile picture to be written
+* @return mixed result
+*/
+function pmc_save_imdb_pics($newfile,$picfile) {
+  if($picfile == '') {return false; exit;}
+  else {
+    $be = new BrowserEmulator();
+    $be->addHeaderLine("Referer", "http://ia.media-imdb.com/"); 
+    $be->addHeaderLine("Accept-Encoding", "x-compress; x-zip");
+    $file = $be->fopen('http://ia.media-imdb.com/images/M/'.$picfile);
+    $pic = '';
+    $i = 0;
+    while ($line[$i] = fgets($file, 10240)) {$pic .= $line[$i]; $i++;}
+    fclose($file);
+    if(!$handle = fopen($newfile, 'w')) {return false; exit;}
+    else if(fwrite($handle, $pic) === FALSE) {return false; exit;}
+    else {
+      fclose($handle);
+      return true;
+    }
+  }
 }
 ?>
