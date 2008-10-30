@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    09:03 2008-10-12
+* @version    19:46 2008-10-29
 * @since      14:22 2008-09-12
 * @access     public
 * @package    pmc
@@ -251,7 +251,11 @@ if(isset($_POST['install'])) {
     if($rs7 !== true) {$dbx_err = 1;}
     $rs8 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('LMOV', '{$cfg['app_lmov']}')");
     if($rs8 !== true) {$dbx_err = 1;}
-    if($dbx_err == 0) {echo '<div class="ok">User and settings sucessfully saved (7 queries)!</div>';}
+    $rs9 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IMDBD', '0')");
+    if($rs9 !== true) {$dbx_err = 1;}
+    $rs10 = pmc_qry_exec("INSERT INTO pmc_set_cfg (cfg_set, cfg_val) VALUES ('IMDBP', '0')");
+    if($rs10 !== true) {$dbx_err = 1;}
+    if($dbx_err == 0) {echo '<div class="ok">User and settings sucessfully saved (11 queries)!</div>';}
     else {echo '<div class="err">Error saving user and settings!</div>';}
     // optimization
     $dbo_err = 0;

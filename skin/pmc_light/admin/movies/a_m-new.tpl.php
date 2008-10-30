@@ -1,4 +1,6 @@
 <h1><?php echo $lang['movie']['add']; ?></h1>
+
+<?php if(_APP_IMDBD == 1) { ?>
 <form enctype="multipart/form-data" id="movie_imdb_form" name="movie_imdb_form" action="" method="post">
 <label for="imdb_url"><?php echo $lang['imdb']['url'];?></label>
 <input id="imdb_url" name="imdb_url" type="text" size="37" maxlength="37" value="" />
@@ -7,6 +9,7 @@
 <div class="label">&#160;</div>
 <input id="mov_imdb_fetch" name="mov_imdb_fetch" type="submit" value="<?php echo $lang['imdb']['fetch']; ?>" />
 </form>
+<?php } ?>
 
 <div class="clearer"></div>
 <form enctype="multipart/form-data" id="movie_add_form" name="movie_add_form" action="" method="post">
@@ -55,6 +58,42 @@ if($tm > 0) {
 <label for="mov_pic"><?php echo $lang['pmc']['pic']; ?></label>  
 <input id="mov_pic" name="mov_pic" type="file" />
 
+<?php if(_APP_IMDBD == 1 && _APP_IMDBP == 1) { ?>
+<?php
+$tpi = count($_SESSION['pmc_imdb_pics']);
+if($tpi > 0) {
+?>
+<div class="clearer"></div>
+<div class="label">
+<select id="mov_imdb_pic" name="mov_imdb_pic" size="1">
+<?php
+  for($i=0;$i<$tpi;$i++) {
+?>  
+<option value="<?php echo $i; ?>"<?php if($cnt['mov_imdb_pic'] == $i) {echo ' selected="selected"';} ?>><?php echo $i; ?></option>
+<?php
+  }
+?>
+<option value="">---</option>
+</select>
+</div>
+<div class="input">
+<?php
+  for($j=0;$j<$tpi;$j++) {
+?>
+<div class="movimbdpic">
+<img src="<?php echo _APP_WWW; ?>lib/imdbpic.php?pic=<?php echo $_SESSION['pmc_imdb_pics'][$j]; ?>" height="80" alt="imdb_pic" title="imdb_pic" />
+<br />
+<?php echo $j; ?>
+</div>
+<?php
+  }
+?>
+</div>
+<?php  
+}
+?>
+<?php } ?>
+
 <div class="clearer"></div>
 <label for="mov_imdb"><?php echo $lang['movie']['imdb']; ?></label> 
 <input id="mov_imdb" name="mov_imdb" type="text" size="8" maxlength="8" value="<?php echo $cnt['mov_imdb']; ?>" /> 
@@ -70,9 +109,9 @@ if($tm > 0) {
 <div class="clearer"></div>
 <label for="mov_typ"><?php echo $lang['movie']['type']; ?></label>
 <select id="mov_typ" name="mov_typ" size="1">
-  <option value="0"<?php if($cnt['mov_typ'] == 0) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['typ'][0]; ?></option>
-  <option value="1"<?php if($cnt['mov_typ'] == 1) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['typ'][1]; ?></option>
-  <option value="2"<?php if($cnt['mov_typ'] == 2) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['typ'][2]; ?></option>
+  <option value="0"<?php if($cnt['mov_typ'] == 0) {echo ' selected="selected"';} ?>><?php echo $lang['movie']['typ'][0]; ?></option>
+  <option value="1"<?php if($cnt['mov_typ'] == 1) {echo ' selected="selected"';} ?>><?php echo $lang['movie']['typ'][1]; ?></option>
+  <option value="2"<?php if($cnt['mov_typ'] == 2) {echo ' selected="selected"';} ?>><?php echo $lang['movie']['typ'][2]; ?></option>
 </select>
 
 <div class="clearer"></div>
@@ -139,9 +178,9 @@ if($cnt['genre'][$cnt['genres'][$i]] == 1) {$chk[$i] = ' checked="checked"';}
 <label for="mov_format"><?php echo $lang['movie']['mformat']; ?></label>
 <select id="mov_format" name="mov_format" size="1">
   <option value="0"><?php echo $lang['movie']['noformat']; ?></option>
-  <option value="1"<?php if($cnt['mov_format'] == 1) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['format'][1]; ?></option>
-  <option value="2"<?php if($cnt['mov_format'] == 2) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['format'][2]; ?></option>
-  <option value="3"<?php if($cnt['mov_format'] == 3) {echo 'selected="selected"';} ?>><?php echo $lang['movie']['format'][3]; ?></option>
+  <option value="1"<?php if($cnt['mov_format'] == 1) {echo ' selected="selected"';} ?>><?php echo $lang['movie']['format'][1]; ?></option>
+  <option value="2"<?php if($cnt['mov_format'] == 2) {echo ' selected="selected"';} ?>><?php echo $lang['movie']['format'][2]; ?></option>
+  <option value="3"<?php if($cnt['mov_format'] == 3) {echo ' selected="selected"';} ?>><?php echo $lang['movie']['format'][3]; ?></option>
 </select>
 
 <div class="clearer"></div>

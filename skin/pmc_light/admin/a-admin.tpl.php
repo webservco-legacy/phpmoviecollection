@@ -29,6 +29,6 @@
 </ul>
 <h3><?php echo $lang['setup']['setup']; ?></h3>
 <ul>
-  <li><a href="<?php echo _APP_URL; ?>setup/install.php" title="<?php echo $lang['setup']['install']; ?>"><?php echo $lang['setup']['install']; ?></a></li>
+  <li><a href="<?php echo _APP_WWW; ?>setup/install.php" title="<?php echo $lang['setup']['install']; ?>"><?php echo $lang['setup']['install']; ?></a></li>
 </ul>
 </div>

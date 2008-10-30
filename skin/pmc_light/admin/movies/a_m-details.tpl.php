@@ -1,4 +1,6 @@
 <h1><?php echo $lang['movie']['details']; ?></h1>
+
+<?php if(_APP_IMDBD == 1) { ?>
 <form enctype="multipart/form-data" id="movie_imdb_form" name="movie_imdb_form" action="" method="post">
 <label for="imdb_url"><?php echo $lang['imdb']['url'];?></label>
 <input id="imdb_url" name="imdb_url" type="text" size="37" maxlength="37" value="" />
@@ -7,6 +9,7 @@
 <div class="label">&#160;</div>
 <input id="mov_imdb_fetch" name="mov_imdb_fetch" type="submit" value="<?php echo $lang['imdb']['fetch']; ?>" />
 </form>
+<?php } ?>
 
 <div class="clearer"></div>
 <form enctype="multipart/form-data" id="movie_add_form" name="movie_add_form" action="" method="post">
@@ -56,6 +59,42 @@ if($tm > 0) {
 <input id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" type="hidden" value="1024000" />
 <label for="mov_pic"><?php echo $lang['pmc']['pic']; ?></label>  
 <input id="mov_pic" name="mov_pic" type="file" />
+
+<?php if(_APP_IMDBD == 1 && _APP_IMDBP == 1) { ?>
+<?php
+$tpi = count($_SESSION['pmc_imdb_pics']);
+if($tpi > 0) {
+?>
+<div class="clearer"></div>
+<div class="label">
+<select id="mov_imdb_pic" name="mov_imdb_pic" size="1">
+<?php
+  for($i=0;$i<$tpi;$i++) {
+?>  
+<option value="<?php echo $i; ?>"<?php if($cnt['mov_imdb_pic'] == $i) {echo ' selected="selected"';} ?>><?php echo $i; ?></option>
+<?php
+  }
+?>
+<option value="">---</option>
+</select>
+</div>
+<div class="input">
+<?php
+  for($j=0;$j<$tpi;$j++) {
+?>
+<div class="movimbdpic">
+<img src="<?php echo _APP_WWW; ?>lib/imdbpic.php?pic=<?php echo $_SESSION['pmc_imdb_pics'][$j]; ?>" height="80" alt="imdb_pic" title="imdb_pic" />
+<br />
+<?php echo $j; ?>
+</div>
+<?php
+  }
+?>
+</div>
+<?php  
+}
+?>
+<?php } ?>
 
 <div class="clearer"></div>
 <label for="mov_imdb"><?php echo $lang['movie']['imdb']; ?></label> 

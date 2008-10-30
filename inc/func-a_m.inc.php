@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:10 2008-10-27
+* @version    09:58 2008-10-30
 * @since      15:32 2008-09-03
 * @access     public
 * @package    pmc
@@ -76,7 +76,7 @@ function pmc_adm_mov_add() {
   $cnt['page']['mov_tag']       = '';
   $cnt['page']['mov_plot']      = '';
   $cnt['page']['mov_cast']      = '';
-  $cnt['page']['mov_imdb_pics'] = '';
+  $cnt['page']['mov_imdb_pic']  = '';
   $cnt['page']['mov_format']    = '';
   $cnt['page']['mov_subs']      = '';
   $cnt['page']['mov_notes']     = '';
@@ -125,7 +125,7 @@ function pmc_adm_mov_add() {
       $cnt['page']['mov_tag']       = $imdb['tag'];
       $cnt['page']['mov_plot']      = $imdb['plot'];
       $cnt['page']['mov_cast']      = $imdb['cast'];
-      $cnt['page']['mov_imdb_pics'] = pmc_get_imdb_pics($imdb['pics_url']);
+      $_SESSION['pmc_imdb_pics']    = pmc_get_imdb_pics($imdb['pics_url']);
       $_SESSION['pmc_msg'] = 35;
     }
   }
@@ -146,7 +146,7 @@ function pmc_adm_mov_add() {
     if(isset($_POST['mov_tag']))       {$cnt['page']['mov_tag']       = pmc_filter_input($_POST['mov_tag']);}
     if(isset($_POST['mov_plot']))      {$cnt['page']['mov_plot']      = pmc_filter_input($_POST['mov_plot']);}
     if(isset($_POST['mov_cast']))      {$cnt['page']['mov_cast']      = pmc_filter_input($_POST['mov_cast']);}
-    if(isset($_POST['mov_imdb_pics'])) {$cnt['page']['mov_imdb_pics'] = pmc_filter_input($_POST['mov_imdb_pics']);}
+    if(isset($_POST['mov_imdb_pic']))  {$cnt['page']['mov_imdb_pic']  = pmc_filter_input($_POST['mov_imdb_pic']);}
     if(isset($_POST['mov_format']))    {$cnt['page']['mov_format']    = pmc_filter_input($_POST['mov_format']);}
     if(isset($_POST['mov_subs']))      {$cnt['page']['mov_subs']      = pmc_filter_input($_POST['mov_subs']);}
     if(isset($_POST['mov_notes']))     {$cnt['page']['mov_notes']     = pmc_filter_input($_POST['mov_notes']);}
@@ -186,8 +186,15 @@ function pmc_adm_mov_add() {
           else {$pic_store = 0;}
         }
       }
-      //else if() {} /* imdb pic */
-      //else {} /* nopic */
+      if($pic_store == 0 && $cnt['page']['mov_imdb_pic'] != '') {
+        //die($pic_path.$mov_pic.' - '.$_SESSION['pmc_imdb_pics'][$cnt['page']['mov_imdb_pic']]); exit;
+        $mov_pic  = 'mov_' . $id . '.' . 'jpg';
+        $pic_path = _APP_DIR . 'var/pic_mov/';
+        require_once './lib/browseremulator.class.php';
+        require_once './lib/imdb.inc.php';
+        if (pmc_save_imdb_pics($pic_path.$mov_pic,$_SESSION['pmc_imdb_pics'][$cnt['page']['mov_imdb_pic']])) {$pic_store = 1;}
+        else {$pic_store = 0;}
+      } /* imdb pic */
       if($err == 0) {
         $idate = date("Y-m-d");
         $itime = date("H:i:s");
@@ -213,6 +220,7 @@ function pmc_adm_mov_add() {
         if($insert === true) {
           if($pic_store == 1) {$_SESSION['pmc_msg'] = 32;}
           else {$_SESSION['pmc_msg'] = 33;}
+          $_SESSION['pmc_imdb_pics'] = array();
           header("Location: " . _APP_URL . 'admin/movies/details/' . $id);
           exit;
         }
@@ -264,6 +272,7 @@ function pmc_adm_mov_details($id) {
       $cnt['page']['mov_tag']      = $imdb['tag'];
       $cnt['page']['mov_plot']     = $imdb['plot'];
       $cnt['page']['mov_cast']     = $imdb['cast'];
+      $_SESSION['pmc_imdb_pics']   = pmc_get_imdb_pics($imdb['pics_url']);
       $_SESSION['pmc_msg'] = 35;
     }
   }
@@ -284,6 +293,7 @@ function pmc_adm_mov_details($id) {
     if(isset($_POST['mov_tag']))      {$cnt['page']['mov_tag']      = pmc_filter_input($_POST['mov_tag']);}
     if(isset($_POST['mov_plot']))     {$cnt['page']['mov_plot']     = pmc_filter_input($_POST['mov_plot']);}
     if(isset($_POST['mov_cast']))     {$cnt['page']['mov_cast']     = pmc_filter_input($_POST['mov_cast']);}
+    if(isset($_POST['mov_imdb_pic']))  {$cnt['page']['mov_imdb_pic']  = pmc_filter_input($_POST['mov_imdb_pic']);}
     if(isset($_POST['mov_format']))   {$cnt['page']['mov_format']   = pmc_filter_input($_POST['mov_format']);}
     if(isset($_POST['mov_subs']))     {$cnt['page']['mov_subs']     = pmc_filter_input($_POST['mov_subs']);}
     if(isset($_POST['mov_notes']))    {$cnt['page']['mov_notes']    = pmc_filter_input($_POST['mov_notes']);}
@@ -326,6 +336,14 @@ function pmc_adm_mov_details($id) {
           else {$pic_store = 0;}
         }
       }
+      if($pic_store == 0 && $cnt['page']['mov_imdb_pic'] != '') {
+        $mov_pic  = 'mov_' . $id . '.' . 'jpg';
+        $pic_path = _APP_DIR . 'var/pic_mov/';
+        require_once './lib/browseremulator.class.php';
+        require_once './lib/imdb.inc.php';
+        if (pmc_save_imdb_pics($pic_path.$mov_pic,$_SESSION['pmc_imdb_pics'][$cnt['page']['mov_imdb_pic']])) {$pic_store = 1;}
+        else {$pic_store = 0;}
+      } /* imdb pic */
       if($err == 0 || $err == 2) {
         //$idate = date("Y-m-d");
         //$itime = date("H:i:s");
@@ -352,6 +370,7 @@ function pmc_adm_mov_details($id) {
         if($update === true) {
           if($pic_store == 1 || $pic_store == 2) {$_SESSION['pmc_msg'] = 36;}
           else {$_SESSION['pmc_msg'] = 37;}
+          $_SESSION['pmc_imdb_pics'] = array();
           header("Location: " . _APP_URL . 'admin/movies/details/' . $id);
           exit;
         }

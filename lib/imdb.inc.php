@@ -11,7 +11,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    15:10 2008-10-28
+* @version    09:45 2008-10-30
 * @since      19:30 2008-08-29
 * @access     public
 * @package    pmc
@@ -62,7 +62,7 @@ function pmc_get_imdb_pics($imdb_pics) {
     }
   }
   fclose($file);
-  $pics = implode('-', $pics);
+  //$pics = implode('-', $pics);
   return $pics;
 }
 /**

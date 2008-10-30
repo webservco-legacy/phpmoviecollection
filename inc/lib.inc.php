@@ -10,7 +10,7 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    19:32 2008-10-28
+* @version    10:05 2008-10-30
 * @since      19:27 2008-08-19
 * @access     public
 * @package    pmc
@@ -246,7 +246,7 @@ function pmc_cfg($ap_cfg) {
   /**
   * Application version
   */
-  define('_APP_VER','1.0.2-081027');
+  define('_APP_VER','1.1.0-081030');
   /**
   * Application author
   */
@@ -545,6 +545,10 @@ function pmc_session($pmc_dbconn) {
     * Default message
     */
     $_SESSION['pmc_msg'] = 0;
+    /**
+    * Imdbpics
+    */
+    $_SESSION['pmc_imdb_pics'] = array();
     /**
     * User status message
     */

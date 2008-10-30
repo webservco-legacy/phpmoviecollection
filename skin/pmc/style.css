@@ -217,6 +217,7 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 .mov_view_fsort        {width: 200px; padding: 0px; text-align: center;}
 .mov_view_ford         {padding: 0px; text-align: center;}
 .mov_view_fok          {width: 75px; padding: 0px; text-align: center;}
+.movimbdpic            {float: left; margin-right: 2px; text-align: center;}
 /* ********** ********** ********** ********** ********** MOVIE END ********** ********** ********** ********** ********** */
 
 /* ********** ********** ********** ********** ********** HELP START ********** ********** ********** ********** ********** */

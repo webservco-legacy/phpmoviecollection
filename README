@@ -30,7 +30,6 @@ Administration
 
 IMDb
 - Submit IMDb search queries directly from the application.
-- Fetches most of the movie data from IMDb without the need of allow_url_fopen enabled!
 
 Search
 - Advanced search module with many options
@@ -55,9 +54,9 @@ phpMovieCollection runs on both Unix and Windows platforms.
 All you need is an Apache webserver with PHP enabled and a MySQL database.
 
 Minimum requirements:
-- Apache Webserver (not tested on IIS)
-- PHP >= 5.2.0
-- MySQL database server with a database you have access to
+- Apache Webserver (not tested on IIS) >= 1.3.37
+- PHP >= 4.4.4
+- MySQL database server >= 4.1.21 with a database you have access to
 - possibility to change permission on some files/directories
 - file uploads enabled
 - GD support
