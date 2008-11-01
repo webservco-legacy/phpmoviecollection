@@ -131,10 +131,14 @@ else {echo '&#160;';}
   <td class="mvalue">
   &#160;
 <?php
+
 $tg = count($cnt['genres']);
-for($i=0;$i<$tg;$i++) {
-  if($cnt['genre'][$cnt['genres'][$i]] == 1) {$genres[] = $cnt['genrett'][$cnt['genres'][$i]];}
-}
+$genres = array();
+  for($i=0;$i<$tg;$i++) {
+    if($cnt['genre'][$cnt['genres'][$i]] == 1) {$genres[] = $cnt['genrett'][$cnt['genres'][$i]];}
+  }
+
+
 $tg2 = count($genres);
 if($tg2 > 0) {
   for($j=0;$j<$tg2;$j++) {

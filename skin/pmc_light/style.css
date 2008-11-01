@@ -204,6 +204,8 @@ a.mnulnk:link, a.mnulnk:visited {font-weight: bold; text-decoration: none; margi
 * html #mov_view_catno {margin-left: 157px;}
 .mname                 {float: left; width: 150px; text-align: right; padding: 5px 5px 5px 5px;}
 .mvalue                {margin-left: 160px; text-align: left; padding: 5px 5px 5px 5px;}
+td.mname                 {width: 150px; text-align: right; padding: 5px 5px 5px 5px;}
+td.mvalue             {text-align: left; padding: 5px 5px 5px 5px; width: 100%;}
 .mov_view_hmovie       {padding: 0px; text-align: center;}
 .mov_view_hdel         {width: 51px; padding: 2px; text-align: center;}
 .mov_view_cmovie       {padding: 3px; text-align: center;}
