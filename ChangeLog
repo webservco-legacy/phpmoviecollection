@@ -1,6 +1,7 @@
 1.1.1-081102
 - changed default picture for missing image to pmc logo
 - fixed a small bug (no genres) on movie details page
+- introduced setp security file (setup.txt)
 1.1.0-081030
 - made IMDb options hidden by default
 - added option to also fetch picture from IMDb (very very slow)

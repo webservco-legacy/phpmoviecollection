@@ -24,6 +24,10 @@
 */
 define("_VALID_REQUEST", TRUE);
 /**
+* Security
+*/
+if(!is_readable('./setup.txt')) {die('Setup has been disabled.'); exit;}
+/**
 * Load setup functions
 */
 if(is_readable('./setup.inc.php')) {require_once './setup.inc.php';}
