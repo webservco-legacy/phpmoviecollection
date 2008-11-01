@@ -1,3 +1,5 @@
+1.1.1-081101
+- changed default picture for missing image to pmc logo
 1.1.0-081030
 - made IMDb options hidden by default
 - added option to also fetch picture from IMDb (very very slow)
