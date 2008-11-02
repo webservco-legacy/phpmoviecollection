@@ -89,9 +89,9 @@ $cfg['usr_lname'] = '';
 $cfg['usr_mail']  = '';
 $cfg['usr_pass']  = '';
 $cfg['usr_skin']  = 'pmc';
-$cfg['usr_lang']  = 'ro';
+$cfg['usr_lang']  = 'en';
 
-$cfg['app_lang']  = 'ro';
+$cfg['app_lang']  = 'en';
 $cfg['app_skin']  = 'pmc';
 $cfg['app_pcat']  = '150';
 $cfg['app_pmov']  = '150';
@@ -276,7 +276,7 @@ if(isset($_POST['install'])) {
     echo '<div class="msg">';
     echo '<br />Setup is finished.<br />';
     echo '<br />Don\'t forget to remove the write permissions on the configuration file<br />('.$cfg['app_dir'].'inc/cfg.inc.php)<br />';
-    echo 'and to delete the setup directory<br />('.$cfg['app_dir'].'setup/) or make it inaccessible.<br />';
+    echo 'and to delete the setup.txt file<br />('.$cfg['app_dir'].'setup/setup.txt).<br />';
     echo '<br />If you encountered errors please read the manual and <a href="install.php" title="phpMovieCollection Setup">try again</a>.<br />';
     echo 'Else, <a href="'.$cfg['app_url'].'" title="phpMovieCollection">have fun with phpMovieCollection</a>!';
     echo '</div>';
