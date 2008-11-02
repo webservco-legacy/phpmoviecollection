@@ -10,8 +10,8 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    00:17 2008-10-13
-* @since      00:17 2008-10-13
+* @version    17:36 2008-11-01
+* @since      17:36 2008-11-01
 * @access     public
 * @package    pmc
 * @subpackage Configuration
@@ -25,11 +25,11 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Main URL of the application - notice the slash at the end
 */
-$ap_cfg['app_url'] = 'http://pmc.rudisoft.net/demo/';
+$ap_cfg['app_url'] = 'http://rudisoft.atzend.com/pmc/demo/';
 /**
 * Full path to the application - notice the slash at the end
 */
-$ap_cfg['app_dir'] = '/home/rudisoft/public_pmc/demo/';
+$ap_cfg['app_dir'] = '/home/rudisoft/public_html/pmc/demo/';
 /**
 * Whether to use rewrite engine functionality or not
 */
@@ -41,7 +41,7 @@ $ap_cfg['db_host'] = 'localhost';
 /**
 * Database user
 */
-$ap_cfg['db_user'] = 'rudisoft_pmcuser';
+$ap_cfg['db_user'] = 'rudisoft_pmcusr';
 /**
 * Database password
 */
