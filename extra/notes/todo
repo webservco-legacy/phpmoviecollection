@@ -19,6 +19,8 @@
 [-] documentation (user/developer)
 [x] hint with last inserted movie catalog number
 [x] option for TV/VIDEO release
+[-] delete imdbpics from memory on "add-new"
+[-] error fetching tt, aka, year on nopic
 [+++V2+++]
 [-] movie formats menu/module (can filter by that)
 [-] optimize/fix status messages
