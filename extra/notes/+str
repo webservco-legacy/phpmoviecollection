@@ -10,13 +10,15 @@ README
 
 [-][-]Intro
 
-[-][-]About
+[-][-] About
 [-][-][-]Features
 [-][-][-]Screenshots
 [-][-][-]Demo
 
+[-][-] Get pMC
 [-][-][-]System Requirements
 [-][-][-]Download
+[-][-]Changelog
 
 [-][-]Support
 [-][-][-]Frequently Asked Questions
@@ -24,11 +26,12 @@ README
 [-][-][-]User Documentation
 [-][-][-]Developer Documentation
 
+[-][-] Resources
+[-][-][-] Skins
+
 [-][-]Get involved
 [-][-][-]Donate
 [-][-][-]Translate
-
-[-][-]Changelog
 
 [-]Links
 {apache,php,mysql,wamp,hosting,domains}
