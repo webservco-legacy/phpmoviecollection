@@ -1,0 +1,29 @@
+Name: BoltWire
+
+Slogan: Radical Ideas :: Radical Results!
+
+Login: [if login][[action.logout|Logout]][else][[action.login|Login]] | [[action.register|Register]][if]
+
+Search: [form][text query size=15] [submit SEARCH][session nextpage action.search][session search "{=query}"][form]
+
+Actions: [(include site.actions)]
+
+Footer: Copyright &copy; 2008, all rights reserved.
+~data~
+author: System
+~
+diff: <br /><span class=diff>Added line 1,11: </span>
+Name: BoltWire
+
+Slogan: Radical Ideas :: Radical Results!
+
+Login: [if login][[action.logout|Logout]][else][[action.login|Login]] | [[action.register|Register]][if]
+
+Search: [form][text query size=15] [submit SEARCH][session nextpage action.search][session search "{=query}"][form]
+
+Actions: [(include site.actions)]
+
+Footer: Copyright &copy; 2008, all rights reserved.
+
+
+~

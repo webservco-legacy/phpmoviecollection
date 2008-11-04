@@ -1,0 +1,16 @@
+[(breadcrumb)]
+
+!Frequently Asked Questions
+
+**Q:** Rewrite engine doesn't work even though it is enabled on the server
+
+**A:** Edit .htaccess file. Uncomment the line
+&lt;code>#RewriteBase /pmc&lt;/code>
+and change "/pmc" to reflect your instalation directory.
+If you installed on the server root then the line would be
+&lt;code>RewriteBase /&lt;/code>
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~

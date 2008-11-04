@@ -1,0 +1,15 @@
+[(pagedata 'count' data=site.public.download)]
+{field}/files/phpMovieCollection-1.1.1-081102.zip
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~
+diff: <br /><span class=diff>Changed line 2: </span>
+[^phpMovieCollection-1.1.1-081102.zip^]
+
+<span class=diff>to</span>
+{field}/files/phpMovieCollection-1.1.1-081102.zip
+
+
+~

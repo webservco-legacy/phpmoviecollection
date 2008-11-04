@@ -1,0 +1,83 @@
+! [[main|Welcome]]
+text
+* [[news|News]]
+
+! [[about|About]]
+* [[about.features|Features]]
+* [[about.screens|Screenshots]]
+* [[about.demo|Demo]]
+
+! [[get|Get pMC]]
+* [[get.sysrec|System Requirements]]
+* [[get.download|Download]]
+
+! [[support|Support]]
+* [[support.faq|Frequently Asked Questions]]
+* [[support.install|Instalation Documentation]]
+* [[support.userdoc|User Documentation]]
+* [[support.devdoc|Developer Documentation]]
+
+! [[resources|Resources]]
+* [[resources.skins|Skins]]
+
+! [[participate|Get Involved]]
+* [[participate.donate|Donate]]
+* [[participate.translate|Translate]]
+
+! [[links|Links]]
+
+! [[contact|Contact]]
+
+[if login]//You are currently logged in as: //
+[[~.{member}|{member}]]
+[if]
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~
+diff: <br /><span class=diff>Changed line 2,14: </span>
+Thank you for trying
+our software!
+
+! [[bolt:docs|Documentation]]
+* [[bolt:docs.intro|Introduction]]
+* [[bolt:docs.install|Installation]]
+* [[bolt:docs.start|Getting Started]]
+* [[bolt:docs.index|Markup Index]]
+* [[bolt:docs.tutorials|Tutorials]]
+
+! [[www.boltwire.com|BoltWire.com]]
+* [[http://groups.google.com/group/boltwire|Mailing List]]
+* [[bolt:resources|Resources]]
+<span class=diff>to</span>
+text
+* [[news|News]]
+
+! [[about|About]]
+* [[about.features|Features]]
+* [[about.screens|Screenshots]]
+* [[about.demo|Demo]]
+
+! [[get|Get pMC]]
+* [[get.sysrec|System Requirements]]
+* [[get.download|Download]]
+
+! [[support|Support]]
+* [[support.faq|Frequently Asked Questions]]
+* [[support.install|Instalation Documentation]]
+* [[support.userdoc|User Documentation]]
+* [[support.devdoc|Developer Documentation]]
+
+! [[resources|Resources]]
+* [[resources.skins|Skins]]
+
+! [[participate|Get Involved]]
+* [[participate.donate|Donate]]
+* [[participate.translate|Translate]]
+
+! [[links|Links]]
+
+! [[contact|Contact]]
+
+~

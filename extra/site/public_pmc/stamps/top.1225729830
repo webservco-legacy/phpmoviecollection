@@ -1,0 +1,15 @@
+! &lt;span id=boltwire>[[main|phpMovieCollection]]&lt;/span>
+!! &lt;color=#999999>manage your movie collection&lt;/color>
+
+&#36;&#36;actions
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~
+diff: <br /><span class=diff>Changed line 2: </span>
+!! &lt;color=#999999>&#36;&#36;slogan&lt;/color>
+<span class=diff>to</span>
+!! &lt;color=#999999>manage your movie collection&lt;/color>
+
+~

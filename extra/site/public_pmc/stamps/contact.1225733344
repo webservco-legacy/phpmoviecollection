@@ -1,0 +1,20 @@
+[(breadcrumb)]
+
+!Contact
+
+phpMovieCollection is developed by Radu Maier.
+
+You can contact the author at &lt;code>pmc (at) rudisoft.net&lt;/code>
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~
+diff: <br /><span class=diff>Changed line 7: </span>
+You can contact the author at pmc (at)rudisoft.net
+
+<span class=diff>to</span>
+You can contact the author at &lt;code>pmc (at) rudisoft.net&lt;/code>
+
+
+~

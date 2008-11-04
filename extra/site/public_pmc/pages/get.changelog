@@ -1,0 +1,29 @@
+[(breadcrumb)]
+
+!Change Log
+
+**1.1.1-081102**
+* changed default picture for missing image to pmc logo
+* fixed a small bug (no genres) on movie details page
+* introduced setp security file (setup.txt)
+* changed default language to en
+
+**1.1.0-081030**
+* made IMDb options hidden by default
+* added option to also fetch picture from IMDb (very very slow)
+
+**1.0.2-081027**
+* fixed a bug with imdb fetch regarding year (I)
+* introduced backward compatibility with php4, mysql4, apache 1 (still needs testing)
+
+**1.0.1-082022**
+* fixed a bug that affected installations on a server without mod_rewrite (images not showing)
+* added La, Il, Les, Una, Os, El, Los in IMDb fetch function (&#34;title_the&#34;)
+
+**1.0.0-081014**
+* first public release
+~data~
+author: admin
+~
+changesummary: Page created by admin.
+~

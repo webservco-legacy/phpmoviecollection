@@ -1,0 +1,31 @@
+[(breadcrumb)]
+
+Frequently Asked Questions
+
+**Q:** Rewrite engine doesn&#39;t work even though it is enabled on the server
+
+**A:** Edit .htaccess file. Uncomment the line
+&lt;code>#RewriteBase /pmc&lt;/code>
+and change &#34;/pmc&#34; to reflect your instalation directory.
+If you installed on the server root then the line would be
+&lt;code>RewriteBase /&lt;/code>
+~data~
+author: admin
+~
+changesummary: Page created by admin.
+~
+diff: <br /><span class=diff>Added line 1,11: </span>
+[(breadcrumb)]
+
+Frequently Asked Questions
+
+**Q:** Rewrite engine doesn&#39;t work even though it is enabled on the server
+
+**A:** Edit .htaccess file. Uncomment the line
+&lt;code>#RewriteBase /pmc&lt;/code>
+and change &#34;/pmc&#34; to reflect your instalation directory.
+If you installed on the server root then the line would be
+&lt;code>RewriteBase /&lt;/code>
+
+
+~

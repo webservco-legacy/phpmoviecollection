@@ -1,0 +1,59 @@
+The lines below set various configuration options for BoltWire. Do not change the default values unless you know what you are doing. You are currently running BoltWire {version}.
+
+blockslashes: true
+cron: site.cron
+cronMode: sleep
+crypt: boltcrypt
+honorLines: true
+indexing: active
+indexBatch: 25
+interwiki: site.interwiki
+language: 
+messages: site.messages
+missingMark: true
+skin: 
+stampsExpire: 30
+threadStart: 1000
+uploadMode: true
+uploadSize: 25000
+uploadTypes: gif,jpg,png,txt,pdf
+wikiWords: false
+
+Any installed plugins are listed below . Click here to [[action.plugins|install]] additional plugins, or here to view your [[site.plugins|installation log]]. Additional plugins can be downloaded from [[www.boltwire.com/index.php?p=resources.solutions|BoltWire]].
+
+!! Installed Plugins
+[[#plugins]]
+
+~data~
+author: System
+~
+title: Configuration
+~
+diff: <br /><span class=diff>Added line 1,25: </span>
+The lines below set various configuration options for BoltWire. Do not change the default values unless you know what you are doing. You are currently running BoltWire {version}.
+
+blockslashes: true
+cron: site.cron
+cronMode: sleep
+crypt: boltcrypt
+honorLines: true
+indexing: active
+indexBatch: 25
+interwiki: site.interwiki
+language: 
+messages: site.messages
+missingMark: true
+skin: 
+stampsExpire: 30
+threadStart: 1000
+uploadMode: true
+uploadSize: 25000
+uploadTypes: gif,jpg,png,txt,pdf
+wikiWords: false
+
+Any installed plugins are listed below . Click here to [[action.plugins|install]] additional plugins, or here to view your [[site.plugins|installation log]]. Additional plugins can be downloaded from [[www.boltwire.com/index.php?p=resources.solutions|BoltWire]].
+
+!! Installed Plugins
+[[#plugins]]
+
+~

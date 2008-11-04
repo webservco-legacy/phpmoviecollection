@@ -1,0 +1,18 @@
+[(breadcrumb)]
+
+!Download
+
+[[download.phpmoviecollection-111-zip|Your File]] (//Downloaded  {site.public.download::download.phpmoviecollection-111-zip} times.//)
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~
+diff: <br /><span class=diff>Changed line 5: </span>
+[[download.phpMovieCollection|Your File]] (//Downloaded  {site.public.download::download.yourfile} times.//)
+
+<span class=diff>to</span>
+[[download.phpmoviecollection-111-zip|Your File]] (//Downloaded  {site.public.download::download.phpmoviecollection-111-zip} times.//)
+
+
+~

@@ -1,0 +1,43 @@
+! [[main|Welcome]]
+* [[news|News]]
+
+! [[about|About]]
+* [[about.features|Features]]
+* [[about.screenshots|Screenshots]]
+* [[about.demo|Demo]]
+
+! [[get|Get phpMovieCollection]]
+* [[get.sysrec|System Requirements]]
+* [[get.download|Download]]
+
+! [[support|Support]]
+* [[support.faq|Frequently Asked Questions]]
+* [[support.install|Instalation Documentation]]
+* [[support.userdoc|User Documentation]]
+* [[support.devdoc|Developer Documentation]]
+
+! [[resources|Resources]]
+* [[resources.skins|Skins]]
+
+! [[participate|Get Involved]]
+* [[participate.donate|Donate]]
+* [[participate.translate|Translate]]
+
+! [[links|Links]]
+
+! [[contact|Contact]]
+
+[if login]//You are currently logged in as: //
+[[~.{member}|{member}]]
+[if]
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~
+diff: <br /><span class=diff>Changed line 6: </span>
+* [[about.screens|Screenshots]]
+<span class=diff>to</span>
+* [[about.screenshots|Screenshots]]
+
+~

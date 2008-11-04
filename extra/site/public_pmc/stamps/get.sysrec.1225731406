@@ -1,0 +1,43 @@
+[(breadcrumb)]
+
+!System Requirements
+
+phpMovieCollection runs on both Unix and Windows platforms.
+All you need is an Apache webserver with PHP enabled and a MySQL database.
+
+**Minimum requirements:**
+* Apache Webserver (not tested on IIS) >= 1.3.37
+* PHP >= 4.4.4
+* MySQL database server >= 4.1.21 with a database you have access to
+* possibility to change permission on some files/directories
+* file uploads enabled
+* GD with FreeType support
+
+**Also recommended:**
+* Apache rewrite engine (for cleaner URL&#39;s) 
+~data~
+author: admin
+~
+changesummary: Page created by admin.
+~
+diff: <br /><span class=diff>Added line 1,17: </span>
+[(breadcrumb)]
+
+!System Requirements
+
+phpMovieCollection runs on both Unix and Windows platforms.
+All you need is an Apache webserver with PHP enabled and a MySQL database.
+
+**Minimum requirements:**
+* Apache Webserver (not tested on IIS) >= 1.3.37
+* PHP >= 4.4.4
+* MySQL database server >= 4.1.21 with a database you have access to
+* possibility to change permission on some files/directories
+* file uploads enabled
+* GD with FreeType support
+
+**Also recommended:**
+* Apache rewrite engine (for cleaner URL&#39;s) 
+
+
+~

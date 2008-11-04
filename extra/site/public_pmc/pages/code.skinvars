@@ -1,0 +1,16 @@
+Name: phpMovieCollection
+
+Slogan: Manage your flicks with ease!
+
+Login: [if login][[action.logout|Logout]][else][[action.login|Login]] | [[action.register|Register]][if]
+
+Search: [form][text query size=15] [submit SEARCH][session nextpage action.search][session search "{=query}"][form]
+
+Actions: [(include site.actions)]
+
+Footer: Copyright © 2008, all rights reserved.
+~data~
+author: admin
+~
+changesummary: Page edited by admin.
+~

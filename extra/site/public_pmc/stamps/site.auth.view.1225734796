@@ -1,0 +1,63 @@
+Use this page to control who can view which pages.
+
+*: @guest,@member
+action.blocked: @guest
+action.log: @guest
+action.login: @guest
+action.missing: @guest
+action.print: @guest
+action.print.missing: @guest
+action.register: @guest
+action.search: @guest
+action.source: @guest
+action.create: @member
+action.edit: @member
+action.logout: @member
+action.members: @member
+action.stamp: @member
+action.title: @member
+action*: @editor
+code*: @editor
+code.skinvars: @guest
+group*: @editor
+group.admin: @admin
+site*: @editor
+site.auth*: @admin
+site.public*: @guest
+site.actions: @guest
+site.cron: @guest
+~data~
+author: System
+~
+diff: <br /><span class=diff>Added line 1,28: </span>
+Use this page to control who can view which pages.
+
+*: @guest,@member
+action.blocked: @guest
+action.log: @guest
+action.login: @guest
+action.missing: @guest
+action.print: @guest
+action.print.missing: @guest
+action.register: @guest
+action.search: @guest
+action.source: @guest
+action.create: @member
+action.edit: @member
+action.logout: @member
+action.members: @member
+action.stamp: @member
+action.title: @member
+action*: @editor
+code*: @editor
+code.skinvars: @guest
+group*: @editor
+group.admin: @admin
+site*: @editor
+site.auth*: @admin
+site.public*: @guest
+site.actions: @guest
+site.cron: @guest
+
+
+~

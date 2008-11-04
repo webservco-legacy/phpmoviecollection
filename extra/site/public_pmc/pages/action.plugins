@@ -1,0 +1,27 @@
+! Install Plugin
+[if equal '{?backup}' '' && equal '{?done}' '']Please select a plugin to install:
+//Available Plugins//
+->
+[(search dir=plugins pattern='/^([-_0-9a-z]+)\.(backup|php)&#36;/' exclude='cron.php' template='plugins')]
+&lt;-
+[if][if ! equal '{?backup}' ''][(overwrite plugin={?backup}.backup)]
+[form]
+[submit INSTALL]
+[session if "exists {?backup}.php dir=plugins ? enable_{?backup}=true"]
+[session enable_{?backup} ]
+[session restore {?backup}.backup]
+[session restoredir {?dir}]
+[session nextpage {p}&done=ok]
+[session log "'{=restorepages}' delimiter=' ' target='site.plugins.{?backup}.{now}'"]
+[form]
+[if][if equal "{?done}" "ok"]Your plugin has been successfully installed.
+[if]//Click here to view currently [[site.plugins|installed plugins]].//
+/*
+[[#plugins]]
+[(template group)][[action.plugins&backup={+p1}&dir=plugins|{+p1}]]
+[[#end]]
+*/
+ delimiter=
+~data~
+author: System
+~

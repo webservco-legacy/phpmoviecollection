@@ -1,0 +1,43 @@
+! [[main|Welcome]]
+Thank you for trying
+our software!
+
+! [[bolt:docs|Documentation]]
+* [[bolt:docs.intro|Introduction]]
+* [[bolt:docs.install|Installation]]
+* [[bolt:docs.start|Getting Started]]
+* [[bolt:docs.index|Markup Index]]
+* [[bolt:docs.tutorials|Tutorials]]
+
+! [[www.boltwire.com|BoltWire.com]]
+* [[http://groups.google.com/group/boltwire|Mailing List]]
+* [[bolt:resources|Resources]]
+
+[if login]//You are currently logged in as: //
+[[~.{member}|{member}]]
+[if]
+~data~
+author: System
+~
+diff: <br /><span class=diff>Added line 1,18: </span>
+! [[main|Welcome]]
+Thank you for trying
+our software!
+
+! [[bolt:docs|Documentation]]
+* [[bolt:docs.intro|Introduction]]
+* [[bolt:docs.install|Installation]]
+* [[bolt:docs.start|Getting Started]]
+* [[bolt:docs.index|Markup Index]]
+* [[bolt:docs.tutorials|Tutorials]]
+
+! [[www.boltwire.com|BoltWire.com]]
+* [[http://groups.google.com/group/boltwire|Mailing List]]
+* [[bolt:resources|Resources]]
+
+[if login]//You are currently logged in as: //
+[[~.{member}|{member}]]
+[if]
+
+
+~

@@ -1,0 +1,23 @@
+!Welcome
+
+     Congratulations! BoltWire has been successfully installed on your computer! We have designed BoltWire to be easy to use, yet surprizingly powerful. We hope you like it! Before you can begin creating your new site, you may need to [[main&action=register|register]] a new account or [[main&action=login|login]] to an existing account.
+
+     For additional support, please visit our online [[www.boltwire.com|resources]]---where you can get plugins and skins, glean helpful tips & tricks, report a bug, browse our developer's section, or read docs and tutorials. Better yet, join our  [[http://groups.google.com/group/boltwire|mailing list]] and become an active part of our BoltWire community.
+
+Thank you for trying our software,
+BoltWire Team
+~data~
+author: System
+~
+diff: <br /><span class=diff>Added line 1,8: </span>
+!Welcome
+
+     Congratulations! BoltWire has been successfully installed on your computer! We have designed BoltWire to be easy to use, yet surprizingly powerful. We hope you like it! Before you can begin creating your new site, you may need to [[main&action=register|register]] a new account or [[main&action=login|login]] to an existing account.
+
+     For additional support, please visit our online [[www.boltwire.com|resources]]---where you can get plugins and skins, glean helpful tips & tricks, report a bug, browse our developer's section, or read docs and tutorials. Better yet, join our  [[http://groups.google.com/group/boltwire|mailing list]] and become an active part of our BoltWire community.
+
+Thank you for trying our software,
+BoltWire Team
+
+
+~

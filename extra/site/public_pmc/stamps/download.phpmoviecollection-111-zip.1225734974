@@ -1,0 +1,11 @@
+[(pagedata value={site.public.download::download.yourfile}+1 data=site.public.download)]
+~data~
+author: admin
+~
+changesummary: Page created by admin.
+~
+diff: <br /><span class=diff>Added line 1: </span>
+[(pagedata value={site.public.download::download.yourfile}+1 data=site.public.download)]
+
+
+~

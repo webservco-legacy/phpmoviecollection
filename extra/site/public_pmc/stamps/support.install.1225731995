@@ -1,0 +1,79 @@
+[(breadcrumb)]
+
+!Installation
+
+**Note:** Please make sure you check the [[get.requirements|system requirements]] before proceeding.
+
+You can find the latest application version on the official website ([[http://pmc.rudisoft.net|http://pmc.rudisoft.net]]).
+
+Download the archived application source. Please note that there is no difference between the .zip and the .tgz file.
+They are provided for convenience only.
+
+Unpack the archive somewhere on your computer. You should end up with a folder called &#34;pmc&#34; with some files and directories in it.
+
+Upload the files and directories in &#34;pmc&#34; to your server
+
+Change permissions to 777 to the following files/directories:
+./inc/cfg.inc.php
+./var/pic_cat/
+./var/pic_mov/
+
+Open your favourite web browser and point it to your installation on the server.
+The application automatically detects that it is not set up and you should see the Setup Utility.
+
+The Setup Utility checks for the minimum system requirements and also gives you some functionality and security hints.
+If the minimum requirements are met, you are presented with a form to fill with some information needed for the application.
+The Setup Utility provides some default values that can be modified, and also tries to guess some values like Application URL
+and Application Directory.
+Please note that all fields are required.
+
+After you fill the form press &#34;Install&#34;. If everything goes well, you can start using the application.
+Otherwise check that the requirements are met and try again.
+
+Setup is now complete. You can go to the application URL and start building your collection!
+
+Don&#39;t forget to remove the write permissions on the configuration file (inc/cfg.inc.php) and to delete the setup/setup.txt file!
+~data~
+author: admin
+~
+changesummary: Page created by admin.
+~
+diff: <br /><span class=diff>Added line 1,35: </span>
+[(breadcrumb)]
+
+!Installation
+
+**Note:** Please make sure you check the [[get.requirements|system requirements]] before proceeding.
+
+You can find the latest application version on the official website ([[http://pmc.rudisoft.net|http://pmc.rudisoft.net]]).
+
+Download the archived application source. Please note that there is no difference between the .zip and the .tgz file.
+They are provided for convenience only.
+
+Unpack the archive somewhere on your computer. You should end up with a folder called &#34;pmc&#34; with some files and directories in it.
+
+Upload the files and directories in &#34;pmc&#34; to your server
+
+Change permissions to 777 to the following files/directories:
+./inc/cfg.inc.php
+./var/pic_cat/
+./var/pic_mov/
+
+Open your favourite web browser and point it to your installation on the server.
+The application automatically detects that it is not set up and you should see the Setup Utility.
+
+The Setup Utility checks for the minimum system requirements and also gives you some functionality and security hints.
+If the minimum requirements are met, you are presented with a form to fill with some information needed for the application.
+The Setup Utility provides some default values that can be modified, and also tries to guess some values like Application URL
+and Application Directory.
+Please note that all fields are required.
+
+After you fill the form press &#34;Install&#34;. If everything goes well, you can start using the application.
+Otherwise check that the requirements are met and try again.
+
+Setup is now complete. You can go to the application URL and start building your collection!
+
+Don&#39;t forget to remove the write permissions on the configuration file (inc/cfg.inc.php) and to delete the setup/setup.txt file!
+
+
+~

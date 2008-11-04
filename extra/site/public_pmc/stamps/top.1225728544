@@ -1,0 +1,15 @@
+! &lt;span id=boltwire>[[main|&#36;&#36;name]]&lt;/span>
+!! &lt;color=#999999>&#36;&#36;slogan&lt;/color>
+
+$$actions
+~data~
+author: System
+~
+diff: <br /><span class=diff>Added line 1,4: </span>
+! &lt;span id=boltwire>[[main|&#36;&#36;name]]&lt;/span>
+!! &lt;color=#999999>&#36;&#36;slogan&lt;/color>
+
+$$actions
+
+
+~
