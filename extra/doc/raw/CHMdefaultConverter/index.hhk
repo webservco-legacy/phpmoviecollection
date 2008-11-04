@@ -1,0 +1,1546 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="phpDocumentor 1.4.1 http://www.phpdoc.org">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Development">
+		<param name="Local" value="todolist.html">
+		</OBJECT>
+	<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FAQ">
+		<param name="Local" value="ric_FAQ.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="INSTALL">
+		<param name="Local" value="ric_INSTALL.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="LICENSE">
+		<param name="Local" value="ric_LICENSE.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="README">
+		<param name="Local" value="ric_README.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Todo List">
+		<param name="Local" value="todolist.html">
+		</OBJECT>
+		
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ChangeLog">
+		<param name="Local" value="ric_ChangeLog.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FAQ">
+		<param name="Local" value="ric_FAQ.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="INSTALL">
+		<param name="Local" value="ric_INSTALL.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="LICENSE">
+		<param name="Local" value="ric_LICENSE.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="README">
+		<param name="Local" value="ric_README.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Files">
+		<param name="Local" value="pmc\Core\_lib---thumb.php.html">
+		</OBJECT>
+	<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="captcha.php">
+		<param name="Local" value="pmc\Core\_lib---captcha.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="cfg.inc.php">
+		<param name="Local" value="pmc\Configuration\_inc---cfg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_c.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_m.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_md.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_s.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_u.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-s.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_c.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_m.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_s.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_u.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="imdb.inc.php">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="imdbpic.php">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Setup\_setup---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lib---ttf---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lang---ro---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lib---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_var---pic_mov---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_var---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_var---pic_cat---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_inc---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lang---en---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_skin---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lang---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Application\_admin---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="install.php">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.info.php">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.info.php">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lib.inc.php">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="msg.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---en---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="msg.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="setup.inc.php">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="thumb.php">
+		<param name="Local" value="pmc\Core\_lib---thumb.php.html">
+		</OBJECT>
+		
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="404.php">
+		<param name="Local" value="pmc\Core\_lib---404.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="captcha.php">
+		<param name="Local" value="pmc\Core\_lib---captcha.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Require_once">
+		<param name="Local" value="pmc\Core\_lib---thumb.php.html">
+		</OBJECT>
+	<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/lib.inc.php'">
+		<param name="Local" value="pmc\Core\_lib---captcha.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Configuration\_inc---cfg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./imdb.inc.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/lib.inc.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./browseremulator.class.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./inc/func.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="_APP_DIR.'lang/'.$_SESSION['pmc_usr_lang'].'/msg.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="_APP_DIR.'lang/'.$_SESSION['pmc_usr_lang'].'/lang.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./inc/lib.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./inc/cfg.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/cfg.inc.php'">
+		<param name="Local" value="pmc\Application\_admin---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.chk.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.frm.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.ftr.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.frm.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./setup.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/lib.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.hdr.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---en---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Core\_lib---thumb.php.html">
+		</OBJECT>
+		
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Core\_lib---captcha.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/lib.inc.php'">
+		<param name="Local" value="pmc\Core\_lib---captcha.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="cfg.inc.php">
+		<param name="Local" value="pmc\Configuration\_inc---cfg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Configuration\_inc---cfg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_c.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Functions">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html">
+		</OBJECT>
+	<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_categ_details">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html#functionpmc_adm_categ_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_categ_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html#functionpmc_adm_categ_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_mov_add">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html#functionpmc_adm_mov_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_mov_details">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html#functionpmc_adm_mov_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_mov_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html#functionpmc_adm_mov_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_media_add">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html#functionpmc_adm_media_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_media_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html#functionpmc_adm_media_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_settings">
+		<param name="Local" value="pmc\Application\_inc---func-a_s.inc.php.html#functionpmc_adm_settings">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_usr_add">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html#functionpmc_adm_usr_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_usr_details">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html#functionpmc_adm_usr_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_usr_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html#functionpmc_adm_usr_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_search_advanced">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html#functionpmc_view_search_advanced">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_search_results">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html#functionpmc_view_search_results">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_categ_details">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html#functionpmc_view_categ_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_categ_view">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html#functionpmc_view_categ_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_mov_details">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html#functionpmc_view_mov_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_mov_latest">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html#functionpmc_view_mov_latest">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_mov_view">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html#functionpmc_view_mov_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_settings">
+		<param name="Local" value="pmc\Application\_inc---func-v_s.inc.php.html#functionpmc_view_settings">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_usr_details">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html#functionpmc_view_usr_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_usr_view">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html#functionpmc_view_usr_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_adm">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_adm">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_categ">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_categ">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_media">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_media">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_movies">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_movies">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_users">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_users">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_categ_details">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_categ_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_categ_view">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_categ_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_collector">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_collector">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_genre_menu">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_genre_menu">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_home_page">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_home_page">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_mod_add">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_mod_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_mov_details">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_mov_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_mov_view">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_mov_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_process">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_process">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list_clear">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list_clear">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list_load">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list_load">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list_save">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list_save">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_view">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_about">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_about">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_categ">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_categ">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_help">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_help">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_langs">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_langs">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_latest">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_latest">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list_get">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list_get">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list_user">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list_user">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list_usr">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list_usr">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_movies">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_movies">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_search">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_search">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_skins">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_skins">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_users">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_users">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_get_imdb">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html#functionpmc_get_imdb">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_get_imdb_pics">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html#functionpmc_get_imdb_pics">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_save_imdb_pics">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html#functionpmc_save_imdb_pics">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="my_err">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionmy_err">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_cfg">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_cfg">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_cfg_var">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_cfg_var">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_cfg_var_set">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_cfg_var_set">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_check_install">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_check_install">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_dbclose">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_dbclose">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_dbopen">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_dbopen">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_error_reporting">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_error_reporting">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_filter_input">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_filter_input">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_filter_input_search">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_filter_input_search">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_image_thumb">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_image_thumb">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_image_thumb_link">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_image_thumb_link">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_is_email">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_is_email">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_is_int">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_is_int">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_lock_tables">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_lock_tables">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_lsdir">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_lsdir">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_next_auto_id">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_next_auto_id">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_next_id">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_next_id">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_output">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_output">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_pic_ext">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_pic_ext">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_aff">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_aff">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_exec">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_exec">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_result">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_result">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_row">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_row">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_total">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_total">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_queryfill_search">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_queryfill_search">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_seo_urls">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_seo_urls">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_session">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_session">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_string_exists">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_string_exists">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_unlock_tables">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_unlock_tables">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_login">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_usr_login">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_logout">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_usr_logout">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="str_split">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionstr_split">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="check_gd">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functioncheck_gd">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="chk_cfg_wrt">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functionchk_cfg_wrt">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="gen_cfg_str">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functiongen_cfg_str">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="split_sql">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functionsplit_sql">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="wrt_cfg_str">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functionwrt_cfg_str">
+		</OBJECT>
+		
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_categ_add">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html#functionpmc_adm_categ_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_categ_details">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html#functionpmc_adm_categ_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_categ_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html#functionpmc_adm_categ_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_m.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_mov_add">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html#functionpmc_adm_mov_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_mov_details">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html#functionpmc_adm_mov_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_mov_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html#functionpmc_adm_mov_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_md.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_media_add">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html#functionpmc_adm_media_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_media_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html#functionpmc_adm_media_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_md.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_s.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_settings">
+		<param name="Local" value="pmc\Application\_inc---func-a_s.inc.php.html#functionpmc_adm_settings">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-a_u.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_usr_add">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html#functionpmc_adm_usr_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_usr_details">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html#functionpmc_adm_usr_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_usr_view">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html#functionpmc_adm_usr_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-a_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-s.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_search_advanced">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html#functionpmc_view_search_advanced">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_search_results">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html#functionpmc_view_search_results">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_c.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_categ_details">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html#functionpmc_view_categ_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_categ_view">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html#functionpmc_view_categ_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_c.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_m.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_mov_details">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html#functionpmc_view_mov_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_mov_latest">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html#functionpmc_view_mov_latest">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_mov_view">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html#functionpmc_view_mov_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_m.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_s.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_settings">
+		<param name="Local" value="pmc\Application\_inc---func-v_s.inc.php.html#functionpmc_view_settings">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_s.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func-v_u.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_usr_details">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html#functionpmc_view_usr_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_usr_view">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html#functionpmc_view_usr_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func-v_u.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="func.inc.php">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_adm">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_adm">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_categ">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_categ">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_media">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_media">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_movies">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_movies">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_adm_users">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_adm_users">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_categ_details">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_categ_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_categ_view">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_categ_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_collector">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_collector">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_genre_menu">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_genre_menu">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_home_page">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_home_page">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_mod_add">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_mod_add">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_mov_details">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_mov_details">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_mov_view">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_mov_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_process">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_process">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list_clear">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list_clear">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list_load">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list_load">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_list_save">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_list_save">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_view">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_usr_view">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_about">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_about">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_categ">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_categ">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_help">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_help">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_langs">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_langs">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_latest">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_latest">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list_get">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list_get">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list_user">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list_user">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_list_usr">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_list_usr">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_movies">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_movies">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_search">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_search">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_skins">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_skins">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_view_users">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html#functionpmc_view_users">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Application\_inc---func.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="imdb.inc.php">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_get_imdb">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html#functionpmc_get_imdb">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_get_imdb_pics">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html#functionpmc_get_imdb_pics">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_save_imdb_pics">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html#functionpmc_save_imdb_pics">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdb.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="imdbpic.php">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./imdb.inc.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/lib.inc.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./browseremulator.class.php'">
+		<param name="Local" value="pmc\Imdb\_lib---imdbpic.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Setup\_setup---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lib---ttf---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lang---ro---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lib---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_var---pic_mov---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_var---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./inc/func.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="_APP_DIR.'lang/'.$_SESSION['pmc_usr_lang'].'/msg.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="_APP_DIR.'lang/'.$_SESSION['pmc_usr_lang'].'/lang.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./inc/lib.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./inc/cfg.inc.php'">
+		<param name="Local" value="pmc\Application\_index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_var---pic_cat---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_inc---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lang---en---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_skin---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Core\_lang---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="index.php">
+		<param name="Local" value="pmc\Application\_admin---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Constants">
+		<param name="Local" value="pmc\Application\_admin---index.php.html">
+		</OBJECT>
+	<UL>
+	
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="_VALID_REQUEST">
+		<param name="Local" value="pmc\Application\_admin---index.php.html#define_VALID_REQUEST">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/cfg.inc.php'">
+		<param name="Local" value="pmc\Application\_admin---index.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="install.php">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.chk.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.frm.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.ftr.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.frm.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./setup.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../inc/lib.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'tpl.hdr.inc.php'">
+		<param name="Local" value="pmc\Setup\_setup---install.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.info.php">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lang.info.php">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---en---lang.info.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="lib.inc.php">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="my_err">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionmy_err">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_cfg">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_cfg">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_cfg_var">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_cfg_var">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_cfg_var_set">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_cfg_var_set">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_check_install">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_check_install">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_dbclose">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_dbclose">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_dbopen">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_dbopen">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_error_reporting">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_error_reporting">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_filter_input">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_filter_input">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_filter_input_search">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_filter_input_search">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_image_thumb">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_image_thumb">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_image_thumb_link">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_image_thumb_link">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_is_email">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_is_email">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_is_int">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_is_int">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_lock_tables">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_lock_tables">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_lsdir">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_lsdir">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_next_auto_id">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_next_auto_id">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_next_id">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_next_id">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_output">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_output">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_pic_ext">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_pic_ext">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_aff">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_aff">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_exec">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_exec">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_result">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_result">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_row">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_row">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_qry_total">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_qry_total">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_queryfill_search">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_queryfill_search">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_seo_urls">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_seo_urls">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_session">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_session">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_string_exists">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_string_exists">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_unlock_tables">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_unlock_tables">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_login">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_usr_login">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="pmc_usr_logout">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionpmc_usr_logout">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="str_split">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html#functionstr_split">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Core\_inc---lib.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Classes">
+		<param name="Local" value="pmc\Core\skin.html">
+		</OBJECT>
+	<UL>
+	
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="skin">
+		<param name="Local" value="pmc\Core\skin.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="skin Properties">
+		<param name="Local" value="pmc\Core\skin.html">
+		</OBJECT>
+	<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$skinvars">
+		<param name="Local" value="pmc\Core\skin.html#var$skinvars">
+		</OBJECT>
+		
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$skindir">
+		<param name="Local" value="pmc\Core\skin.html#var$skindir">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="$skinvars">
+		<param name="Local" value="pmc\Core\skin.html#var$skinvars">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="skin Methods">
+		<param name="Local" value="pmc\Core\skin.html">
+		</OBJECT>
+	<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="parse">
+		<param name="Local" value="pmc\Core\skin.html#methodparse">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="set">
+		<param name="Local" value="pmc\Core\skin.html#methodset">
+		</OBJECT>
+		
+</UL>	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="skin">
+		<param name="Local" value="pmc\Core\skin.html#methodskin">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="parse">
+		<param name="Local" value="pmc\Core\skin.html#methodparse">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="set">
+		<param name="Local" value="pmc\Core\skin.html#methodset">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="msg.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---en---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---en---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="msg.inc.php">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../../lib/404.php'">
+		<param name="Local" value="pmc\Internationalization\_lang---ro---msg.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="setup.inc.php">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="check_gd">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functioncheck_gd">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="chk_cfg_wrt">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functionchk_cfg_wrt">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="gen_cfg_str">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functiongen_cfg_str">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="split_sql">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functionsplit_sql">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="wrt_cfg_str">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html#functionwrt_cfg_str">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'../lib/404.php'">
+		<param name="Local" value="pmc\Setup\_setup---setup.inc.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="thumb.php">
+		<param name="Local" value="pmc\Core\_lib---thumb.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="'./404.php'">
+		<param name="Local" value="pmc\Core\_lib---thumb.php.html">
+		</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Todo List">
+		<param name="Local" value="todolist.html">
+		</OBJECT>
+		
+</UL>
+</BODY></HTML>
