@@ -3,7 +3,7 @@ Note: Please make sure you check the system requirements detailed in the README 
  INSTALLATION
 --------------
 
-You can find the latest application version on the official website.
+You can find the latest application version on the official website (http://pmc.rudisoft.net).
 
 Download the archived application source. Please note that there is no difference between the .zip and the .tgz file.
 They are provided for convenience only.
@@ -30,3 +30,5 @@ After you fill the form press "Install". If everything goes well, you can start 
 Otherwise check that the requirements are met and try again.
 
 Setup is now complete. You can go to the application URL and start building your collection!
+
+Don't forget to remove the write permissions on the configuration file (inc/cfg.inc.php) and to delete the setup/setup.txt file!

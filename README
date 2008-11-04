@@ -59,7 +59,7 @@ Minimum requirements:
 - MySQL database server >= 4.1.21 with a database you have access to
 - possibility to change permission on some files/directories
 - file uploads enabled
-- GD support
+- GD with FreeType support
 Also recommended:
 - Apache rewrite engine (for cleaner URL's)
 
