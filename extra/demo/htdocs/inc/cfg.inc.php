@@ -10,8 +10,8 @@
 * @author     Radu Maier <radu@rudisoft.net>
 * @copyright  Copyright (c) 2008, Radu Maier
 * @license    http://opensource.org/licenses/gpl-2.0.php
-* @version    17:36 2008-11-01
-* @since      17:36 2008-11-01
+* @version    06:20 2008-11-19
+* @since      06:20 2008-11-19
 * @access     public
 * @package    pmc
 * @subpackage Configuration
@@ -25,7 +25,7 @@ if(!defined('_VALID_REQUEST')) {require_once '../lib/404.php';}
 /**
 * Main URL of the application - notice the slash at the end
 */
-$ap_cfg['app_url'] = 'http://rudisoft.atzend.com/pmc/demo/';
+$ap_cfg['app_url'] = 'http://rudisoft.jumponthe.net/pmc/demo/';
 /**
 * Full path to the application - notice the slash at the end
 */
