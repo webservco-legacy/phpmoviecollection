@@ -10,22 +10,22 @@ $tname = $_GET['table'];
 <HTML>
 
 <HEAD>
-	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
 
-	<TITLE>The Underground Beat - Admin - Create MySQL table: <?=$tname?></TITLE>
+    <TITLE>The Underground Beat - Admin - Create MySQL table: <?=$tname?></TITLE>
 
-	<META NAME="author" CONTENT="Radu Maier">
-	
-	<META NAME="keywords" CONTENT="underbeat, oi moroi, moroi, underground, beat, The Underground Beat, Underground Beat">
-	
-	<META NAME="description" CONTENT="The Underground Beat">
+    <META NAME="author" CONTENT="Radu Maier">
+    
+    <META NAME="keywords" CONTENT="underbeat, oi moroi, moroi, underground, beat, The Underground Beat, Underground Beat">
+    
+    <META NAME="description" CONTENT="The Underground Beat">
 </HEAD>
 
 <BODY BGCOLOR="#EDEDED">
     <DIV ALIGN="center">
 <?php
 $query = "DROP TABLE `" . $tname. "`";
-	
+    
 mysql_query($query) or die('<FONT COLOR="#990000"><B>Oups!<BR>' . mysql_error() . '</B></FONT>');
 
 echo 'Table <B>' . $tname . '</B> dropped!';

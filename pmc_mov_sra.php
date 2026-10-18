@@ -152,10 +152,10 @@ require_once INC_DIR . 'html.inc.php';
 <SCRIPT>
 function submitform(url)
 {
-	var myform;
-	myform = document.movsearch;
-	myform.action=url;
-	myform.submit();
+    var myform;
+    myform = document.movsearch;
+    myform.action=url;
+    myform.submit();
 }
 </SCRIPT>
 <HR COLOR="#ededed">

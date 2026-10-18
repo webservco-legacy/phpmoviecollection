@@ -6,10 +6,10 @@ else if(!isset($_GET['s_page']) && isset($_POST['s_page'])) { $s_page = $_POST['
 <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
 function submitf(form, url)
 {
-	var myform;
-	myform = document.all(form);
-	myform.action=url;
-	myform.submit();
+    var myform;
+    myform = document.all(form);
+    myform.action=url;
+    myform.submit();
 }
 </SCRIPT>
 <FORM NAME="movsearch" ID="movsearch" ACTION="test.php" METHOD="post">
