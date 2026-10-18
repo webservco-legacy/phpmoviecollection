@@ -61,9 +61,9 @@
           <div class="col3">
             <?php echo $mod_sts;?>
             <?php echo $mod_gen;?>
-    			</div>
-    		</div>
-    	</div>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="clear"></div>
   </div>

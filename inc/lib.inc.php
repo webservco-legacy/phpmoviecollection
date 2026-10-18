@@ -47,36 +47,36 @@ class skin {
   */
   var $skinvars;
   /**
-	* This is what they call a constructor
-	*
-	* @param string $skindir the path to the skin directory
-	*
-	* @return void
-	*/
+    * This is what they call a constructor
+    *
+    * @param string $skindir the path to the skin directory
+    *
+    * @return void
+    */
   function skin($skindir = null) {
     $this->skindir = $skindir;
     $this->skinvars = array();
-	}
+    }
   /**
-	* Sets a skin variable
-	*
-	* @param string $name the name of the variable
-	* @param mixed $value the value of the variable
-	*
-	* @return void
-	*/
+    * Sets a skin variable
+    *
+    * @param string $name the name of the variable
+    * @param mixed $value the value of the variable
+    *
+    * @return void
+    */
   function set($name, $value) {
     $this->skinvars[$name] = $value;
-	}
+    }
   /**
-	* Do the magic to the skin file
-	* 
-	* It returns the processed skin
-	*
-	* @param string $skinfile the file name of the skin
-	*
-	* @return string
-	*/
+    * Do the magic to the skin file
+    * 
+    * It returns the processed skin
+    *
+    * @param string $skinfile the file name of the skin
+    *
+    * @return string
+    */
   function parse($skinfile) {
     extract($this->skinvars);
     ob_start();

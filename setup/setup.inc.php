@@ -166,10 +166,10 @@ function split_sql($file, $delimiter) {
   $sql = file_get_contents($file);
   // trim
   $sql = trim($sql);
-	// remove # comments
+    // remove # comments
   $sql = preg_replace('/\n{2,}/', "\n", preg_replace('/^#.*$/m', "\n", $sql));
   // remove -- comments
-	$sql = preg_replace('/\n{2,}/', "\n", preg_replace('/^--.*$/m', "\n", $sql));
+    $sql = preg_replace('/\n{2,}/', "\n", preg_replace('/^--.*$/m', "\n", $sql));
   // remove \r
   $sql = eregi_replace("\r", "", $sql);
   // split
