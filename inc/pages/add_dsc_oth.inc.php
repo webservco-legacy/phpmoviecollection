@@ -43,7 +43,7 @@ if (isset($_POST['continue'])) {
   if (trim($disc_tt) == '') {$errMsg = 'must have title'; $err = '1';}
   if ($err == '0') {
     $query_add_disc = "INSERT INTO `pmc_dsc_discs` (disc_id, usr_id, ddb_id, disc_format, disc_source, disc_tt_the, disc_tt, disc_notes) VALUES ('".$disc_id."', '".$usr_id."', '".$ddb_id."', '".$disc_format."', '".$disc_source."', '".$disc_tt_the."', '".$disc_tt."', '".$disc_notes."')";
-		mysql_query($query_add_disc) or die('Oups!<br>' . mysql_error());
+        mysql_query($query_add_disc) or die('Oups!<br>' . mysql_error());
     echo 'Added disc ' . $disc_tt_the . '&nbsp;' . $disc_tt . '!';
     echo '<BR><BR>';
     echo '<A CLASS="default" HREF="'.PMC_ROOT.'dsc_oth_2.php?disc_id='.$disc_id.'">continue</A> ';

@@ -44,7 +44,7 @@ if (isset($_POST['continue'])) {
   if (trim($ddb_name) == '') {$errMsg = 'must have title'; $err = '1';}
   if ($err == '0') {
     $query_add_ddb = "INSERT INTO `pmc_dsc_ddb` (ddb_id, dtype_id, ddb_name, ddb_mnf_id, ddb_time, ddb_capacity, ddb_speed, ddb_notes) VALUES ('".$ddb_id."', '".$dtype_id."', '".$ddb_name."', '".$ddb_mnf_id."', '".$ddb_time."', '".$ddb_capacity."', '".$ddb_speed."', '".$ddb_notes."')";
-		mysql_query($query_add_ddb) or die('Oups!<br>' . mysql_error());
+        mysql_query($query_add_ddb) or die('Oups!<br>' . mysql_error());
     echo 'Added disc model ' . $ddb_name . '!';
     echo '<BR><BR>';
     echo '<A CLASS="default" HREF="'.PMC_ROOT.'dsc_mod.php?act=add&amp;popup='.$popup.'">add another</A> ';

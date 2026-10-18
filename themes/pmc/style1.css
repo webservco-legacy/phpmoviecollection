@@ -41,7 +41,7 @@ TD.default {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -80,7 +80,7 @@ DIV.pg_title {
     font-weight: bold;
     font-size: <?=$defaultFontSize+2?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -100,7 +100,7 @@ DIV.pg_subtitle {
     font-weight: <?=$defaultFontWeight?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -120,7 +120,7 @@ DIV.pg_content {
     font-weight: <?=$defaultFontWeight?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -142,7 +142,7 @@ DIV.user {
     font-weight: <?=$defaultFontWeight?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-  	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -151,16 +151,16 @@ DIV.user {
 INPUT.login_box {
     width: 60px;
     height: 10px;
-	font-family: <?=$defaultFontFamily?>;
+    font-family: <?=$defaultFontFamily?>;
     background-color: <?=$defaultBgColor?>;
     color: #cdcdcd;
-	font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
-	font-style: normal;
-	font-weight: <?=$defaultFontWeight?>;
-	text-decoration: none;    
-	text-indent: 0px;
+    font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
+    font-style: normal;
+    font-weight: <?=$defaultFontWeight?>;
+    text-decoration: none;    
+    text-indent: 0px;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     text-align: center;
     vertical-align: top;
     border-top-width: 1px;
@@ -171,16 +171,16 @@ INPUT.login_box {
 INPUT.login_button {
     width: 60px;
     height: 14px;
-	font-family: <?=$defaultFontFamily?>;
+    font-family: <?=$defaultFontFamily?>;
     background-color: <?=$defaultBgColor?>;
     color: #cdcdcd;
-	font-size: 9px;
-	font-style: normal;
-	font-weight: <?=$defaultFontWeight?>;
-	text-decoration: none;    
-	text-indent: 0px;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: <?=$defaultFontWeight?>;
+    text-decoration: none;    
+    text-indent: 0px;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     text-align: center;
     vertical-align: top;
     border-top-width: 1px;
@@ -224,7 +224,7 @@ DIV.thm_div {
     font-weight: normal;
     font-size: 10px;
     border-color: <?=$defaultBorderColor?>;
-	border-style: dotted;
+    border-style: dotted;
     border-top-width: 1px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -246,7 +246,7 @@ TD.thm_td_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -268,7 +268,7 @@ TD.thm_td_1_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -290,7 +290,7 @@ TD.thm_td_1_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -310,7 +310,7 @@ TD.thm_td_2 {
     font-weight: normal;
     font-size: 1px;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -334,7 +334,7 @@ DIV.lang_div {
     font-weight: normal;
     font-size: 10px;
     border-color: <?=$defaultBorderColor?>;
-	border-style: dotted;
+    border-style: dotted;
     border-top-width: 1px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -356,7 +356,7 @@ TD.lang_td_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -378,7 +378,7 @@ TD.lang_td_1_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -400,7 +400,7 @@ TD.lang_td_1_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -454,7 +454,7 @@ TD.list_tt_01 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -474,7 +474,7 @@ TD.list_tt_02 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -482,7 +482,7 @@ TD.list_tt_02 {
 }
 TABLE.movie_list {
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
@@ -504,7 +504,7 @@ TD.movie_list_pic {
     font-family: <?=$defaultFontFamily?>;
     font-size: 1<?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -526,7 +526,7 @@ TD.movie_list_tt {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -548,7 +548,7 @@ TD.movie_list_tt_01 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -570,7 +570,7 @@ TD.movie_list_tt_02 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -592,7 +592,7 @@ TD.movie_list_dt {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -614,7 +614,7 @@ TD.movie_list_dt_01 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -636,7 +636,7 @@ TD.movie_list_dt_02 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -660,7 +660,7 @@ TD.movie_sublist_type {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -682,7 +682,7 @@ TD.movie_sublist_pic {
     font-family: <?=$defaultFontFamily?>;
     font-size: 1<?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -704,7 +704,7 @@ TD.movie_sublist_tt {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -726,7 +726,7 @@ TD.movie_sublist_tt_01 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -748,7 +748,7 @@ TD.movie_sublist_tt_02 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -770,7 +770,7 @@ TD.movie_sublist_tt_03 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -792,7 +792,7 @@ TD.movie_sublist_yr {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -814,7 +814,7 @@ TD.movie_sublist_imdb {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -838,7 +838,7 @@ TD.movie_mov_type {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -860,7 +860,7 @@ TD.movie_mov_pic {
     font-family: <?=$defaultFontFamily?>;
     font-size: 1<?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -882,7 +882,7 @@ TD.movie_mov_tt {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -904,7 +904,7 @@ TD.movie_mov_tt_01 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -926,7 +926,7 @@ TD.movie_mov_tt_02 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -948,7 +948,7 @@ TD.movie_mov_tt_03 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -970,7 +970,7 @@ TD.movie_mov_yr {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -992,7 +992,7 @@ TD.movie_mov_imdb {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1014,7 +1014,7 @@ TD.dsc_tt_01 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1034,7 +1034,7 @@ TD.dsc_tt_02 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize+1?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1042,7 +1042,7 @@ TD.dsc_tt_02 {
 }
 TABLE.dsc {
     border-color: <?=$defaultBorderColor?>;
-	border-style: solid;
+    border-style: solid;
     border-top-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
@@ -1064,7 +1064,7 @@ TD.dsc_title {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1086,7 +1086,7 @@ TD.dsc_categ {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1108,7 +1108,7 @@ TD.dsc_catnum {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1130,7 +1130,7 @@ TD.dsc_source_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1152,7 +1152,7 @@ TD.dsc_source_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1174,7 +1174,7 @@ TD.dsc_type_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1196,7 +1196,7 @@ TD.dsc_type_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1218,7 +1218,7 @@ TD.dsc_format_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1240,7 +1240,7 @@ TD.dsc_format_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1262,7 +1262,7 @@ TD.dsc_model_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1284,7 +1284,7 @@ TD.dsc_model_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1306,7 +1306,7 @@ TD.dsc_date_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1328,7 +1328,7 @@ TD.dsc_date_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1350,7 +1350,7 @@ TD.dsc_status_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1372,7 +1372,7 @@ TD.dsc_status_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1394,7 +1394,7 @@ TD.dsc_blank_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1416,7 +1416,7 @@ TD.dsc_blank_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1438,7 +1438,7 @@ TD.dsc_cont_sh_1 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1460,7 +1460,7 @@ TD.dsc_cont_sh_2 {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1480,7 +1480,7 @@ DIV.disc_contents {
     font-weight: <?=$defaultFontWeight?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1489,7 +1489,7 @@ DIV.disc_contents {
 }
 TABLE.dsc_cont {
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 1px;
     border-bottom-width: 1px;
@@ -1510,7 +1510,7 @@ TD.disc_contents_def {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
@@ -1531,7 +1531,7 @@ TD.dsc_cont_movies {
     font-family: <?=$defaultFontFamily?>;
     font-size: <?=$defaultFontSize?><?=$defaultMeasure?>;
     border-color: <?=$defaultBorderColor?>;
-	  border-style: solid;
+      border-style: solid;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
