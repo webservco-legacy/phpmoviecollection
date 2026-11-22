@@ -39,6 +39,7 @@ From my backups: 71 dated snapshots of 2008, the release packages, the manuals, 
 turned into git in 2026 (95 commits on all branches), the dates kept; the two versions of 2007 and the IMDb
 picture work on their own branches. The last commit of each branch before this README sets LF line endings and indents
 with spaces.
+The earlier commits have LF line endings too: 44 files had CRLF line endings in the originals.
 
 ## Third-party code
 
