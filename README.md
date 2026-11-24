@@ -36,7 +36,7 @@ site's admin login and search index. The demo installation's database stays priv
 ## How it was built
 
 From my backups: 71 dated snapshots of 2008, the release packages, the manuals, the demo and the saved project site,
-turned into git in 2026 (95 commits on all branches), the dates kept; the two versions of 2007 and the IMDb
+turned into git in 2026 (104 commits on all branches), the dates kept; the two versions of 2007 and the IMDb
 picture work on their own branches. The last commit of each branch before this README sets LF line endings and indents
 with spaces.
 The earlier commits have LF line endings too: 44 files had CRLF line endings in the originals.
